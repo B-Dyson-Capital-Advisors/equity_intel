@@ -6,7 +6,7 @@ A Streamlit application that searches SEC EDGAR filings to identify relationship
 
 ### Search Company
 Find law firms and lawyers that represent a specific company by searching through their SEC filings.
-- Input: Company name/ticker (searchable dropdown) or direct ticker/CIK entry and years to search back
+- Input: Company name/ticker (searchable dropdown) and date range (from/to)
 - Output: List of law firms and lawyers
 - Supports: Active companies, delisted companies, acquired companies, and historical companies
 - Requires: OpenAI API key
@@ -77,9 +77,8 @@ Simply use the deployed app URL provided by your administrator. All API keys are
 
 **Company Search:**
 - Select company from searchable dropdown (e.g., type "Apple" or "AAPL")
-- Or enter ticker/CIK directly (e.g., AAPL, 0001318605)
-- Set years: 5
-- Result: Law firms and lawyers who worked on the company's SEC filings
+- Set date range: From 2019-01-01 to 2024-12-31
+- Result: Law firms and lawyers who worked on the company's SEC filings during that period
 - Works for active, delisted, and acquired companies
 
 **Lawyer Search:**
