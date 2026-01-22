@@ -79,137 +79,95 @@ with tab1:
     # Load companies for autocomplete
     companies = load_all_companies()
 
-    # Search mode selection
-    search_mode = st.radio(
-        "Search by:",
-        ["Company Search (Type to search)", "Direct Ticker/CIK Entry"],
-        horizontal=True,
-        key="search_mode"
-    )
-
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        if search_mode == "Company Search (Type to search)":
-            if companies:
-                # Create a mapping for selectbox
-                company_options = [""] + [c['display'] for c in companies]
+        if companies:
+            # Create a mapping for selectbox
+            company_options = [""] + [c['display'] for c in companies]
 
-                selected_display = st.selectbox(
-                    "Select Company",
-                    options=company_options,
-                    index=0,
-                    help="Start typing to search by company name, ticker, or CIK",
-                    key="company_select"
-                )
-
-                # Find selected company data
-                selected_company = None
-                if selected_display:
-                    for c in companies:
-                        if c['display'] == selected_display:
-                            selected_company = c
-                            break
-            else:
-                st.error("Unable to load company list. Please use Direct Entry mode.")
-                selected_company = None
-        else:
-            # Manual entry mode
-            manual_entry = st.text_input(
-                "Company Ticker or CIK",
-                placeholder="e.g., AAPL, TSLA, 0001318605",
-                key="manual_ticker"
+            selected_display = st.selectbox(
+                "Select Company",
+                options=company_options,
+                index=0,
+                help="Start typing to search by company name, ticker, or CIK",
+                key="company_select"
             )
+
+            # Find selected company data
+            selected_company = None
+            if selected_display:
+                for c in companies:
+                    if c['display'] == selected_display:
+                        selected_company = c
+                        break
+        else:
+            st.error("Unable to load company list. Please refresh the page.")
             selected_company = None
 
     with col2:
-        years_back = st.number_input(
-            "Years to Search",
-            min_value=1,
-            max_value=10,
-            value=5,
-            key="years_back"
-        )
+        # Date range selection
+        st.markdown("**Date Range**")
+        col_start, col_end = st.columns(2)
+
+        with col_start:
+            start_date = st.date_input(
+                "From",
+                value=pd.Timestamp.now() - pd.DateOffset(years=5),
+                max_value=pd.Timestamp.now(),
+                key="start_date"
+            )
+
+        with col_end:
+            end_date = st.date_input(
+                "To",
+                value=pd.Timestamp.now(),
+                max_value=pd.Timestamp.now(),
+                key="end_date"
+            )
 
     if st.button("Search Company", type="primary"):
-        # Validate input based on mode
-        if search_mode == "Company Search (Type to search)":
-            if not selected_company:
-                st.error("Please select a company from the dropdown")
-            elif not get_api_key():
-                st.error("API key not configured. Please contact your administrator.")
-            else:
-                with st.spinner("Searching SEC filings..."):
-                    progress_container = st.container()
-                    progress_messages = []
-
-                    def progress_callback(message):
-                        progress_messages.append(message)
-                        with progress_container:
-                            st.info(message)
-
-                    try:
-                        result_df = search_company_for_lawyers(
-                            selected_company['display'],
-                            years_back,
-                            get_api_key(),
-                            progress_callback,
-                            cik=selected_company['cik'],
-                            company_name=selected_company['name']
-                        )
-
-                        st.success(f"Found {len(result_df)} results")
-
-                        st.dataframe(result_df, use_container_width=True, hide_index=True)
-
-                        csv = result_df.to_csv(index=False)
-                        st.download_button(
-                            label="Download CSV",
-                            data=csv,
-                            file_name=f"{selected_company['ticker'] or selected_company['cik']}_lawyers.csv",
-                            mime="text/csv"
-                        )
-
-                    except Exception as e:
-                        st.error(f"Error: {str(e)}")
+        if not selected_company:
+            st.error("Please select a company from the dropdown")
+        elif not get_api_key():
+            st.error("API key not configured. Please contact your administrator.")
+        elif start_date >= end_date:
+            st.error("Start date must be before end date")
         else:
-            # Manual entry mode
-            if not manual_entry:
-                st.error("Please enter a company ticker or CIK")
-            elif not get_api_key():
-                st.error("API key not configured. Please contact your administrator.")
-            else:
-                with st.spinner("Searching SEC filings..."):
-                    progress_container = st.container()
-                    progress_messages = []
+            with st.spinner("Searching SEC filings..."):
+                progress_container = st.container()
+                progress_messages = []
 
-                    def progress_callback(message):
-                        progress_messages.append(message)
-                        with progress_container:
-                            st.info(message)
+                def progress_callback(message):
+                    progress_messages.append(message)
+                    with progress_container:
+                        st.info(message)
 
-                    try:
-                        result_df = search_company_for_lawyers(
-                            manual_entry.strip().upper(),
-                            years_back,
-                            get_api_key(),
-                            progress_callback
-                        )
+                try:
+                    result_df = search_company_for_lawyers(
+                        selected_company['display'],
+                        start_date,
+                        end_date,
+                        get_api_key(),
+                        progress_callback,
+                        cik=selected_company['cik'],
+                        company_name=selected_company['name']
+                    )
 
-                        st.success(f"Found {len(result_df)} results")
+                    st.success(f"Found {len(result_df)} results")
 
-                        st.dataframe(result_df, use_container_width=True, hide_index=True)
+                    st.dataframe(result_df, use_container_width=True, hide_index=True)
 
-                        csv = result_df.to_csv(index=False)
-                        st.download_button(
-                            label="Download CSV",
-                            data=csv,
-                            file_name=f"{manual_entry.lower().replace(' ', '_')}_lawyers.csv",
-                            mime="text/csv"
-                        )
+                    csv = result_df.to_csv(index=False)
+                    st.download_button(
+                        label="Download CSV",
+                        data=csv,
+                        file_name=f"{selected_company['ticker'] or selected_company['cik']}_lawyers.csv",
+                        mime="text/csv"
+                    )
 
-                    except Exception as e:
-                        st.error(f"Error: {str(e)}")
+                except Exception as e:
+                    st.error(f"Error: {str(e)}")
 
 with tab2:
     st.header("Find Companies for a Lawyer")

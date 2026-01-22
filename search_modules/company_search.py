@@ -284,7 +284,7 @@ def get_cik_from_ticker(ticker):
     return None, None
 
 
-def get_company_filings(cik, years_back):
+def get_company_filings(cik, start_date, end_date):
     url = f"https://data.sec.gov/submissions/CIK{cik.zfill(10)}.json"
     headers = {"User-Agent": "Company contact@email.com"}
 
@@ -293,13 +293,23 @@ def get_company_filings(cik, years_back):
         data = response.json()
         filings = []
         recent = data.get('filings', {}).get('recent', {})
-        cutoff_date = (datetime.now() - timedelta(days=years_back*365)).strftime('%Y-%m-%d')
+
+        # Convert dates to strings for comparison
+        if hasattr(start_date, 'strftime'):
+            start_date_str = start_date.strftime('%Y-%m-%d')
+        else:
+            start_date_str = str(start_date)
+
+        if hasattr(end_date, 'strftime'):
+            end_date_str = end_date.strftime('%Y-%m-%d')
+        else:
+            end_date_str = str(end_date)
 
         for i in range(len(recent.get('form', []))):
             filing_type = recent['form'][i]
             filing_date = recent['filingDate'][i]
 
-            if filing_type in LEGAL_COUNSEL_FILINGS and filing_date >= cutoff_date:
+            if filing_type in LEGAL_COUNSEL_FILINGS and start_date_str <= filing_date <= end_date_str:
                 filings.append({
                     'type': filing_type,
                     'date': filing_date,
@@ -462,12 +472,13 @@ def process_single_filing(filing, cik, company_name, api_key):
 
 
 @st.cache_data(ttl=86400, show_spinner=False)
-def search_company_for_lawyers(company_identifier, years_back, api_key, _progress_callback=None, cik=None, company_name=None):
+def search_company_for_lawyers(company_identifier, start_date, end_date, api_key, _progress_callback=None, cik=None, company_name=None):
     """Search for lawyers representing a company (cached for 24 hours)
 
     Args:
         company_identifier: Ticker, name, or CIK (for display/cache key)
-        years_back: Years to search back
+        start_date: Start date for search range
+        end_date: End date for search range
         api_key: OpenAI API key
         _progress_callback: Progress callback function
         cik: Pre-resolved CIK (optional, for autocomplete)
@@ -477,7 +488,15 @@ def search_company_for_lawyers(company_identifier, years_back, api_key, _progres
 
     if progress_callback:
         progress_callback(f"Finding lawyers for {company_identifier}")
-        progress_callback(f"Searching last {years_back} year(s)")
+        if hasattr(start_date, 'strftime'):
+            start_str = start_date.strftime('%Y-%m-%d')
+        else:
+            start_str = str(start_date)
+        if hasattr(end_date, 'strftime'):
+            end_str = end_date.strftime('%Y-%m-%d')
+        else:
+            end_str = str(end_date)
+        progress_callback(f"Date range: {start_str} to {end_str}")
 
     # Use provided CIK/name or lookup by identifier
     if not cik or not company_name:
@@ -486,12 +505,12 @@ def search_company_for_lawyers(company_identifier, years_back, api_key, _progres
             raise ValueError(f"Company '{company_identifier}' not found")
 
     if progress_callback:
-        progress_callback(f"Getting filings from last {years_back} year(s)...")
+        progress_callback(f"Getting filings from {start_str} to {end_str}...")
 
-    filings = get_company_filings(cik, years_back)
+    filings = get_company_filings(cik, start_date, end_date)
 
     if not filings:
-        raise ValueError(f"No relevant filings found for {company_ticker}")
+        raise ValueError(f"No relevant filings found for {company_identifier}")
 
     if progress_callback:
         progress_callback(f"Found {len(filings)} total filings")
@@ -526,7 +545,7 @@ def search_company_for_lawyers(company_identifier, years_back, api_key, _progres
                 pass
 
     if not firm_to_lawyers:
-        raise ValueError(f"No law firms found for {company_ticker}")
+        raise ValueError(f"No law firms found for {company_identifier}")
 
     results = []
     for firm, lawyers in firm_to_lawyers.items():
