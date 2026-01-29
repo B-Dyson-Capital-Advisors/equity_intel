@@ -73,8 +73,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Legal Counsel Finder")
-
 def get_api_key():
     """Get API key from Streamlit secrets"""
     try:
