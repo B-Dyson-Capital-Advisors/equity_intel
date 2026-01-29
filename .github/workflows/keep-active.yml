@@ -14,7 +14,7 @@ jobs:
           echo "Pinging Streamlit app at https://legalfinder.streamlit.app/"
           response=$(curl -s -o /dev/null -w "%{http_code}" https://legalfinder.streamlit.app/)
           echo "Response code: $response"
-          if [ $response -eq 200 ] || [ $response -eq 301 ] || [ $response -eq 302 ]; then
+          if [ $response -eq 200 ] || [ $response -eq 301 ] || [ $response -eq 302 ] || [ $response -eq 303 ]; then
             echo "App is alive!"
           else
             echo "Warning: Received response code $response"
