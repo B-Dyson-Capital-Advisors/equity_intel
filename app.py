@@ -43,14 +43,38 @@ st.markdown("""
         padding: 1rem;
         margin: 1rem 0;
     }
+    
+    /* Custom navigation menu styling */
+    .nav-menu {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 0.5rem;
+        margin-bottom: 2rem;
+    }
+    .nav-item {
+        padding: 0.75rem 1.5rem;
+        margin: 0.25rem 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 1rem;
+        color: #4a4a4a;
+        text-decoration: none;
+        display: block;
+    }
+    .nav-item:hover {
+        background-color: #e9ecef;
+        color: #1f1f1f;
+    }
+    .nav-item.active {
+        background-color: #4a90e2;
+        color: white;
+        font-weight: 500;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 st.title("Legal Counsel Finder")
-
-# Sidebar navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Select Feature", ["Legal Counsel Finder", "Stock Loan Availability"])
 
 def get_api_key():
     """Get API key from Streamlit secrets"""
@@ -68,6 +92,24 @@ if 'firm_results' not in st.session_state:
     st.session_state.firm_results = None
 if 'stock_loan_results' not in st.session_state:
     st.session_state.stock_loan_results = None
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = "Legal Counsel Finder"
+
+# Sidebar navigation with menu-style
+st.sidebar.title("Navigation")
+
+# Create clickable menu items
+if st.sidebar.button("Legal Counsel Finder", use_container_width=True, 
+                     type="primary" if st.session_state.current_page == "Legal Counsel Finder" else "secondary"):
+    st.session_state.current_page = "Legal Counsel Finder"
+    st.rerun()
+
+if st.sidebar.button("Stock Loan Availability", use_container_width=True,
+                     type="primary" if st.session_state.current_page == "Stock Loan Availability" else "secondary"):
+    st.session_state.current_page = "Stock Loan Availability"
+    st.rerun()
+
+page = st.session_state.current_page
 
 if page == "Legal Counsel Finder":
     st.markdown("Search SEC EDGAR filings to find relationships between companies, law firms, and lawyers")
@@ -333,6 +375,14 @@ if page == "Legal Counsel Finder":
                 key="firm_csv_download"
             )
 
+    # Footer for Legal Counsel Finder page
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;'>
+    B. Dyson Capital Advisors | Data sourced from SEC EDGAR
+    </div>
+    """, unsafe_allow_html=True)
+
 elif page == "Stock Loan Availability":
     st.markdown("Real-time stock loan availability data from Interactive Brokers")
 
@@ -374,9 +424,10 @@ elif page == "Stock Loan Availability":
             key="stock_loan_csv_download"
         )
 
-st.markdown("---")
-st.markdown("""
-<div style='text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;'>
-B. Dyson Capital Advisors | Data sourced from SEC EDGAR
-</div>
-""", unsafe_allow_html=True)
+    # Footer for Stock Loan Availability page
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;'>
+    B. Dyson Capital Advisors | Data sourced from Interactive Brokers
+    </div>
+    """, unsafe_allow_html=True)
