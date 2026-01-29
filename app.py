@@ -384,6 +384,7 @@ if page == "Legal Counsel Finder":
     """, unsafe_allow_html=True)
 
 elif page == "Stock Loan Availability":
+    st.title("Stock Loan Availability")
     st.markdown("Real-time stock loan availability data from Interactive Brokers")
 
     if st.button("Fetch Latest Data", type="primary"):
