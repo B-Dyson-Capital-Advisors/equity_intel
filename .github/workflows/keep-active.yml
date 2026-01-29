@@ -6,19 +6,16 @@ on:
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  empty-commit:
+  keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.PAT_TOKEN }}
-          fetch-depth: 0
-
-      - name: Pull and push empty commit
+      - name: Ping Streamlit app to keep it active
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit --allow-empty -m "Keep app active"
-          git pull --rebase origin main
-          git push
+          echo "Pinging Streamlit app at https://legalfinder.streamlit.app/"
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://legalfinder.streamlit.app/)
+          echo "Response code: $response"
+          if [ $response -eq 200 ] || [ $response -eq 301 ] || [ $response -eq 302 ]; then
+            echo "App is alive!"
+          else
+            echo "Warning: Received response code $response"
+          fi
