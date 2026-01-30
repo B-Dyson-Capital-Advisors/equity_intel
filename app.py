@@ -226,7 +226,7 @@ if page == "Legal Counsel Finder":
         with col1:
             lawyer_name = st.text_input(
                 "Lawyer Name",
-                placeholder="e.g., John Smith",
+                placeholder="E.g. John Smith",
                 key="lawyer_name"
             )
     
@@ -304,7 +304,7 @@ if page == "Legal Counsel Finder":
         with col1:
             firm_name = st.text_input(
                 "Law Firm Name",
-                placeholder="e.g., Cooley LLP, Latham & Watkins",
+                placeholder="E.g. Cooley LLP, Latham & Watkins",
                 key="firm_name"
             )
     
