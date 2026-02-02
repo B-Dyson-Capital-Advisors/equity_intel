@@ -182,14 +182,16 @@ if page == "Legal Counsel Finder":
             company_start = st.date_input(
                 "From",
                 value=st.session_state.company_start,
-                max_value=pd.Timestamp.now()
+                max_value=pd.Timestamp.now(),
+                key="company_from"
             )
 
         with col4:
             company_end = st.date_input(
                 "To",
                 value=st.session_state.company_end,
-                max_value=pd.Timestamp.now()
+                max_value=pd.Timestamp.now(),
+                key="company_to"
             )
 
         # Check if user manually changed dates
@@ -300,14 +302,16 @@ if page == "Legal Counsel Finder":
             lawyer_start = st.date_input(
                 "From",
                 value=st.session_state.lawyer_start,
-                max_value=pd.Timestamp.now()
+                max_value=pd.Timestamp.now(),
+                key="lawyer_from"
             )
 
         with col4:
             lawyer_end = st.date_input(
                 "To",
                 value=st.session_state.lawyer_end,
-                max_value=pd.Timestamp.now()
+                max_value=pd.Timestamp.now(),
+                key="lawyer_to"
             )
 
         # Check if user manually changed dates
@@ -413,14 +417,16 @@ if page == "Legal Counsel Finder":
             firm_start = st.date_input(
                 "From",
                 value=st.session_state.firm_start,
-                max_value=pd.Timestamp.now()
+                max_value=pd.Timestamp.now(),
+                key="firm_from"
             )
 
         with col4:
             firm_end = st.date_input(
                 "To",
                 value=st.session_state.firm_end,
-                max_value=pd.Timestamp.now()
+                max_value=pd.Timestamp.now(),
+                key="firm_to"
             )
 
         # Check if user manually changed dates
