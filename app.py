@@ -127,7 +127,7 @@ if page == "Legal Counsel Finder":
         companies = load_all_companies()
 
         # Single row layout: Company selector, Date Range dropdown, From date, To date
-        col1, col2, col3, col4 = st.columns([3, 2, 1, 1])
+        col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
 
         with col1:
             if companies:
