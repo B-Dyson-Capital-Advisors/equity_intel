@@ -34,12 +34,12 @@ def fetch_shortstock_data():
         df = df[~df[0].astype(str).str.contains('#BOF|#EOF|#SYM', na=False)]
         df = df.reset_index(drop=True)
 
-        # Keep only columns 0-8
-        df = df.iloc[:, 0:9]
+        # Keep only the columns we need: 0 (Symbol), 1 (Currency), 2 (Name), 5 (Rebate), 6 (Fee), 7 (Available)
+        # Skip columns 3 (CON), 4 (ISIN), 8 (FIGI)
+        df = df.iloc[:, [0, 1, 2, 5, 6, 7]]
 
-        # Rename columns with clear percentage indicators
-        df.columns = ['Symbol', 'Currency', 'Name', 'CON', 'ISIN',
-                      'Rebate Rate (%)', 'Fee Rate (%)', 'Available', 'FIGI']
+        # Rename columns
+        df.columns = ['Symbol', 'Currency', 'Name', 'Rebate Rate (%)', 'Fee Rate (%)', 'Available']
 
         # Add Date and Time
         df.insert(0, 'Date', date)
@@ -49,9 +49,6 @@ def fetch_shortstock_data():
         df['Rebate Rate (%)'] = pd.to_numeric(df['Rebate Rate (%)'], errors='coerce')
         df['Fee Rate (%)'] = pd.to_numeric(df['Fee Rate (%)'], errors='coerce')
         df['Available'] = pd.to_numeric(df['Available'], errors='coerce')
-
-        # Drop unnecessary columns
-        df = df.drop(columns=['CON', 'ISIN', 'FIGI'])
 
         return df
 
