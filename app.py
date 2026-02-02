@@ -93,6 +93,12 @@ if 'firm_results' not in st.session_state:
     st.session_state.firm_results = None
 if 'stock_loan_results' not in st.session_state:
     st.session_state.stock_loan_results = None
+if 'company_date_preset' not in st.session_state:
+    st.session_state.company_date_preset = "Last 5 years"
+if 'company_start_date' not in st.session_state:
+    st.session_state.company_start_date = (pd.Timestamp.now() - pd.DateOffset(years=5)).date()
+if 'company_end_date' not in st.session_state:
+    st.session_state.company_end_date = pd.Timestamp.now().date()
 
 # Date range presets
 def get_date_range(preset):
@@ -152,34 +158,51 @@ if page == "Legal Counsel Finder":
                 st.error("Unable to load company list. Please refresh the page.")
                 selected_company = None
 
+        # Calculate expected dates based on current preset
+        preset_options = ["Last 30 days", "Last year", "Last 3 years", "Last 5 years", "Last 10 years", "All (since 2001)", "Custom"]
+
+        if st.session_state.company_date_preset != "Custom":
+            expected_start, expected_end = get_date_range(st.session_state.company_date_preset)
+            st.session_state.company_start_date = expected_start
+            st.session_state.company_end_date = expected_end
+
         with col2:
+            preset_index = preset_options.index(st.session_state.company_date_preset)
             date_preset = st.selectbox(
                 "Date Range",
-                options=["Last 30 days", "Last year", "Last 3 years", "Last 5 years", "Last 10 years", "All (since 2001)", "Custom"],
-                index=3,  # Default to "Last 5 years"
-                key="company_date_preset"
+                options=preset_options,
+                index=preset_index
             )
 
-        # Calculate dates based on preset
-        if date_preset != "Custom":
-            preset_start, preset_end = get_date_range(date_preset)
-        else:
-            preset_start = (pd.Timestamp.now() - pd.DateOffset(years=5)).date()
-            preset_end = pd.Timestamp.now().date()
+            # Update session state if user changed preset
+            if date_preset != st.session_state.company_date_preset:
+                st.session_state.company_date_preset = date_preset
+                st.rerun()
 
         with col3:
             start_date = st.date_input(
                 "From",
-                value=preset_start,
-                max_value=pd.Timestamp.now()
+                value=st.session_state.company_start_date,
+                max_value=pd.Timestamp.now(),
+                key="company_from_date"
             )
 
         with col4:
             end_date = st.date_input(
                 "To",
-                value=preset_end,
-                max_value=pd.Timestamp.now()
+                value=st.session_state.company_end_date,
+                max_value=pd.Timestamp.now(),
+                key="company_to_date"
             )
+
+        # Detect manual date changes and switch to Custom
+        if st.session_state.company_date_preset != "Custom":
+            expected_start, expected_end = get_date_range(st.session_state.company_date_preset)
+            if start_date != expected_start or end_date != expected_end:
+                st.session_state.company_date_preset = "Custom"
+                st.session_state.company_start_date = start_date
+                st.session_state.company_end_date = end_date
+                st.rerun()
 
         # Search button with fixed width matching "Search Lawyer"
         col_btn1, col_btn2 = st.columns([1, 6])
@@ -268,8 +291,13 @@ if page == "Legal Counsel Finder":
                 max_value=pd.Timestamp.now(),
                 key="lawyer_end_date"
             )
-    
-        if st.button("Search Lawyer", type="primary"):
+
+        # Search button with fixed width
+        col_btn1, col_btn2 = st.columns([1, 6])
+        with col_btn1:
+            lawyer_search_clicked = st.button("Search Lawyer", type="primary", use_container_width=True)
+
+        if lawyer_search_clicked:
             if not lawyer_name:
                 st.error("Please enter a lawyer name")
             elif lawyer_start_date >= lawyer_end_date:
@@ -346,8 +374,13 @@ if page == "Legal Counsel Finder":
                 max_value=pd.Timestamp.now(),
                 key="firm_end_date"
             )
-    
-        if st.button("Search Law Firm", type="primary"):
+
+        # Search button with fixed width
+        col_btn1, col_btn2 = st.columns([1, 6])
+        with col_btn1:
+            firm_search_clicked = st.button("Search Law Firm", type="primary", use_container_width=True)
+
+        if firm_search_clicked:
             if not firm_name:
                 st.error("Please enter a law firm name")
             elif firm_start_date >= firm_end_date:
