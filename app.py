@@ -14,6 +14,12 @@ st.set_page_config(
     layout="wide"
 )
 
+page = st.sidebar.radio(
+    "Navigation",
+    ["Legal Counsel Finder", "Stock Loan Availability"],
+    index=0
+)
+
 st.markdown("""
 <style>
     .main {
