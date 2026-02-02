@@ -50,6 +50,9 @@ def fetch_shortstock_data():
         df['Fee Rate (%)'] = pd.to_numeric(df['Fee Rate (%)'], errors='coerce')
         df['Available'] = pd.to_numeric(df['Available'], errors='coerce')
 
+        # Drop unnecessary columns
+        df = df.drop(columns=['CON', 'ISIN', 'FIGI'])
+
         return df
 
     except Exception as e:
