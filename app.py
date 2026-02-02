@@ -158,8 +158,8 @@ if page == "Legal Counsel Finder":
         if 'company_preset' not in st.session_state:
             st.session_state.company_preset = "Last 5 years"
             start, end = get_date_range("Last 5 years")
-            st.session_state.company_start = start
-            st.session_state.company_end = end
+            st.session_state.company_from = start
+            st.session_state.company_to = end
 
         with col2:
             company_preset = st.selectbox(
@@ -174,13 +174,14 @@ if page == "Legal Counsel Finder":
             st.session_state.company_preset = company_preset
             if company_preset != "Custom":
                 start, end = get_date_range(company_preset)
-                st.session_state.company_start = start
-                st.session_state.company_end = end
+                st.session_state.company_from = start
+            st.session_state.company_to = end
+                st.rerun()
 
         with col3:
             company_start = st.date_input(
                 "From",
-                value=st.session_state.company_start,
+                value=st.session_state.company_from,
                 max_value=pd.Timestamp.now(),
                 key="company_from"
             )
@@ -188,7 +189,7 @@ if page == "Legal Counsel Finder":
         with col4:
             company_end = st.date_input(
                 "To",
-                value=st.session_state.company_end,
+                value=st.session_state.company_to,
                 max_value=pd.Timestamp.now(),
                 key="company_to"
             )
@@ -199,10 +200,6 @@ if page == "Legal Counsel Finder":
             if company_start != expected_start or company_end != expected_end:
                 st.session_state.company_preset = "Custom"
                 st.rerun()
-
-        # Update session state with current dates
-        st.session_state.company_start = company_start
-        st.session_state.company_end = company_end
 
         # Search button with fixed width
         col_btn1, col_btn2 = st.columns([1, 6])
@@ -278,8 +275,8 @@ if page == "Legal Counsel Finder":
         if 'lawyer_preset' not in st.session_state:
             st.session_state.lawyer_preset = "Last 5 years"
             start, end = get_date_range("Last 5 years")
-            st.session_state.lawyer_start = start
-            st.session_state.lawyer_end = end
+            st.session_state.lawyer_from = start
+            st.session_state.lawyer_to = end
 
         with col2:
             lawyer_preset = st.selectbox(
@@ -294,13 +291,14 @@ if page == "Legal Counsel Finder":
             st.session_state.lawyer_preset = lawyer_preset
             if lawyer_preset != "Custom":
                 start, end = get_date_range(lawyer_preset)
-                st.session_state.lawyer_start = start
-                st.session_state.lawyer_end = end
+                st.session_state.lawyer_from = start
+            st.session_state.lawyer_to = end
+                st.rerun()
 
         with col3:
             lawyer_start = st.date_input(
                 "From",
-                value=st.session_state.lawyer_start,
+                value=st.session_state.lawyer_from,
                 max_value=pd.Timestamp.now(),
                 key="lawyer_from"
             )
@@ -308,7 +306,7 @@ if page == "Legal Counsel Finder":
         with col4:
             lawyer_end = st.date_input(
                 "To",
-                value=st.session_state.lawyer_end,
+                value=st.session_state.lawyer_to,
                 max_value=pd.Timestamp.now(),
                 key="lawyer_to"
             )
@@ -319,10 +317,6 @@ if page == "Legal Counsel Finder":
             if lawyer_start != expected_start or lawyer_end != expected_end:
                 st.session_state.lawyer_preset = "Custom"
                 st.rerun()
-
-        # Update session state with current dates
-        st.session_state.lawyer_start = lawyer_start
-        st.session_state.lawyer_end = lawyer_end
 
         # Search button with fixed width
         col_btn1, col_btn2 = st.columns([1, 6])
@@ -393,8 +387,8 @@ if page == "Legal Counsel Finder":
         if 'firm_preset' not in st.session_state:
             st.session_state.firm_preset = "Last year"
             start, end = get_date_range("Last year")
-            st.session_state.firm_start = start
-            st.session_state.firm_end = end
+            st.session_state.firm_from = start
+            st.session_state.firm_to = end
 
         with col2:
             firm_preset = st.selectbox(
@@ -409,13 +403,14 @@ if page == "Legal Counsel Finder":
             st.session_state.firm_preset = firm_preset
             if firm_preset != "Custom":
                 start, end = get_date_range(firm_preset)
-                st.session_state.firm_start = start
-                st.session_state.firm_end = end
+                st.session_state.firm_from = start
+            st.session_state.firm_to = end
+                st.rerun()
 
         with col3:
             firm_start = st.date_input(
                 "From",
-                value=st.session_state.firm_start,
+                value=st.session_state.firm_from,
                 max_value=pd.Timestamp.now(),
                 key="firm_from"
             )
@@ -423,7 +418,7 @@ if page == "Legal Counsel Finder":
         with col4:
             firm_end = st.date_input(
                 "To",
-                value=st.session_state.firm_end,
+                value=st.session_state.firm_to,
                 max_value=pd.Timestamp.now(),
                 key="firm_to"
             )
@@ -434,10 +429,6 @@ if page == "Legal Counsel Finder":
             if firm_start != expected_start or firm_end != expected_end:
                 st.session_state.firm_preset = "Custom"
                 st.rerun()
-
-        # Update session state with current dates
-        st.session_state.firm_start = firm_start
-        st.session_state.firm_end = firm_end
 
         # Search button with fixed width
         col_btn1, col_btn2 = st.columns([1, 6])
