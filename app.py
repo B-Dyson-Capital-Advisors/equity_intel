@@ -175,7 +175,7 @@ if page == "Legal Counsel Finder":
             if company_preset != "Custom":
                 start, end = get_date_range(company_preset)
                 st.session_state.company_from = start
-            st.session_state.company_to = end
+                st.session_state.company_to = end
                 st.rerun()
 
         with col3:
@@ -292,7 +292,7 @@ if page == "Legal Counsel Finder":
             if lawyer_preset != "Custom":
                 start, end = get_date_range(lawyer_preset)
                 st.session_state.lawyer_from = start
-            st.session_state.lawyer_to = end
+                st.session_state.lawyer_to = end
                 st.rerun()
 
         with col3:
@@ -404,7 +404,7 @@ if page == "Legal Counsel Finder":
             if firm_preset != "Custom":
                 start, end = get_date_range(firm_preset)
                 st.session_state.firm_from = start
-            st.session_state.firm_to = end
+                st.session_state.firm_to = end
                 st.rerun()
 
         with col3:
