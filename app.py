@@ -171,19 +171,20 @@ if page == "Legal Counsel Finder":
             start_date = st.date_input(
                 "From",
                 value=preset_start,
-                max_value=pd.Timestamp.now(),
-                key="start_date"
+                max_value=pd.Timestamp.now()
             )
 
         with col4:
             end_date = st.date_input(
                 "To",
                 value=preset_end,
-                max_value=pd.Timestamp.now(),
-                key="end_date"
+                max_value=pd.Timestamp.now()
             )
 
-        search_clicked = st.button("Search Company", type="primary", key="company_search_btn", use_container_width=True)
+        # Search button with fixed width matching "Search Lawyer"
+        col_btn1, col_btn2 = st.columns([1, 6])
+        with col_btn1:
+            search_clicked = st.button("Search Company", type="primary", use_container_width=True)
 
         if search_clicked:
             if not selected_company:
