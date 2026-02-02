@@ -231,7 +231,9 @@ if page == "Legal Counsel Finder":
 
                             st.session_state.company_results = {
                                 'df': result_df,
-                                'filename': f"{selected_company['ticker'] or selected_company['cik']}_lawyers.csv"
+                                'filename': f"{selected_company['ticker'] or selected_company['cik']}_lawyers.csv",
+                                'search_start': search_start,
+                                'search_end': search_end
                             }
 
                         except Exception as e:
@@ -242,7 +244,17 @@ if page == "Legal Counsel Finder":
         # Display stored results if they exist
         if st.session_state.company_results is not None:
             result_df = st.session_state.company_results['df']
-            st.success(f"Found {len(result_df)} results")
+            search_start = st.session_state.company_results.get('search_start')
+            search_end = st.session_state.company_results.get('search_end')
+
+            if search_start and search_end:
+                # Format dates for display
+                start_str = search_start.strftime('%Y/%m/%d') if hasattr(search_start, 'strftime') else str(search_start)
+                end_str = search_end.strftime('%Y/%m/%d') if hasattr(search_end, 'strftime') else str(search_end)
+                st.success(f"Found {len(result_df)} results from {start_str} to {end_str}")
+            else:
+                st.success(f"Found {len(result_df)} results")
+
             st.dataframe(result_df, use_container_width=True, hide_index=True)
 
             csv = result_df.to_csv(index=False)
@@ -338,7 +350,9 @@ if page == "Legal Counsel Finder":
 
                             st.session_state.lawyer_results = {
                                 'df': result_df,
-                                'filename': f"{lawyer_name.lower().replace(' ', '_')}_companies.csv"
+                                'filename': f"{lawyer_name.lower().replace(' ', '_')}_companies.csv",
+                                'search_start': search_start,
+                                'search_end': search_end
                             }
 
                         except Exception as e:
@@ -349,7 +363,17 @@ if page == "Legal Counsel Finder":
         # Display stored results if they exist
         if st.session_state.lawyer_results is not None:
             result_df = st.session_state.lawyer_results['df']
-            st.success(f"Found {len(result_df)} results")
+            search_start = st.session_state.lawyer_results.get('search_start')
+            search_end = st.session_state.lawyer_results.get('search_end')
+
+            if search_start and search_end:
+                # Format dates for display
+                start_str = search_start.strftime('%Y/%m/%d') if hasattr(search_start, 'strftime') else str(search_start)
+                end_str = search_end.strftime('%Y/%m/%d') if hasattr(search_end, 'strftime') else str(search_end)
+                st.success(f"Found {len(result_df)} results from {start_str} to {end_str}")
+            else:
+                st.success(f"Found {len(result_df)} results")
+
             st.dataframe(result_df, use_container_width=True, hide_index=True)
 
             csv = result_df.to_csv(index=False)
@@ -445,7 +469,9 @@ if page == "Legal Counsel Finder":
 
                             st.session_state.firm_results = {
                                 'df': result_df,
-                                'filename': f"{firm_name.lower().replace(' ', '_').replace('&', 'and')}_companies.csv"
+                                'filename': f"{firm_name.lower().replace(' ', '_').replace('&', 'and')}_companies.csv",
+                                'search_start': search_start,
+                                'search_end': search_end
                             }
 
                         except Exception as e:
@@ -456,7 +482,17 @@ if page == "Legal Counsel Finder":
         # Display stored results if they exist
         if st.session_state.firm_results is not None:
             result_df = st.session_state.firm_results['df']
-            st.success(f"Found {len(result_df)} results")
+            search_start = st.session_state.firm_results.get('search_start')
+            search_end = st.session_state.firm_results.get('search_end')
+
+            if search_start and search_end:
+                # Format dates for display
+                start_str = search_start.strftime('%Y/%m/%d') if hasattr(search_start, 'strftime') else str(search_start)
+                end_str = search_end.strftime('%Y/%m/%d') if hasattr(search_end, 'strftime') else str(search_end)
+                st.success(f"Found {len(result_df)} results from {start_str} to {end_str}")
+            else:
+                st.success(f"Found {len(result_df)} results")
+
             st.dataframe(result_df, use_container_width=True, hide_index=True)
 
             csv = result_df.to_csv(index=False)
