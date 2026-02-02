@@ -2,20 +2,18 @@ from ftplib import FTP
 import pandas as pd
 from io import BytesIO
 
-
 def fetch_shortstock_data():
     """Fetch short interest data from Interactive Brokers FTP and return as DataFrame"""
-
     try:
         # Connect to FTP
         ftp = FTP('ftp2.interactivebrokers.com')
         ftp.login(user='shortstock', passwd='')
-
+        
         # Download usa.txt to memory (not to disk)
         buffer = BytesIO()
         ftp.retrbinary('RETR usa.txt', buffer.write)
         ftp.quit()
-
+        
         # Read from buffer into pandas
         buffer.seek(0)
         df = pd.read_csv(buffer,
@@ -25,11 +23,11 @@ def fetch_shortstock_data():
                          names=list(range(15)),
                          skipinitialspace=True,
                          na_values=[''])
-
+        
         # Extract Date and Time from first row
         date = df.iloc[0, 1]
         time = df.iloc[0, 2]
-
+        
         # Remove BOF/EOF and header rows
         df = df[~df[0].astype(str).str.contains('#BOF|#EOF|#SYM', na=False)]
         df = df.reset_index(drop=True)
@@ -51,6 +49,6 @@ def fetch_shortstock_data():
         df['Available'] = pd.to_numeric(df['Available'], errors='coerce')
 
         return df
-
+        
     except Exception as e:
         raise Exception(f"Error fetching stock loan data: {e}")

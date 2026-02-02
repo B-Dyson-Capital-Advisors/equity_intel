@@ -9,9 +9,15 @@ from search_modules.company_search import load_all_companies
 from search_modules.stock_loan import fetch_shortstock_data
 
 st.set_page_config(
-    page_title="Legal Counsel Finder",
+    page_title="BDCA Screening Tool",
     page_icon="⚖️",
-    layout="centered"
+    layout="wide"
+)
+
+page = st.sidebar.radio(
+    "Navigation",
+    ["Legal Counsel Finder", "Stock Loan Availability"],
+    index=0
 )
 
 st.markdown("""
@@ -71,12 +77,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Legal Counsel Finder")
-
-# Sidebar navigation
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Select Feature", ["Legal Counsel Finder", "Stock Loan Availability"])
-
 def get_api_key():
     """Get API key from Streamlit secrets"""
     try:
@@ -115,6 +115,7 @@ def get_date_range(preset):
     return start_date.date(), end_date.date()
 
 if page == "Legal Counsel Finder":
+    st.title("Legal Counsel Finder")
     st.markdown("Search SEC EDGAR filings to find relationships between companies, law firms, and lawyers")
 
     tab1, tab2, tab3 = st.tabs(["Search Company", "Search Lawyer", "Search Law Firm"])
@@ -248,7 +249,7 @@ if page == "Legal Counsel Finder":
         with col1:
             lawyer_name = st.text_input(
                 "Lawyer Name",
-                placeholder="e.g., John Smith",
+                placeholder="E.g. John Smith",
                 key="lawyer_name"
             )
     
@@ -326,7 +327,7 @@ if page == "Legal Counsel Finder":
         with col1:
             firm_name = st.text_input(
                 "Law Firm Name",
-                placeholder="e.g., Cooley LLP, Latham & Watkins",
+                placeholder="E.g. Cooley LLP, Latham & Watkins",
                 key="firm_name"
             )
     
@@ -395,7 +396,16 @@ if page == "Legal Counsel Finder":
                 key="firm_csv_download"
             )
 
+    # Footer for Legal Counsel Finder page
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;'>
+    B. Dyson Capital Advisors | Data sourced from SEC EDGAR
+    </div>
+    """, unsafe_allow_html=True)
+
 elif page == "Stock Loan Availability":
+    st.title("Stock Loan Availability")
     st.markdown("Real-time stock loan availability data from Interactive Brokers")
 
     if st.button("Fetch Latest Data", type="primary"):
@@ -436,9 +446,10 @@ elif page == "Stock Loan Availability":
             key="stock_loan_csv_download"
         )
 
-st.markdown("---")
-st.markdown("""
-<div style='text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;'>
-B. Dyson Capital Advisors | Data sourced from SEC EDGAR
-</div>
-""", unsafe_allow_html=True)
+    # Footer for Stock Loan Availability page
+    st.markdown("---")
+    st.markdown("""
+    <div style='text-align: center; color: #666; font-size: 0.9rem; padding: 1rem;'>
+    B. Dyson Capital Advisors | Data sourced from Interactive Brokers
+    </div>
+    """, unsafe_allow_html=True)
