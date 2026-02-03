@@ -101,8 +101,9 @@ def search_company_by_name_or_ticker(search_term):
 def normalize_lawyer_name_for_matching(name):
     """Normalize lawyer name for matching - extract first and last name only"""
     name = name.strip()
-    # Remove Esq., titles
+    # Remove professional credentials and titles
     name = re.sub(r',?\s*Esq\.?', '', name, flags=re.IGNORECASE)
+    name = re.sub(r',?\s*P\.C\.?', '', name, flags=re.IGNORECASE)
     name = re.sub(r'^(Mr\.|Ms\.|Mrs\.|Dr\.)\s+', '', name)
 
     # Split into words
@@ -161,7 +162,9 @@ def normalize_firm_name(firm):
 
 def normalize_lawyer_name(name):
     name = name.strip()
+    # Remove professional credentials: Esq., P.C., etc.
     name = re.sub(r',?\s*Esq\.?', '', name, flags=re.IGNORECASE)
+    name = re.sub(r',?\s*P\.C\.?', '', name, flags=re.IGNORECASE)
     name = re.sub(r'\s+', ' ', name)
     return name.strip()
 
@@ -286,7 +289,9 @@ def extract_lawyers_by_regex(text, company_name):
         valid_names = []
         for name in names:
             name = re.sub(r'^(Mr\.|Ms\.|Mrs\.|Dr\.)\s+', '', name)
+            # Remove professional credentials
             name = re.sub(r',?\s*Esq\.?$', '', name, flags=re.IGNORECASE)
+            name = re.sub(r',?\s*P\.C\.?$', '', name, flags=re.IGNORECASE)
             name = name.strip()
 
             if not is_valid_person_name(name, company_name):
@@ -300,9 +305,9 @@ def extract_lawyers_by_regex(text, company_name):
             for name in valid_names:
                 results[normalized_firm].add(normalize_lawyer_name(name))
 
-    # Pattern 2: Name (with optional Esq./titles) on one line, firm on next line
-    # Updated to handle ", Esq." between name and newline
-    pattern2 = r'([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)(?:,?\s*Esq\.?)?\s*\n\s*([A-Z][^\n]{5,60}?(?:LLP|LLC|P\.C\.|P\.A\.))'
+    # Pattern 2: Name (with optional Esq./P.C./titles) on one line, firm on next line
+    # Updated to handle ", Esq." or ", P.C." credentials between name and newline
+    pattern2 = r'([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)(?:,?\s*(?:Esq\.|P\.C\.))?\s*\n\s*([A-Z][^\n]{5,60}?(?:LLP|LLC|P\.C\.|P\.A\.))'
 
     matches2 = re.finditer(pattern2, text, re.MULTILINE)
 
@@ -322,8 +327,9 @@ def extract_lawyers_by_regex(text, company_name):
             results[normalized_firm].add(normalize_lawyer_name(name))
 
     # Pattern 3: "Copies to:" section with multiple names before firm
-    # Matches multiple consecutive lines of names followed by firm
-    pattern3 = r'(?:Copies to:|Copy to:)\s*\n\s*((?:[A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+(?:,?\s*Esq\.?)?\s*\n\s*)+)([A-Z][^\n]{5,60}?(?:LLP|LLC|P\.C\.|P\.A\.))'
+    # Need to handle ", P.C." as a credential (like ", Esq.") not a firm suffix
+    # Key: "Name, P.C." = credential | "Firm Name P.C." (no comma) = firm
+    pattern3 = r'(?:Copies to:|Copy to:)\s*\n((?:.*\n)+?)([A-Z][^\n,]{5,60}?(?:LLP|LLC)(?:[^\n]{0,20})?$)'
 
     matches3 = re.finditer(pattern3, text, re.MULTILINE)
 
@@ -334,11 +340,26 @@ def extract_lawyers_by_regex(text, company_name):
         if is_not_law_firm(firm, company_name):
             continue
 
-        # Extract all names from the names section
-        name_pattern = r'([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)(?:,?\s*Esq\.?)?'
-        name_matches = re.finditer(name_pattern, names_section)
+        # Extract all names from lines in the names section
+        # Handle both "Name, Esq." and "Name, P.C." as credentials
+        for line in names_section.strip().split('\n'):
+            line = line.strip()
 
-        for name_match in name_matches:
+            # Skip empty lines or lines that are clearly not names
+            if not line or len(line) < 5:
+                continue
+
+            # Skip if this line looks like a firm itself (has LLP/LLC without comma before it)
+            if re.search(r'(?<!,\s)(?:LLP|LLC|P\.A\.)(?:\s|$)', line):
+                continue
+
+            # Extract name, removing ", Esq." or ", P.C." credentials
+            # Pattern: "FirstName MiddleInitial? LastName, (Esq.|P.C.)"
+            name_match = re.match(r'([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)(?:,?\s*(?:Esq\.|P\.C\.))?', line)
+
+            if not name_match:
+                continue
+
             name = name_match.group(1).strip()
 
             if not is_valid_person_name(name, company_name):
@@ -350,7 +371,8 @@ def extract_lawyers_by_regex(text, company_name):
                 results[normalized_firm].add(normalize_lawyer_name(name))
 
     # Pattern 4: By: signature pattern
-    pattern4 = r'By:\s*([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)(?:,?\s*Esq\.?)?\s*\n\s*([A-Z][^\n]{5,60}?(?:LLP|LLC|P\.C\.|P\.A\.))'
+    # Handle both ", Esq." and ", P.C." credentials
+    pattern4 = r'By:\s*([A-Z][a-z]+(?:\s+[A-Z]\.?)?\s+[A-Z][a-z]+)(?:,?\s*(?:Esq\.|P\.C\.))?\s*\n\s*([A-Z][^\n]{5,60}?(?:LLP|LLC|P\.C\.|P\.A\.))'
 
     matches4 = re.finditer(pattern4, text, re.MULTILINE)
 
