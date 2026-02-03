@@ -173,82 +173,49 @@ def is_valid_person_name(name, company_name=None):
     """Validate that this is actually a person's name, not a title or company name"""
     name_lower = name.lower()
 
-    if company_name:
-        company_lower = company_name.lower()
-        company_words = set(company_lower.split())
-        name_words = set(name_lower.split())
-
-        if any(word in company_words and len(word) > 4 for word in name_words):
-            return False
-
-    # Invalid phrases that indicate this is not a person's name
-    # Use word boundaries for short terms to avoid false positives (e.g., "Vincent" contains "inc")
-    invalid_phrases_exact = [
-        'legal officer', 'chief legal', 'general counsel', 'corporate counsel',
-        'secretary', 'president', 'vice president', 'chief executive',
-        'ceo', 'cfo', 'clo', 'officer', 'director', 'manager',
-        'associate', 'partner', 'attorney', 'lawyer', 'counsel',
-        'corporation', 'company', 'limited',
-        'the registrant', 'the company', 'issuer',
-        # Document-related terms
-        'date filed', 'filing date', 'second amended', 'first amended',
-        'this registration', 'registration statement', 'exhibit',
-        'chief financial', 'financial officer',
-        # Common city names that appear in SEC filings
-        'menlo park', 'palo alto', 'san francisco', 'new york', 'redwood city',
-        'mountain view', 'cupertino', 'san jose', 'los angeles', 'washington',
-        'santa clara', 'silicon valley'
-    ]
-
-    # Check for invalid phrases
-    if any(phrase in name_lower for phrase in invalid_phrases_exact):
-        return False
-
-    # Check for word-boundary matches for short terms (prevents "Vincent" from matching "inc")
-    if re.search(r'\b(inc|llc|llp)\b', name_lower):
-        return False
-
+    # Basic format check: 2-4 words, properly capitalized
     words = name.split()
     if len(words) < 2 or len(words) > 4:
         return False
 
+    # Check proper capitalization
     for word in words:
         if len(word) > 1 and not word[0].isupper():
             return False
 
-    # Check that we have at least one substantial word
-    if not any(len(word) > 3 for word in words):
+    # Only reject obvious non-person terms (keep this minimal!)
+    obvious_non_persons = [
+        'chief executive', 'chief financial', 'chief legal', 'chief operating',
+        'general counsel', 'corporate secretary', 'vice president',
+        'the registrant', 'the company',
+        'date filed', 'second amended', 'this registration'
+    ]
+
+    if any(phrase in name_lower for phrase in obvious_non_persons):
         return False
 
-    # CRITICAL: The last word (last name) must be at least 3 characters
-    # This filters out incomplete names like "Bryan Mc" or "John O"
-    if len(words[-1]) < 3:
+    # Reject obvious city names only
+    obvious_cities = ['menlo park', 'redwood city', 'san francisco', 'new york', 'palo alto']
+    if any(city in name_lower for city in obvious_cities):
         return False
 
-    # Filter out single-character words (middle initials are OK with a dot, but not standalone)
-    # Allow middle initials like "A." but reject standalone single letters
-    for i, word in enumerate(words):
-        # Skip middle position (can be initial)
-        if i > 0 and i < len(words) - 1:
-            continue
-        # First and last names should be at least 2 characters
-        if len(word.rstrip('.')) < 2:
-            return False
-
-    if name_lower.startswith('by ') or name_lower.startswith('for '):
+    # Last name should be at least 2 characters (was 3, too strict)
+    if len(words[-1].rstrip('.')) < 2:
         return False
 
     return True
 
 
 def is_internal_employee(name, text_near_name):
-    """Check if lawyer name appears with company title"""
-    internal_titles = [
-        'general counsel', 'chief legal officer', 'clo',
-        'corporate counsel', 'secretary', 'corporate secretary',
-        'in-house counsel', 'legal counsel', 'vice president',
-        'senior counsel', 'associate general counsel', 'president',
-        'chief executive', 'ceo', 'cfo'
+    """Check if lawyer name appears with company title (only obvious titles)"""
+    # Only check for the most obvious internal titles
+    obvious_internal_titles = [
+        'general counsel',
+        'chief legal officer',
+        'corporate secretary',
+        'chief executive officer',
+        'president and ceo',
+        'chief financial officer'
     ]
 
     name_idx = text_near_name.find(name)
@@ -256,52 +223,33 @@ def is_internal_employee(name, text_near_name):
         return False
 
     text_after_name = text_near_name[name_idx:name_idx + 100].lower()
-    return any(title in text_after_name for title in internal_titles)
+    return any(title in text_after_name for title in obvious_internal_titles)
 
 
 def is_not_law_firm(firm_name, company_name=None):
-    """Filter out non-law-firms"""
+    """Filter out non-law-firms (keep minimal - only obvious non-law firms)"""
     firm_lower = firm_name.lower()
 
-    # Filter out document-related prefixes that shouldn't be part of firm names
-    document_prefixes = [
-        'opinion of', 'exhibit', 'exhibit to', 'registration of',
-        'registration statement', 'amendment to', 'form ', 'filing of',
-        'supplement to', 'prospectus', 'preliminary prospectus'
-    ]
+    # Filter document prefixes
+    document_prefixes = ['opinion of', 'exhibit', 'registration of', 'registration statement']
     if any(firm_lower.startswith(prefix) for prefix in document_prefixes):
         return True
 
-    garbage_names = ['law_firms', 'lawyers', 'law firm', 'example', 'firm name', 'another']
-    if any(garbage in firm_lower for garbage in garbage_names):
+    # Filter obvious garbage
+    if any(garbage in firm_lower for garbage in ['example', 'firm name', 'law firm']):
         return True
 
+    # Filter company name itself
     if company_name and company_name.lower() in firm_lower:
         return True
 
-    accounting_patterns = [
-        r'\bdeloitte\b', r'\bpwc\b', r'\bpricewaterhousecoopers\b',
-        r'\bernst\s*&\s*young\b', r'\bkpmg\b', r'\bey\b'
-    ]
-    for pattern in accounting_patterns:
-        if re.search(pattern, firm_lower):
-            return True
-
-    investment_banks = [
-        'goldman sachs', 'morgan stanley', 'jp morgan', 'jpmorgan',
-        'credit suisse', 'ubs', 'deutsche bank', 'barclays',
-        'cantor fitzgerald', 'oppenheimer', 'jefferies', 'cowen',
-        'stifel', 'piper sandler', 'raymond james', 'roth capital',
-        'needham', 'wedbush', 'craig-hallum', 'btig', "maxim group"
-    ]
-    if any(bank in firm_lower for bank in investment_banks):
+    # Filter accounting firms (Big 4 only)
+    if re.search(r'\b(deloitte|pwc|pricewaterhousecoopers|kpmg|ernst\s*&\s*young)\b', firm_lower):
         return True
 
-    if '& co' in firm_lower and 'llp' not in firm_lower:
-        return True
-
-    fund_keywords = ['fund', 'capital', 'ventures', 'holdings', 'trust company']
-    if any(keyword in firm_lower for keyword in fund_keywords) and 'llc' in firm_lower and 'llp' not in firm_lower:
+    # Filter major investment banks only
+    major_banks = ['goldman sachs', 'morgan stanley', 'jp morgan', 'jpmorgan', 'cantor fitzgerald']
+    if any(bank in firm_lower for bank in major_banks):
         return True
 
     return False
@@ -431,6 +379,32 @@ def extract_lawyers_by_regex(text, company_name):
             normalized_firm = normalize_firm_name(firm)
             results[normalized_firm].add(normalize_lawyer_name(name))
 
+    # Pattern 5: More flexible - any name followed by credentials near a law firm
+    # This catches patterns like "John Smith, Esq." appearing near "Wilson Sonsini LLP"
+    pattern5 = r'([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?[A-Z][a-z]+)(?:,?\s*(?:Esq\.|Attorney))?(?:[^\n]{0,200}?)((?:[A-Z][a-z]+\s*)+(?:&\s*)?(?:[A-Z][a-z]+\s*)*(?:LLP|LLC|P\.C\.|P\.A\.))'
+
+    matches5 = re.finditer(pattern5, text, re.MULTILINE)
+
+    for match in matches5:
+        name = match.group(1).strip()
+        firm = match.group(2).strip()
+
+        # Skip if firm captured too much text
+        if len(firm) > 80:
+            continue
+
+        context = text[max(0, match.start()-100):match.end()+100]
+
+        if is_not_law_firm(firm, company_name):
+            continue
+
+        if not is_valid_person_name(name, company_name):
+            continue
+
+        if not is_internal_employee(name, context):
+            normalized_firm = normalize_firm_name(firm)
+            results[normalized_firm].add(normalize_lawyer_name(name))
+
     return results
 
 
@@ -512,49 +486,31 @@ def extract_counsel_sections(doc_url):
 
 
 def parse_with_openai(text_sections, company_name, api_key, retries=2):
-    """AI extraction with strict validation"""
+    """AI extraction - more permissive"""
     if len(text_sections) > 15000:
         text_sections = text_sections[:15000]
 
-    prompt = f"""Extract ONLY EXTERNAL law firm names and EXTERNAL lawyers from this SEC filing for {company_name}.
+    prompt = f"""Extract law firm names and lawyer names from this SEC filing for {company_name}.
 
-CRITICAL RULES:
-1. ONLY extract PEOPLE'S NAMES - first and last names like "John Smith" or "Jane K. Doe"
-2. DO NOT extract:
-   - Titles like "Legal Officer", "General Counsel", "Chief Legal Officer"
-   - Company names like "{company_name}" or "Corporation"
-   - Generic terms like "Attorney", "Counsel", "Lawyer"
-   - Phrases like "The Company", "The Registrant"
-3. Find law firms ending in LLP, LLC, or P.C.
-4. EXCLUDE: Accounting firms (Deloitte, PwC, KPMG, EY)
-5. EXCLUDE: Investment banks (Goldman Sachs, Cantor Fitzgerald, etc.)
-6. ONLY include lawyers who work AT the law firm, NOT company employees
+Find:
+1. Law firm names ending in LLP, LLC, P.C., or P.A.
+2. Lawyer names (first and last name, like "John Smith" or "Jane K. Doe")
+3. Look in sections like "Legal Matters", signature blocks, and anywhere lawyers are mentioned
 
-WHAT A VALID NAME LOOKS LIKE:
-✓ "John Smith" - first + last name
-✓ "Jane K. Doe" - first + middle initial + last name
-✓ "Robert Johnson III" - first + last + suffix
+Exclude only obvious non-lawyers:
+- Job titles like "Chief Executive Officer", "General Counsel" (when used as a title)
+- Accounting firms: Deloitte, PwC, KPMG, Ernst & Young
+- Investment banks: Goldman Sachs, Morgan Stanley, JP Morgan
 
-WHAT IS NOT A VALID NAME:
-✗ "Legal Officer" - this is a TITLE
-✗ "{company_name}" - this is a COMPANY NAME
-✗ "Chief Legal Officer" - this is a TITLE
-✗ "General Counsel" - this is a TITLE
-✗ "Corporate Secretary" - this is a TITLE
-
-PATTERNS TO LOOK FOR:
-"Carlos Ramirez and Nicholaus Johnson of Cooley LLP"
--> {{"Cooley LLP": ["Carlos Ramirez", "Nicholaus Johnson"]}}
-
-"First Name Last Name
-Law Firm Name LLP"
--> {{"Law Firm Name LLP": ["First Name Last Name"]}}
+Examples:
+"John Smith of Wilson Sonsini LLP" -> {{"Wilson Sonsini LLP": ["John Smith"]}}
+"Jane Doe, Esq.\nCooley LLP" -> {{"Cooley LLP": ["Jane Doe"]}}
 
 Text:
 {text_sections}
 
-Return JSON with law firms and ONLY PERSON NAMES (not titles, not company names):
-{{"Cooley LLP": ["John Smith", "Jane Doe"]}}"""
+Return JSON format:
+{{"Law Firm Name LLP": ["Lawyer Name 1", "Lawyer Name 2"]}}"""
 
     for attempt in range(retries + 1):
         try:
@@ -565,7 +521,7 @@ Return JSON with law firms and ONLY PERSON NAMES (not titles, not company names)
                     "Authorization": f"Bearer {api_key}"
                 },
                 json={
-                    "model": "gpt-4o",
+                    "model": "gpt-5-nano",
                     "messages": [{"role": "user", "content": prompt}],
                     "temperature": 0
                 },
