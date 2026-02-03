@@ -295,6 +295,11 @@ def extract_lawyers_by_regex(text, company_name):
     # Pattern: Word (& Word | Word)* LLP/LLC/P.C./P.A.
     firm_pattern = r'[A-Z][a-z]+(?:\s+(?:&\s+)?[A-Z][a-z]+)*\s+(?:LLP|LLC|P\.C\.|P\.A\.)'
 
+    # Single-line firm pattern: CRITICAL for Pattern 2, 3, 4 to prevent matching across newlines
+    # Uses [^\S\n]+ instead of \s+ to match whitespace EXCEPT newlines
+    # This prevents "Name\nFirm LLP" from being captured as one firm
+    firm_pattern_single_line = r'[A-Z][a-z]+(?:[^\S\n]+(?:&[^\S\n]+)?[A-Z][a-z]+)*[^\S\n]+(?:LLP|LLC|P\.C\.|P\.A\.)'
+
     pattern1 = r'(' + name_with_optional_middle + r'(?:\s+(?:and|,)\s+' + name_with_optional_middle + r')*)\s+of\s+(' + firm_pattern + r')'
 
     matches = re.finditer(pattern1, text, re.MULTILINE)
@@ -330,7 +335,7 @@ def extract_lawyers_by_regex(text, company_name):
                 results[normalized_firm].add(normalize_lawyer_name(name))
 
     # Pattern 2: Name (with optional Esq./P.C./titles) on one line, firm on next line
-    pattern2 = r'(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*\n\s*(' + firm_pattern + r')'
+    pattern2 = r'(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*\n\s*(' + firm_pattern_single_line + r')'
 
     matches2 = re.finditer(pattern2, text, re.MULTILINE)
 
@@ -350,9 +355,6 @@ def extract_lawyers_by_regex(text, company_name):
             results[normalized_firm].add(normalize_lawyer_name(name))
 
     # Pattern 3: "Copies to:" section with multiple names before firm
-    # CRITICAL: firm must be on its own line, not span multiple lines with names
-    # Use [^\S\n]+ (whitespace but NOT newlines) to prevent "Zoey Hitzert\nKirkland & Ellis LLP" matching as one firm
-    firm_pattern_single_line = r'[A-Z][a-z]+(?:[^\S\n]+(?:&[^\S\n]+)?[A-Z][a-z]+)*[^\S\n]+(?:LLP|LLC|P\.C\.|P\.A\.)'
     pattern3 = r'(?:Copies to:|Copy to:)\s*\n((?:.*\n)+?)(' + firm_pattern_single_line + r')\s*$'
 
     matches3 = re.finditer(pattern3, text, re.MULTILINE)
@@ -394,7 +396,7 @@ def extract_lawyers_by_regex(text, company_name):
                 results[normalized_firm].add(normalize_lawyer_name(name))
 
     # Pattern 4: By: signature pattern
-    pattern4 = r'By:\s*(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*\n\s*(' + firm_pattern + r')'
+    pattern4 = r'By:\s*(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*\n\s*(' + firm_pattern_single_line + r')'
 
     matches4 = re.finditer(pattern4, text, re.MULTILINE)
 
