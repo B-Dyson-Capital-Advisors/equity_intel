@@ -223,6 +223,7 @@ def is_valid_person_name(name, company_name=None):
         if any(word in company_words and len(word) > 4 for word in name_words):
             return False
 
+    # Expanded list of invalid phrases including document-related terms
     invalid_phrases = [
         'legal officer', 'chief legal', 'general counsel', 'corporate counsel',
         'secretary', 'president', 'vice president', 'chief executive',
@@ -230,8 +231,14 @@ def is_valid_person_name(name, company_name=None):
         'associate', 'partner', 'attorney', 'lawyer', 'counsel',
         'corporation', 'company', 'inc', 'llc', 'llp', 'limited',
         'the registrant', 'the company', 'issuer',
-        'chief financial', 'financial officer', 'date filed',
-        'registration statement', 'signature', 'address', 'dated'
+        # Document-related terms
+        'date filed', 'filing date', 'second amended', 'first amended',
+        'this registration', 'registration statement', 'exhibit',
+        'chief financial', 'financial officer',
+        # Common city names that appear in SEC filings
+        'menlo park', 'palo alto', 'san francisco', 'new york', 'redwood city',
+        'mountain view', 'cupertino', 'san jose', 'los angeles', 'washington',
+        'santa clara', 'silicon valley'
     ]
 
     if any(phrase in name_lower for phrase in invalid_phrases):
@@ -259,8 +266,24 @@ def is_valid_person_name(name, company_name=None):
         if len(word) > 1 and not word[0].isupper():
             return False
 
+    # Check that we have at least one substantial word
     if not any(len(word) > 3 for word in words):
         return False
+
+    # CRITICAL: The last word (last name) must be at least 3 characters
+    # This filters out incomplete names like "Bryan Mc" or "John O"
+    if len(words[-1]) < 3:
+        return False
+
+    # Filter out single-character words (middle initials are OK with a dot, but not standalone)
+    # Allow middle initials like "A." but reject standalone single letters
+    for i, word in enumerate(words):
+        # Skip middle position (can be initial)
+        if i > 0 and i < len(words) - 1:
+            continue
+        # First and last names should be at least 2 characters
+        if len(word.rstrip('.')) < 2:
+            return False
 
     if name_lower.startswith('by ') or name_lower.startswith('for '):
         return False
@@ -290,7 +313,13 @@ def is_not_law_firm(firm_name, company_name=None):
     """Filter out non-law-firms"""
     firm_lower = firm_name.lower()
 
-    if firm_lower.startswith('opinion of') or firm_lower.startswith('opinion '):
+    # Filter out document-related prefixes that shouldn't be part of firm names
+    document_prefixes = [
+        'opinion of', 'exhibit', 'exhibit to', 'registration of',
+        'registration statement', 'amendment to', 'form ', 'filing of',
+        'supplement to', 'prospectus', 'preliminary prospectus'
+    ]
+    if any(firm_lower.startswith(prefix) for prefix in document_prefixes):
         return True
 
     garbage_names = ['law_firms', 'lawyers', 'law firm', 'example', 'firm name', 'another']
