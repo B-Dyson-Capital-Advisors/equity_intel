@@ -418,15 +418,25 @@ if page == "Legal Counsel Finder":
 
         with col1:
             # Create dropdown with law firms
-            firm_options = [""] + sorted(MAJOR_LAW_FIRMS)
+            firm_options = [""] + ["-- Custom/Other (type your own) --"] + sorted(MAJOR_LAW_FIRMS)
 
-            firm_name = st.selectbox(
+            firm_selection = st.selectbox(
                 "Law Firm Name",
                 options=firm_options,
                 index=0,
-                help="Select a law firm from the list or start typing to search",
-                key="firm_name"
+                help="Select a law firm from the list or choose 'Custom/Other' to type your own",
+                key="firm_name_select"
             )
+
+        # Show text input if "Custom/Other" is selected
+        if firm_selection == "-- Custom/Other (type your own) --":
+            firm_name = st.text_input(
+                "Enter Law Firm Name",
+                placeholder="E.g. Cooley LLP, Latham & Watkins",
+                key="firm_name_custom"
+            )
+        else:
+            firm_name = firm_selection
 
         with col2:
             firm_preset = st.selectbox(
