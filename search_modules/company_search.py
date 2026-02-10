@@ -457,9 +457,14 @@ def extract_lawyers_by_regex(text, company_name):
             normalized_firm = normalize_firm_name(firm)
             results[normalized_firm].add(normalize_lawyer_name(name))
 
+    # Flexible firm pattern for "legal matters" sections that allows commas and locations
+    # Matches: "Gibson, Dunn & Crutcher LLP" or "Davis Polk & Wardwell LLP"
+    # Pattern captures firm name up to location markers (city names, or double comma)
+    firm_pattern_with_commas = r'[A-Z][a-z]+(?:[,\s]+(?:&[,\s]+)?[A-Z][a-z]+)*[,\s]+(?:LLP|LLC|P\.C\.|P\.A\.)'
+
     # Pattern 6: "represented by" or "passed upon by" patterns (common in legal matters sections)
     # Matches: "represented by [Name], [Firm]" or "passed upon by [Name] of [Firm]"
-    pattern6 = r'(?:represented|passed upon|advised)\s+(?:for [^,]+\s+)?by\s+(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*(?:,\s*|of\s+)(' + firm_pattern_single_line + r')'
+    pattern6 = r'(?:represented|passed upon|advised)\s+(?:for [^,]+\s+)?by\s+(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*(?:,\s*|of\s+)(' + firm_pattern_with_commas + r')'
 
     matches6 = re.finditer(pattern6, text, re.MULTILINE | re.IGNORECASE)
 
@@ -481,12 +486,16 @@ def extract_lawyers_by_regex(text, company_name):
     # Pattern 7: Firm-only patterns in legal matters sections (when no names are listed)
     # Matches: "passed upon by [Firm]" or "represented by [Firm]"
     # This captures firms even without specific lawyer names
-    pattern7 = r'(?:represented|passed upon|advised)\s+(?:for [^,]+\s+)?by\s+(' + firm_pattern_single_line + r')'
+    # Uses flexible pattern to handle commas in firm names
+    pattern7 = r'(?:represented|passed upon|advised)\s+(?:for (?:us|the [^,]+?)\s+)?by\s+(' + firm_pattern_with_commas + r')(?:,\s+[A-Z][a-z]+)?'
 
     matches7 = re.finditer(pattern7, text, re.MULTILINE | re.IGNORECASE)
 
     for match in matches7:
         firm = match.group(1).strip()
+
+        # Clean up firm name - remove trailing commas and location info
+        firm = re.sub(r',\s*$', '', firm)
 
         if is_not_law_firm(firm, company_name):
             continue
