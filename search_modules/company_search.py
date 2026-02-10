@@ -415,6 +415,44 @@ def extract_lawyers_by_regex(text, company_name):
             normalized_firm = normalize_firm_name(firm)
             results[normalized_firm].add(normalize_lawyer_name(name))
 
+    # Pattern 6: "represented by" or "passed upon by" patterns (common in legal matters sections)
+    # Matches: "represented by [Name], [Firm]" or "passed upon by [Name] of [Firm]"
+    pattern6 = r'(?:represented|passed upon|advised)\s+(?:for [^,]+\s+)?by\s+(' + name_with_optional_middle + r')(?:,?\s*(?:Esq\.|P\.C\.))?\s*(?:,\s*|of\s+)(' + firm_pattern_single_line + r')'
+
+    matches6 = re.finditer(pattern6, text, re.MULTILINE | re.IGNORECASE)
+
+    for match in matches6:
+        name = match.group(1).strip()
+        firm = match.group(2).strip()
+        context = text[max(0, match.start()-100):match.end()+100]
+
+        if is_not_law_firm(firm, company_name):
+            continue
+
+        if not is_valid_person_name(name, company_name):
+            continue
+
+        if not is_internal_employee(name, context):
+            normalized_firm = normalize_firm_name(firm)
+            results[normalized_firm].add(normalize_lawyer_name(name))
+
+    # Pattern 7: Firm-only patterns in legal matters sections (when no names are listed)
+    # Matches: "passed upon by [Firm]" or "represented by [Firm]"
+    # This captures firms even without specific lawyer names
+    pattern7 = r'(?:represented|passed upon|advised)\s+(?:for [^,]+\s+)?by\s+(' + firm_pattern_single_line + r')'
+
+    matches7 = re.finditer(pattern7, text, re.MULTILINE | re.IGNORECASE)
+
+    for match in matches7:
+        firm = match.group(1).strip()
+
+        if is_not_law_firm(firm, company_name):
+            continue
+
+        # For firm-only matches, add empty name (will be shown as just firm)
+        normalized_firm = normalize_firm_name(firm)
+        results[normalized_firm].add('(Firm only - no lawyer name listed)')
+
     # Pattern 5: DISABLED - Too greedy and creates garbage matches
     # Problem: firm_pattern can match person names + firm names together
     # Example: "Zoey Hitzert\nKirkland & Ellis LLP" matches as firm="Zoey Hitzert Kirkland & Ellis LLP"
