@@ -261,6 +261,10 @@ if page == "Legal Counsel Finder":
                 format_dict['Market Cap'] = '{:,.2f}'
             if 'Available' in result_df.columns:
                 format_dict['Available'] = '{:,.0f}'
+            if 'Rebate Rate (%)' in result_df.columns:
+                format_dict['Rebate Rate (%)'] = '{:.2f}'
+            if 'Fee Rate (%)' in result_df.columns:
+                format_dict['Fee Rate (%)'] = '{:.2f}'
 
             if format_dict:
                 styled_df = result_df.style.format(format_dict, na_rep='')
@@ -391,6 +395,10 @@ if page == "Legal Counsel Finder":
                 format_dict['Market Cap'] = '{:,.2f}'
             if 'Available' in result_df.columns:
                 format_dict['Available'] = '{:,.0f}'
+            if 'Rebate Rate (%)' in result_df.columns:
+                format_dict['Rebate Rate (%)'] = '{:.2f}'
+            if 'Fee Rate (%)' in result_df.columns:
+                format_dict['Fee Rate (%)'] = '{:.2f}'
 
             if format_dict:
                 styled_df = result_df.style.format(format_dict, na_rep='')
@@ -521,6 +529,10 @@ if page == "Legal Counsel Finder":
                 format_dict['Market Cap'] = '{:,.2f}'
             if 'Available' in result_df.columns:
                 format_dict['Available'] = '{:,.0f}'
+            if 'Rebate Rate (%)' in result_df.columns:
+                format_dict['Rebate Rate (%)'] = '{:.2f}'
+            if 'Fee Rate (%)' in result_df.columns:
+                format_dict['Fee Rate (%)'] = '{:.2f}'
 
             if format_dict:
                 styled_df = result_df.style.format(format_dict, na_rep='')
@@ -580,6 +592,10 @@ elif page == "Stock Loan Availability":
             format_dict['Market Cap'] = '{:,.2f}'
         if 'Available' in result_df.columns:
             format_dict['Available'] = '{:,.0f}'
+        if 'Rebate Rate (%)' in result_df.columns:
+            format_dict['Rebate Rate (%)'] = '{:.2f}'
+        if 'Fee Rate (%)' in result_df.columns:
+            format_dict['Fee Rate (%)'] = '{:.2f}'
 
         if format_dict:
             styled_df = result_df.style.format(format_dict, na_rep='')
