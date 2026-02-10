@@ -504,6 +504,33 @@ def extract_lawyers_by_regex(text, company_name):
         normalized_firm = normalize_firm_name(firm)
         results[normalized_firm].add('(Firm only - no lawyer name listed)')
 
+    # Pattern 8: AGGRESSIVE - Extract ALL law firm names from LEGAL MATTERS sections
+    # This is a fallback to ensure we don't miss firms in legal matters sections
+    legal_matters_match = re.search(r'LEGAL MATTERS.{0,3000}', text, re.IGNORECASE | re.DOTALL)
+    if legal_matters_match:
+        legal_section = legal_matters_match.group(0)
+
+        # Simple firm pattern - just look for firm names with common suffixes
+        # Allows commas in names: "Gibson, Dunn & Crutcher LLP"
+        simple_firm_pattern = r'([A-Z][A-Za-z]+(?:(?:,\s*|\s+)(?:&\s+)?[A-Z][A-Za-z]+)*(?:,\s*|\s+)(?:LLP|LLC|P\.C\.|P\.A\.|N\.V\.))'
+
+        for match in re.finditer(simple_firm_pattern, legal_section):
+            firm = match.group(1).strip()
+
+            # Remove location info if present (e.g., ", Houston" or ", New York")
+            firm = re.sub(r',\s+[A-Z][a-z]+(?:,\s+[A-Z][a-z]+)?$', '', firm)
+            firm = re.sub(r',\s*$', '', firm)
+
+            if is_not_law_firm(firm, company_name):
+                continue
+
+            # Skip if this firm name starts with common non-firm words
+            if firm.split()[0].lower() in ['neither', 'each', 'and', 'or', 'the', 'such', 'any', 'all']:
+                continue
+
+            normalized_firm = normalize_firm_name(firm)
+            results[normalized_firm].add('(Firm only - no lawyer name listed)')
+
     # Pattern 5: DISABLED - Too greedy and creates garbage matches
     # Problem: firm_pattern can match person names + firm names together
     # Example: "Zoey Hitzert\nKirkland & Ellis LLP" matches as firm="Zoey Hitzert Kirkland & Ellis LLP"
