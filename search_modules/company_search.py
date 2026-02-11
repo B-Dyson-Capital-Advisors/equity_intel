@@ -900,6 +900,15 @@ def search_company_for_lawyers(company_identifier, start_date, end_date, api_key
     # Deduplicate lawyers within each firm (handles name variations)
     firm_to_lawyers = deduplicate_firm_lawyers(firm_to_lawyers)
 
+    # Filter out "(Firm only - no lawyer name listed)" if actual lawyers exist for that firm
+    for firm, lawyers in firm_to_lawyers.items():
+        # Check if there are any actual lawyer names (not the placeholder)
+        actual_lawyers = {l for l in lawyers if l != '(Firm only - no lawyer name listed)'}
+
+        # If there are actual lawyers, remove the placeholder
+        if actual_lawyers and '(Firm only - no lawyer name listed)' in lawyers:
+            lawyers.discard('(Firm only - no lawyer name listed)')
+
     results = []
     for firm, lawyers in firm_to_lawyers.items():
         if lawyers:
