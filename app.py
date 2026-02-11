@@ -10,7 +10,7 @@ from search_modules.stock_loan import fetch_shortstock_data, fetch_shortstock_wi
 
 st.set_page_config(
     page_title="EquityIntel",
-    page_icon="B",
+    page_icon="📊",
     layout="wide"
 )
 
@@ -100,7 +100,7 @@ def get_date_range(preset):
     end_date = pd.Timestamp.now()
     if preset == "Last 30 days":
         start_date = end_date - pd.DateOffset(days=30)
-    elif preset == "Last year":
+    elif preset == "Last 1 year":
         start_date = end_date - pd.DateOffset(years=1)
     elif preset == "Last 3 years":
         start_date = end_date - pd.DateOffset(years=3)
@@ -114,7 +114,7 @@ def get_date_range(preset):
         return None, None
     return start_date.date(), end_date.date()
 
-preset_options = ["Last 30 days", "Last year", "Last 3 years", "Last 5 years", "Last 10 years", "All (since 2001)", "Custom"]
+preset_options = ["Last 30 days", "Last 1 year", "Last 3 years", "Last 5 years", "Last 10 years", "All (since 2001)", "Custom"]
 
 if page == "Legal Counsel Finder":
     st.title("Legal Counsel Finder")
@@ -159,7 +159,7 @@ if page == "Legal Counsel Finder":
             company_preset = st.selectbox(
                 "Date Range",
                 options=preset_options,
-                index=3,  # Default to "Last 5 years"
+                index=1,  # Default to "Last 1 year"
                 key="company_preset_sel"
             )
 
@@ -294,7 +294,7 @@ if page == "Legal Counsel Finder":
             lawyer_preset = st.selectbox(
                 "Date Range",
                 options=preset_options,
-                index=3,  # Default to "Last 5 years"
+                index=1,  # Default to "Last 1 year"
                 key="lawyer_preset_sel"
             )
 
@@ -442,7 +442,7 @@ if page == "Legal Counsel Finder":
             firm_preset = st.selectbox(
                 "Date Range",
                 options=preset_options,
-                index=1,  # Default to "Last year"
+                index=1,  # Default to "Last 1 year"
                 key="firm_preset_sel"
             )
 
