@@ -56,6 +56,9 @@ def search_edgar(search_term, from_date, to_date, start_index=0, max_results=100
                     "company_name": source.get("display_names", ["Unknown"])[0] if source.get("display_names") else "Unknown",
                     "filing_type": source.get("file_type", ""),
                     "filing_date": source.get("file_date", ""),
+                    "cik": source.get("ciks", [""])[0] if source.get("ciks") else "",
+                    "accession_number": source.get("file_num", ""),
+                    "adsh": source.get("adsh", ""),  # Accession number without dashes
                 }
                 results.append(filing_info)
 
