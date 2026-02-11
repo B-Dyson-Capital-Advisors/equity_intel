@@ -477,10 +477,14 @@ if page == "Legal Counsel Finder":
                     st.error("Start date must be before end date")
                 else:
                     with st.spinner("Searching SEC filings..."):
-                        status_placeholder = st.empty()
+                        # Container for progress messages (will NOT be cleared)
+                        progress_container = st.container()
+                        messages = []
 
                         def progress_callback(message):
-                            status_placeholder.info(message)
+                            messages.append(message)
+                            with progress_container:
+                                st.info(message)
 
                         try:
                             result_df = search_law_firm_for_companies(
@@ -490,8 +494,6 @@ if page == "Legal Counsel Finder":
                                 progress_callback
                             )
 
-                            status_placeholder.empty()
-
                             st.session_state.firm_results = {
                                 'df': result_df,
                                 'filename': f"{firm_name.lower().replace(' ', '_').replace('&', 'and')}_companies.csv",
@@ -500,13 +502,12 @@ if page == "Legal Counsel Finder":
                             }
 
                         except Exception as e:
-                            status_placeholder.empty()
                             st.error(f"Error: {str(e)}")
                             st.session_state.firm_results = None
 
         # Display stored results if they exist
         if st.session_state.firm_results is not None:
-            result_df = st.session_state.firm_results['df']
+            result_df = st.session_state.firm_results['df'].copy()
             search_start = st.session_state.firm_results.get('search_start')
             search_end = st.session_state.firm_results.get('search_end')
 
@@ -518,7 +519,12 @@ if page == "Legal Counsel Finder":
             else:
                 st.success(f"Found {len(result_df)} results")
 
-            # Keep numeric types for proper sorting (no format config to avoid errors)
+            # Format Market Cap with thousand separators for readability
+            if 'Market Cap' in result_df.columns:
+                result_df['Market Cap'] = result_df['Market Cap'].apply(
+                    lambda x: f"${x:,.2f}" if pd.notna(x) else "N/A"
+                )
+
             st.dataframe(result_df, use_container_width=True, hide_index=True)
 
             csv = result_df.to_csv(index=False)
