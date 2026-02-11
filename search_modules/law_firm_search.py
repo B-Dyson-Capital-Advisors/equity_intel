@@ -4,8 +4,12 @@ from .utils import search_paginated, extract_ticker_and_clean_name, filter_impor
 from .company_search import get_company_filings, process_single_filing, clean_firm_name
 import re
 
+# Global debug tracking
+_debug_failures = []
+_debug_limit = 3
 
-def get_most_recent_lawyer_from_filing(cik, company_name, firm_name, adsh):
+
+def get_most_recent_lawyer_from_filing(cik, company_name, firm_name, adsh, debug=False):
     """
     Extract lawyer from a specific filing (much faster - only 1 filing fetch).
 
@@ -14,10 +18,13 @@ def get_most_recent_lawyer_from_filing(cik, company_name, firm_name, adsh):
         company_name: Company name
         firm_name: Law firm to search for
         adsh: Accession number of the filing (from search results)
+        debug: If True, collect detailed failure info
 
     Returns:
         Lawyer name from that firm, or None
     """
+    global _debug_failures
+
     try:
         # Construct filing URL from adsh
         if len(adsh) == 18:
@@ -38,21 +45,29 @@ def get_most_recent_lawyer_from_filing(cik, company_name, firm_name, adsh):
         from .company_search import extract_counsel_sections, extract_lawyers_by_regex
 
         text = None
+        successful_url = None
         for doc_url in doc_urls:
             try:
                 text = extract_counsel_sections(doc_url)
                 if text and len(text) > 500:
+                    successful_url = doc_url
                     break
-            except:
+            except Exception as e:
+                if debug and len(_debug_failures) < _debug_limit:
+                    _debug_failures.append(f"{company_name}: URL failed - {doc_url[:80]}... Error: {str(e)[:50]}")
                 continue
 
         if not text:
+            if debug and len(_debug_failures) < _debug_limit:
+                _debug_failures.append(f"{company_name}: No text extracted from any URL (tried {len(doc_urls)} URLs)")
             return None
 
         # Extract lawyers using regex
         firm_to_lawyers = extract_lawyers_by_regex(text, company_name)
 
         if not firm_to_lawyers:
+            if debug and len(_debug_failures) < _debug_limit:
+                _debug_failures.append(f"{company_name}: No lawyers found in text (text length: {len(text)})")
             return None
 
         # Find lawyers from the specific firm
@@ -70,9 +85,16 @@ def get_most_recent_lawyer_from_filing(cik, company_name, firm_name, adsh):
                 if lawyers:
                     return sorted(lawyers)[0]
 
+        # Firm name didn't match
+        if debug and len(_debug_failures) < _debug_limit:
+            found_firms = list(firm_to_lawyers.keys())[:3]
+            _debug_failures.append(f"{company_name}: Firm '{firm_name}' not matched. Found firms: {found_firms}")
+
         return None
 
-    except Exception:
+    except Exception as e:
+        if debug and len(_debug_failures) < _debug_limit:
+            _debug_failures.append(f"{company_name}: Exception - {str(e)[:100]}")
         return None
 
 
@@ -192,6 +214,10 @@ def search_law_firm_for_companies(firm_name, start_date, end_date, progress_call
     if progress_callback:
         progress_callback(f"Extracting lawyers from all companies (before market cap filter)...")
 
+    # Clear debug tracking
+    global _debug_failures
+    _debug_failures = []
+
     # Extract lawyers in parallel (15 workers for speed) - BEFORE market cap filter
     def extract_lawyer_for_row(row):
         """Extract lawyer from the filing we already found"""
@@ -216,7 +242,8 @@ def search_law_firm_for_companies(firm_name, start_date, end_date, progress_call
             cik,
             company,
             firm_name,
-            adsh
+            adsh,
+            debug=True  # Enable detailed debug tracking
         )
         return (company, lawyer)
 
@@ -247,9 +274,15 @@ def search_law_firm_for_companies(firm_name, start_date, end_date, progress_call
     if progress_callback:
         progress_callback(f"✓ Lawyer extraction complete: {len(company_to_lawyer)} found, {failed_extractions} failed")
         if error_samples:
-            progress_callback(f"⚠️ Sample errors (first 3):")
+            progress_callback(f"⚠️ Sample extraction exceptions (first 3):")
             for i, err in enumerate(error_samples, 1):
-                progress_callback(f"  Error {i}: {err[:100]}")
+                progress_callback(f"  Exception {i}: {err[:100]}")
+
+        # Show debug failures (detailed diagnostic info)
+        if _debug_failures:
+            progress_callback(f"🔍 Detailed failure diagnostics (first {len(_debug_failures)}):")
+            for i, failure_msg in enumerate(_debug_failures, 1):
+                progress_callback(f"  {i}. {failure_msg}")
 
     # NOW filter for companies with market cap > $500M
     if 'Market Cap' in result_df.columns:
