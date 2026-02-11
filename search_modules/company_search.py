@@ -313,10 +313,11 @@ def is_not_law_firm(firm_name, company_name=None):
         if any(keyword in firm_lower for keyword in operating_company_keywords):
             return True
 
-    # Filter accounting firms (Big 4)
+    # Filter accounting firms (Big 4 + others)
     accounting_patterns = [
         r'\bdeloitte\b', r'\bpwc\b', r'\bpricewaterhousecoopers\b',
-        r'\bernst\s*&\s*young\b', r'\bkpmg\b', r'\bey\b'
+        r'\bernst\s*&\s*young\b', r'\bkpmg\b', r'\bey\b',
+        r'\bbdo\b', r'\brsm\b'
     ]
     for pattern in accounting_patterns:
         if re.search(pattern, firm_lower):
