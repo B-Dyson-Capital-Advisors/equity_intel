@@ -36,13 +36,12 @@ def get_most_recent_lawyer_from_filing(cik, company_name, firm_name, adsh, debug
         adsh_clean = adsh.replace('-', '')
 
         # Try different URL formats
-        # 1. Direct .htm file (often 404)
-        # 2. Index page (JavaScript-based, not parseable)
-        # 3. SEC Viewer API (renders actual content - BEST OPTION)
+        # 1. Complete submission text file (NO JAVASCRIPT - contains everything!)
+        # 2. Direct .htm file (often 404)
+        # 3. Viewer API (requires JavaScript - not parseable)
         doc_urls = [
-            f"https://www.sec.gov/cgi-bin/viewer?action=view&cik={cik_stripped}&accession_number={accession_with_dashes}&xbrl_type=v",
+            f"https://www.sec.gov/Archives/edgar/data/{cik_stripped}/{adsh_clean}.txt",
             f"https://www.sec.gov/Archives/edgar/data/{cik_stripped}/{adsh_clean}/{accession_with_dashes}.htm",
-            f"https://www.sec.gov/Archives/edgar/data/{cik_stripped}/{adsh_clean}/{accession_with_dashes}-index.htm",
         ]
 
         # Extract text from filing
