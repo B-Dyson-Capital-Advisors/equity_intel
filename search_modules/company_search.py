@@ -694,7 +694,9 @@ def extract_counsel_sections(doc_url):
         soup = BeautifulSoup(response.text, 'html.parser')
         text = soup.get_text(separator='\n')
 
-        if len(text) < 5000:
+        # Lowered from 5000 to 1000 - index files are typically shorter
+        # but still contain valid lawyer information in signature blocks
+        if len(text) < 1000:
             return None
 
         # Look for LEGAL MATTERS section (typically near end of document)
