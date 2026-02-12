@@ -380,9 +380,15 @@ if page == "Legal Counsel Finder":
                 st.success(f"Found {len(result_df)} results")
 
             # Configure column formatting while keeping numeric sorting
+            # Round Market Cap and Available to whole numbers for display
+            if 'Market Cap' in result_df.columns:
+                result_df['Market Cap'] = result_df['Market Cap'].round(0)
+            if 'Available' in result_df.columns:
+                result_df['Available'] = result_df['Available'].round(0)
+
             column_config = {}
             if 'Market Cap' in result_df.columns:
-                column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="accounting")
+                column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="localized")
             if '52wk High' in result_df.columns:
                 column_config['52wk High'] = st.column_config.NumberColumn('52wk High ($)', format="%.2f")
             if '52wk Low' in result_df.columns:
@@ -392,7 +398,7 @@ if page == "Legal Counsel Finder":
             if 'Fee Rate (%)' in result_df.columns:
                 column_config['Fee Rate (%)'] = st.column_config.NumberColumn('Fee Rate (%)', format="%.2f")
             if 'Available' in result_df.columns:
-                column_config['Available'] = st.column_config.NumberColumn('Available', format="accounting")
+                column_config['Available'] = st.column_config.NumberColumn('Available', format="localized")
 
             st.dataframe(result_df, use_container_width=True, hide_index=True, column_config=column_config)
 
@@ -532,9 +538,15 @@ if page == "Legal Counsel Finder":
                 st.success(f"Found {len(result_df)} results")
 
             # Configure column formatting while keeping numeric sorting
+            # Round Market Cap and Available to whole numbers for display
+            if 'Market Cap' in result_df.columns:
+                result_df['Market Cap'] = result_df['Market Cap'].round(0)
+            if 'Available' in result_df.columns:
+                result_df['Available'] = result_df['Available'].round(0)
+
             column_config = {}
             if 'Market Cap' in result_df.columns:
-                column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="accounting")
+                column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="localized")
             if '52wk High' in result_df.columns:
                 column_config['52wk High'] = st.column_config.NumberColumn('52wk High ($)', format="%.2f")
             if '52wk Low' in result_df.columns:
@@ -544,7 +556,7 @@ if page == "Legal Counsel Finder":
             if 'Fee Rate (%)' in result_df.columns:
                 column_config['Fee Rate (%)'] = st.column_config.NumberColumn('Fee Rate (%)', format="%.2f")
             if 'Available' in result_df.columns:
-                column_config['Available'] = st.column_config.NumberColumn('Available', format="accounting")
+                column_config['Available'] = st.column_config.NumberColumn('Available', format="localized")
 
             st.dataframe(result_df, use_container_width=True, hide_index=True, column_config=column_config)
 
@@ -596,15 +608,21 @@ elif page == "Stock Loan Availability":
 
         # Configure column formatting while keeping numeric sorting
         display_df = result_df.copy()
+        # Round Market Cap and Available to whole numbers for display
+        if 'Market Cap' in display_df.columns:
+            display_df['Market Cap'] = display_df['Market Cap'].round(0)
+        if 'Available' in display_df.columns:
+            display_df['Available'] = display_df['Available'].round(0)
+
         column_config = {}
         if 'Market Cap' in display_df.columns:
-            column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="accounting")
+            column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="localized")
         if '52wk High' in display_df.columns:
             column_config['52wk High'] = st.column_config.NumberColumn('52wk High ($)', format="%.2f")
         if '52wk Low' in display_df.columns:
             column_config['52wk Low'] = st.column_config.NumberColumn('52wk Low ($)', format="%.2f")
         if 'Available' in display_df.columns:
-            column_config['Available'] = st.column_config.NumberColumn('Available', format="accounting")
+            column_config['Available'] = st.column_config.NumberColumn('Available', format="localized")
         if 'Rebate Rate (%)' in display_df.columns:
             column_config['Rebate Rate (%)'] = st.column_config.NumberColumn('Rebate Rate (%)', format="%.2f")
         if 'Fee Rate (%)' in display_df.columns:
