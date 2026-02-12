@@ -211,10 +211,12 @@ if page == "Legal Counsel Finder":
                     st.error("Start date must be before end date")
                 else:
                     with st.spinner("Searching SEC filings..."):
-                        status_placeholder = st.empty()
+                        progress_box = st.empty()
+                        messages = []
 
                         def progress_callback(message):
-                            status_placeholder.info(message)
+                            messages.append(message)
+                            progress_box.info("\n".join(messages))
 
                         try:
                             result_df = search_company_for_lawyers(
@@ -227,7 +229,7 @@ if page == "Legal Counsel Finder":
                                 company_name=selected_company['name']
                             )
 
-                            status_placeholder.empty()
+                            progress_box.empty()
 
                             st.session_state.company_results = {
                                 'df': result_df,
@@ -334,10 +336,12 @@ if page == "Legal Counsel Finder":
                     st.error("Start date must be before end date")
                 else:
                     with st.spinner("Searching SEC filings..."):
-                        status_placeholder = st.empty()
+                        progress_box = st.empty()
+                        messages = []
 
                         def progress_callback(message):
-                            status_placeholder.info(message)
+                            messages.append(message)
+                            progress_box.info("\n".join(messages))
 
                         try:
                             result_df = search_lawyer_for_companies(
@@ -347,7 +351,7 @@ if page == "Legal Counsel Finder":
                                 progress_callback
                             )
 
-                            status_placeholder.empty()
+                            progress_box.empty()
 
                             st.session_state.lawyer_results = {
                                 'df': result_df,
@@ -477,14 +481,14 @@ if page == "Legal Counsel Finder":
                     st.error("Start date must be before end date")
                 else:
                     with st.spinner("Searching SEC filings..."):
-                        # Container for progress messages (will NOT be cleared)
-                        progress_container = st.container()
+                        # Single progress box that updates in place
+                        progress_box = st.empty()
                         messages = []
 
                         def progress_callback(message):
                             messages.append(message)
-                            with progress_container:
-                                st.info(message)
+                            # Update single box with all messages
+                            progress_box.info("\n".join(messages))
 
                         try:
                             result_df = search_law_firm_for_companies(
