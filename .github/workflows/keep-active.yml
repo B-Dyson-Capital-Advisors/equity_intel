@@ -2,7 +2,7 @@ name: Keep App Active
 
 on:
   schedule:
-    - cron: "0 */10 * * *" # every 10 hours
+    - cron: "0 */6 * * *" # every 6 hours
   workflow_dispatch:
 
 concurrency:
@@ -16,13 +16,40 @@ jobs:
   keep-alive:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Streamlit app to keep it active
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright
         run: |
-          echo "Pinging Streamlit app at https://equityintel.streamlit.app"
-          response=$(curl -s -o /dev/null -w "%{http_code}" https://equityintel.streamlit.app)
-          echo "Response code: $response"
-          if [ $response -eq 200 ] || [ $response -eq 301 ] || [ $response -eq 302 ] || [ $response -eq 303 ]; then
-            echo "App is alive!"
-          else
-            echo "Warning: Received response code $response"
-          fi
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Visit Streamlit app with headless browser
+        run: |
+          node << 'EOF'
+          const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            const context = await browser.newContext({
+              userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            });
+            const page = await context.newPage();
+            try {
+              console.log('Opening https://equityintel.streamlit.app ...');
+              await page.goto('https://equityintel.streamlit.app', {
+                timeout: 60000,
+                waitUntil: 'domcontentloaded'
+              });
+              // Hold the session open so the WebSocket has time to connect
+              await page.waitForTimeout(15000);
+              console.log('App session established successfully.');
+            } catch (e) {
+              console.error('Failed to visit app:', e.message);
+              process.exit(1);
+            } finally {
+              await browser.close();
+            }
+          })();
+          EOF
