@@ -403,8 +403,9 @@ def extract_lawyers_by_regex(text, company_name):
 
     # Name pattern: FirstName (MiddleInitials)? LastName
     # Middle initials REQUIRE periods to avoid matching first letter of last name
-    # Pattern handles both "Joshua N. Korff" and "Zoey Hitzert"
-    name_with_optional_middle = r'[A-Z][a-z]+(?:(?:\s+[A-Z]\.)+\s+|\s+)[A-Z][a-z]+'
+    # LastName pattern allows for names like McDowell, MacDonald, O'Brien
+    # Pattern handles: "Joshua N. Korff", "Zoey Hitzert", "Stewart McDowell"
+    name_with_optional_middle = r'[A-Z][a-z]+(?:(?:\s+[A-Z]\.)+\s+|\s+)[A-Z][a-zA-Z\']+'
 
     # Firm pattern: Match complete multi-word firm names
     # Examples: "Kirkland & Ellis LLP", "Wilson Sonsini LLP", "Cooley LLP"
