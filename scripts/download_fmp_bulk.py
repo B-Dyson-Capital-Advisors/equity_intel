@@ -25,10 +25,20 @@ class FMPBulkDownloader:
     BASE_URL = "https://financialmodelingprep.com/api"
 
     def __init__(self, api_key=None):
-        """Initialize with API key from environment or parameter"""
+        """Initialize with API key from environment, Streamlit secrets, or parameter"""
+        # Priority: 1) Parameter 2) Environment variable 3) Streamlit secrets
         self.api_key = api_key or os.getenv('FMP_API_KEY')
+
+        # Try Streamlit secrets if available
         if not self.api_key:
-            raise ValueError("FMP_API_KEY not found in environment variables")
+            try:
+                import streamlit as st
+                self.api_key = st.secrets.get('FMP_API_KEY')
+            except:
+                pass
+
+        if not self.api_key:
+            raise ValueError("FMP_API_KEY not found in environment variables or Streamlit secrets")
 
         # Create data directories
         self.data_dir = Path(__file__).parent.parent / 'data' / 'fmp'
