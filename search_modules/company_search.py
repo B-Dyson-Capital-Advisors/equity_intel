@@ -551,7 +551,7 @@ def extract_lawyers_by_regex(text, company_name):
 
     for match in matches9:
         name = match.group(1).strip()
-        firm = match.group(2).strip()
+        firm = clean_firm_name(match.group(2))
         context = text[max(0, match.start()-100):match.end()+100]
 
         if is_not_law_firm(firm, company_name):
