@@ -57,50 +57,90 @@ def fetch_shortstock_data():
 
 def fetch_shortstock_with_market_cap():
     """
-    Fetch stock loan data and merge with reference file to add market cap, 52wk high/low
-    Only returns stocks that appear in the reference file
+    NEW FLOW: Start with FMP data, filter US stocks, then join with IB short interest
+
+    1. Load FMP bulk profiles
+    2. Filter: US exchanges (NYSE/NASDAQ), no ETF/ADR/fund, actively trading only
+    3. Join with Interactive Brokers FTP short interest data
+
+    Returns: Filtered US stocks with market cap + short interest data
     """
     try:
-        # Fetch stock loan data
-        stock_loan_df = fetch_shortstock_data()
-
-        # Load reference data
+        # Step 1: Load FMP bulk profiles
         reference_df = load_stock_reference()
 
         if reference_df is None:
-            # If no reference file, return stock loan data as-is
+            # Fallback to old flow if FMP data not available
+            stock_loan_df = fetch_shortstock_data()
             return stock_loan_df
 
-        # Clean symbols for matching
+        # Step 2: Filter for US stocks only (NYSE/NASDAQ)
+        from pathlib import Path
+        import pandas as pd
+
+        fmp_file = Path(__file__).parent.parent / "data" / "fmp" / "profiles_bulk.csv"
+
+        if not fmp_file.exists():
+            # Fallback to old flow
+            stock_loan_df = fetch_shortstock_data()
+            return stock_loan_df
+
+        # Load full FMP data for filtering
+        fmp_df = pd.read_csv(fmp_file)
+
+        # Filter criteria:
+        # - US exchanges: NYSE or NASDAQ only
+        # - Not ETF, ADR, or fund
+        # - Actively trading only
+        us_stocks = fmp_df[
+            (fmp_df['exchange'].isin(['NYSE', 'NASDAQ'])) &
+            (fmp_df['isEtf'] == False) &
+            (fmp_df['isAdr'] == False) &
+            (fmp_df['isFund'] == False) &
+            (fmp_df['isActivelyTrading'] == True)
+        ].copy()
+
+        # Select relevant columns
+        us_stocks = us_stocks[['symbol', 'companyName', 'exchange', 'marketCap', 'sector', 'industry']].copy()
+        us_stocks.columns = ['Symbol', 'Company Name', 'Exchange', 'Market Cap', 'Sector', 'Industry']
+
+        # Clean symbols
+        us_stocks['Symbol'] = us_stocks['Symbol'].str.strip().str.upper()
+
+        # Remove duplicates
+        us_stocks = us_stocks.drop_duplicates(subset=['Symbol'], keep='first')
+
+        # Step 3: Fetch IB short interest data
+        stock_loan_df = fetch_shortstock_data()
+
+        # Clean IB symbols for matching
         stock_loan_df['Symbol_Clean'] = stock_loan_df['Symbol'].str.strip().str.upper()
 
-        # Determine which columns to merge (adapt to available columns in reference)
-        merge_columns = ['Symbol', 'Market Cap']
-        if '52wk High' in reference_df.columns:
-            merge_columns.append('52wk High')
-        if '52wk Low' in reference_df.columns:
-            merge_columns.append('52wk Low')
-
-        # Filter to only include stocks in reference file and add market cap + 52wk data
-        enriched_df = stock_loan_df.merge(
-            reference_df[merge_columns],
-            left_on='Symbol_Clean',
-            right_on='Symbol',
-            how='inner',  # Only keep stocks in reference file
-            suffixes=('', '_ref')
+        # Step 4: Join - only keep US stocks that have short interest data
+        enriched_df = us_stocks.merge(
+            stock_loan_df,
+            left_on='Symbol',
+            right_on='Symbol_Clean',
+            how='inner',  # Only stocks in both datasets
+            suffixes=('_fmp', '_ib')
         )
 
-        # Drop temporary/duplicate columns
-        enriched_df = enriched_df.drop(['Symbol_Clean', 'Symbol_ref'], axis=1, errors='ignore')
+        # Drop duplicate/temporary columns
+        enriched_df = enriched_df.drop(['Symbol_Clean', 'Symbol_ib'], axis=1, errors='ignore')
 
-        # Reorder columns: Date, Time, Symbol, Currency, Name, Market Cap, 52wk High/Low, Stock Loan Data
-        column_order = ['Date', 'Time', 'Symbol', 'Currency', 'Name', 'Market Cap']
-        if '52wk High' in enriched_df.columns:
-            column_order.append('52wk High')
-        if '52wk Low' in enriched_df.columns:
-            column_order.append('52wk Low')
-        column_order.extend(['Rebate Rate (%)', 'Fee Rate (%)', 'Available'])
+        # Use FMP company name, drop IB name
+        if 'Name' in enriched_df.columns:
+            enriched_df = enriched_df.drop('Name', axis=1)
 
+        # Rename Symbol_fmp back to Symbol
+        if 'Symbol_fmp' in enriched_df.columns:
+            enriched_df = enriched_df.rename(columns={'Symbol_fmp': 'Symbol'})
+
+        # Reorder columns: Date, Time, Symbol, Company, Exchange, Market Cap, Sector, Industry, Stock Loan Data
+        column_order = ['Date', 'Time', 'Symbol', 'Company Name', 'Exchange', 'Market Cap', 'Sector', 'Industry', 'Currency', 'Rebate Rate (%)', 'Fee Rate (%)', 'Available']
+
+        # Only include columns that exist
+        column_order = [col for col in column_order if col in enriched_df.columns]
         enriched_df = enriched_df[column_order]
 
         return enriched_df
