@@ -485,6 +485,11 @@ if page == "Legal Counsel Finder":
             if not firm_name:
                 st.error("Please enter a law firm name")
             else:
+                # Get API key for lawyer search
+                api_key = st.secrets.get("OPENAI_API_KEY")
+                if not api_key:
+                    st.warning("OpenAI API key not configured. Lawyer names will not be included.")
+
                 # Use calculated dates when preset is not Custom, otherwise use widget values
                 if firm_preset != "Custom":
                     search_start = firm_start_date
@@ -496,21 +501,22 @@ if page == "Legal Counsel Finder":
                 if search_start >= search_end:
                     st.error("Start date must be before end date")
                 else:
-                    with st.spinner("Searching SEC filings..."):
-                        # Show only important messages
+                    with st.spinner("Searching SEC filings and finding lawyers..."):
+                        # Show all progress messages
                         progress_box = st.empty()
 
                         def progress_callback(message):
-                            # Only show search complete or error messages
-                            if "Search complete:" in message or "Note:" in message or "Error" in message:
-                                progress_box.info(message)
+                            # Show all progress messages
+                            progress_box.info(message)
 
                         try:
                             result_df = search_law_firm_for_companies(
                                 firm_name.strip(),
                                 search_start,
                                 search_end,
-                                progress_callback
+                                progress_callback,
+                                include_lawyers=True,  # Always include lawyers
+                                api_key=api_key
                             )
 
                             st.session_state.firm_results = {
