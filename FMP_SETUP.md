@@ -30,7 +30,7 @@ FMP_API_KEY=your_actual_api_key_here
 Add your API key as a **GitHub Secret**:
 
 1. Go to your GitHub repository
-2. Click **Settings** → **Secrets and variables** → **Actions**
+2. Click **Settings** -> **Secrets and variables** -> **Actions**
 3. Click **New repository secret**
 4. Name: `FMP_API_KEY`
 5. Value: `your_actual_api_key_here`
@@ -45,7 +45,7 @@ Add your API key as a **GitHub Secret**:
 Add to Streamlit secrets:
 
 1. Go to your Streamlit Cloud dashboard
-2. Click on your app → **Settings** → **Secrets**
+2. Click on your app -> **Settings** -> **Secrets**
 3. Add:
    ```toml
    FMP_API_KEY = "your_actual_api_key_here"
@@ -99,7 +99,7 @@ python scripts/process_market_data.py
 
 1. Add `FMP_API_KEY` to GitHub Secrets (see instructions above)
 2. GitHub Actions will run automatically at **7 AM UTC daily**
-3. Or trigger manually: **Actions** tab → **Update FMP Market Data** → **Run workflow**
+3. Or trigger manually: **Actions** tab -> **Update FMP Market Data** -> **Run workflow**
 
 ---
 
@@ -109,18 +109,18 @@ After processing, you'll find these files in `data/`:
 
 ```
 data/
-├── fmp/                              # Raw FMP data
-│   ├── eod_bulk_2026-03-04.csv      # EOD prices
-│   ├── profiles_bulk.csv             # Company profiles
-│   ├── key_metrics_annual_2026.csv   # Key metrics
-│   ├── ratios_annual_2026.csv        # Financial ratios
-│   └── income_statement_annual_2026.csv
-│
-├── screening_data_full.csv           # ALL stocks (complete dataset)
-├── screening_data_large_cap.csv      # Market cap > $10B
-├── screening_data_mid_cap.csv        # Market cap $2B-$10B
-├── screening_data_small_cap.csv      # Market cap $300M-$2B
-└── screening_data_us_only.csv        # US stocks only
+|-- fmp/                              # Raw FMP data
+|   |-- eod_bulk_2026-03-04.csv      # EOD prices
+|   |-- profiles_bulk.csv             # Company profiles
+|   |-- key_metrics_annual_2026.csv   # Key metrics
+|   |-- ratios_annual_2026.csv        # Financial ratios
+|   `-- income_statement_annual_2026.csv
+|
+|-- screening_data_full.csv           # ALL stocks (complete dataset)
+|-- screening_data_large_cap.csv      # Market cap > $10B
+|-- screening_data_mid_cap.csv        # Market cap $2B-$10B
+|-- screening_data_small_cap.csv      # Market cap $300M-$2B
+`-- screening_data_us_only.csv        # US stocks only
 ```
 
 ---
