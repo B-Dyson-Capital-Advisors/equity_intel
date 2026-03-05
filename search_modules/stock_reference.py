@@ -18,20 +18,39 @@ def load_stock_reference():
         fmp_reference = Path(__file__).parent.parent / "data" / "stock_reference_fmp.csv"
 
         if fmp_reference.exists():
-            # Load pre-filtered, compact reference (6K US stocks, 0.5 MB)
+            # Load pre-filtered, compact reference (US stocks, NYSE/NASDAQ)
             df = pd.read_csv(fmp_reference)
 
-            # Rename columns to standard format
-            df.columns = ['Symbol', 'Company Name', 'Exchange', 'Market Cap', 'Sector', 'Industry']
+            # Standardize column names (handle both old and new formats)
+            # New format: symbol, companyName, exchange, marketCap, ceo, ipoDate, enterpriseValueTTM
+            # Old format: symbol, companyName, exchange, marketCap, sector, industry
+            column_renames = {
+                'symbol': 'Symbol',
+                'companyName': 'Company Name',
+                'exchange': 'Exchange',
+                'marketCap': 'Market Cap',
+                'sector': 'Sector',
+                'industry': 'Industry',
+                'ceo': 'CEO',
+                'ipoDate': 'IPO Date',
+                'enterpriseValueTTM': 'Enterprise Value TTM'
+            }
+
+            # Only rename columns that exist
+            existing_renames = {k: v for k, v in column_renames.items() if k in df.columns}
+            df = df.rename(columns=existing_renames)
 
             # Clean up Symbol column
             df['Symbol'] = df['Symbol'].astype(str).str.strip().str.upper()
 
-            # Convert Market Cap to numeric
-            df['Market Cap'] = pd.to_numeric(df['Market Cap'], errors='coerce')
+            # Convert numeric columns
+            if 'Market Cap' in df.columns:
+                df['Market Cap'] = pd.to_numeric(df['Market Cap'], errors='coerce')
+                # Remove rows with missing or zero market cap
+                df = df[df['Market Cap'] > 0]
 
-            # Remove rows with missing or zero market cap
-            df = df[df['Market Cap'] > 0]
+            if 'Enterprise Value TTM' in df.columns:
+                df['Enterprise Value TTM'] = pd.to_numeric(df['Enterprise Value TTM'], errors='coerce')
 
             # Remove duplicates (keep first occurrence)
             df = df.drop_duplicates(subset=['Symbol'], keep='first')
@@ -127,6 +146,12 @@ def filter_and_enrich_tickers(df, ticker_column='Ticker'):
         merge_columns.append('Sector')
     if 'Industry' in reference_df.columns:
         merge_columns.append('Industry')
+    if 'CEO' in reference_df.columns:
+        merge_columns.append('CEO')
+    if 'IPO Date' in reference_df.columns:
+        merge_columns.append('IPO Date')
+    if 'Enterprise Value TTM' in reference_df.columns:
+        merge_columns.append('Enterprise Value TTM')
 
     # Legacy 52wk columns (if available)
     if '52wk High' in reference_df.columns:
