@@ -100,18 +100,18 @@ All data is sourced from SEC EDGAR public filings.
 ## Project Structure
 ```
 legal_counsel_finder/
-├── app.py                          # Main Streamlit application
-├── search_modules/                 # Search logic modules
-│   ├── __init__.py
-│   ├── company_search.py          # Company to lawyers search
-│   ├── lawyer_search.py           # Lawyer to companies search
-│   ├── law_firm_search.py         # Law firm to companies search
-│   └── utils.py                   # Shared utilities
-├── .streamlit/
-│   └── secrets.toml.example       # Example secrets configuration
-├── requirements.txt               # Python dependencies
-├── .gitignore                     # Protects secrets from git
-└── README.md                      # This file
+|-- app.py                          # Main Streamlit application
+|-- search_modules/                 # Search logic modules
+|   |-- __init__.py
+|   |-- company_search.py          # Company to lawyers search
+|   |-- lawyer_search.py           # Lawyer to companies search
+|   |-- law_firm_search.py         # Law firm to companies search
+|   `-- utils.py                   # Shared utilities
+|-- .streamlit/
+|   `-- secrets.toml.example       # Example secrets configuration
+|-- requirements.txt               # Python dependencies
+|-- .gitignore                     # Protects secrets from git
+`-- README.md                      # This file
 ```
 
 ## Notes
