@@ -245,6 +245,17 @@ def main():
         print("   - screening_data_small_cap.csv ($300M-$2B)")
         print("   - screening_data_us_only.csv (US only)")
 
+    except FileNotFoundError as e:
+        error_msg = str(e)
+        if "EOD bulk files" in error_msg:
+            print(f"\n⚠️  {e}")
+            print("\nℹ️  EOD files are optional for screening datasets.")
+            print("   The app only needs profiles_bulk.csv (already downloaded).")
+            print("\n✅ Skipping screening dataset creation - not required for app.")
+            return  # Exit gracefully
+        else:
+            print(f"\n Error: {e}")
+            raise
     except Exception as e:
         print(f"\n Error: {e}")
         raise
