@@ -30,33 +30,94 @@ class MarketDataProcessor:
         df = pd.read_csv(profiles_file)
         print(f"  Loaded {len(df):,} profiles")
 
+        # Apply filters: currency=USD, country=US
+        initial_count = len(df)
+        df = df[
+            (df['currency'] == 'USD') &
+            (df['country'] == 'US')
+        ].copy()
+        filtered_count = len(df)
+        print(f"  Filtered to USD + US: {filtered_count:,} (removed {initial_count - filtered_count:,})")
+
         return df
 
-    def create_stock_reference(self, profiles_df):
+    def load_key_metrics_ttm(self):
+        """Load key metrics TTM bulk data"""
+        key_metrics_file = self.fmp_dir / 'key_metrics_ttm_bulk.csv'
+        if not key_metrics_file.exists():
+            print(f"\nWARNING: key_metrics_ttm_bulk.csv not found at {key_metrics_file}")
+            return None
+
+        print(f"\nLoading key metrics TTM...")
+        df = pd.read_csv(key_metrics_file)
+        print(f"  Loaded {len(df):,} key metrics")
+
+        # Filter for enterpriseValueTTM > 100MM
+        if 'enterpriseValueTTM' in df.columns:
+            df['enterpriseValueTTM'] = pd.to_numeric(df['enterpriseValueTTM'], errors='coerce')
+            initial_count = len(df)
+            df = df[df['enterpriseValueTTM'] > 100_000_000].copy()
+            filtered_count = len(df)
+            print(f"  Filtered enterpriseValueTTM > 100MM: {filtered_count:,} (removed {initial_count - filtered_count:,})")
+        else:
+            print(f"  WARNING: enterpriseValueTTM column not found")
+
+        return df
+
+    def create_stock_reference(self, profiles_df, key_metrics_df=None):
         """
         Create compact stock reference file for the app
 
-        Filters to US stocks only (NYSE/NASDAQ) and keeps only essential columns
-        This file is small enough to commit to git (~0.5 MB vs 91 MB profiles)
+        Merges profiles + key metrics, filters to US stocks (NYSE/NASDAQ)
+        Keeps only required columns: marketCap, ceo, ipoDate, enterpriseValueTTM
+        This file is small enough to commit to git
         """
         print("\n" + "=" * 80)
         print("CREATING STOCK REFERENCE (US STOCKS)")
         print("=" * 80)
 
-        # Filter to US stocks only (same logic as app)
-        us_stocks = profiles_df[
-            (profiles_df['exchange'].isin(['NYSE', 'NASDAQ'])) &
-            (profiles_df['isEtf'] == False) &
-            (profiles_df['isAdr'] == False) &
-            (profiles_df['isFund'] == False) &
-            (profiles_df['isActivelyTrading'] == True)
+        # Start with profiles (already filtered to currency=USD, country=US)
+        print(f"\nStarting with {len(profiles_df):,} profiles (USD, US)")
+
+        # Merge with key metrics if available
+        if key_metrics_df is not None:
+            print(f"Merging with {len(key_metrics_df):,} key metrics...")
+
+            # Keep only enterpriseValueTTM from key metrics
+            key_metrics_columns = ['symbol', 'enterpriseValueTTM']
+            if 'enterpriseValueTTM' in key_metrics_df.columns:
+                merged_df = profiles_df.merge(
+                    key_metrics_df[key_metrics_columns],
+                    on='symbol',
+                    how='inner'  # Only keep stocks with both profile + key metrics
+                )
+                print(f"  After merge: {len(merged_df):,} stocks (have both profile + key metrics)")
+            else:
+                print("  WARNING: enterpriseValueTTM not found in key metrics")
+                merged_df = profiles_df.copy()
+        else:
+            print("  Skipping key metrics merge (data not available)")
+            merged_df = profiles_df.copy()
+
+        # Filter to US stocks only (NYSE/NASDAQ, no ETF/ADR/fund, actively trading)
+        us_stocks = merged_df[
+            (merged_df['exchange'].isin(['NYSE', 'NASDAQ'])) &
+            (merged_df['isEtf'] == False) &
+            (merged_df['isAdr'] == False) &
+            (merged_df['isFund'] == False) &
+            (merged_df['isActivelyTrading'] == True)
         ].copy()
 
-        print(f"\nFiltered to {len(us_stocks):,} US stocks (NYSE/NASDAQ)")
+        print(f"Filtered to {len(us_stocks):,} US stocks (NYSE/NASDAQ, no ETF/ADR/fund)")
 
-        # Keep only essential columns
-        essential_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'sector', 'industry']
-        reference_df = us_stocks[essential_columns].copy()
+        # Keep only required columns
+        required_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'ceo', 'ipoDate']
+        if 'enterpriseValueTTM' in us_stocks.columns:
+            required_columns.append('enterpriseValueTTM')
+
+        # Check which columns exist
+        available_columns = [col for col in required_columns if col in us_stocks.columns]
+        reference_df = us_stocks[available_columns].copy()
 
         # Clean data
         reference_df['marketCap'] = pd.to_numeric(reference_df['marketCap'], errors='coerce')
@@ -75,13 +136,13 @@ class MarketDataProcessor:
         print(f"\n  SUCCESS: {output_file}")
         print(f"  Stocks: {len(reference_df):,}")
         print(f"  Size: {file_size_mb:.1f} MB")
-        print(f"  Columns: {', '.join(essential_columns)}")
+        print(f"  Columns: {', '.join(available_columns)}")
 
         return reference_df
 
     def create_screening_dataset(self):
         """
-        Create full screening dataset from profiles
+        Create full screening dataset from profiles + key metrics
 
         This is the complete dataset with all columns and all exchanges.
         Note: This file is large (79 MB) and gitignored - only for local/workflow use.
@@ -90,11 +151,15 @@ class MarketDataProcessor:
         print("CREATING FULL SCREENING DATASET")
         print("=" * 80)
 
-        # Load profiles (has everything we need)
+        # Load profiles (with USD/US filters)
         profiles_df = self.load_profiles()
 
+        # Load key metrics TTM
+        key_metrics_df = self.load_key_metrics_ttm()
+
         # First create the compact US stock reference (committable to git)
-        reference_df = self.create_stock_reference(profiles_df)
+        # This merges profiles + key metrics and filters to NYSE/NASDAQ
+        reference_df = self.create_stock_reference(profiles_df, key_metrics_df)
 
         # Now create full screening dataset (all stocks, all columns)
         print("\n" + "=" * 80)

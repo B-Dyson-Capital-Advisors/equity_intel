@@ -134,28 +134,95 @@ class FMPBulkDownloader:
 
         return combined_df
 
+    def download_key_metrics_ttm_bulk(self):
+        """
+        Download bulk key metrics TTM (trailing twelve months)
+        URL: https://financialmodelingprep.com/stable/key-metrics-ttm-bulk?apikey=...
+
+        Returns: symbol, enterpriseValueTTM, etc.
+        """
+        print("\nDownloading key metrics TTM bulk...")
+
+        url = f"{self.BASE_URL}/key-metrics-ttm-bulk"
+        params = {'apikey': self.api_key}
+
+        max_retries = 3
+        retry_count = 0
+
+        while retry_count < max_retries:
+            try:
+                print(f"  Fetching key metrics...")
+                response = requests.get(url, params=params, timeout=120)
+
+                # 429 means rate limit - wait and retry
+                if response.status_code == 429:
+                    wait_time = 60 * (retry_count + 1)
+                    print(f"    Rate limit hit. Waiting {wait_time}s...")
+                    time.sleep(wait_time)
+                    retry_count += 1
+                    continue
+
+                response.raise_for_status()
+
+                # Parse CSV
+                df = pd.read_csv(StringIO(response.text))
+
+                print(f"    SUCCESS: Got {len(df):,} key metrics")
+
+                # Save to CSV
+                output_file = self.data_dir / 'key_metrics_ttm_bulk.csv'
+                df.to_csv(output_file, index=False)
+                print(f"    Saved to: {output_file}")
+
+                return df
+
+            except requests.exceptions.RequestException as e:
+                retry_count += 1
+                if retry_count < max_retries:
+                    wait_time = 5 * retry_count
+                    print(f"    Error: {e}. Retrying in {wait_time}s...")
+                    time.sleep(wait_time)
+                else:
+                    print(f"    ERROR after {max_retries} retries: {e}")
+                    return None
+
+        return None
+
 
 def main():
-    """Download company profile bulk data"""
+    """Download FMP bulk data: company profiles + key metrics TTM"""
     print("=" * 80)
-    print("FINANCIAL MODELING PREP - BULK COMPANY PROFILES DOWNLOAD")
+    print("FINANCIAL MODELING PREP - BULK DATA DOWNLOAD")
     print("=" * 80)
 
     try:
         downloader = FMPBulkDownloader()
-        profiles = downloader.download_profile_bulk()
-        df = downloader.save_profiles(profiles)
 
-        if df is not None:
-            print("\n" + "=" * 80)
-            print("DOWNLOAD COMPLETE")
-            print("=" * 80)
-            print(f"\nTotal profiles: {len(df):,}")
-            print(f"Profiles with marketCap > 0: {(df['marketCap'] > 0).sum():,}")
-            print("\nThe Streamlit app will now use this data for market cap sorting.")
-        else:
-            print("\nERROR: No data downloaded")
+        # Download company profiles
+        profiles = downloader.download_profile_bulk()
+        profiles_df = downloader.save_profiles(profiles)
+
+        if profiles_df is None:
+            print("\nERROR: No profile data downloaded")
             sys.exit(1)
+
+        # Download key metrics TTM
+        print("\n" + "=" * 80)
+        key_metrics_df = downloader.download_key_metrics_ttm_bulk()
+
+        if key_metrics_df is None:
+            print("\nWARNING: Key metrics download failed, but continuing with profiles")
+
+        print("\n" + "=" * 80)
+        print("DOWNLOAD COMPLETE")
+        print("=" * 80)
+        print(f"\n✓ Company profiles: {len(profiles_df):,}")
+        print(f"  - With marketCap > 0: {(profiles_df['marketCap'] > 0).sum():,}")
+
+        if key_metrics_df is not None:
+            print(f"\n✓ Key metrics TTM: {len(key_metrics_df):,}")
+
+        print("\nNext: Run scripts/process_market_data.py to generate stock reference")
 
     except Exception as e:
         print(f"\nERROR: {e}")
