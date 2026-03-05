@@ -388,6 +388,8 @@ if page == "Legal Counsel Finder":
             column_config = {}
             if 'Market Cap' in result_df.columns:
                 column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="localized")
+            if 'Enterprise Value TTM' in result_df.columns:
+                column_config['Enterprise Value TTM'] = st.column_config.NumberColumn('Enterprise Value TTM ($)', format="localized")
             if '52wk High' in result_df.columns:
                 column_config['52wk High'] = st.column_config.NumberColumn('52wk High ($)', format="%.2f")
             if '52wk Low' in result_df.columns:
@@ -546,6 +548,8 @@ if page == "Legal Counsel Finder":
             column_config = {}
             if 'Market Cap' in result_df.columns:
                 column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="localized")
+            if 'Enterprise Value TTM' in result_df.columns:
+                column_config['Enterprise Value TTM'] = st.column_config.NumberColumn('Enterprise Value TTM ($)', format="localized")
             if '52wk High' in result_df.columns:
                 column_config['52wk High'] = st.column_config.NumberColumn('52wk High ($)', format="%.2f")
             if '52wk Low' in result_df.columns:
@@ -607,15 +611,19 @@ elif page == "Stock Loan Availability":
 
         # Configure column formatting while keeping numeric sorting
         display_df = result_df.copy()
-        # Round Market Cap and Available to whole numbers for display
+        # Round Market Cap, Enterprise Value, and Available to whole numbers for display
         if 'Market Cap' in display_df.columns:
             display_df['Market Cap'] = display_df['Market Cap'].round(0)
+        if 'Enterprise Value TTM' in display_df.columns:
+            display_df['Enterprise Value TTM'] = display_df['Enterprise Value TTM'].round(0)
         if 'Available' in display_df.columns:
             display_df['Available'] = display_df['Available'].round(0)
 
         column_config = {}
         if 'Market Cap' in display_df.columns:
             column_config['Market Cap'] = st.column_config.NumberColumn('Market Cap ($)', format="localized")
+        if 'Enterprise Value TTM' in display_df.columns:
+            column_config['Enterprise Value TTM'] = st.column_config.NumberColumn('Enterprise Value TTM ($)', format="localized")
         if '52wk High' in display_df.columns:
             column_config['52wk High'] = st.column_config.NumberColumn('52wk High ($)', format="%.2f")
         if '52wk Low' in display_df.columns:
