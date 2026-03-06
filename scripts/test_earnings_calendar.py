@@ -157,8 +157,24 @@ def test_stable_earnings(api_key):
 
             if isinstance(data, list) and len(data) > 0:
                 print(f"\n✅ SUCCESS! Retrieved {len(data):,} records")
-                print(f"\n📊 Sample Record:")
-                print(json.dumps(data[0], indent=2))
+
+                # Show first 20 symbols to see what we're getting
+                print(f"\n📊 First 20 symbols:")
+                for i, record in enumerate(data[:20]):
+                    print(f"  {i+1}. {record.get('symbol')} - Date: {record.get('date')}")
+
+                # Filter for US stocks (heuristic: no dots, short symbols)
+                us_stocks = [r for r in data if '.' not in r.get('symbol', '') and len(r.get('symbol', '')) <= 5]
+                print(f"\n🇺🇸 US stocks (approx): {len(us_stocks):,} out of {len(data):,} total")
+
+                if us_stocks:
+                    print(f"\n📊 Sample US Stock:")
+                    print(json.dumps(us_stocks[0], indent=2))
+                else:
+                    print(f"\n⚠️ No obvious US stocks found in response")
+                    print(f"\n📊 Sample Record (first entry):")
+                    print(json.dumps(data[0], indent=2))
+
                 return True
             else:
                 print(f"\n⚠️ Response: {str(data)[:500]}")
