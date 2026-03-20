@@ -51,20 +51,23 @@ if stored:
     filtered_df = result_df.copy()
 
     if "Market Cap" in result_df.columns:
-        raw_max = int(result_df["Market Cap"].max() / 1_000_000)
-        slider_max = ((raw_max + 499) // 500) * 500  # round up to nearest 500
-        cap_range = st.slider(
-            "Market Cap ($MM)",
-            min_value=0,
-            max_value=slider_max,
-            value=(0, slider_max),
-            step=500,
-            key="stocks_mktcap_range",
-        )
-        lo, hi = cap_range
+        raw_max_b = result_df["Market Cap"].max() / 1_000_000_000
+        slider_max_b = round(round(raw_max_b / 0.5 + 0.5) * 0.5, 1)  # round up to nearest 0.5B
+        col_slider, _ = st.columns([2, 3])
+        with col_slider:
+            cap_range = st.slider(
+                "Market Cap",
+                min_value=0.0,
+                max_value=slider_max_b,
+                value=(0.0, slider_max_b),
+                step=0.5,
+                format="$%.1fB",
+                key="stocks_mktcap_range",
+            )
+        lo_b, hi_b = cap_range
         filtered_df = filtered_df[
-            (filtered_df["Market Cap"] >= lo * 1_000_000) &
-            (filtered_df["Market Cap"] <= hi * 1_000_000)
+            (filtered_df["Market Cap"] >= lo_b * 1_000_000_000) &
+            (filtered_df["Market Cap"] <= hi_b * 1_000_000_000)
         ]
 
     st.caption(f"Showing {len(filtered_df):,} of {len(result_df):,} stocks · ETFs and funds excluded")
