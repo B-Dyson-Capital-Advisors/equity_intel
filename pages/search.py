@@ -80,7 +80,7 @@ with col_input:
         query = st.text_input(
             "Lawyer name",
             placeholder="e.g. Michael Penney",
-            label_visibility="collapsed",
+            label_visibility="hidden",
             key="search_lawyer_input",
         )
 
@@ -91,7 +91,7 @@ with col_input:
             selected_display = st.selectbox(
                 "Company",
                 options=options,
-                label_visibility="collapsed",
+                label_visibility="hidden",
                 key="search_company_select",
             )
             if selected_display:
@@ -103,31 +103,17 @@ with col_input:
             query = st.text_input(
                 "Company name or ticker",
                 placeholder="e.g. Enovix Corp",
-                label_visibility="collapsed",
+                label_visibility="hidden",
                 key="search_company_text",
             )
 
     else:  # Law Firm
-        firm_options = (
-            [""]
-            + sorted(MAJOR_LAW_FIRMS)
-            + ["-- Enter a different firm below --"]
+        query = st.text_input(
+            "Law firm name",
+            placeholder="e.g. Cooley LLP",
+            label_visibility="hidden",
+            key="search_firm_input",
         )
-        selected_firm = st.selectbox(
-            "Law Firm",
-            firm_options,
-            label_visibility="collapsed",
-            key="search_firm_select",
-        )
-        if selected_firm and selected_firm != "-- Enter a different firm below --":
-            query = selected_firm
-        else:
-            query = st.text_input(
-                "Enter firm name",
-                placeholder="e.g. Cooley LLP",
-                label_visibility="collapsed",
-                key="search_firm_custom",
-            )
 
 # ── Search button ─────────────────────────────────────────────────────────────
 st.markdown("")
