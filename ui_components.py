@@ -43,7 +43,7 @@ def get_api_key() -> str | None:
 
 
 def render_sidebar():
-    """Sidebar: app name + New Search + Targets count."""
+    """Sidebar: app name + New Search."""
     with st.sidebar:
         st.markdown("## EquityIntel")
         st.divider()
@@ -51,11 +51,6 @@ def render_sidebar():
         if st.button("New Search", use_container_width=True, key="sb_search"):
             st.session_state.back_page = None
             st.switch_page("pages/search.py")
-
-        target_count = len(st.session_state.get("targets", []))
-        label = f"Targets ({target_count})" if target_count else "Targets"
-        if st.button(label, use_container_width=True, key="sb_targets"):
-            st.switch_page("pages/targets.py")
 
 
 def render_back_button():
@@ -122,16 +117,6 @@ def apply_df_column_formats(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 
     return display_df, column_config
 
-
-def add_to_targets(ticker: str, name: str) -> bool:
-    """Add a company to targets. Returns True if newly added, False if already present."""
-    if "targets" not in st.session_state:
-        st.session_state.targets = []
-    for t in st.session_state.targets:
-        if t.get("ticker") == ticker:
-            return False
-    st.session_state.targets.append({"ticker": ticker, "name": name})
-    return True
 
 
 def _nav(page: str, label: str, entity_key: str, entity_value):
