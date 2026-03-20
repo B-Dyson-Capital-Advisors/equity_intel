@@ -43,20 +43,21 @@ def load_stock_reference():
             # Clean up Symbol column
             df['Symbol'] = df['Symbol'].astype(str).str.strip().str.upper()
 
-            # Drop preferred shares / corporate notes whose names contain a rate
-            # descriptor, e.g. "5.00% Notes Due 2026", "5.875% Fixed",
-            # "6.5% Senior Notes", "7% Debentures", "5.25% Preferred".
-            # The pattern requires BOTH a digit% AND a financial-instrument keyword
-            # so plain company names are never affected.
+            # Drop preferred shares / corporate notes.
+            # Strategy: name must contain BOTH a rate (7.25%) AND a debt signal.
+            # Debt signals are checked independently so keyword-before-rate patterns
+            # like "SR NT 6% 121543" are caught, and truncated names like "7.250% Fixe"
+            # (truncated "Fixed") are also caught.
             if 'Company Name' in df.columns:
-                instrument_pattern = (
-                    r'\d+\.?\d*\s*%'                                       # rate like 5.00%
-                    r'.*?'                                                  # anything in between
-                    r'\b(?:notes?|fixed|debentures?|senior|preferred|due\s+\d{4})\b'
+                has_rate = df['Company Name'].str.contains(
+                    r'\d+\.?\d*\s*%', regex=True, na=False
                 )
-                df = df[~df['Company Name'].str.contains(
-                    instrument_pattern, regex=True, case=False, na=False
-                )]
+                has_debt_signal = df['Company Name'].str.contains(
+                    r'\b(?:notes?|fixe[ds]?|debentures?|senior|preferred|sr\s*nt|fxd|due\s+\d{4})\b'
+                    r'|\d+\.?\d*\s*%\s+\d{4,}',   # rate followed by bare number e.g. "6% 121543"
+                    regex=True, case=False, na=False
+                )
+                df = df[~(has_rate & has_debt_signal)]
 
             # Convert numeric columns
             if 'Market Cap' in df.columns:

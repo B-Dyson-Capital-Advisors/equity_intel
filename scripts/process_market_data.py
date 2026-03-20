@@ -108,23 +108,23 @@ class MarketDataProcessor:
             (merged_df['isActivelyTrading'] == True)
         ].copy()
 
-        # Drop preferred shares and corporate notes.
-        # Requires BOTH a rate (5.00%) AND a financial keyword (Notes/Fixed/Senior/etc.)
-        # so regular company names are never accidentally removed.
-        instrument_pattern = (
-            r'\d+\.?\d*\s*%'
-            r'.*?'
-            r'\b(?:notes?|fixed|debentures?|senior|preferred|due\s+\d{4})\b'
+        # Drop preferred shares / corporate notes.
+        # Use two independent conditions so keyword-before-rate and truncated names
+        # are both caught (e.g. "SR NT 6% 121543", "7.250% Fixe").
+        has_rate = us_stocks['companyName'].str.contains(r'\d+\.?\d*\s*%', regex=True, na=False)
+        has_debt_signal = us_stocks['companyName'].str.contains(
+            r'\b(?:notes?|fixe[ds]?|debentures?|senior|preferred|sr\s*nt|fxd|due\s+\d{4})\b'
+            r'|\d+\.?\d*\s*%\s+\d{4,}',
+            regex=True, case=False, na=False
         )
-        rate_mask = us_stocks['companyName'].str.contains(
-            instrument_pattern, regex=True, case=False, na=False
-        )
-        us_stocks = us_stocks[~rate_mask]
+        us_stocks = us_stocks[~(has_rate & has_debt_signal)]
 
         print(f"Filtered to {len(us_stocks):,} US stocks (NYSE/NASDAQ, no ETF/ADR/fund/preferred-notes)")
 
         # Keep only required columns
         required_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'price', 'ceo']
+        if 'entityType' in us_stocks.columns:
+            required_columns.append('entityType')
         if 'enterpriseValueTTM' in us_stocks.columns:
             required_columns.append('enterpriseValueTTM')
 
