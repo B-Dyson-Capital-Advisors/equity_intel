@@ -50,29 +50,18 @@ if stored:
     import pandas as pd
     filtered_df = result_df.copy()
 
-    col_f1, col_f2, col_f3 = st.columns([1.5, 1.5, 3])
+    col_f1, col_f2 = st.columns([1.5, 4])
     with col_f1:
         min_mktcap_m = st.number_input(
-            "Min Market Cap ($M)",
+            "Min Market Cap ($MM)",
             min_value=0,
             value=0,
-            step=50,
+            step=500,
             key="stocks_min_mktcap",
-        )
-    with col_f2:
-        max_fee = st.number_input(
-            "Max Fee Rate (%)",
-            min_value=0.0,
-            value=999.0,
-            step=1.0,
-            format="%.1f",
-            key="stocks_max_fee",
         )
 
     if "Market Cap" in filtered_df.columns and min_mktcap_m > 0:
         filtered_df = filtered_df[filtered_df["Market Cap"] >= min_mktcap_m * 1_000_000]
-    if "Fee Rate (%)" in filtered_df.columns and max_fee < 999.0:
-        filtered_df = filtered_df[filtered_df["Fee Rate (%)"] <= max_fee]
 
     st.caption(f"Showing {len(filtered_df):,} of {len(result_df):,} stocks · ETFs and funds excluded")
 
