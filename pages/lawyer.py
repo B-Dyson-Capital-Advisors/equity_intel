@@ -107,7 +107,7 @@ for i, row in result_df.iterrows():
     c2.markdown(f"`{ticker}`" if ticker else "")
     c3.markdown(exchange)
     c4.markdown(fmt_currency(mktcap))
-    if c5.button("View →", key=f"view_lawyer_{i}", use_container_width=True):
+    if c5.button("View", key=f"view_lawyer_{i}", use_container_width=True):
         nav_to_company(ticker, name)
 
     st.markdown(
