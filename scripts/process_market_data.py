@@ -123,6 +123,8 @@ class MarketDataProcessor:
 
         # Keep only required columns
         required_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'price', 'ceo']
+        if 'entityType' in us_stocks.columns:
+            required_columns.append('entityType')
         if 'enterpriseValueTTM' in us_stocks.columns:
             required_columns.append('enterpriseValueTTM')
 
