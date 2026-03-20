@@ -51,20 +51,25 @@ if stored:
     filtered_df = result_df.copy()
 
     if "Market Cap" in result_df.columns:
-        raw_max_b = result_df["Market Cap"].max() / 1_000_000_000
-        slider_max_b = round(round(raw_max_b / 0.5 + 0.5) * 0.5, 1)  # round up to nearest 0.5B
-        col_slider, _ = st.columns([2, 3])
+        # Predefined breakpoints — dense at the low end, sparse at the top
+        _cap_breaks = {
+            "$0":    0,      "$100M": 0.1,   "$250M": 0.25,
+            "$500M": 0.5,   "$1B":   1,     "$2B":   2,
+            "$5B":   5,     "$10B":  10,    "$25B":  25,
+            "$50B":  50,    "$100B": 100,   "$250B": 250,
+            "$500B": 500,   "$1T+":  9_999,
+        }
+        _labels = list(_cap_breaks.keys())
+        col_slider, _ = st.columns([3, 2])
         with col_slider:
-            cap_range = st.slider(
+            lo_label, hi_label = st.select_slider(
                 "Market Cap",
-                min_value=0.0,
-                max_value=slider_max_b,
-                value=(0.0, slider_max_b),
-                step=0.5,
-                format="$%.1fB",
+                options=_labels,
+                value=("$0", "$1T+"),
                 key="stocks_mktcap_range",
             )
-        lo_b, hi_b = cap_range
+        lo_b = _cap_breaks[lo_label]
+        hi_b = _cap_breaks[hi_label]
         filtered_df = filtered_df[
             (filtered_df["Market Cap"] >= lo_b * 1_000_000_000) &
             (filtered_df["Market Cap"] <= hi_b * 1_000_000_000)

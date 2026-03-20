@@ -94,16 +94,16 @@ def apply_df_column_formats(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     if "Price" in display_df.columns:
         column_config["Price"] = st.column_config.NumberColumn("Price ($)", format="$%.2f")
     if "Market Cap" in display_df.columns:
-        display_df["Market Cap"] = (display_df["Market Cap"] / 1_000_000).round(1)
+        display_df["Market Cap"] = (display_df["Market Cap"] / 1_000_000_000).round(2)
         column_config["Market Cap"] = st.column_config.NumberColumn(
-            "Mkt Cap ($MM)", format="localized"
+            "Mkt Cap", format="$%.2fB"
         )
     if "Enterprise Value TTM" in display_df.columns:
         display_df["Enterprise Value TTM"] = (
-            display_df["Enterprise Value TTM"] / 1_000_000
-        ).round(1)
+            display_df["Enterprise Value TTM"] / 1_000_000_000
+        ).round(2)
         column_config["Enterprise Value TTM"] = st.column_config.NumberColumn(
-            "EV TTM ($MM)", format="localized"
+            "EV TTM", format="$%.2fB"
         )
     if "Rebate Rate (%)" in display_df.columns:
         column_config["Rebate Rate (%)"] = st.column_config.NumberColumn(
