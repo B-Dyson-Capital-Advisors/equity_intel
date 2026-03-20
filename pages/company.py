@@ -69,15 +69,19 @@ if company_data:
     ceo_val = company_data.get("CEO", "") or ""
     industry_val = company_data.get("Industry", "") or ""
 
-    c1, c2, c3, c4, c5 = st.columns(5)
+    c1, c2, c3, c4, c5 = st.columns([1, 1.2, 0.8, 2, 2])
     c1.metric("Market Cap", fmt_currency(mktcap))
     c2.metric("Enterprise Value", fmt_currency(ev))
     c3.metric(
         "Price",
         f"${price:.2f}" if price and not pd.isna(price) else "—",
     )
-    c4.metric("CEO", ceo_val or "—")
-    c5.metric("Industry", industry_val or "—")
+    with c4:
+        st.caption("CEO")
+        st.markdown(ceo_val or "—")
+    with c5:
+        st.caption("Industry")
+        st.markdown(industry_val or "—")
     st.divider()
 
 # ── Stock loan (if IB data loaded) ───────────────────────────────────────────
