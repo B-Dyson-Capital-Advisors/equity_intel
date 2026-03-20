@@ -108,7 +108,13 @@ class MarketDataProcessor:
             (merged_df['isActivelyTrading'] == True)
         ].copy()
 
-        print(f"Filtered to {len(us_stocks):,} US stocks (NYSE/NASDAQ, no ETF/ADR/fund)")
+        # Drop preferred shares and corporate notes (names with interest-rate patterns
+        # like "5.00% Notes Due 2026" or "5.875% Fixed")
+        import re
+        rate_mask = us_stocks['companyName'].str.contains(r'\d+\.?\d*\s*%', regex=True, na=False)
+        us_stocks = us_stocks[~rate_mask]
+
+        print(f"Filtered to {len(us_stocks):,} US stocks (NYSE/NASDAQ, no ETF/ADR/fund/preferred-notes)")
 
         # Keep only required columns
         required_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'price', 'ceo']
