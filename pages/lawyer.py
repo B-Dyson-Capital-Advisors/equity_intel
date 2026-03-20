@@ -12,6 +12,7 @@ from ui_components import (
     render_back_button,
     set_current_page,
     apply_df_column_formats,
+    fmt_currency,
     nav_to_company,
 )
 from search_modules.lawyer_search import search_lawyer_for_companies
@@ -80,24 +81,17 @@ col_dl.download_button(
 )
 
 st.divider()
-st.caption("Click a row to open the company detail view.")
 
-# ── Selectable results table ──────────────────────────────────────────────────
-display_df, column_config = apply_df_column_formats(result_df)
-
-event = st.dataframe(
-    display_df,
-    use_container_width=True,
-    hide_index=True,
-    on_select="rerun",
-    selection_mode="single-row",
-    column_config=column_config,
-    key="lawyer_results_table",
-)
-
-if event.selection.rows:
-    idx = event.selection.rows[0]
-    row = result_df.iloc[idx]
+# ── Results list with View buttons ────────────────────────────────────────────
+for i, row in result_df.iterrows():
     ticker = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
     name = str(row.get("Company", ""))
-    nav_to_company(ticker, name)
+    exchange = str(row.get("Exchange", "")) if row.get("Exchange") else ""
+    mktcap = row.get("Market Cap")
+
+    col_name, col_meta, col_btn = st.columns([3, 1.5, 0.8])
+    col_name.markdown(f"**{name}** &nbsp; `{ticker}`" if ticker else f"**{name}**")
+    meta = " · ".join(p for p in [exchange, fmt_currency(mktcap)] if p and p != "—")
+    col_meta.markdown(meta or "")
+    if col_btn.button("View →", key=f"view_lawyer_{i}", use_container_width=True):
+        nav_to_company(ticker, name)

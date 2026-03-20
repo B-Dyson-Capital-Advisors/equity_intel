@@ -43,7 +43,7 @@ def get_api_key() -> str | None:
 
 
 def render_sidebar():
-    """Sidebar: app name + New Search."""
+    """Sidebar: app name + navigation buttons."""
     with st.sidebar:
         st.markdown("## EquityIntel")
         st.divider()
@@ -51,6 +51,10 @@ def render_sidebar():
         if st.button("New Search", use_container_width=True, key="sb_search"):
             st.session_state.back_page = None
             st.switch_page("pages/search.py")
+
+        if st.button("Stock Loan", use_container_width=True, key="sb_stocks"):
+            st.session_state.back_page = None
+            st.switch_page("pages/stocks.py")
 
 
 def render_back_button():
