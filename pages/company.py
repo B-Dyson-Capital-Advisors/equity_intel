@@ -67,9 +67,8 @@ if company_data:
     ev = company_data.get("Enterprise Value TTM") or 0
     price = company_data.get("Price")
     ceo_val = company_data.get("CEO", "") or ""
-    industry_val = company_data.get("Industry", "") or ""
 
-    c1, c2, c3, c4, c5 = st.columns([1, 1.2, 0.8, 2, 2])
+    c1, c2, c3, c4 = st.columns([1, 1.2, 0.8, 2])
     c1.metric("Market Cap", fmt_currency(mktcap))
     c2.metric("Enterprise Value", fmt_currency(ev))
     c3.metric(
@@ -79,9 +78,6 @@ if company_data:
     with c4:
         st.caption("CEO")
         st.markdown(ceo_val or "—")
-    with c5:
-        st.caption("Industry")
-        st.markdown(industry_val or "—")
     st.divider()
 
 # ── Stock loan (if IB data loaded) ───────────────────────────────────────────
@@ -111,8 +107,13 @@ if ib_all is not None and ticker:
 
 # ── Legal Counsel ─────────────────────────────────────────────────────────────
 st.subheader("Legal Counsel")
+date_range_str = (
+    f"{search_start} to {search_end}"
+    if search_start and search_end
+    else "no date range set"
+)
 st.caption(
-    "Lawyers and law firms found in SEC filings. "
+    f"SEC filings · {date_range_str}. "
     "Click 'See companies' to explore a lawyer's other clients."
 )
 
