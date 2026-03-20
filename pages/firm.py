@@ -12,7 +12,6 @@ from ui_components import (
     render_back_button,
     set_current_page,
     apply_df_column_formats,
-    add_to_targets,
     nav_to_company,
 )
 from search_modules.law_firm_search import search_law_firm_for_companies
@@ -72,17 +71,8 @@ if result_df is None:
             st.stop()
 
 # ── Stats + actions ───────────────────────────────────────────────────────────
-col_stat, col_add, col_dl = st.columns([4, 1.4, 1.2])
+col_stat, col_dl = st.columns([5, 1.2])
 col_stat.success(f"Found {len(result_df)} companies")
-
-if col_add.button("Add all to Targets", use_container_width=True):
-    added = 0
-    for _, row in result_df.iterrows():
-        t = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
-        n = str(row.get("Company", ""))
-        if add_to_targets(t, n):
-            added += 1
-    st.toast(f"Added {added} new companies to Targets")
 
 csv = result_df.to_csv(index=False)
 col_dl.download_button(

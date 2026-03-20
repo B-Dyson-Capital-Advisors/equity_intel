@@ -1,10 +1,8 @@
 """
 Company detail page.
 
-Shows financial snapshot (immediate, from FMP reference) and legal counsel
-(lazy, requires SEC search + OpenAI extraction, cached in SQLite).
-
-Pivot buttons next to each lawyer let you jump to their other companies.
+Shows financial snapshot and legal counsel extracted from SEC filings.
+Pivot buttons next to each lawyer/firm navigate to their other clients.
 """
 
 import streamlit as st
@@ -15,7 +13,6 @@ from ui_components import (
     render_back_button,
     set_current_page,
     fmt_currency,
-    add_to_targets,
     get_api_key,
     nav_to_lawyer,
     nav_to_firm,
@@ -55,28 +52,12 @@ display_name = (
 ) or ticker
 
 # ── Header ────────────────────────────────────────────────────────────────────
-col_title, col_target = st.columns([5, 1])
-with col_title:
-    st.title(display_name)
-    exchange = company_data.get("Exchange", "") if company_data else ""
-    sector = company_data.get("Sector", "") if company_data else ""
-    subtitle_parts = [p for p in [ticker, exchange, sector] if p]
-    if subtitle_parts:
-        st.markdown(" · ".join(subtitle_parts))
-
-with col_target:
-    st.markdown("")
-    st.markdown("")
-    already_in = any(
-        t.get("ticker") == ticker for t in st.session_state.get("targets", [])
-    )
-    if already_in:
-        st.success("In Targets")
-    else:
-        if st.button("Add to Targets", type="primary", use_container_width=True):
-            add_to_targets(ticker, display_name)
-            st.toast(f"Added {display_name} to Targets")
-            st.rerun()
+st.title(display_name)
+exchange = company_data.get("Exchange", "") if company_data else ""
+sector = company_data.get("Sector", "") if company_data else ""
+subtitle_parts = [p for p in [ticker, exchange, sector] if p]
+if subtitle_parts:
+    st.markdown(" · ".join(subtitle_parts))
 
 st.divider()
 
@@ -128,7 +109,7 @@ if ib_all is not None and ticker:
 st.subheader("Legal Counsel")
 st.caption(
     "Lawyers and law firms found in SEC filings. "
-    "Click 'See companies' next to a lawyer to explore their other clients."
+    "Click 'See companies' to explore a lawyer's other clients."
 )
 
 cache_key = f"company_lawyers::{ticker}::{search_start}::{search_end}"
@@ -182,15 +163,13 @@ else:
         if st.button("Find Legal Counsel", type="primary"):
             with st.spinner("Searching SEC filings..."):
                 prog = st.empty()
-                msgs: list[str] = []
 
                 def _cb(msg: str):
-                    msgs.append(msg)
                     prog.info(msg)
 
                 try:
                     lawyers_df = search_company_for_lawyers(
-                        company.get("display") or ticker,
+                        ticker,              # pass ticker, not display string
                         search_start,
                         search_end,
                         api_key,

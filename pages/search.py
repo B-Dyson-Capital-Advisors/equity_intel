@@ -35,9 +35,18 @@ entity_type = st.radio(
     key="search_entity_type",
 )
 
-col_input, col_preset, col_from, col_to = st.columns([3, 1.2, 1, 1])
+# ── Row 1: input + date preset ────────────────────────────────────────────────
+col_input, col_preset = st.columns([4, 1.5])
 
-# ── Input widget ──────────────────────────────────────────────────────────────
+with col_preset:
+    preset = st.selectbox(
+        "Date range",
+        PRESET_OPTIONS,
+        index=1,
+        label_visibility="visible",
+        key="search_preset",
+    )
+
 with col_input:
     query = ""
     selected_company_obj = None
@@ -95,40 +104,28 @@ with col_input:
                 key="search_firm_custom",
             )
 
-# ── Date range ────────────────────────────────────────────────────────────────
-with col_preset:
-    preset = st.selectbox(
-        "Date range",
-        PRESET_OPTIONS,
-        index=1,
-        label_visibility="collapsed",
-        key="search_preset",
-    )
-
+# ── Row 2: Custom date inputs (only when Custom is selected) ──────────────────
 date_from_default, date_to_default = get_date_range(preset)
 
-with col_from:
-    date_from = st.date_input(
-        "From",
-        value=date_from_default,
-        max_value=pd.Timestamp.now().date(),
-        disabled=(preset != "Custom"),
-        label_visibility="visible",
-        key="search_from",
-    )
-
-with col_to:
-    date_to = st.date_input(
-        "To",
-        value=date_to_default,
-        max_value=pd.Timestamp.now().date(),
-        disabled=(preset != "Custom"),
-        label_visibility="visible",
-        key="search_to",
-    )
-
-effective_from = date_from if preset == "Custom" else date_from_default
-effective_to = date_to if preset == "Custom" else date_to_default
+if preset == "Custom":
+    col_from, col_to, _ = st.columns([1.5, 1.5, 3])
+    with col_from:
+        date_from = st.date_input(
+            "From",
+            value=date_from_default,
+            max_value=pd.Timestamp.now().date(),
+            key="search_from",
+        )
+    with col_to:
+        date_to = st.date_input(
+            "To",
+            value=date_to_default,
+            max_value=pd.Timestamp.now().date(),
+            key="search_to",
+        )
+    effective_from, effective_to = date_from, date_to
+else:
+    effective_from, effective_to = date_from_default, date_to_default
 
 # ── Search button ─────────────────────────────────────────────────────────────
 st.markdown("")
@@ -143,11 +140,9 @@ if search_clicked:
     else:
         st.session_state.search_start = effective_from
         st.session_state.search_end = effective_to
-        # Starting a new search — clear any previous back context
         st.session_state.back_page = None
 
         if entity_type == "Lawyer":
-            st.session_state.current_lawyer = query.strip()
             st.session_state["_this_page"] = "pages/search.py"
             st.session_state["_this_label"] = "Search"
             nav_to_lawyer(query.strip())
