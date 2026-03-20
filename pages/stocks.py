@@ -50,18 +50,22 @@ if stored:
     import pandas as pd
     filtered_df = result_df.copy()
 
-    col_f1, col_f2 = st.columns([1.5, 4])
-    with col_f1:
-        min_mktcap_m = st.number_input(
-            "Min Market Cap ($MM)",
+    if "Market Cap" in result_df.columns:
+        raw_max = int(result_df["Market Cap"].max() / 1_000_000)
+        slider_max = ((raw_max + 499) // 500) * 500  # round up to nearest 500
+        cap_range = st.slider(
+            "Market Cap ($MM)",
             min_value=0,
-            value=0,
+            max_value=slider_max,
+            value=(0, slider_max),
             step=500,
-            key="stocks_min_mktcap",
+            key="stocks_mktcap_range",
         )
-
-    if "Market Cap" in filtered_df.columns and min_mktcap_m > 0:
-        filtered_df = filtered_df[filtered_df["Market Cap"] >= min_mktcap_m * 1_000_000]
+        lo, hi = cap_range
+        filtered_df = filtered_df[
+            (filtered_df["Market Cap"] >= lo * 1_000_000) &
+            (filtered_df["Market Cap"] <= hi * 1_000_000)
+        ]
 
     st.caption(f"Showing {len(filtered_df):,} of {len(result_df):,} stocks · ETFs and funds excluded")
 
