@@ -1,15 +1,16 @@
 """
 Law Firm detail page.
 
-Shows all companies that a specific law firm has appeared in SEC filings for.
-Clicking a company row navigates to company.py.
+Shows companies represented by this firm in SEC filings.
+Clicking a company row navigates to the company detail page.
 """
 
 import streamlit as st
 
 from ui_components import (
     render_sidebar,
-    render_breadcrumbs,
+    render_back_button,
+    set_current_page,
     apply_df_column_formats,
     add_to_targets,
     nav_to_company,
@@ -17,23 +18,24 @@ from ui_components import (
 from search_modules.law_firm_search import search_law_firm_for_companies
 from search_modules.cache import get_cached, set_cached
 
-render_sidebar()
-render_breadcrumbs()
-
 firm_name: str = st.session_state.get("current_firm", "") or ""
+set_current_page("pages/firm.py", firm_name)
+render_sidebar()
+render_back_button()
+
 search_start = st.session_state.get("search_start")
 search_end = st.session_state.get("search_end")
 
 if not firm_name:
     st.warning("No law firm selected.")
-    if st.button("← Back to Search"):
+    if st.button("Back to Search"):
         st.switch_page("pages/search.py")
     st.stop()
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.title(f"⚖️  {firm_name}")
+st.title(firm_name)
 if search_start and search_end:
-    st.caption(f"SEC filings · {search_start} → {search_end}")
+    st.caption(f"SEC filings · {search_start} to {search_end}")
 
 # ── Load results ──────────────────────────────────────────────────────────────
 mem_key = f"firm::{firm_name}::{search_start}::{search_end}"
@@ -45,7 +47,7 @@ if result_df is None:
         st.session_state["results"][mem_key] = result_df
 
 if result_df is None:
-    with st.spinner(f"Searching SEC filings for {firm_name}…"):
+    with st.spinner(f"Searching SEC filings for {firm_name}..."):
         prog = st.empty()
 
         def _cb(msg: str):
@@ -57,7 +59,7 @@ if result_df is None:
                 search_start,
                 search_end,
                 _cb,
-                include_lawyers=False,  # fast mode — lawyers available per-company
+                include_lawyers=False,
             )
             prog.empty()
             set_cached("firm", firm_name, search_start, search_end, result_df)
@@ -70,10 +72,10 @@ if result_df is None:
             st.stop()
 
 # ── Stats + actions ───────────────────────────────────────────────────────────
-col_stat, col_add, col_dl = st.columns([4, 1.2, 1.2])
-col_stat.success(f"Found **{len(result_df)}** companies")
+col_stat, col_add, col_dl = st.columns([4, 1.4, 1.2])
+col_stat.success(f"Found {len(result_df)} companies")
 
-if col_add.button("＋ Add all to Targets", use_container_width=True):
+if col_add.button("Add all to Targets", use_container_width=True):
     added = 0
     for _, row in result_df.iterrows():
         t = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
@@ -84,7 +86,7 @@ if col_add.button("＋ Add all to Targets", use_container_width=True):
 
 csv = result_df.to_csv(index=False)
 col_dl.download_button(
-    "⬇ CSV",
+    "Download CSV",
     csv,
     file_name=f"{firm_name.lower().replace(' ', '_').replace('&', 'and')}_companies.csv",
     mime="text/csv",
@@ -92,7 +94,7 @@ col_dl.download_button(
 )
 
 st.divider()
-st.caption("Click a row to open the company detail view (financials + legal counsel).")
+st.caption("Click a row to open the company detail view.")
 
 # ── Selectable table ──────────────────────────────────────────────────────────
 display_df, column_config = apply_df_column_formats(result_df)

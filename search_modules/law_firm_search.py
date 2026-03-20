@@ -221,6 +221,9 @@ def search_law_firm_for_companies(firm_name, start_date, end_date, progress_call
     if 'Exchange' in result_df.columns:
         final_columns.append('Exchange')
 
+    if 'Price' in result_df.columns:
+        final_columns.append('Price')
+
     final_columns.append('Market Cap')
 
     # Add new FMP columns

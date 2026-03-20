@@ -1,21 +1,20 @@
 """
 Stock Loan Availability page.
 
-Fetches real-time Interactive Brokers lending data and joins with FMP reference.
-Loaded data is stored in session state so other pages (company detail) can
+Fetches Interactive Brokers lending data joined with FMP reference.
+Loaded data is stored in session state so the company detail page can
 show per-ticker loan info without re-fetching.
 """
 
 import streamlit as st
 
-from ui_components import render_sidebar, apply_df_column_formats
+from ui_components import render_sidebar, set_current_page, apply_df_column_formats
 
+set_current_page("pages/stocks.py", "Stock Loan")
 render_sidebar()
 
-st.title("📈  Stock Loan Availability")
-st.markdown(
-    "Real-time lending data from Interactive Brokers · US stocks (NYSE / NASDAQ only)"
-)
+st.title("Stock Loan Availability")
+st.markdown("Real-time lending data from Interactive Brokers · US stocks (NYSE / NASDAQ)")
 
 col_fetch, col_info = st.columns([1, 4])
 
@@ -23,7 +22,7 @@ with col_fetch:
     fetch_clicked = st.button("Fetch Latest Data", type="primary", use_container_width=True)
 
 if fetch_clicked:
-    with st.spinner("Fetching IB short-stock data and enriching with FMP…"):
+    with st.spinner("Fetching IB short-stock data..."):
         try:
             from search_modules.stock_loan import fetch_shortstock_with_market_cap
             df = fetch_shortstock_with_market_cap()
@@ -32,7 +31,6 @@ if fetch_clicked:
                 "date": df["Date"].iloc[0] if "Date" in df.columns else "",
                 "time": df["Time"].iloc[0] if "Time" in df.columns else "",
             }
-            # Also store raw IB keyed by Symbol for use in company detail page
             st.session_state["ib_data"] = df[
                 [c for c in ["Symbol", "Rebate Rate (%)", "Fee Rate (%)", "Available"] if c in df.columns]
             ].copy()
@@ -46,7 +44,7 @@ if stored:
     data_time = stored.get("time", "")
 
     with col_info:
-        st.info(f"Data as of: **{data_date} {data_time}** · {len(result_df):,} stocks")
+        st.info(f"Data as of: {data_date} {data_time} · {len(result_df):,} stocks")
 
     display_df, column_config = apply_df_column_formats(result_df)
 
@@ -59,7 +57,7 @@ if stored:
 
     csv = result_df.to_csv(index=False)
     st.download_button(
-        "⬇ Download CSV",
+        "Download CSV",
         csv,
         file_name=f"stock_loan_{str(data_date).replace('/', '_')}.csv",
         mime="text/csv",
