@@ -1,15 +1,16 @@
 """
 Lawyer detail page.
 
-Shows all companies that a specific lawyer has appeared in SEC filings for,
-within the selected date range. Clicking a company row navigates to company.py.
+Shows all companies where this lawyer appears in SEC filings.
+Clicking a company row navigates to the company detail page.
 """
 
 import streamlit as st
 
 from ui_components import (
     render_sidebar,
-    render_breadcrumbs,
+    render_back_button,
+    set_current_page,
     apply_df_column_formats,
     add_to_targets,
     nav_to_company,
@@ -17,25 +18,26 @@ from ui_components import (
 from search_modules.lawyer_search import search_lawyer_for_companies
 from search_modules.cache import get_cached, set_cached
 
-render_sidebar()
-render_breadcrumbs()
-
 lawyer_name: str = st.session_state.get("current_lawyer", "") or ""
+set_current_page("pages/lawyer.py", lawyer_name)
+render_sidebar()
+render_back_button()
+
 search_start = st.session_state.get("search_start")
 search_end = st.session_state.get("search_end")
 
 if not lawyer_name:
     st.warning("No lawyer selected.")
-    if st.button("← Back to Search"):
+    if st.button("Back to Search"):
         st.switch_page("pages/search.py")
     st.stop()
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.title(f"👤  {lawyer_name}")
+st.title(lawyer_name)
 if search_start and search_end:
-    st.caption(f"SEC filings · {search_start} → {search_end}")
+    st.caption(f"SEC filings · {search_start} to {search_end}")
 
-# ── Load results (cache → SEC) ────────────────────────────────────────────────
+# ── Load results (memory cache -> SQLite -> SEC) ──────────────────────────────
 mem_key = f"lawyer::{lawyer_name}::{search_start}::{search_end}"
 result_df = st.session_state.get("results", {}).get(mem_key)
 
@@ -45,12 +47,10 @@ if result_df is None:
         st.session_state["results"][mem_key] = result_df
 
 if result_df is None:
-    with st.spinner(f"Searching SEC filings for {lawyer_name}…"):
+    with st.spinner(f"Searching SEC filings for {lawyer_name}..."):
         progress_placeholder = st.empty()
-        last_msg = {"text": ""}
 
         def _cb(msg: str):
-            last_msg["text"] = msg
             progress_placeholder.info(msg)
 
         try:
@@ -67,11 +67,11 @@ if result_df is None:
             st.error(f"Search failed: {exc}")
             st.stop()
 
-# ── Stats + bulk-add button ───────────────────────────────────────────────────
-col_stat, col_add, col_dl = st.columns([4, 1.2, 1.2])
-col_stat.success(f"Found **{len(result_df)}** companies")
+# ── Stats + actions ───────────────────────────────────────────────────────────
+col_stat, col_add, col_dl = st.columns([4, 1.4, 1.2])
+col_stat.success(f"Found {len(result_df)} companies")
 
-if col_add.button("＋ Add all to Targets", use_container_width=True):
+if col_add.button("Add all to Targets", use_container_width=True):
     added = 0
     for _, row in result_df.iterrows():
         ticker = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
@@ -82,7 +82,7 @@ if col_add.button("＋ Add all to Targets", use_container_width=True):
 
 csv = result_df.to_csv(index=False)
 col_dl.download_button(
-    "⬇ CSV",
+    "Download CSV",
     csv,
     file_name=f"{lawyer_name.lower().replace(' ', '_')}_companies.csv",
     mime="text/csv",
@@ -90,8 +90,6 @@ col_dl.download_button(
 )
 
 st.divider()
-
-# ── Instructions ──────────────────────────────────────────────────────────────
 st.caption("Click a row to open the company detail view.")
 
 # ── Selectable results table ──────────────────────────────────────────────────
@@ -107,7 +105,6 @@ event = st.dataframe(
     key="lawyer_results_table",
 )
 
-# ── Handle row click → navigate to company page ───────────────────────────────
 if event.selection.rows:
     idx = event.selection.rows[0]
     row = result_df.iloc[idx]

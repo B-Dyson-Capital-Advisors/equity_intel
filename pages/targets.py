@@ -1,8 +1,5 @@
 """
-Targets page — your saved investment target pipeline.
-
-Companies added from any detail page land here. Enriched with latest FMP data.
-Export to CSV for use in CRM / outreach.
+Targets page — saved investment target pipeline.
 """
 
 import streamlit as st
@@ -10,51 +7,48 @@ import pandas as pd
 
 from ui_components import (
     render_sidebar,
-    render_breadcrumbs,
+    set_current_page,
     apply_df_column_formats,
-    fmt_currency,
     nav_to_company,
 )
 from search_modules.stock_reference import load_stock_reference
 
+set_current_page("pages/targets.py", "Targets")
 render_sidebar()
-render_breadcrumbs()
 
-st.title("🎯  Target Pipeline")
-st.caption("Companies you've flagged across your research sessions.")
+st.title("Target Pipeline")
 
 targets: list[dict] = st.session_state.get("targets", [])
 
 if not targets:
     st.info(
         "No targets yet. Browse lawyers, companies, or law firms and click "
-        "**＋ Add to Targets** on any result."
+        "'Add to Targets' on any result."
     )
-    if st.button("← Go to Search"):
+    if st.button("Go to Search"):
         st.switch_page("pages/search.py")
     st.stop()
 
-# ── Enrich targets with FMP data ──────────────────────────────────────────────
+# ── Enrich with FMP data ──────────────────────────────────────────────────────
 ref_df = load_stock_reference()
-
 rows = []
 for t in targets:
     ticker = t.get("ticker", "")
     name = t.get("name", "")
-    row = {"Ticker": ticker, "Company": name}
+    row: dict = {"Ticker": ticker, "Company": name}
 
     if ref_df is not None and ticker:
         match = ref_df[ref_df["Symbol"] == ticker]
         if not match.empty:
             fmp = match.iloc[0].to_dict()
             row["Exchange"] = fmp.get("Exchange", "")
+            row["Price"] = fmp.get("Price")
             row["Market Cap"] = fmp.get("Market Cap")
             row["Enterprise Value TTM"] = fmp.get("Enterprise Value TTM")
             row["CEO"] = fmp.get("CEO", "")
             row["Sector"] = fmp.get("Sector", "")
             row["Industry"] = fmp.get("Industry", "")
 
-    # Check IB stock loan data if loaded in session
     ib_data = st.session_state.get("ib_data")
     if ib_data is not None and ticker:
         match_ib = ib_data[ib_data["Symbol"].str.upper() == ticker.upper()]
@@ -68,17 +62,17 @@ for t in targets:
 
 target_df = pd.DataFrame(rows)
 
-# ── Summary stats ──────────────────────────────────────────────────────────────
+# ── Actions ───────────────────────────────────────────────────────────────────
 col_count, col_clear, col_dl = st.columns([3, 1, 1])
 col_count.metric("Companies in pipeline", len(targets))
 
-if col_clear.button("🗑  Clear all", use_container_width=True):
+if col_clear.button("Clear all", use_container_width=True):
     st.session_state.targets = []
     st.rerun()
 
 csv = target_df.to_csv(index=False)
 col_dl.download_button(
-    "⬇ Export CSV",
+    "Export CSV",
     csv,
     file_name="equity_intel_targets.csv",
     mime="text/csv",
@@ -86,13 +80,10 @@ col_dl.download_button(
 )
 
 st.divider()
-
-# ── Per-company remove + open buttons ─────────────────────────────────────────
-st.caption("Click a company to open its detail view. Use ✕ to remove from pipeline.")
+st.caption("Click a row to open the company detail view.")
 
 display_df, column_config = apply_df_column_formats(target_df)
 
-# Add a selectable table
 event = st.dataframe(
     display_df,
     use_container_width=True,
@@ -111,13 +102,11 @@ if event.selection.rows:
     nav_to_company(ticker, name)
 
 st.divider()
-
-# ── Individual remove controls ─────────────────────────────────────────────────
-st.markdown("**Remove individual companies:**")
+st.markdown("**Remove companies:**")
 for i, t in enumerate(list(targets)):
     c1, c2 = st.columns([5, 1])
-    c1.write(f"{t.get('company', t.get('name', ''))} ({t.get('ticker', '')})")
-    if c2.button("✕", key=f"remove_{i}_{t.get('ticker', i)}", use_container_width=True):
+    c1.write(f"{t.get('name', '')} ({t.get('ticker', '')})")
+    if c2.button("Remove", key=f"remove_{i}_{t.get('ticker', i)}", use_container_width=True):
         st.session_state.targets = [
             x for x in st.session_state.targets if x.get("ticker") != t.get("ticker")
         ]

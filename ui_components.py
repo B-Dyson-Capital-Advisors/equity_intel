@@ -43,83 +43,33 @@ def get_api_key() -> str | None:
 
 
 def render_sidebar():
-    """Sidebar: logo, navigation buttons, and targets count."""
+    """Sidebar: app name + New Search + Targets count."""
     with st.sidebar:
         st.markdown("## EquityIntel")
-        st.markdown("*Investment target intelligence*")
         st.divider()
 
-        if st.button("🔍  New Search", use_container_width=True, key="sb_search"):
-            st.session_state.nav_stack = [{"page": "pages/search.py", "label": "Search"}]
+        if st.button("New Search", use_container_width=True, key="sb_search"):
+            st.session_state.back_page = None
             st.switch_page("pages/search.py")
 
         target_count = len(st.session_state.get("targets", []))
-        label = f"🎯  Targets ({target_count})" if target_count else "🎯  Targets"
+        label = f"Targets ({target_count})" if target_count else "Targets"
         if st.button(label, use_container_width=True, key="sb_targets"):
             st.switch_page("pages/targets.py")
 
-        st.divider()
 
-        # Recent nav history
-        stack = st.session_state.get("nav_stack", [])
-        if len(stack) > 1:
-            st.markdown("**Recent:**")
-            # Show up to last 4 entries (excluding current)
-            for i, crumb in enumerate(reversed(stack[:-1])):
-                real_i = len(stack) - 2 - i
-                if st.button(
-                    f"↩ {crumb['label']}",
-                    use_container_width=True,
-                    key=f"sb_crumb_{real_i}",
-                ):
-                    st.session_state.nav_stack = stack[: real_i + 1]
-                    st.switch_page(crumb["page"])
-                if i >= 3:
-                    break
-
-        # Cache controls (collapsible)
-        with st.expander("⚙️ Settings", expanded=False):
-            from search_modules.cache import get_cache_stats, clear_all, clear_expired
-            stats = get_cache_stats()
-            st.caption(
-                f"Cache: {stats['fresh']} fresh · {stats['expired']} expired entries"
-            )
-            col1, col2 = st.columns(2)
-            if col1.button("Clear expired", use_container_width=True, key="sb_clear_exp"):
-                removed = clear_expired()
-                st.toast(f"Removed {removed} expired entries")
-            if col2.button("Clear all", use_container_width=True, key="sb_clear_all"):
-                clear_all()
-                st.toast("Cache cleared")
-
-
-def render_breadcrumbs():
-    """Breadcrumb trail based on nav_stack."""
-    stack = st.session_state.get("nav_stack", [])
-    if len(stack) <= 1:
+def render_back_button():
+    """
+    Show a single 'Back to [page]' link based on st.session_state.back_page.
+    Replaces the breadcrumb trail that caused infinite nav loops.
+    """
+    back = st.session_state.get("back_page")
+    if not back:
         return
-
-    parts = []
-    for i, crumb in enumerate(stack):
-        if i < len(stack) - 1:
-            parts.append(f"[{crumb['label']}](?crumb={i})")
-        else:
-            parts.append(f"**{crumb['label']}**")
-
-    # Render as buttons in a row
-    cols = st.columns(len(stack) * 2 - 1)
-    for i, crumb in enumerate(stack):
-        col = cols[i * 2]
-        if i < len(stack) - 1:
-            if col.button(crumb["label"], key=f"bc_{i}"):
-                st.session_state.nav_stack = stack[: i + 1]
-                st.switch_page(crumb["page"])
-        else:
-            col.markdown(f"**{crumb['label']}**")
-
-        if i < len(stack) - 1 and i * 2 + 1 < len(cols):
-            cols[i * 2 + 1].markdown("›")
-
+    if st.button(f"<- Back to {back['label']}", key="back_btn"):
+        # Clear back_page so the destination page doesn't show a stale back link
+        st.session_state.back_page = back.get("prev_back")
+        st.switch_page(back["page"])
     st.markdown("")  # spacing
 
 
@@ -136,12 +86,14 @@ def fmt_currency(value, suffix="") -> str:
 
 def apply_df_column_formats(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     """
-    Divide market cap / EV columns to $MM and return (display_df, column_config).
+    Scale market cap / EV to $MM and return (display_df, column_config).
     Keeps original df untouched.
     """
     display_df = df.copy()
     column_config = {}
 
+    if "Price" in display_df.columns:
+        column_config["Price"] = st.column_config.NumberColumn("Price ($)", format="$%.2f")
     if "Market Cap" in display_df.columns:
         display_df["Market Cap"] = (display_df["Market Cap"] / 1_000_000).round(1)
         column_config["Market Cap"] = st.column_config.NumberColumn(
@@ -173,44 +125,76 @@ def apply_df_column_formats(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
 
 def add_to_targets(ticker: str, name: str) -> bool:
     """Add a company to targets. Returns True if newly added, False if already present."""
-    target = {"ticker": ticker, "name": name}
     if "targets" not in st.session_state:
         st.session_state.targets = []
     for t in st.session_state.targets:
         if t.get("ticker") == ticker:
             return False
-    st.session_state.targets.append(target)
+    st.session_state.targets.append({"ticker": ticker, "name": name})
     return True
 
 
+def _nav(page: str, label: str, entity_key: str, entity_value):
+    """
+    Core navigation helper.
+    Saves current back_page so the destination can render a correct Back button,
+    then updates the entity and switches page.
+    """
+    # The destination's back button should point back to the CURRENT page
+    current_back = st.session_state.get("back_page")
+    st.session_state[entity_key] = entity_value
+    st.session_state.back_page = {
+        "page": _current_page(),
+        "label": _current_label(),
+        "prev_back": current_back,   # allows chaining: back → back → back
+    }
+    st.switch_page(page)
+
+
+def _current_page() -> str:
+    """Best-effort guess at the currently-running page path."""
+    # Streamlit doesn't expose this directly; we store it ourselves
+    return st.session_state.get("_this_page", "pages/search.py")
+
+
+def _current_label() -> str:
+    return st.session_state.get("_this_label", "Search")
+
+
+def set_current_page(page: str, label: str):
+    """Call at the top of each page to register it as the current page."""
+    st.session_state["_this_page"] = page
+    st.session_state["_this_label"] = label
+
+
 def nav_to_lawyer(lawyer_name: str):
-    """Set state and navigate to lawyer page."""
-    st.session_state.current_lawyer = lawyer_name.strip()
-    stack = st.session_state.get("nav_stack", [])
-    stack.append({"page": "pages/lawyer.py", "label": lawyer_name.strip()})
-    st.session_state.nav_stack = stack
-    st.switch_page("pages/lawyer.py")
+    _nav(
+        "pages/lawyer.py",
+        lawyer_name.strip(),
+        "current_lawyer",
+        lawyer_name.strip(),
+    )
 
 
 def nav_to_company(ticker: str, name: str, cik=None):
-    """Set state and navigate to company page."""
     ticker = ticker.replace(" US Equity", "").strip().upper()
-    st.session_state.current_company = {
-        "ticker": ticker,
-        "name": name,
-        "cik": cik,
-        "display": f"{name} ({ticker})" if ticker else name,
-    }
-    stack = st.session_state.get("nav_stack", [])
-    stack.append({"page": "pages/company.py", "label": name})
-    st.session_state.nav_stack = stack
-    st.switch_page("pages/company.py")
+    _nav(
+        "pages/company.py",
+        name,
+        "current_company",
+        {
+            "ticker": ticker,
+            "name": name,
+            "cik": cik,
+            "display": f"{name} ({ticker})" if ticker else name,
+        },
+    )
 
 
 def nav_to_firm(firm_name: str):
-    """Set state and navigate to firm page."""
-    st.session_state.current_firm = firm_name.strip()
-    stack = st.session_state.get("nav_stack", [])
-    stack.append({"page": "pages/firm.py", "label": firm_name.strip()})
-    st.session_state.nav_stack = stack
-    st.switch_page("pages/firm.py")
+    _nav(
+        "pages/firm.py",
+        firm_name.strip(),
+        "current_firm",
+        firm_name.strip(),
+    )
