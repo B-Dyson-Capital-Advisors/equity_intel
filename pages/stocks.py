@@ -50,73 +50,66 @@ if stored:
     import pandas as pd
     filtered_df = result_df.copy()
 
-    slider_cols = st.columns(3)
-
-    # ── Fee Rate slider ────────────────────────────────────────────────────
+    # ── Slider breakpoints ─────────────────────────────────────────────────
     _fee_breaks = {
         "0.1%": 0.1,  "0.25%": 0.25, "0.5%": 0.5,
         "1%": 1,      "5%": 5,        "10%": 10,
         "25%": 25,    "50%": 50,      "100%": 100,
         "250%": 250,  "500%": 500,    "1,000%+": 9_999,
     }
-    _fee_labels = list(_fee_breaks.keys())
-    with slider_cols[0]:
-        fee_lo, fee_hi = st.select_slider(
-            "Fee Rate (%)",
-            options=_fee_labels,
-            value=("0.1%", "1,000%+"),
-            key="stocks_fee_range",
-        )
-    fee_lo_v = _fee_breaks[fee_lo]
-    fee_hi_v = _fee_breaks[fee_hi]
-    if "Fee Rate (%)" in filtered_df.columns:
-        filtered_df = filtered_df[
-            (filtered_df["Fee Rate (%)"] >= fee_lo_v) &
-            (filtered_df["Fee Rate (%)"] <= fee_hi_v)
-        ]
-
-    # ── Available slider ───────────────────────────────────────────────────
     _avail_breaks = {
         "100": 100,         "500": 500,         "1K": 1_000,
         "5K": 5_000,        "10K": 10_000,      "50K": 50_000,
         "100K": 100_000,    "500K": 500_000,    "1M": 1_000_000,
         "5M": 5_000_000,    "10M+": 999_999_999,
     }
-    _avail_labels = list(_avail_breaks.keys())
-    with slider_cols[1]:
+    _cap_breaks = {
+        "$0":    0,      "$100M": 0.1,   "$250M": 0.25,
+        "$500M": 0.5,   "$1B":   1,     "$2B":   2,
+        "$5B":   5,     "$10B":  10,    "$25B":  25,
+        "$50B":  50,    "$100B": 100,   "$250B": 250,
+        "$500B": 500,   "$1T+":  9_999,
+    }
+
+    # ── Render all three sliders in one row ────────────────────────────────
+    col_fee, col_avail, col_cap = st.columns(3)
+    with col_fee:
+        fee_lo, fee_hi = st.select_slider(
+            "Fee Rate (%)",
+            options=list(_fee_breaks.keys()),
+            value=("0.1%", "1,000%+"),
+            key="stocks_fee_range",
+        )
+    with col_avail:
         avail_lo, avail_hi = st.select_slider(
             "Available",
-            options=_avail_labels,
+            options=list(_avail_breaks.keys()),
             value=("100", "10M+"),
             key="stocks_avail_range",
         )
-    avail_lo_v = _avail_breaks[avail_lo]
-    avail_hi_v = _avail_breaks[avail_hi]
+    with col_cap:
+        lo_label, hi_label = st.select_slider(
+            "Market Cap",
+            options=list(_cap_breaks.keys()),
+            value=("$0", "$1T+"),
+            key="stocks_mktcap_range",
+        )
+
+    # ── Apply filters ──────────────────────────────────────────────────────
+    if "Fee Rate (%)" in filtered_df.columns:
+        fee_lo_v, fee_hi_v = _fee_breaks[fee_lo], _fee_breaks[fee_hi]
+        filtered_df = filtered_df[
+            (filtered_df["Fee Rate (%)"] >= fee_lo_v) &
+            (filtered_df["Fee Rate (%)"] <= fee_hi_v)
+        ]
     if "Available" in filtered_df.columns:
+        avail_lo_v, avail_hi_v = _avail_breaks[avail_lo], _avail_breaks[avail_hi]
         filtered_df = filtered_df[
             (filtered_df["Available"] >= avail_lo_v) &
             (filtered_df["Available"] <= avail_hi_v)
         ]
-
-    # ── Market Cap slider ──────────────────────────────────────────────────
-    if "Market Cap" in result_df.columns:
-        _cap_breaks = {
-            "$0":    0,      "$100M": 0.1,   "$250M": 0.25,
-            "$500M": 0.5,   "$1B":   1,     "$2B":   2,
-            "$5B":   5,     "$10B":  10,    "$25B":  25,
-            "$50B":  50,    "$100B": 100,   "$250B": 250,
-            "$500B": 500,   "$1T+":  9_999,
-        }
-        _labels = list(_cap_breaks.keys())
-        with slider_cols[2]:
-            lo_label, hi_label = st.select_slider(
-                "Market Cap",
-                options=_labels,
-                value=("$0", "$1T+"),
-                key="stocks_mktcap_range",
-            )
-        lo_b = _cap_breaks[lo_label]
-        hi_b = _cap_breaks[hi_label]
+    if "Market Cap" in filtered_df.columns:
+        lo_b, hi_b = _cap_breaks[lo_label], _cap_breaks[hi_label]
         filtered_df = filtered_df[
             (filtered_df["Market Cap"] >= lo_b * 1_000_000_000) &
             (filtered_df["Market Cap"] <= hi_b * 1_000_000_000)
