@@ -108,10 +108,17 @@ class MarketDataProcessor:
             (merged_df['isActivelyTrading'] == True)
         ].copy()
 
-        # Drop preferred shares and corporate notes (names with interest-rate patterns
-        # like "5.00% Notes Due 2026" or "5.875% Fixed")
-        import re
-        rate_mask = us_stocks['companyName'].str.contains(r'\d+\.?\d*\s*%', regex=True, na=False)
+        # Drop preferred shares and corporate notes.
+        # Requires BOTH a rate (5.00%) AND a financial keyword (Notes/Fixed/Senior/etc.)
+        # so regular company names are never accidentally removed.
+        instrument_pattern = (
+            r'\d+\.?\d*\s*%'
+            r'.*?'
+            r'\b(?:notes?|fixed|debentures?|senior|preferred|due\s+\d{4})\b'
+        )
+        rate_mask = us_stocks['companyName'].str.contains(
+            instrument_pattern, regex=True, case=False, na=False
+        )
         us_stocks = us_stocks[~rate_mask]
 
         print(f"Filtered to {len(us_stocks):,} US stocks (NYSE/NASDAQ, no ETF/ADR/fund/preferred-notes)")

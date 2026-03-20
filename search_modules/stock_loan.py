@@ -79,14 +79,20 @@ def fetch_shortstock_with_market_cap():
         # Clean IB symbols for matching
         stock_loan_df['Symbol_Clean'] = stock_loan_df['Symbol'].str.strip().str.upper()
 
-        # Step 4: Join - only keep US stocks that have short interest data
+        # Step 4: Left-join so ALL FMP stocks appear; IB columns are NaN
+        # for stocks not in IB's list (e.g. easy-to-borrow mega-caps like NVDA).
         enriched_df = us_stocks.merge(
             stock_loan_df,
             left_on='Symbol',
             right_on='Symbol_Clean',
-            how='inner',  # Only stocks in both datasets
+            how='left',
             suffixes=('_fmp', '_ib')
         )
+
+        # Fill missing IB columns with 0 (stock exists but IB has no borrow data)
+        for col in ['Rebate Rate (%)', 'Fee Rate (%)', 'Available']:
+            if col in enriched_df.columns:
+                enriched_df[col] = enriched_df[col].fillna(0)
 
         # Drop duplicate/temporary columns
         enriched_df = enriched_df.drop(['Symbol_Clean', 'Symbol_ib'], axis=1, errors='ignore')
