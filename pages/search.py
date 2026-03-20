@@ -35,8 +35,8 @@ entity_type = st.radio(
     key="search_entity_type",
 )
 
-# ── Row 1: input + date preset ────────────────────────────────────────────────
-col_input, col_preset = st.columns([4, 1.5])
+# ── Input + date range (all on one row) ──────────────────────────────────────
+col_input, col_preset, col_from, col_to = st.columns([3, 1.2, 1, 1])
 
 with col_preset:
     preset = st.selectbox(
@@ -46,6 +46,31 @@ with col_preset:
         label_visibility="visible",
         key="search_preset",
     )
+
+date_from_default, date_to_default = get_date_range(preset)
+
+with col_from:
+    date_from = st.date_input(
+        "From",
+        value=date_from_default,
+        max_value=pd.Timestamp.now().date(),
+        disabled=(preset != "Custom"),
+        label_visibility="visible",
+        key="search_from",
+    )
+
+with col_to:
+    date_to = st.date_input(
+        "To",
+        value=date_to_default,
+        max_value=pd.Timestamp.now().date(),
+        disabled=(preset != "Custom"),
+        label_visibility="visible",
+        key="search_to",
+    )
+
+effective_from = date_from if preset == "Custom" else date_from_default
+effective_to = date_to if preset == "Custom" else date_to_default
 
 with col_input:
     query = ""
@@ -103,29 +128,6 @@ with col_input:
                 label_visibility="collapsed",
                 key="search_firm_custom",
             )
-
-# ── Row 2: Custom date inputs (only when Custom is selected) ──────────────────
-date_from_default, date_to_default = get_date_range(preset)
-
-if preset == "Custom":
-    col_from, col_to, _ = st.columns([1.5, 1.5, 3])
-    with col_from:
-        date_from = st.date_input(
-            "From",
-            value=date_from_default,
-            max_value=pd.Timestamp.now().date(),
-            key="search_from",
-        )
-    with col_to:
-        date_to = st.date_input(
-            "To",
-            value=date_to_default,
-            max_value=pd.Timestamp.now().date(),
-            key="search_to",
-        )
-    effective_from, effective_to = date_from, date_to
-else:
-    effective_from, effective_to = date_from_default, date_to_default
 
 # ── Search button ─────────────────────────────────────────────────────────────
 st.markdown("")
