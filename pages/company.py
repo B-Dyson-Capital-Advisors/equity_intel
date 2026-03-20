@@ -2,7 +2,7 @@
 Company detail page.
 
 Shows financial snapshot and legal counsel extracted from SEC filings.
-Pivot buttons next to each lawyer/firm navigate to their other clients.
+Clicking a row in the counsel table pivots to that lawyer's or firm's other clients.
 """
 
 import streamlit as st
@@ -114,7 +114,7 @@ date_range_str = (
 )
 st.caption(
     f"SEC filings · {date_range_str}. "
-    "Click 'See companies' to explore a lawyer's other clients."
+    "Click a row to explore that lawyer's or firm's other clients."
 )
 
 cache_key = f"company_lawyers::{ticker}::{search_start}::{search_end}"
@@ -127,25 +127,74 @@ if lawyers_df is None:
             st.session_state["results"] = {}
         st.session_state["results"][cache_key] = lawyers_df
 
+# ── Auto-run if no cached results ────────────────────────────────────────────
+if lawyers_df is None:
+    api_key = get_api_key()
+    if not api_key:
+        st.info("OpenAI API key not configured — legal counsel search is unavailable.")
+    elif not search_start or not search_end:
+        st.info("Set a date range on the Search page, then return here.")
+    else:
+        with st.spinner("Searching SEC filings for legal counsel..."):
+            prog = st.empty()
+
+            def _cb(msg: str):
+                prog.info(msg)
+
+            try:
+                lawyers_df = search_company_for_lawyers(
+                    ticker,
+                    search_start,
+                    search_end,
+                    api_key,
+                    _cb,
+                    cik=cik,
+                    company_name=company_name,
+                )
+                prog.empty()
+                set_cached(
+                    "company_lawyers", ticker, search_start, search_end, lawyers_df
+                )
+                if "results" not in st.session_state:
+                    st.session_state["results"] = {}
+                st.session_state["results"][cache_key] = lawyers_df
+                st.rerun()
+            except Exception as exc:
+                prog.empty()
+                st.error(f"Search failed: {exc}")
+
+# ── Render results table ──────────────────────────────────────────────────────
 if lawyers_df is not None and not lawyers_df.empty:
     st.success(f"Found {len(lawyers_df)} lawyer / firm entries")
     st.markdown("")
 
-    for i, row in lawyers_df.iterrows():
+    show_cols = [c for c in ["Lawyer", "Law Firm"] if c in lawyers_df.columns]
+    display_counsel = lawyers_df[show_cols].copy()
+    display_counsel = display_counsel.fillna("").replace(
+        "(Firm only - no lawyer name listed)", ""
+    )
+
+    sel = st.dataframe(
+        display_counsel,
+        use_container_width=True,
+        hide_index=True,
+        on_select="rerun",
+        selection_mode="single-row",
+        key="counsel_table",
+    )
+
+    selected_rows = sel.selection.rows
+    if selected_rows:
+        idx = selected_rows[0]
+        row = lawyers_df.iloc[idx]
         lawyer = str(row.get("Lawyer", "") or "").strip()
         firm = str(row.get("Law Firm", "") or "").strip()
         is_firm_only = not lawyer or lawyer == "(Firm only - no lawyer name listed)"
 
-        col_lawyer, col_firm, col_action = st.columns([2, 2.5, 1.2])
-        col_lawyer.markdown(f"**{lawyer}**" if not is_firm_only else "*(firm only)*")
-        col_firm.markdown(firm or "—")
-
         if not is_firm_only and lawyer:
-            if col_action.button("See companies", key=f"pivot_lawyer_{i}", use_container_width=True):
-                nav_to_lawyer(lawyer)
+            nav_to_lawyer(lawyer)
         elif firm:
-            if col_action.button("See companies", key=f"pivot_firm_{i}", use_container_width=True):
-                nav_to_firm(firm)
+            nav_to_firm(firm)
 
     st.divider()
     csv = lawyers_df.to_csv(index=False)
@@ -155,41 +204,3 @@ if lawyers_df is not None and not lawyers_df.empty:
         file_name=f"{ticker}_legal_counsel.csv",
         mime="text/csv",
     )
-
-else:
-    api_key = get_api_key()
-    if not api_key:
-        st.info(
-            "OpenAI API key not configured — legal counsel search is unavailable."
-        )
-    elif not search_start or not search_end:
-        st.info("Set a date range on the Search page, then return here.")
-    else:
-        if st.button("Find Legal Counsel", type="primary"):
-            with st.spinner("Searching SEC filings..."):
-                prog = st.empty()
-
-                def _cb(msg: str):
-                    prog.info(msg)
-
-                try:
-                    lawyers_df = search_company_for_lawyers(
-                        ticker,              # pass ticker, not display string
-                        search_start,
-                        search_end,
-                        api_key,
-                        _cb,
-                        cik=cik,
-                        company_name=company_name,
-                    )
-                    prog.empty()
-                    set_cached(
-                        "company_lawyers", ticker, search_start, search_end, lawyers_df
-                    )
-                    if "results" not in st.session_state:
-                        st.session_state["results"] = {}
-                    st.session_state["results"][cache_key] = lawyers_df
-                    st.rerun()
-                except Exception as exc:
-                    prog.empty()
-                    st.error(f"Search failed: {exc}")

@@ -2,7 +2,7 @@
 Law Firm detail page.
 
 Shows companies represented by this firm in SEC filings.
-Clicking a company row navigates to the company detail page.
+Clicking a row in the results table navigates to the company detail page.
 """
 
 import streamlit as st
@@ -86,16 +86,28 @@ col_dl.download_button(
 
 st.divider()
 
-# ── Results list with View buttons ────────────────────────────────────────────
-for i, row in result_df.iterrows():
+# ── Results table (click a row to view company) ───────────────────────────────
+display_df, col_cfg = apply_df_column_formats(result_df)
+
+show_cols = [c for c in ["Company", "Ticker", "Exchange", "Market Cap"] if c in display_df.columns]
+if show_cols:
+    display_df = display_df[show_cols]
+
+st.caption("Click a row to view company details.")
+sel = st.dataframe(
+    display_df,
+    column_config=col_cfg,
+    use_container_width=True,
+    hide_index=True,
+    on_select="rerun",
+    selection_mode="single-row",
+    key="firm_results_table",
+)
+
+selected_rows = sel.selection.rows
+if selected_rows:
+    idx = selected_rows[0]
+    row = result_df.iloc[idx]
     ticker = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
     name = str(row.get("Company", ""))
-    exchange = str(row.get("Exchange", "")) if row.get("Exchange") else ""
-    mktcap = row.get("Market Cap")
-
-    col_name, col_meta, col_btn = st.columns([3, 1.5, 0.8])
-    col_name.markdown(f"**{name}** &nbsp; `{ticker}`" if ticker else f"**{name}**")
-    meta = " · ".join(p for p in [exchange, fmt_currency(mktcap)] if p and p != "—")
-    col_meta.markdown(meta or "")
-    if col_btn.button("View →", key=f"view_firm_{i}", use_container_width=True):
-        nav_to_company(ticker, name)
+    nav_to_company(ticker, name)
