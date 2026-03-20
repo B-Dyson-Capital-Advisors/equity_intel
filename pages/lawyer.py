@@ -12,7 +12,6 @@ from ui_components import (
     render_back_button,
     set_current_page,
     apply_df_column_formats,
-    fmt_currency,
     nav_to_company,
 )
 from search_modules.lawyer_search import search_lawyer_for_companies
@@ -86,12 +85,8 @@ st.divider()
 for i, row in result_df.iterrows():
     ticker = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
     name = str(row.get("Company", ""))
-    exchange = str(row.get("Exchange", "")) if row.get("Exchange") else ""
-    mktcap = row.get("Market Cap")
 
-    col_name, col_meta, col_btn = st.columns([3, 1.5, 0.8])
+    col_name, col_btn = st.columns([4, 0.8])
     col_name.markdown(f"**{name}** &nbsp; `{ticker}`" if ticker else f"**{name}**")
-    meta = " · ".join(p for p in [exchange, fmt_currency(mktcap)] if p and p != "—")
-    col_meta.markdown(meta or "")
     if col_btn.button("View →", key=f"view_lawyer_{i}", use_container_width=True):
         nav_to_company(ticker, name)
