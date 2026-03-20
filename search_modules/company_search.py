@@ -782,7 +782,7 @@ Return JSON format:
                     "Authorization": f"Bearer {api_key}"
                 },
                 json={
-                    "model": "gpt-5-nano",
+                    "model": "gpt-4o-mini",
                     "messages": [{"role": "user", "content": prompt}],
                     "temperature": 0
                 },
