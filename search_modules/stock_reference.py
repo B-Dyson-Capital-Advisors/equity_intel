@@ -43,6 +43,12 @@ def load_stock_reference():
             # Clean up Symbol column
             df['Symbol'] = df['Symbol'].astype(str).str.strip().str.upper()
 
+            # Drop preferred shares / corporate notes: names containing an interest-rate
+            # pattern like "5.00% Notes Due 2026" or "5.875% Fixed"
+            if 'Company Name' in df.columns:
+                rate_pattern = r'\d+\.?\d*\s*%'
+                df = df[~df['Company Name'].str.contains(rate_pattern, regex=True, na=False)]
+
             # Convert numeric columns
             if 'Market Cap' in df.columns:
                 df['Market Cap'] = pd.to_numeric(df['Market Cap'], errors='coerce')
