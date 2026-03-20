@@ -114,7 +114,7 @@ date_range_str = (
 )
 st.caption(
     f"SEC filings · {date_range_str}. "
-    "Click a row to explore that lawyer's or firm's other clients."
+    "Use 'See companies' to explore a lawyer's or firm's other clients."
 )
 
 cache_key = f"company_lawyers::{ticker}::{search_start}::{search_end}"
@@ -168,33 +168,37 @@ if lawyers_df is not None and not lawyers_df.empty:
     st.success(f"Found {len(lawyers_df)} lawyer / firm entries")
     st.markdown("")
 
-    show_cols = [c for c in ["Lawyer", "Law Firm"] if c in lawyers_df.columns]
-    display_counsel = lawyers_df[show_cols].copy()
-    display_counsel = display_counsel.fillna("").replace(
-        "(Firm only - no lawyer name listed)", ""
+    COL = [2.2, 2.8, 1.2]
+
+    h1, h2, h3 = st.columns(COL)
+    h1.markdown("**Lawyer**")
+    h2.markdown("**Law Firm**")
+
+    st.markdown(
+        '<hr style="margin:4px 0 8px 0; border:none; border-top:2px solid rgba(49,51,63,0.2);">',
+        unsafe_allow_html=True,
     )
 
-    sel = st.dataframe(
-        display_counsel,
-        use_container_width=True,
-        hide_index=True,
-        on_select="rerun",
-        selection_mode="single-row",
-        key="counsel_table",
-    )
-
-    selected_rows = sel.selection.rows
-    if selected_rows:
-        idx = selected_rows[0]
-        row = lawyers_df.iloc[idx]
+    for i, row in lawyers_df.iterrows():
         lawyer = str(row.get("Lawyer", "") or "").strip()
         firm = str(row.get("Law Firm", "") or "").strip()
         is_firm_only = not lawyer or lawyer == "(Firm only - no lawyer name listed)"
 
+        c1, c2, c3 = st.columns(COL)
+        c1.markdown(lawyer if not is_firm_only else "*(firm only)*")
+        c2.markdown(firm or "—")
+
         if not is_firm_only and lawyer:
-            nav_to_lawyer(lawyer)
+            if c3.button("See companies", key=f"pivot_lawyer_{i}", use_container_width=True):
+                nav_to_lawyer(lawyer)
         elif firm:
-            nav_to_firm(firm)
+            if c3.button("See companies", key=f"pivot_firm_{i}", use_container_width=True):
+                nav_to_firm(firm)
+
+        st.markdown(
+            '<hr style="margin:2px 0; border:none; border-top:1px solid rgba(49,51,63,0.08);">',
+            unsafe_allow_html=True,
+        )
 
     st.divider()
     csv = lawyers_df.to_csv(index=False)
