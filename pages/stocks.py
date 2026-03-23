@@ -109,7 +109,12 @@ if stored:
             (filtered_df["Market Cap"] <= hi_b * 1_000_000_000)
         ]
 
-    st.caption(f"Showing {len(filtered_df):,} out of {len(result_df):,} stocks")
+    base_total = (
+        len(result_df[result_df["Fee Rate (%)"] >= _fee_breaks["0.1%"]])
+        if "Fee Rate (%)" in result_df.columns
+        else len(result_df)
+    )
+    st.caption(f"Showing {len(filtered_df):,} out of {base_total:,} stocks")
 
     display_df, column_config = apply_df_column_formats(filtered_df)
 
