@@ -22,7 +22,7 @@ def load_stock_reference():
             df = pd.read_csv(fmp_reference)
 
             # Standardize column names (handle both old and new formats)
-            # New format: symbol, companyName, exchange, marketCap, price, ceo, enterpriseValueTTM
+            # New format: symbol, companyName, exchange, marketCap, price, ceo, enterpriseValue
             # Old format: symbol, companyName, exchange, marketCap, sector, industry
             column_renames = {
                 'symbol': 'Symbol',
@@ -33,7 +33,8 @@ def load_stock_reference():
                 'sector': 'Sector',
                 'industry': 'Industry',
                 'ceo': 'CEO',
-                'enterpriseValueTTM': 'Enterprise Value TTM'
+                'enterpriseValue': 'Enterprise Value',
+                'enterpriseValueTTM': 'Enterprise Value',  # backward compat with old CSVs
             }
 
             # Only rename columns that exist
@@ -65,8 +66,8 @@ def load_stock_reference():
                 # Remove rows with missing or zero market cap
                 df = df[df['Market Cap'] > 0]
 
-            if 'Enterprise Value TTM' in df.columns:
-                df['Enterprise Value TTM'] = pd.to_numeric(df['Enterprise Value TTM'], errors='coerce')
+            if 'Enterprise Value' in df.columns:
+                df['Enterprise Value'] = pd.to_numeric(df['Enterprise Value'], errors='coerce')
 
             # Remove duplicates (keep first occurrence)
             df = df.drop_duplicates(subset=['Symbol'], keep='first')
@@ -166,8 +167,8 @@ def filter_and_enrich_tickers(df, ticker_column='Ticker'):
         merge_columns.append('Industry')
     if 'CEO' in reference_df.columns:
         merge_columns.append('CEO')
-    if 'Enterprise Value TTM' in reference_df.columns:
-        merge_columns.append('Enterprise Value TTM')
+    if 'Enterprise Value' in reference_df.columns:
+        merge_columns.append('Enterprise Value')
 
     # Legacy 52wk columns (if available)
     if '52wk High' in reference_df.columns:

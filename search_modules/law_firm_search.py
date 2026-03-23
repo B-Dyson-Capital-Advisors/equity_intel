@@ -231,8 +231,8 @@ def search_law_firm_for_companies(firm_name, start_date, end_date, progress_call
         final_columns.append('CEO')
     if 'IPO Date' in result_df.columns:
         final_columns.append('IPO Date')
-    if 'Enterprise Value TTM' in result_df.columns:
-        final_columns.append('Enterprise Value TTM')
+    if 'Enterprise Value' in result_df.columns:
+        final_columns.append('Enterprise Value')
 
     # Add Lawyer column if included
     if 'Lawyer' in result_df.columns:

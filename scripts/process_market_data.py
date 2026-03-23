@@ -41,28 +41,20 @@ class MarketDataProcessor:
 
         return df
 
-    def load_key_metrics_ttm(self):
-        """Load key metrics TTM bulk data"""
-        key_metrics_file = self.fmp_dir / 'key_metrics_ttm_bulk.csv'
-        if not key_metrics_file.exists():
-            print(f"\nWARNING: key_metrics_ttm_bulk.csv not found at {key_metrics_file}")
+    def load_enterprise_values(self):
+        """Load per-ticker enterprise values downloaded from /stable/enterprise-values."""
+        ev_file = self.fmp_dir / 'enterprise_values.csv'
+        if not ev_file.exists():
+            print(f"\nWARNING: enterprise_values.csv not found at {ev_file}")
             return None
 
-        print(f"\nLoading key metrics TTM...")
-        df = pd.read_csv(key_metrics_file)
-        print(f"  Loaded {len(df):,} key metrics")
-
-        # Parse enterpriseValueTTM but do NOT threshold-filter here.
-        # Companies with low or negative EV (e.g. cash-heavy names like Enovix)
-        # are still valid investment targets and must not be excluded.
-        if 'enterpriseValueTTM' in df.columns:
-            df['enterpriseValueTTM'] = pd.to_numeric(df['enterpriseValueTTM'], errors='coerce')
-        else:
-            print(f"  WARNING: enterpriseValueTTM column not found")
-
+        print(f"\nLoading enterprise values...")
+        df = pd.read_csv(ev_file)
+        df['enterpriseValue'] = pd.to_numeric(df['enterpriseValue'], errors='coerce')
+        print(f"  Loaded {df['enterpriseValue'].notna().sum():,} enterprise values")
         return df
 
-    def create_stock_reference(self, profiles_df, key_metrics_df=None):
+    def create_stock_reference(self, profiles_df, ev_df=None):
         """
         Create compact stock reference file for the app
 
@@ -77,24 +69,17 @@ class MarketDataProcessor:
         # Start with profiles (already filtered to currency=USD, country=US)
         print(f"\nStarting with {len(profiles_df):,} profiles (USD, US)")
 
-        # Merge with key metrics if available
-        if key_metrics_df is not None:
-            print(f"Merging with {len(key_metrics_df):,} key metrics...")
-
-            # Keep only enterpriseValueTTM from key metrics
-            key_metrics_columns = ['symbol', 'enterpriseValueTTM']
-            if 'enterpriseValueTTM' in key_metrics_df.columns:
-                merged_df = profiles_df.merge(
-                    key_metrics_df[key_metrics_columns],
-                    on='symbol',
-                    how='left'  # Keep all stocks; enterpriseValueTTM will be NaN if missing
-                )
-                print(f"  After merge: {len(merged_df):,} stocks (left join, EV data where available)")
-            else:
-                print("  WARNING: enterpriseValueTTM not found in key metrics")
-                merged_df = profiles_df.copy()
+        # Merge enterprise values
+        if ev_df is not None:
+            print(f"Merging with {len(ev_df):,} enterprise value rows...")
+            merged_df = profiles_df.merge(
+                ev_df[['symbol', 'enterpriseValue']],
+                on='symbol',
+                how='left'
+            )
+            print(f"  After merge: {len(merged_df):,} stocks (EV data where available)")
         else:
-            print("  Skipping key metrics merge (data not available)")
+            print("  Skipping enterprise value merge (data not available)")
             merged_df = profiles_df.copy()
 
         # Filter to US stocks only (NYSE/NASDAQ, no ETF/ADR/fund, actively trading)
@@ -123,8 +108,8 @@ class MarketDataProcessor:
         required_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'price', 'ceo']
         if 'entityType' in us_stocks.columns:
             required_columns.append('entityType')
-        if 'enterpriseValueTTM' in us_stocks.columns:
-            required_columns.append('enterpriseValueTTM')
+        if 'enterpriseValue' in us_stocks.columns:
+            required_columns.append('enterpriseValue')
 
         # Check which columns exist
         available_columns = [col for col in required_columns if col in us_stocks.columns]
@@ -165,12 +150,11 @@ class MarketDataProcessor:
         # Load profiles (with USD/US filters)
         profiles_df = self.load_profiles()
 
-        # Load key metrics TTM
-        key_metrics_df = self.load_key_metrics_ttm()
+        # Load enterprise values
+        ev_df = self.load_enterprise_values()
 
         # First create the compact US stock reference (committable to git)
-        # This merges profiles + key metrics and filters to NYSE/NASDAQ
-        reference_df = self.create_stock_reference(profiles_df, key_metrics_df)
+        reference_df = self.create_stock_reference(profiles_df, ev_df)
 
         # Now create full screening dataset (all stocks, all columns)
         print("\n" + "=" * 80)

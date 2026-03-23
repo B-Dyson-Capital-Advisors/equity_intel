@@ -44,7 +44,7 @@ for t in targets:
             row["Exchange"] = fmp.get("Exchange", "")
             row["Price"] = fmp.get("Price")
             row["Market Cap"] = fmp.get("Market Cap")
-            row["Enterprise Value TTM"] = fmp.get("Enterprise Value TTM")
+            row["Enterprise Value"] = fmp.get("Enterprise Value")
             row["CEO"] = fmp.get("CEO", "")
             row["Sector"] = fmp.get("Sector", "")
             row["Industry"] = fmp.get("Industry", "")

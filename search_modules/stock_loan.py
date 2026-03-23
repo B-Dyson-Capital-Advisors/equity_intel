@@ -108,7 +108,7 @@ def fetch_shortstock_with_market_cap():
         # Reorder columns (Exchange, CEO, Currency omitted to save space)
         column_order = [
             'Date', 'Time', 'Symbol', 'Company Name', 'Market Cap',
-            'IPO Date', 'Enterprise Value TTM',
+            'IPO Date', 'Enterprise Value',
             'Sector', 'Industry',
             'Rebate Rate (%)', 'Fee Rate (%)', 'Available'
         ]
