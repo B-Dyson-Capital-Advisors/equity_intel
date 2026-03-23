@@ -109,7 +109,7 @@ if stored:
             (filtered_df["Market Cap"] <= hi_b * 1_000_000_000)
         ]
 
-    st.caption(f"Showing {len(filtered_df):,} stocks")
+    st.caption(f"Showing {len(filtered_df):,} out of {len(result_df):,} stocks")
 
     display_df, column_config = apply_df_column_formats(filtered_df)
 
