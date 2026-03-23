@@ -175,12 +175,13 @@ def filter_and_enrich_tickers(df, ticker_column='Ticker'):
     if '52wk Low' in reference_df.columns:
         merge_columns.append('52wk Low')
 
-    # Merge with reference to filter and add FMP data
+    # Left join: keep ALL companies found in EDGAR; enrich with FMP data where available.
+    # Companies not in the NYSE/NASDAQ reference will have NaN for market cap etc.
     enriched_df = df.merge(
         reference_df[merge_columns],
         left_on=ticker_column,
         right_on='Symbol',
-        how='inner'  # Only keep US tickers (NYSE/NASDAQ)
+        how='left'
     )
 
     # Drop the extra Symbol column

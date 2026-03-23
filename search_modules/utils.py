@@ -305,6 +305,13 @@ def search_entity_for_companies(entity_name, entity_type, start_date, end_date, 
 
     df_unique = deduplicate_companies(df_filtered)
 
+    # Secondary dedup by ticker: the same legal entity can appear under different
+    # names across filings when a company renames itself (e.g. "Complete Solaria, Inc."
+    # and "SunPower Inc." share the same CIK and therefore the same ticker SPWR).
+    # df_unique is already sorted by date descending so keep='first' retains the
+    # most recent filing name for each ticker.
+    df_unique = df_unique.drop_duplicates(subset=['ticker'], keep='first')
+
     if progress_callback:
         progress_callback(f"Unique companies: {len(df_unique)}")
 
@@ -325,7 +332,7 @@ def search_entity_for_companies(entity_name, entity_type, start_date, end_date, 
     result_df = filter_and_enrich_tickers(result_df, ticker_column='Ticker_Clean')
 
     if result_df.empty:
-        raise ValueError(f"No companies found with tickers in stock reference file")
+        raise ValueError(f"No companies with identifiable tickers found for {entity_type}: {entity_name}")
 
     if progress_callback:
         progress_callback(f"Adding stock loan availability data...")

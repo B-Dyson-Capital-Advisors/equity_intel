@@ -52,13 +52,11 @@ class MarketDataProcessor:
         df = pd.read_csv(key_metrics_file)
         print(f"  Loaded {len(df):,} key metrics")
 
-        # Filter for enterpriseValueTTM > 100MM
+        # Parse enterpriseValueTTM but do NOT threshold-filter here.
+        # Companies with low or negative EV (e.g. cash-heavy names like Enovix)
+        # are still valid investment targets and must not be excluded.
         if 'enterpriseValueTTM' in df.columns:
             df['enterpriseValueTTM'] = pd.to_numeric(df['enterpriseValueTTM'], errors='coerce')
-            initial_count = len(df)
-            df = df[df['enterpriseValueTTM'] > 100_000_000].copy()
-            filtered_count = len(df)
-            print(f"  Filtered enterpriseValueTTM > 100MM: {filtered_count:,} (removed {initial_count - filtered_count:,})")
         else:
             print(f"  WARNING: enterpriseValueTTM column not found")
 
@@ -89,9 +87,9 @@ class MarketDataProcessor:
                 merged_df = profiles_df.merge(
                     key_metrics_df[key_metrics_columns],
                     on='symbol',
-                    how='inner'  # Only keep stocks with both profile + key metrics
+                    how='left'  # Keep all stocks; enterpriseValueTTM will be NaN if missing
                 )
-                print(f"  After merge: {len(merged_df):,} stocks (have both profile + key metrics)")
+                print(f"  After merge: {len(merged_df):,} stocks (left join, EV data where available)")
             else:
                 print("  WARNING: enterpriseValueTTM not found in key metrics")
                 merged_df = profiles_df.copy()
