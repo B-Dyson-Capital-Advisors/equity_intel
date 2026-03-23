@@ -44,7 +44,7 @@ if stored:
     data_time = stored.get("time", "")
 
     with col_info:
-        st.info(f"Data as of: {data_date} {data_time} · {len(result_df):,} stocks")
+        st.info(f"Data as of: {data_date} {data_time}")
 
     # ── Filters ───────────────────────────────────────────────────────────────
     import pandas as pd
@@ -115,7 +115,7 @@ if stored:
             (filtered_df["Market Cap"] <= hi_b * 1_000_000_000)
         ]
 
-    st.caption(f"Showing {len(filtered_df):,} of {len(result_df):,} stocks · ETFs and funds excluded")
+    st.caption(f"Showing {len(filtered_df):,} stocks")
 
     display_df, column_config = apply_df_column_formats(filtered_df)
 
