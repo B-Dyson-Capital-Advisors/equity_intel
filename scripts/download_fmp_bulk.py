@@ -134,59 +134,63 @@ class FMPBulkDownloader:
 
         return combined_df
 
-    def download_key_metrics_ttm_bulk(self):
-        """
-        Download bulk key metrics TTM (trailing twelve months)
-        URL: https://financialmodelingprep.com/stable/key-metrics-ttm-bulk?apikey=...
+    def _download_single_endpoint(self, label, endpoint, output_filename):
+        """Generic helper to download a single bulk CSV endpoint."""
+        print(f"\nDownloading {label}...")
 
-        Returns: symbol, enterpriseValueTTM, etc.
-        """
-        print("\nDownloading key metrics TTM bulk...")
-
-        url = f"{self.BASE_URL}/key-metrics-ttm-bulk"
+        url = f"{self.BASE_URL}/{endpoint}"
         params = {'apikey': self.api_key}
-
         max_retries = 3
-        retry_count = 0
 
-        while retry_count < max_retries:
+        for attempt in range(max_retries):
             try:
-                print(f"  Fetching key metrics...")
+                print(f"  Fetching {label}...")
                 response = requests.get(url, params=params, timeout=120)
 
-                # 429 means rate limit - wait and retry
                 if response.status_code == 429:
-                    wait_time = 60 * (retry_count + 1)
+                    wait_time = 60 * (attempt + 1)
                     print(f"    Rate limit hit. Waiting {wait_time}s...")
                     time.sleep(wait_time)
-                    retry_count += 1
                     continue
 
                 response.raise_for_status()
 
-                # Parse CSV
                 df = pd.read_csv(StringIO(response.text))
+                print(f"    SUCCESS: Got {len(df):,} rows")
 
-                print(f"    SUCCESS: Got {len(df):,} key metrics")
-
-                # Save to CSV
-                output_file = self.data_dir / 'key_metrics_ttm_bulk.csv'
+                output_file = self.data_dir / output_filename
                 df.to_csv(output_file, index=False)
                 print(f"    Saved to: {output_file}")
 
                 return df
 
             except requests.exceptions.RequestException as e:
-                retry_count += 1
-                if retry_count < max_retries:
-                    wait_time = 5 * retry_count
+                if attempt < max_retries - 1:
+                    wait_time = 5 * (attempt + 1)
                     print(f"    Error: {e}. Retrying in {wait_time}s...")
                     time.sleep(wait_time)
                 else:
                     print(f"    ERROR after {max_retries} retries: {e}")
-                    return None
 
         return None
+
+    def download_ratios_ttm_bulk(self):
+        """
+        Download bulk ratios TTM — contains the correct enterpriseValueTTM.
+        URL: https://financialmodelingprep.com/stable/ratios-ttm-bulk?apikey=...
+        """
+        return self._download_single_endpoint(
+            "ratios TTM bulk", "ratios-ttm-bulk", "ratios_ttm_bulk.csv"
+        )
+
+    def download_key_metrics_ttm_bulk(self):
+        """
+        Download bulk key metrics TTM (trailing twelve months)
+        URL: https://financialmodelingprep.com/stable/key-metrics-ttm-bulk?apikey=...
+        """
+        return self._download_single_endpoint(
+            "key metrics TTM bulk", "key-metrics-ttm-bulk", "key_metrics_ttm_bulk.csv"
+        )
 
 
 def main():
@@ -206,12 +210,12 @@ def main():
             print("\nERROR: No profile data downloaded")
             sys.exit(1)
 
-        # Download key metrics TTM
+        # Download ratios TTM (contains correct enterpriseValueTTM)
         print("\n" + "=" * 80)
-        key_metrics_df = downloader.download_key_metrics_ttm_bulk()
+        ratios_df = downloader.download_ratios_ttm_bulk()
 
-        if key_metrics_df is None:
-            print("\nWARNING: Key metrics download failed, but continuing with profiles")
+        if ratios_df is None:
+            print("\nWARNING: Ratios TTM download failed, but continuing with profiles")
 
         print("\n" + "=" * 80)
         print("DOWNLOAD COMPLETE")
@@ -219,8 +223,8 @@ def main():
         print(f"\n✓ Company profiles: {len(profiles_df):,}")
         print(f"  - With marketCap > 0: {(profiles_df['marketCap'] > 0).sum():,}")
 
-        if key_metrics_df is not None:
-            print(f"\n✓ Key metrics TTM: {len(key_metrics_df):,}")
+        if ratios_df is not None:
+            print(f"\n✓ Ratios TTM: {len(ratios_df):,}")
 
         print("\nNext: Run scripts/process_market_data.py to generate stock reference")
 
