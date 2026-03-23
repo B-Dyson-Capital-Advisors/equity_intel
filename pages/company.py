@@ -64,8 +64,8 @@ st.divider()
 # ── Financial metrics ─────────────────────────────────────────────────────────
 if company_data:
     mktcap = company_data.get("Market Cap") or 0
-    ev_raw = company_data.get("Enterprise Value TTM")
-    # Sanity-check EV: if |EV| > 10x market cap the FMP bulk data is corrupted
+    ev_raw = company_data.get("Enterprise Value")
+    # Sanity-check EV: if |EV| > 10x market cap the data is corrupted
     ev_display = "—"
     if ev_raw is not None and not pd.isna(ev_raw) and mktcap > 0:
         if abs(ev_raw) <= 10 * mktcap:

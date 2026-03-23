@@ -41,29 +41,20 @@ class MarketDataProcessor:
 
         return df
 
-    def load_ratios_ttm(self):
-        """
-        Load ratios TTM bulk data.
-        This is the preferred source for enterpriseValueTTM — it uses a proper
-        market-cap-based calculation rather than the debt-heavy key-metrics version.
-        """
-        ratios_file = self.fmp_dir / 'ratios_ttm_bulk.csv'
-        if not ratios_file.exists():
-            print(f"\nWARNING: ratios_ttm_bulk.csv not found at {ratios_file}")
+    def load_enterprise_values(self):
+        """Load per-ticker enterprise values downloaded from /stable/enterprise-values."""
+        ev_file = self.fmp_dir / 'enterprise_values.csv'
+        if not ev_file.exists():
+            print(f"\nWARNING: enterprise_values.csv not found at {ev_file}")
             return None
 
-        print(f"\nLoading ratios TTM...")
-        df = pd.read_csv(ratios_file)
-        print(f"  Loaded {len(df):,} ratios")
-
-        if 'enterpriseValueTTM' in df.columns:
-            df['enterpriseValueTTM'] = pd.to_numeric(df['enterpriseValueTTM'], errors='coerce')
-        else:
-            print(f"  WARNING: enterpriseValueTTM column not found in ratios TTM")
-
+        print(f"\nLoading enterprise values...")
+        df = pd.read_csv(ev_file)
+        df['enterpriseValue'] = pd.to_numeric(df['enterpriseValue'], errors='coerce')
+        print(f"  Loaded {df['enterpriseValue'].notna().sum():,} enterprise values")
         return df
 
-    def create_stock_reference(self, profiles_df, ratios_df=None):
+    def create_stock_reference(self, profiles_df, ev_df=None):
         """
         Create compact stock reference file for the app
 
@@ -78,22 +69,17 @@ class MarketDataProcessor:
         # Start with profiles (already filtered to currency=USD, country=US)
         print(f"\nStarting with {len(profiles_df):,} profiles (USD, US)")
 
-        # Merge with ratios TTM to get enterpriseValueTTM
-        if ratios_df is not None:
-            print(f"Merging with {len(ratios_df):,} ratios TTM rows...")
-
-            if 'enterpriseValueTTM' in ratios_df.columns:
-                merged_df = profiles_df.merge(
-                    ratios_df[['symbol', 'enterpriseValueTTM']],
-                    on='symbol',
-                    how='left'
-                )
-                print(f"  After merge: {len(merged_df):,} stocks (EV data where available)")
-            else:
-                print("  WARNING: enterpriseValueTTM not found in ratios TTM")
-                merged_df = profiles_df.copy()
+        # Merge enterprise values
+        if ev_df is not None:
+            print(f"Merging with {len(ev_df):,} enterprise value rows...")
+            merged_df = profiles_df.merge(
+                ev_df[['symbol', 'enterpriseValue']],
+                on='symbol',
+                how='left'
+            )
+            print(f"  After merge: {len(merged_df):,} stocks (EV data where available)")
         else:
-            print("  Skipping ratios TTM merge (data not available)")
+            print("  Skipping enterprise value merge (data not available)")
             merged_df = profiles_df.copy()
 
         # Filter to US stocks only (NYSE/NASDAQ, no ETF/ADR/fund, actively trading)
@@ -122,8 +108,8 @@ class MarketDataProcessor:
         required_columns = ['symbol', 'companyName', 'exchange', 'marketCap', 'price', 'ceo']
         if 'entityType' in us_stocks.columns:
             required_columns.append('entityType')
-        if 'enterpriseValueTTM' in us_stocks.columns:
-            required_columns.append('enterpriseValueTTM')
+        if 'enterpriseValue' in us_stocks.columns:
+            required_columns.append('enterpriseValue')
 
         # Check which columns exist
         available_columns = [col for col in required_columns if col in us_stocks.columns]
@@ -164,11 +150,11 @@ class MarketDataProcessor:
         # Load profiles (with USD/US filters)
         profiles_df = self.load_profiles()
 
-        # Load ratios TTM (preferred EV source)
-        ratios_df = self.load_ratios_ttm()
+        # Load enterprise values
+        ev_df = self.load_enterprise_values()
 
         # First create the compact US stock reference (committable to git)
-        reference_df = self.create_stock_reference(profiles_df, ratios_df)
+        reference_df = self.create_stock_reference(profiles_df, ev_df)
 
         # Now create full screening dataset (all stocks, all columns)
         print("\n" + "=" * 80)

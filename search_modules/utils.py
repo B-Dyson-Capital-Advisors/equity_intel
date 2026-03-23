@@ -381,8 +381,8 @@ def search_entity_for_companies(entity_name, entity_type, start_date, end_date, 
     # Add new FMP columns
     if 'CEO' in result_df.columns:
         final_columns.append('CEO')
-    if 'Enterprise Value TTM' in result_df.columns:
-        final_columns.append('Enterprise Value TTM')
+    if 'Enterprise Value' in result_df.columns:
+        final_columns.append('Enterprise Value')
 
     if 'Sector' in result_df.columns:
         final_columns.append('Sector')

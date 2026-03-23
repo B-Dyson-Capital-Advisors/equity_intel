@@ -10,6 +10,7 @@ import requests
 import pandas as pd
 from pathlib import Path
 from io import StringIO
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
 # Load .env file if exists (for local development)
@@ -174,23 +175,51 @@ class FMPBulkDownloader:
 
         return None
 
-    def download_ratios_ttm_bulk(self):
+    def download_enterprise_values(self, tickers):
         """
-        Download bulk ratios TTM — contains the correct enterpriseValueTTM.
-        URL: https://financialmodelingprep.com/stable/ratios-ttm-bulk?apikey=...
-        """
-        return self._download_single_endpoint(
-            "ratios TTM bulk", "ratios-ttm-bulk", "ratios_ttm_bulk.csv"
-        )
+        Download the most recent enterprise value for each ticker using the
+        per-symbol endpoint. Runs ~10 requests in parallel.
+        URL: https://financialmodelingprep.com/stable/enterprise-values?symbol=X&limit=1
 
-    def download_key_metrics_ttm_bulk(self):
+        Returns DataFrame with columns: symbol, enterpriseValue
         """
-        Download bulk key metrics TTM (trailing twelve months)
-        URL: https://financialmodelingprep.com/stable/key-metrics-ttm-bulk?apikey=...
-        """
-        return self._download_single_endpoint(
-            "key metrics TTM bulk", "key-metrics-ttm-bulk", "key_metrics_ttm_bulk.csv"
-        )
+        print(f"\nDownloading enterprise values for {len(tickers):,} tickers (10 workers)...")
+
+        results = {}
+
+        def fetch_one(ticker):
+            try:
+                r = requests.get(
+                    f"{self.BASE_URL}/enterprise-values",
+                    params={"symbol": ticker, "limit": 1, "apikey": self.api_key},
+                    timeout=30,
+                )
+                if r.status_code == 200:
+                    data = r.json()
+                    if data and isinstance(data, list):
+                        return ticker, data[0].get("enterpriseValue")
+            except Exception:
+                pass
+            return ticker, None
+
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            futures = {executor.submit(fetch_one, t): t for t in tickers}
+            done = 0
+            for future in as_completed(futures):
+                ticker, ev = future.result()
+                results[ticker] = ev
+                done += 1
+                if done % 500 == 0:
+                    print(f"  Progress: {done:,}/{len(tickers):,}")
+
+        df = pd.DataFrame(list(results.items()), columns=["symbol", "enterpriseValue"])
+        output_file = self.data_dir / "enterprise_values.csv"
+        df.to_csv(output_file, index=False)
+
+        non_null = df["enterpriseValue"].notna().sum()
+        print(f"  SUCCESS: {non_null:,}/{len(tickers):,} tickers with EV data")
+        print(f"  Saved to: {output_file}")
+        return df
 
 
 def main():
@@ -210,21 +239,28 @@ def main():
             print("\nERROR: No profile data downloaded")
             sys.exit(1)
 
-        # Download ratios TTM (contains correct enterpriseValueTTM)
-        print("\n" + "=" * 80)
-        ratios_df = downloader.download_ratios_ttm_bulk()
+        # Build ticker list: US stocks (NYSE/NASDAQ) with positive market cap only
+        us_tickers = profiles_df[
+            (profiles_df["exchange"].isin(["NYSE", "NASDAQ"])) &
+            (profiles_df["marketCap"] > 0) &
+            (profiles_df["isActivelyTrading"] == True) &
+            (profiles_df["isEtf"] == False) &
+            (profiles_df["isAdr"] == False) &
+            (profiles_df["isFund"] == False)
+        ]["symbol"].dropna().tolist()
 
-        if ratios_df is None:
-            print("\nWARNING: Ratios TTM download failed, but continuing with profiles")
+        # Download enterprise values (parallelised, ~2 min for ~4k tickers)
+        print("\n" + "=" * 80)
+        ev_df = downloader.download_enterprise_values(us_tickers)
 
         print("\n" + "=" * 80)
         print("DOWNLOAD COMPLETE")
         print("=" * 80)
         print(f"\n✓ Company profiles: {len(profiles_df):,}")
-        print(f"  - With marketCap > 0: {(profiles_df['marketCap'] > 0).sum():,}")
+        print(f"  - US tickers fetched for EV: {len(us_tickers):,}")
 
-        if ratios_df is not None:
-            print(f"\n✓ Ratios TTM: {len(ratios_df):,}")
+        if ev_df is not None:
+            print(f"\n✓ Enterprise values: {ev_df['enterpriseValue'].notna().sum():,} with data")
 
         print("\nNext: Run scripts/process_market_data.py to generate stock reference")
 

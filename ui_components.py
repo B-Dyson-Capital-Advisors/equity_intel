@@ -145,12 +145,12 @@ def apply_df_column_formats(df: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
         column_config["Market Cap"] = st.column_config.NumberColumn(
             "Mkt Cap ($MM)", format="localized"
         )
-    if "Enterprise Value TTM" in display_df.columns:
-        display_df["Enterprise Value TTM"] = (
-            display_df["Enterprise Value TTM"] / 1_000_000
+    if "Enterprise Value" in display_df.columns:
+        display_df["Enterprise Value"] = (
+            display_df["Enterprise Value"] / 1_000_000
         ).round(1)
-        column_config["Enterprise Value TTM"] = st.column_config.NumberColumn(
-            "EV TTM ($MM)", format="localized"
+        column_config["Enterprise Value"] = st.column_config.NumberColumn(
+            "EV ($MM)", format="localized"
         )
     if "Rebate Rate (%)" in display_df.columns:
         column_config["Rebate Rate (%)"] = st.column_config.NumberColumn(
