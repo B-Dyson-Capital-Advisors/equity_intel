@@ -2,8 +2,12 @@
 Shared UI components used across all pages.
 """
 
+import os
 import streamlit as st
 import pandas as pd
+
+_DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+_REFERENCE_XLSX = os.path.join(_DATA_DIR, "lawyer_names_final.xlsx")
 
 
 PRESET_OPTIONS = [
@@ -33,6 +37,49 @@ def get_date_range(preset: str):
         return pd.Timestamp("2001-01-01").date(), end.date()
     # Custom — caller handles
     return (end - pd.DateOffset(years=1)).date(), end.date()
+
+
+def load_reference_names() -> tuple[list[str], list[str]]:
+    """
+    Load lawyer names and law firm EDGAR search terms from the reference Excel.
+    Results are cached in session state so the file is only read once per session.
+    Returns (lawyer_names, firm_search_terms) as sorted lists.
+    """
+    cache_key = "_reference_names"
+    if cache_key in st.session_state:
+        return st.session_state[cache_key]
+
+    lawyer_names: list[str] = []
+    firm_terms: list[str] = []
+
+    try:
+        lawyers_df = pd.read_excel(_REFERENCE_XLSX, sheet_name="Lawyer Names", usecols=["Name"])
+        lawyer_names = (
+            lawyers_df["Name"]
+            .dropna()
+            .drop_duplicates()
+            .str.strip()
+            .sort_values()
+            .tolist()
+        )
+    except Exception:
+        pass
+
+    try:
+        firms_df = pd.read_excel(_REFERENCE_XLSX, sheet_name="Law Firms", usecols=["EDGAR Search Term"])
+        firm_terms = (
+            firms_df["EDGAR Search Term"]
+            .dropna()
+            .drop_duplicates()
+            .str.strip()
+            .sort_values()
+            .tolist()
+        )
+    except Exception:
+        pass
+
+    st.session_state[cache_key] = (lawyer_names, firm_terms)
+    return lawyer_names, firm_terms
 
 
 def get_api_key() -> str | None:
