@@ -232,8 +232,11 @@ def is_valid_person_name(name, company_name=None):
 
     # Only reject obvious non-person terms (keep this minimal!)
     obvious_non_persons = [
+        # Officer / title keywords — any name containing these is a job title, not a person
+        'officer', 'secretary', 'treasurer', 'president', ' director',
         'chief executive', 'chief financial', 'chief legal', 'chief operating',
         'general counsel', 'corporate secretary', 'vice president',
+        # Document / company boilerplate
         'the registrant', 'the company',
         'date filed', 'second amended', 'this registration',
         'annual meeting', 'our board', 'board of directors', 'special meeting'
