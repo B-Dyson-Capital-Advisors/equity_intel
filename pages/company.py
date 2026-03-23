@@ -184,6 +184,26 @@ if lawyers_df is not None and not lawyers_df.empty:
         unsafe_allow_html=True,
     )
 
+    # Suppress firm-only rows whose firm is covered by a named-lawyer row.
+    # E.g. if we have "Michael Penney / Arnold & Porter Kaye Scholer LLP" already,
+    # drop "(firm only) / Arnold & Porter LLP" because the firm name is a substring.
+    named_firms = set(
+        str(row.get("Law Firm", "") or "").strip()
+        for _, row in lawyers_df.iterrows()
+        if str(row.get("Lawyer", "") or "").strip()
+        and str(row.get("Lawyer", "") or "").strip() != "(Firm only - no lawyer name listed)"
+    )
+
+    def _is_redundant_firm_only(row):
+        lawyer = str(row.get("Lawyer", "") or "").strip()
+        is_fo = not lawyer or lawyer == "(Firm only - no lawyer name listed)"
+        if not is_fo:
+            return False
+        firm = str(row.get("Law Firm", "") or "").strip()
+        return any(firm in nf or nf in firm for nf in named_firms)
+
+    lawyers_df = lawyers_df[~lawyers_df.apply(_is_redundant_firm_only, axis=1)]
+
     for i, row in lawyers_df.iterrows():
         lawyer = str(row.get("Lawyer", "") or "").strip()
         firm = str(row.get("Law Firm", "") or "").strip()
