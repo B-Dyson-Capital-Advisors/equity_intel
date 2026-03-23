@@ -332,7 +332,7 @@ def search_entity_for_companies(entity_name, entity_type, start_date, end_date, 
     result_df = filter_and_enrich_tickers(result_df, ticker_column='Ticker_Clean')
 
     if result_df.empty:
-        raise ValueError(f"No companies found with tickers in stock reference file")
+        raise ValueError(f"No companies with identifiable tickers found for {entity_type}: {entity_name}")
 
     if progress_callback:
         progress_callback(f"Adding stock loan availability data...")

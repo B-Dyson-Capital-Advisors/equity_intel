@@ -86,13 +86,13 @@ col_dl.download_button(
 st.divider()
 
 # ── Results table ─────────────────────────────────────────────────────────────
-COL = [3.5, 1, 1, 1.2, 0.7]
+COL = [3.5, 1, 1.5, 0.7]
 
-h1, h2, h3, h4, h5 = st.columns(COL)
+h1, h2, h3, h4 = st.columns(COL)
 h1.markdown("**Company**")
 h2.markdown("**Ticker**")
-h3.markdown("**Exchange**")
-h4.markdown("**Mkt Cap**")
+h3.markdown("**Market Cap**")
+# h4 = button column, no header
 
 st.markdown(
     '<hr style="margin:4px 0 8px 0; border:none; border-top:2px solid rgba(49,51,63,0.2);">',
@@ -102,15 +102,13 @@ st.markdown(
 for i, row in result_df.iterrows():
     ticker = str(row.get("Ticker", "")).replace(" US Equity", "").strip().upper()
     name = str(row.get("Company", ""))
-    exchange = str(row.get("Exchange", "") or "")
     mktcap = row.get("Market Cap")
 
-    c1, c2, c3, c4, c5 = st.columns(COL)
+    c1, c2, c3, c4 = st.columns(COL)
     c1.markdown(name)
     c2.markdown(f"`{ticker}`" if ticker else "")
-    c3.markdown(exchange)
-    c4.markdown(fmt_currency(mktcap))
-    if c5.button("View", key=f"view_firm_{i}", use_container_width=True):
+    c3.markdown(fmt_currency(mktcap))
+    if c4.button("View", key=f"view_firm_{i}", use_container_width=True):
         nav_to_company(ticker, name)
 
     st.markdown(
