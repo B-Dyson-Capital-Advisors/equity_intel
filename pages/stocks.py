@@ -16,10 +16,8 @@ render_sidebar()
 st.title("Stock Loan Availability")
 st.markdown("Real-time lending data from Interactive Brokers · US stocks (NYSE / NASDAQ)")
 
-col_fetch, col_info = st.columns([1, 4])
-
-with col_fetch:
-    fetch_clicked = st.button("Fetch Latest Data", type="primary", use_container_width=True)
+with st.container():
+    fetch_clicked = st.button("Fetch Latest Data", type="primary")
 
 if fetch_clicked:
     with st.spinner("Fetching IB short-stock data..."):
@@ -40,11 +38,6 @@ if fetch_clicked:
 stored = st.session_state.get("stock_loan_results")
 if stored:
     result_df = stored["df"]
-    data_date = stored.get("date", "")
-    data_time = stored.get("time", "")
-
-    with col_info:
-        st.info(f"Data as of: {data_date} {data_time}")
 
     # ── Filters ───────────────────────────────────────────────────────────────
     import pandas as pd
