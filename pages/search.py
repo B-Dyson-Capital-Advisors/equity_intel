@@ -72,6 +72,8 @@ with col_to:
 effective_from = date_from if preset == "Custom" else date_from_default
 effective_to = date_to if preset == "Custom" else date_to_default
 
+FREE = "— Type a name —"
+
 lawyer_names, firm_terms = load_reference_names()
 
 with col_input:
@@ -79,13 +81,28 @@ with col_input:
     selected_company_obj = None
 
     if entity_type == "Lawyer":
-        selected_lawyer = st.selectbox(
-            "Lawyer name",
-            options=[""] + lawyer_names,
-            label_visibility="hidden",
-            key="search_lawyer_input",
-        )
-        query = selected_lawyer or ""
+        if st.session_state.get("lawyer_free_search"):
+            selected_lawyer = st.text_input(
+                "Lawyer name",
+                placeholder="Type any lawyer name…",
+                label_visibility="hidden",
+                key="search_lawyer_text",
+            )
+            if st.button("← back to list", key="lawyer_back"):
+                st.session_state["lawyer_free_search"] = False
+                st.rerun()
+            query = selected_lawyer or ""
+        else:
+            selected_lawyer = st.selectbox(
+                "Lawyer name",
+                options=[""] + lawyer_names + [FREE],
+                label_visibility="hidden",
+                key="search_lawyer_select",
+            )
+            if selected_lawyer == FREE:
+                st.session_state["lawyer_free_search"] = True
+                st.rerun()
+            query = selected_lawyer or ""
 
     elif entity_type == "Company":
         companies = load_all_companies()
@@ -111,13 +128,28 @@ with col_input:
             )
 
     else:  # Law Firm
-        selected_firm = st.selectbox(
-            "Law firm name",
-            options=[""] + firm_terms,
-            label_visibility="hidden",
-            key="search_firm_input",
-        )
-        query = selected_firm or ""
+        if st.session_state.get("firm_free_search"):
+            selected_firm = st.text_input(
+                "Law firm name",
+                placeholder="Type any law firm name…",
+                label_visibility="hidden",
+                key="search_firm_text",
+            )
+            if st.button("← back to list", key="firm_back"):
+                st.session_state["firm_free_search"] = False
+                st.rerun()
+            query = selected_firm or ""
+        else:
+            selected_firm = st.selectbox(
+                "Law firm name",
+                options=[""] + firm_terms + [FREE],
+                label_visibility="hidden",
+                key="search_firm_select",
+            )
+            if selected_firm == FREE:
+                st.session_state["firm_free_search"] = True
+                st.rerun()
+            query = selected_firm or ""
 
 # ── Search button ─────────────────────────────────────────────────────────────
 st.markdown("")
