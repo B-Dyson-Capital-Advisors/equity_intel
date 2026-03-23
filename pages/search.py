@@ -10,12 +10,12 @@ from ui_components import (
     set_current_page,
     get_date_range,
     PRESET_OPTIONS,
+    load_reference_names,
     nav_to_lawyer,
     nav_to_company,
     nav_to_firm,
 )
 from search_modules.company_search import load_all_companies
-from search_modules.law_firm_reference import MAJOR_LAW_FIRMS
 
 set_current_page("pages/search.py", "Search")
 render_sidebar()
@@ -72,17 +72,20 @@ with col_to:
 effective_from = date_from if preset == "Custom" else date_from_default
 effective_to = date_to if preset == "Custom" else date_to_default
 
+lawyer_names, firm_terms = load_reference_names()
+
 with col_input:
     query = ""
     selected_company_obj = None
 
     if entity_type == "Lawyer":
-        query = st.text_input(
+        selected_lawyer = st.selectbox(
             "Lawyer name",
-            placeholder="e.g. Michael Penney",
+            options=[""] + lawyer_names,
             label_visibility="hidden",
             key="search_lawyer_input",
         )
+        query = selected_lawyer or ""
 
     elif entity_type == "Company":
         companies = load_all_companies()
@@ -108,12 +111,13 @@ with col_input:
             )
 
     else:  # Law Firm
-        query = st.text_input(
+        selected_firm = st.selectbox(
             "Law firm name",
-            placeholder="e.g. Cooley LLP",
+            options=[""] + firm_terms,
             label_visibility="hidden",
             key="search_firm_input",
         )
+        query = selected_firm or ""
 
 # ── Search button ─────────────────────────────────────────────────────────────
 st.markdown("")
