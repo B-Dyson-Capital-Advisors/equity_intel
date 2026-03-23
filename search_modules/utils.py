@@ -26,6 +26,28 @@ def extract_ticker_and_clean_name(company_name):
     return clean_name, ticker
 
 
+def _pick_best_display_name(display_names):
+    """
+    From EDGAR's display_names array, return the entry most likely to contain
+    a ticker symbol in parentheses.
+
+    S-8 filings often list the equity-plan entity first
+    (e.g. "Enovix Corp 2021 Equity Incentive Plan") before the actual company
+    ("Enovix Corp (ENVX)").  Scanning all entries and preferring the one that
+    has a parenthesised ticker avoids silently losing those companies.
+    """
+    if not display_names:
+        return "Unknown"
+    # Prefer any name that already has a ticker-like pattern: 1-5 uppercase letters
+    # in parentheses, after stripping the CIK portion.
+    for name in display_names:
+        name_clean = re.sub(r'\s*\(CIK\s+\d+\)', '', name)
+        if re.search(r'\([A-Z][A-Z0-9\-]{0,4}\)', name_clean):
+            return name
+    # No ticker found in any entry – fall back to first
+    return display_names[0]
+
+
 def search_edgar(search_term, from_date, to_date, start_index=0, max_results=100):
     """Search SEC EDGAR"""
     results = []
@@ -53,7 +75,7 @@ def search_edgar(search_term, from_date, to_date, start_index=0, max_results=100
                 source = hit.get("_source", {})
                 filing_info = {
                     "search_term": search_term,
-                    "company_name": source.get("display_names", ["Unknown"])[0] if source.get("display_names") else "Unknown",
+                    "company_name": _pick_best_display_name(source.get("display_names", [])),
                     "filing_type": source.get("file_type", ""),
                     "filing_date": source.get("file_date", ""),
                     "cik": source.get("ciks", [""])[0] if source.get("ciks") else "",
@@ -246,6 +268,38 @@ def search_entity_for_companies(entity_name, entity_type, start_date, end_date, 
     df_filtered[['clean_company_name', 'ticker']] = df_filtered['company_name'].apply(
         lambda x: pd.Series(extract_ticker_and_clean_name(x))
     )
+
+    # --- Fallback: name-prefix match for companies with no ticker in display_names ---
+    # EDGAR doesn't always embed a ticker in the display name (e.g. equity-plan
+    # co-registrants, recently-listed companies).  For those rows we try to find a
+    # ticker by checking whether any FMP reference company name is a prefix of the
+    # EDGAR company name (case-insensitive).  This reliably matches names like
+    # "Enovix Corp 2021 Equity Incentive Plan" → "Enovix Corp" → "ENVX".
+    no_ticker_mask = df_filtered['ticker'] == ""
+    if no_ticker_mask.any():
+        from .stock_reference import load_stock_reference
+        ref_df = load_stock_reference()
+        if ref_df is not None and 'Company Name' in ref_df.columns:
+            # Build lookup arrays once (faster than iterrows inside apply)
+            ref_names_upper = ref_df['Company Name'].str.upper().str.strip().tolist()
+            ref_symbols = ref_df['Symbol'].tolist()
+            # Only consider reference names long enough to avoid spurious matches
+            ref_pairs = [(n, s) for n, s in zip(ref_names_upper, ref_symbols) if len(n) > 5]
+
+            def _ticker_from_name(edgar_name):
+                upper = str(edgar_name).upper().strip()
+                for ref_name, symbol in ref_pairs:
+                    if upper.startswith(ref_name):
+                        return symbol
+                return ""
+
+            df_filtered.loc[no_ticker_mask, 'ticker'] = (
+                df_filtered.loc[no_ticker_mask, 'clean_company_name']
+                .apply(_ticker_from_name)
+            )
+            recovered = (df_filtered.loc[no_ticker_mask, 'ticker'] != "").sum()
+            if progress_callback and recovered:
+                progress_callback(f"Recovered {recovered} companies via name-prefix lookup")
 
     df_filtered['filing_date'] = pd.to_datetime(df_filtered['filing_date'])
 
