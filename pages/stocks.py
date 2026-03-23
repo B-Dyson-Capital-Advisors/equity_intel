@@ -38,6 +38,7 @@ if fetch_clicked:
 stored = st.session_state.get("stock_loan_results")
 if stored:
     result_df = stored["df"]
+    data_date = stored.get("date", "")
 
     # ── Filters ───────────────────────────────────────────────────────────────
     import pandas as pd
