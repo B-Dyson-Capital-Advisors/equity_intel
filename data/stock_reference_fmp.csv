@@ -1,8 +1,8 @@
 symbol,companyName,exchange,marketCap,price,ceo,enterpriseValue
 NVDA,NVIDIA Corporation,NASDAQ,4584652476141.0,188.63,Jen-Hsun Huang,4532773880000.0
-GOOGL,Alphabet Inc.,NASDAQ,3837652448137.0,317.24,Sundar Pichai,3833635000000.0
+GOOGL,Alphabet Inc.,NASDAQ,3837652369144.0,317.24,Sundar Pichai,3833635000000.0
 AAPL,Apple Inc.,NASDAQ,3828515423772.0,260.48,Timothy D. Cook,3895186810000.0
-GOOG,Alphabet Inc.,NASDAQ,3819264976391.001,315.72,Sundar Pichai,3833635000000.0
+GOOG,Alphabet Inc.,NASDAQ,3819265064793.0,315.72,Sundar Pichai,3833635000000.0
 MSFT,Microsoft Corporation,NASDAQ,2753943398100.0,370.87,Satya Nadella,3779190530000.0
 AMZN,"Amazon.com, Inc.",NASDAQ,2558990436991.0,238.38,Andrew R. Jassy,2525794920000.0
 AVGO,Broadcom Inc.,NASDAQ,1761620156664.0,371.55,Hock E. Tan,1757293600000.0
@@ -35,7 +35,7 @@ BAC-PB,Bank of America Corporation,NYSE,351580389045.0,25.17,Brian Thomas Moynih
 PG,The Procter & Gamble Company,NYSE,339200241973.0,145.16,Shailesh G. Jejurikar,416942008000.0
 HD,"The Home Depot, Inc.",NYSE,335994350740.0,337.34,Edward Decker,439434160000.0
 BML-PL,Bank of America Corporation,NYSE,333468023279.0,19.68,Brian Thomas Moynihan,539128500000.0
-KO,The Coca-Cola Company,NYSE,333176778400.0,77.47,Henrique Braun,336044730000.0
+KO,The Coca-Cola Company,NYSE,333442500500.0,77.47,Henrique Braun,336044730000.0
 LRCX,Lam Research Corporation,NASDAQ,329250961860.0,263.66,Timothy Archer,123554967340.0
 GE,GE Aerospace,NYSE,325251865140.0,308.35,H. Lawrence Culp Jr.,336770010000.0
 CSCO,"Cisco Systems, Inc.",NASDAQ,324858982637.0,82.22,Charles H. Robbins,292858440000.0
@@ -47,10 +47,10 @@ AMAT,"Applied Materials, Inc.",NASDAQ,317039258900.0,399.49,Gary E. Dickerson,18
 INTC,Intel Corporation,NASDAQ,311588100000.0,62.38,Lip-Bu Tan,208107200000.0
 MRK,"Merck & Co., Inc.",NYSE,300197837004.0,121.42,Robert Davis,299899818680.0
 PLTR,Palantir Technologies Inc.,NASDAQ,293445648200.0,128.06,Alexander C. Karp,420187549000.0
-MS,Morgan Stanley,NYSE,282067504758.0,177.64,Edward N. Pick,642764630000.0
+MS,Morgan Stanley,NYSE,282067501027.0,177.64,Edward N. Pick,642764630000.0
 UNH,UnitedHealth Group Incorporated,NYSE,276232988083.0,304.33,Stephen J. Hemsley,354424100000.0
 RTX,RTX Corporation,NYSE,270551972400.0,201.56,Christopher T. Calio,278083760000.0
-GS,"The Goldman Sachs Group, Inc.",NYSE,269392373400.0,907.8,David Solomon,720138300000.0
+GS,"The Goldman Sachs Group, Inc.",NYSE,269392297145.0,907.8,David Solomon,720138300000.0
 GEV,GE Vernova Inc.,NYSE,267189960148.0,991.32,Kenneth S. Parks,168923040000.0
 WFC,Wells Fargo & Company,NYSE,263575368800.0,85.42,Charles W. Scharf,547804120000.0
 PM,Philip Morris International Inc.,NYSE,249769306000.0,160.45,Jacek Olczak,293545400000.0
@@ -69,15 +69,15 @@ TXN,Texas Instruments Incorporated,NASDAQ,195503719990.0,214.73,Haviv Ilan,16986
 WFC-PY,Wells Fargo & Company,NYSE,194825502699.0,23.86,Charles W. Scharf,547804120000.0
 VZ,Verizon Communications Inc.,NYSE,194181987200.0,46.04,Daniel H. Schulman,353670980000.0
 AMGN,Amgen Inc.,NASDAQ,189223535279.0,351.02,Robert A. Bradway,221567780000.0
-ANET,"Arista Networks, Inc.",NYSE,185555659780.0,147.35,Jayshree V. Ullal,162871840000.0
+ANET,"Arista Networks, Inc.",NYSE,185555664790.0,147.35,Jayshree V. Ullal,162871840000.0
 T,AT&T Inc.,NYSE,185340355500.0,26.475,John T. Stankey,333829960000.0
 TMO,Thermo Fisher Scientific Inc.,NYSE,184296927240.0,496.11,Marc N. Casper,248871200000.0
-TJX,"The TJX Companies, Inc.",NYSE,179451470755.0,161.6,Ernie L. Herrman,184689250000.0
+TJX,"The TJX Companies, Inc.",NYSE,179451477866.0,161.6,Ernie L. Herrman,184689250000.0
 C-PN,Citigroup Capital XIII TR PFD SECS,NYSE,175938822636.0,30.1006,Jane Nind Fraser,578634807000.0
 DIS,The Walt Disney Company,NYSE,175849056804.0,99.16,Josh D'Amaro,243881880000.0
 ABT,Abbott Laboratories,NYSE,174289587949.0,100.3,Robert Ford,225426630000.0
 APH,Amphenol Corporation,NYSE,173012715000.0,140.75,Richard Adam Norwitt,168998947999.0
-GILD,"Gilead Sciences, Inc.",NASDAQ,172544965800.0,138.99,Daniel O'Day,169716560000.0
+GILD,"Gilead Sciences, Inc.",NASDAQ,172517167800.0,138.99,Daniel O'Day,169716560000.0
 ADI,"Analog Devices, Inc.",NASDAQ,170939803532.0,350.14,Vincent T. Roche,121914627530.0
 BA,The Boeing Company,NYSE,170915067610.0,217.63,Robert K. Ortberg,209022576000.0
 SCHW,The Charles Schwab Corporation,NYSE,166109549333.0,94.8,Richard Andrew Wurster,208613520000.0
@@ -86,7 +86,7 @@ ISRG,"Intuitive Surgical, Inc.",NASDAQ,160028680600.0,450.62,David J. Rosa,19906
 SCCO,Southern Copper Corporation,NYSE,159067164592.0,192.56,Oscar Gonzalez Rocha,123365454000.0
 BAC-PM,Bank of America Corporation,NYSE,158102260400.0,22.03,Brian Thomas Moynihan,539128500000.0
 BLK,"BlackRock, Inc.",NYSE,155434212340.0,999.31,Laurence Douglas Fink,169537734000.0
-CRM,"Salesforce, Inc.",NYSE,154567520495.0,164.96,Marc R. Benioff,211524500000.0
+CRM,"Salesforce, Inc.",NYSE,154567524289.0,164.96,Marc R. Benioff,211524500000.0
 PFE,Pfizer Inc.,NYSE,153017525700.0,26.91,Albert Bourla,207774699100.0
 COP,ConocoPhillips,NYSE,149797663323.0,122.55,Ryan Lance,134150651620.0
 HON,Honeywell International Inc.,NASDAQ,149409216763.0,235.04,Vimal Kapur,146755510000.0
@@ -100,10 +100,10 @@ LMT,Lockheed Martin Corporation,NYSE,141439211059.0,613.72,James D. Taiclet Jr.,
 BAC-PS,Bank of America Corporation,NYSE,139514659200.0,19.44,Brian Thomas Moynihan,539128500000.0
 BX,Blackstone Inc.,NYSE,137920768192.0,114.83,Stephen Allen Schwarzman,195251125587.0
 BKNG,Booking Holdings Inc.,NASDAQ,137351525640.0,173.46,Glenn D. Fogel,175878573000.0
-LOW,"Lowe's Companies, Inc.",NYSE,136995568736.0,244.22,Marvin R. Ellison,155491540000.0
-QCOM,QUALCOMM Incorporated,NASDAQ,136773855634.0,128.06,Cristiano Renno Amon,189698800000.0
+LOW,"Lowe's Companies, Inc.",NYSE,136995569469.0,244.22,Marvin R. Ellison,155491540000.0
+QCOM,QUALCOMM Incorporated,NASDAQ,136773853073.0,128.06,Cristiano Renno Amon,189698800000.0
 DHR,Danaher Corporation,NYSE,134080625790.0,189.61,Rainer Blair,175718116000.0
-TBB,AT&T Inc. 5.35% GLB NTS 66,NYSE,133908602149.0,21.81,,333829960000.0
+TBB,AT&T Inc. 5.35% GLB NTS 66,NYSE,133908602869.0,21.81,,333829960000.0
 T-PC,AT&T Inc.,NYSE,133196776229.0,18.58,John T. Stankey,333829960000.0
 APP,AppLovin Corporation,NASDAQ,132268827900.0,391.38,Matthew A. Stumpf,229335058420.0
 NEM,Newmont Corporation,NYSE,131523987878.0,120.9,Natascha Viljoen,103261100000.0
@@ -129,14 +129,14 @@ VRTX,Vertex Pharmaceuticals Incorporated,NASDAQ,110827413180.0,436.27,Reshma Kew
 HCA,"HCA Healthcare, Inc.",NYSE,110798092920.0,495.47,Samuel N. Hazen,156867270600.0
 SBUX,Starbucks Corporation,NASDAQ,110056380000.0,96.6,Brian R. Niccol,121004172000.0
 SO,The Southern Company,NYSE,108771126300.0,97.17,Christopher C. Womack,160360600000.0
-MCK,McKesson Corporation,NYSE,106838109971.0,865.6,Brian S. Tyler,87437926000.0
+MCK,McKesson Corporation,NYSE,106838105643.0,865.6,Brian S. Tyler,87437926000.0
 PANW,"Palo Alto Networks, Inc.",NASDAQ,106131758487.0,155.73,Nikesh Arora,113079600000.0
 CME,CME Group Inc.,NASDAQ,105901076600.0,295.3,Terrence A. Duffy,97542379640.0
 BNJ,Brookfield Finance Inc. 4.50% P,NYSE,103252610796.0,14.89,Connor David Teskey,411169598760.0
 BNH,Brookfield Finance Inc. 4.625%,NYSE,102725421495.0,15.32,James Bruce Flatt,411169598760.0
-DUK,Duke Energy Corporation,NYSE,102489261090.0,131.79,Harry K. Sideris,181696170000.0
+DUK,Duke Energy Corporation,NYSE,102548171220.0,131.79,Harry K. Sideris,181696170000.0
 CMCSA,Comcast Corporation,NASDAQ,101773973022.0,27.93,Brian L. Roberts,202770000000.0
-HWM,Howmet Aerospace Inc.,NYSE,101305523444.0,252.67,John C. Plant,85136080000.0
+HWM,Howmet Aerospace Inc.,NYSE,101305524202.0,252.67,John C. Plant,85136080000.0
 EQIX,"Equinix, Inc.",NASDAQ,101226128176.0,1030.24,Adaire Rita Fox-Martin,95993039280.0
 CVS,CVS Health Corporation,NYSE,100924419300.0,79.33,J. David Joyner,185630120000.0
 INTU,Intuit Inc.,NASDAQ,97657505284.0,350.94,Sasan K. Goodarzi,223591400000.0
@@ -147,7 +147,7 @@ NOC,Northrop Grumman Corporation,NYSE,95617109060.0,673.73,Kathy J. Warden,97163
 MAR,"Marriott International, Inc.",NASDAQ,93831188500.0,354.1,Anthony G. Capuano Jr.,100024440000.0
 WM,"Waste Management, Inc.",NYSE,92545391509.0,229.45,James C. Fish Jr.,111183217000.0
 ADBE,Adobe Inc.,NASDAQ,91860983753.0,225.35,Shantanu Narayen,137592380000.0
-BSX,Boston Scientific Corporation,NYSE,91830756896.0,61.79,Michael F. Mahoney,151529140000.0
+BSX,Boston Scientific Corporation,NYSE,91830763507.0,61.79,Michael F. Mahoney,151529140000.0
 ICE,"Intercontinental Exchange, Inc.",NYSE,91204182557.0,160.6,Jeffrey C. Sprecher,111943986642.0
 GD,General Dynamics Corporation,NYSE,90621208500.0,335.15,Phebe N. Novakovic,98320534000.0
 CEG,Constellation Energy Corporation,NASDAQ,89471105055.0,286.5,Joseph Dominguez,115817510000.0
@@ -157,7 +157,7 @@ BK,The Bank of New York Mellon Corporation,NYSE,88953849027.0,127.56,Robin Anton
 WMB,"The Williams Companies, Inc.",NYSE,88950614688.0,72.74,Chad J. Zamarin,102692310000.0
 PWR,"Quanta Services, Inc.",NYSE,87580977840.0,585.36,Earl C. Austin Jr.,64767634985.0
 NOW,"ServiceNow, Inc.",NYSE,86818000000.0,83.0,William R. McDermott,158335030000.0
-USB,U.S. Bancorp,NYSE,86478942000.0,55.66,Gunjan Kedia,114010800000.0
+USB,U.S. Bancorp,NYSE,86478708729.0,55.66,Gunjan Kedia,114010800000.0
 UPS,"United Parcel Service, Inc.",NYSE,86403232422.0,101.69,Carol Tome,110615310000.0
 CMI,Cummins Inc.,NYSE,85128983100.0,616.14,Jennifer W. Rumsey,75660055000.0
 AMT,American Tower Corporation,NYSE,83615489492.0,179.29,Steven O. Vondran,125856511403.0
@@ -172,7 +172,7 @@ ORLY,"O'Reilly Automotive, Inc.",NASDAQ,77987675870.0,93.01,Brad W. Beckham,8596
 ITW,Illinois Tool Works Inc.,NYSE,77963864000.0,270.52,Christopher A. O'Herlihy,80106160068.0
 SLB,SLB N.V.,NYSE,77938838496.0,51.92,Olivier Le Peuch,65728980000.0
 REGN,"Regeneron Pharmaceuticals, Inc.",NASDAQ,77809584994.0,748.87,Leonard S. Schleifer,80325402000.0
-ABNB,"Airbnb, Inc.",NASDAQ,77313323892.0,128.96,Brian Chesky,78703360000.0
+ABNB,"Airbnb, Inc.",NASDAQ,77313326988.0,128.96,Brian Chesky,78703360000.0
 ECL,Ecolab Inc.,NYSE,77183591557.0,273.29,Christophe Beck,83155016000.0
 ADP,"Automatic Data Processing, Inc.",NASDAQ,76355870639.0,188.79,Maria Black,131267239999.0
 MCO,Moody's Corporation,NYSE,75779793000.0,427.41,Robert Scott Fauber,96460235000.0
@@ -182,17 +182,17 @@ SNPS,"Synopsys, Inc.",NASDAQ,75138278880.0,392.24,Sassine Ghazi,84095552680.0
 HLT,Hilton Worldwide Holdings Inc.,NYSE,74159911560.0,323.43,Christopher J. Nassetta,82490000000.0
 AEP,"American Electric Power Company, Inc.",NASDAQ,74087636900.0,136.3,William J. Fehrman,109807820240.0
 MNST,Monster Beverage Corporation,NASDAQ,74074657783.0,75.72,Hilton H. Schlosberg,72733139290.0
+CDNS,"Cadence Design Systems, Inc.",NASDAQ,73346600720.0,265.66,Anirudh Devgan,84292102140.0
 EOG,"EOG Resources, Inc.",NYSE,73064845344.0,136.19,Ezra Y. Yacob,61636647310.0
 CVNA,Carvana Co.,NYSE,72898641766.0,336.243,Ernest C. Garcia,89109187253.0
 KMI,"Kinder Morgan, Inc.",NYSE,72706790800.0,32.68,Kimberly Allen Dang,93442250000.0
 CI,Cigna Corporation,NYSE,72457883015.0,271.25,David Michael Cordani,96983868040.0
-CDNS,"Cadence Design Systems, Inc.",NASDAQ,72432464660.0,265.66,Anirudh Devgan,84292102140.0
 MSI,"Motorola Solutions, Inc.",NYSE,72080844055.0,433.69,Gregory Q. Brown,72308784000.0
 ROST,"Ross Stores, Inc.",NASDAQ,71533084479.0,221.16,James G. Conroy,60935981670.0
 VLO,Valero Energy Corporation,NYSE,71413444487.0,238.82,R. Lane Riggs,56233110000.0
 GM,General Motors Company,NYSE,71289258788.0,76.42,Mary T. Barra,184101186080.0
 CIEN,Ciena Corporation,NYSE,70168698485.0,496.02,Gary Smith,27500870320.0
-CTAS,Cintas Corporation,NASDAQ,69977584990.0,174.93,Todd Schneider,93790053000.0
+CTAS,Cintas Corporation,NASDAQ,69987218910.0,174.93,Todd Schneider,93790053000.0
 USB-PP,U.S. Bancorp,NYSE,68863737963.0,21.95,Gunjan Kedia,114010800000.0
 ELV,Elevance Health Inc.,NYSE,68756228650.0,311.53,Gail Koziara Boudreaux,101495990000.0
 SATA,"Strive, Inc. Variable Rate Series A Perpetual Preferred Stock",NASDAQ,68622754529.0,98.21,Matthew Ryan Cole,146487488.0
@@ -213,7 +213,7 @@ LHX,"L3Harris Technologies, Inc.",NYSE,66045624613.0,353.59,Samir Mehta,66433552
 ET,Energy Transfer LP,NYSE,66019548900.0,19.19,Marshall S. McCrea,130524499999.0
 MPC,Marathon Petroleum Corporation,NYSE,65615055755.0,222.62,Maryann T. Mannen,80288150000.0
 SPG,"Simon Property Group, Inc.",NYSE,65174218650.0,200.57,Eli Simon,88712758980.0
-MS-PF,Morgan Stanley,NYSE,64933203445.0,25.11,Edward N. Pick,642764630000.0
+MS-PF,Morgan Stanley,NYSE,64933203948.0,25.11,Edward N. Pick,642764630000.0
 DLR,"Digital Realty Trust, Inc.",NYSE,64898565050.0,188.87,Andrew Power,73872383030.0
 MS-PK,Morgan Stanley,NYSE,64694825000.0,23.8,Edward N. Pick,642764630000.0
 SRE,Sempra,NYSE,64557524880.0,98.82,Jeffrey Walker Martin,93911618130.0
@@ -223,7 +223,7 @@ MS-PE,Morgan Stanley,NYSE,64001952900.0,25.23,Edward N. Pick,642764630000.0
 PSX,Phillips 66,NYSE,63818482000.0,159.25,Mark E. Lashier,74157272320.0
 NKE,"NIKE, Inc.",NYSE,63008364023.0,42.62,Elliott J. Hill,93524091000.0
 COR,"Cencora, Inc.",NYSE,62409333399.0,320.82,Robert Mauch,66927824599.0
-HOOD,"Robinhood Markets, Inc.",NASDAQ,62292342763.0,69.19,Vladimir Tenev,111636910749.0
+HOOD,"Robinhood Markets, Inc.",NASDAQ,62292340687.0,69.19,Vladimir Tenev,111636910749.0
 BKR,Baker Hughes Company,NASDAQ,62090867880.0,62.83,Lorenzo Simonelli,48422520000.0
 TFC,Truist Financial Corporation,NYSE,61958832000.0,49.6,William Henry Rogers Jr.,95790850610.0
 WFC-PZ,Wells Fargo & Company,NYSE,61537983055.0,19.22,Charles W. Scharf,547804120000.0
@@ -241,7 +241,7 @@ MPLX,MPLX Lp,NYSE,57108207779.0,56.15,Maryann T. Mannen,78409030000.0
 FTNT,"Fortinet, Inc.",NASDAQ,57037812875.0,76.7,Ken Xie,57510571000.0
 AZO,"AutoZone, Inc.",NYSE,56522907169.0,3430.45,Philip Daniele,82506113170.0
 FAST,Fastenal Company,NASDAQ,56463312984.0,49.17,Daniel L. Florness,46218288000.0
-D,"Dominion Energy, Inc.",NYSE,56444424780.0,64.23,Robert Blue,98732719000.0
+D,"Dominion Energy, Inc.",NYSE,56455903773.0,64.23,Robert Blue,98732719000.0
 CTVA,"Corteva, Inc.",NYSE,56377686920.0,83.83,Charles Victor Magro,43181634165.0
 FIX,"Comfort Systems USA, Inc.",NYSE,56279925016.0,1595.6,Brian E. Lane,32794918210.0
 UI,Ubiquiti Inc.,NYSE,56024099006.0,925.7,Robert J. Pera,25044281000.0
@@ -259,7 +259,7 @@ ALL-PB,The Allstate Corporation,NYSE,53876280661.0,25.85,Thomas Joseph Wilson II
 AME,"AMETEK, Inc.",NYSE,53809759926.0,234.91,David A. Zapico,49139458120.0
 JPM-PJ,JPMorgan Chase & Co.,NYSE,53697962649.0,19.91,James Dimon,1497614914000.0
 CRWV,"CoreWeave, Inc. Class A Common Stock",NASDAQ,53620187118.0,102.0,Michael N. Intrator,42361350000.0
-FANG,"Diamondback Energy, Inc.",NASDAQ,53088674243.0,188.205,Matthew Kaes Van't Hof,57840246070.0
+FANG,"Diamondback Energy, Inc.",NASDAQ,52944277344.0,188.205,Matthew Kaes Van't Hof,57840246070.0
 CARR,Carrier Global Corporation,NYSE,52942353576.0,63.34,David L. Gitlin,55457328000.0
 DLR-PK,"Digital Realty Trust, Inc.",NYSE,52778650745.0,22.28,Andrew Power,73872383030.0
 ETR,Entergy Corporation,NYSE,52759745300.0,116.47,Andrew S. Marsh,71745824928.0
@@ -276,7 +276,7 @@ ZTS,Zoetis Inc.,NYSE,49752006080.0,117.86,Kristin C. Peck,62974998260.0
 SCHW-PD,The Charles Schwab Corporation,NYSE,49712866382.0,24.59,Richard Andrew Wurster,208613520000.0
 EXC,Exelon Corporation,NASDAQ,49681767300.0,48.57,Calvin G. Butler Jr.,93471490000.0
 COHR,"Coherent, Inc.",NYSE,48761848785.0,307.5,James Robert Anderson,16794165999.0
-MET,"MetLife, Inc.",NYSE,48678915250.0,73.88,Michel Abbas Khalaf,50642705580.0
+MET,"MetLife, Inc.",NYSE,48678911999.0,73.88,Michel Abbas Khalaf,50642705580.0
 URI,"United Rentals, Inc.",NYSE,48630159614.0,771.93,Matthew J. Flannery,68138208000.0
 MET-PE,"MetLife, Inc.",NYSE,48220473225.0,22.87,Michel Abbas Khalaf,50642705580.0
 JPM-PM,JPMorgan Chase & Co.,NYSE,48142070984.0,17.85,James Dimon,1497614914000.0
@@ -291,10 +291,10 @@ COIN,"Coinbase Global, Inc.",NASDAQ,45262028664.0,167.85,Brian Armstrong,5536230
 EW,Edwards Lifesciences Corporation,NYSE,45226896000.0,77.87,Bernard J. Zovighian,47621100000.0
 CMG,"Chipotle Mexican Grill, Inc.",NYSE,45089681198.0,34.1,Scott Boatwright,58980135000.0
 IDXX,"IDEXX Laboratories, Inc.",NASDAQ,44828331705.0,563.0,Jonathan J. Mazelsky,55084489880.0
-YUM,"Yum! Brands, Inc.",NYSE,44715343329.0,161.76,Christopher Lee Turner,53256840000.0
+YUM,"Yum! Brands, Inc.",NYSE,44715339770.0,161.76,Christopher Lee Turner,53256840000.0
 DAL,"Delta Air Lines, Inc.",NYSE,44557340608.0,67.82,Edward H. Bastian,61744200000.0
 ROK,"Rockwell Automation, Inc.",NYSE,44523542448.0,396.0,Blake D. Moret,42571031000.0
-ODFL,"Old Dominion Freight Line, Inc.",NASDAQ,43565657682.0,208.35,Kevin Freeman,32830812800.0
+ODFL,"Old Dominion Freight Line, Inc.",NASDAQ,43565658099.0,208.35,Kevin Freeman,32830812800.0
 EBAY,eBay Inc.,NASDAQ,43120802671.0,95.4,Jamie J. Iannone,44791100000.0
 KR,The Kroger Co.,NYSE,43027410921.0,67.99,Gregory S. Foran,62324200000.0
 ALNY,"Alnylam Pharmaceuticals, Inc.",NASDAQ,42719194208.0,322.11,Yvonne L. Greenstreet,51714879600.0
@@ -303,7 +303,7 @@ RKT,"Rocket Companies, Inc.",NYSE,41936610632.0,14.85,Varun Krishna,31629743069.
 SNOW,Snowflake Inc.,NYSE,41867727000.0,121.11,Sridhar Ramaswamy,64947852099.0
 CBRE,"CBRE Group, Inc.",NYSE,41682353980.0,141.22,Robert E. Sulentic,56067802470.0
 PYPL,"PayPal Holdings, Inc.",NASDAQ,41650884600.0,45.24,Enrique J. Lores,57924420000.0
-DHI,"D.R. Horton, Inc.",NYSE,41522439527.0,142.64,Paul J. Romanowski,55327195000.0
+DHI,"D.R. Horton, Inc.",NYSE,41522438100.0,142.64,Paul J. Romanowski,55327195000.0
 PEG,Public Service Enterprise Group Incorporated,NYSE,41494671272.0,83.13,Ralph A. LaRossa,64306700000.0
 AMP,"Ameriprise Financial, Inc.",NYSE,41467538172.0,446.34,William F. Truscott,42243232000.0
 AIG,"American International Group, Inc.",NYSE,41245367123.0,76.87,Peter Salvatore Zaffino,56261305000.0
@@ -315,7 +315,7 @@ ET-PI,Energy Transfer LP,NYSE,40644789322.0,11.84,Marshall S. McCrea,13052449999
 MET-PA,"MetLife, Inc.",NYSE,40363899210.0,20.78,Michel Abbas Khalaf,50642705580.0
 VTR,"Ventas, Inc.",NYSE,40353026400.0,84.96,Debra A. Cafaro,47692796160.0
 HEI,HEICO Corporation,NYSE,40246354995.0,289.17,Eric A. Mendelson,46161182960.0
-KIM-PN,Kimco Realty Corporation,NYSE,39966834462.0,59.2,Ross Cooper,22087980780.0
+KIM-PN,Kimco Realty Corporation,NYSE,39966834462.0,59.2,Conor C. Flynn,22087980780.0
 MS-PP,Morgan Stanley,NYSE,39934713330.0,25.15,Edward N. Pick,642764630000.0
 BE,Bloom Energy Corporation,NYSE,39426383700.0,166.7,K. R. Sridhar,21305493280.0
 MSCI,MSCI Inc.,NYSE,39417355125.0,536.48,Henry A. Fernandez,50062918070.0
@@ -324,17 +324,17 @@ STT,State Street Corporation,NYSE,38860289827.0,139.42,Ronald Philip O'Hanley,-6
 CCL,Carnival Corporation & plc,NYSE,38756204525.0,27.98,Joshua Ian Weinstein,60085160000.0
 RKLB,"Rocket Lab USA, Inc.",NASDAQ,38748214400.0,68.05,Sir Peter Beck,36444470122.0
 MCHP,Microchip Technology Incorporated,NASDAQ,38723620600.0,71.56,Stephen Sanghi,30905093000.0
-VMC,Vulcan Materials Company,NYSE,38583889500.0,295.48,Ronnie A. Pruitt,42855120197.0
+VMC,Vulcan Materials Company,NYSE,38583893933.0,295.48,Ronnie A. Pruitt,42855120197.0
 ELC,"Entergy Louisiana, LLC COLLATERAL TR MT",NYSE,38559064389.0,20.45,,71745824928.0
 WEC,"WEC Energy Group, Inc.",NYSE,38282731924.0,117.54,Xia Liu,56603283999.0
 HIG,"The Hartford Financial Services Group, Inc.",NYSE,38273486248.0,137.23,Christopher Jerome Swift,43152720000.0
 MLM,"Martin Marietta Materials, Inc.",NYSE,38088837360.0,631.53,C. Howard Nye,42802398000.0
 ASTS,"AST SpaceMobile, Inc.",NASDAQ,37824449300.0,94.9,Abel Avellan,25225275324.0
 XYZ,"Block, Inc.",NYSE,37772460192.0,62.16,Jack Dorsey,40575822870.0
-CCI,Crown Castle Inc.,NYSE,37628480300.0,86.29,Sunit S. Patel,67955450000.0
+CCI,Crown Castle Inc.,NYSE,37628480300.0,86.29,Jeff Baker,67955450000.0
 HBANL,Huntington Bancshares Incorporated,NASDAQ,37432133511.0,25.31,Stephen D. Steinour,42359650000.0
 LYV,"Live Nation Entertainment, Inc.",NYSE,37315977120.0,160.59,Michael Rapino,38372186750.0
-DDOG,"Datadog, Inc.",NASDAQ,37285316223.0,105.37,Olivier Pomel,48364437910.0
+DDOG,"Datadog, Inc.",NASDAQ,37285314537.0,105.37,Olivier Pomel,48364437910.0
 CTA-PA,"EIDP, Inc.",NYSE,37023356280.0,54.79,Charles Victor Magro,-1941000000.0
 MDLN,Medline Inc.,NASDAQ,37011126000.0,45.6,James Boyle,44726021504.0
 SATS,EchoStar Corporation,NASDAQ,36981151679.0,128.59,Hamid Akhavan-Malayeri,60384364300.0
@@ -355,15 +355,15 @@ IR,Ingersoll Rand Inc.,NYSE,33734524927.0,85.38,Vicente Reynal,35073382000.0
 PRU,"Prudential Financial, Inc.",NYSE,33721200000.0,96.9,Andrew Francis Sullivan,53279184000.0
 ADM,Archer-Daniels-Midland Company,NYSE,33554215460.0,69.73,Juan Ricardo Luciano,35220160000.0
 RMD,ResMed Inc.,NYSE,33407302732.0,228.87,Michael J. Farrell,37495091000.0
+GEHC,GE HealthCare Technologies Inc.,NASDAQ,33391311713.0,73.18,Peter J. Arduini,42934913032.0
 INSM,Insmed Incorporated,NASDAQ,33369605120.0,154.81,William H. Lewis,37439097480.0
-GEHC,GE HealthCare Technologies Inc.,NASDAQ,33351767437.0,73.18,Peter J. Arduini,42934913032.0
 KVUE,Kenvue Inc.,NYSE,33255300200.0,17.35,Kirk L. Perry,40415230000.0
 SYM,Symbotic Inc.,NASDAQ,33208783844.0,53.83,Richard Cohen,30242447247.0
 HPE,Hewlett Packard Enterprise Company,NYSE,33087329683.0,24.9,Antonio Fabio Neri,48924080000.0
 ARES,Ares Management Corporation,NYSE,32992566480.0,100.46,Michael J. Arougheti,65885887604.0
 FITB,Fifth Third Bancorp,NASDAQ,32945624966.0,49.31,Timothy N. Spence,42115815040.0
 MTB,M&T Bank Corporation,NYSE,32768137399.0,219.92,Rene F. Jones,27192281040.0
-A,"Agilent Technologies, Inc.",NYSE,32543529209.0,115.06,Padraig McDonnell,42984880000.0
+A,"Agilent Technologies, Inc.",NYSE,32543528863.0,115.06,Padraig McDonnell,42984880000.0
 SCHW-PJ,The Charles Schwab Corporation,NYSE,32471946306.0,18.0,Richard Andrew Wurster,208613520000.0
 IRM,Iron Mountain Incorporated,NYSE,32355473950.0,109.37,William L. Meaney,43396679850.0
 MS-PL,Morgan Stanley,NYSE,32312978778.0,20.35,Edward N. Pick,642764630000.0
@@ -378,7 +378,7 @@ HAL,Halliburton Company,NYSE,31483441311.0,37.59,Eric J. Carre,29637140000.0
 AEE,Ameren Corporation,NYSE,31360416250.0,113.45,Martin J. Lyons Jr.,46829130000.0
 STT-PG,State Street Corporation,NYSE,31335612776.0,22.2,Ronald Philip O'Hanley,-64848849550.0
 XYL,Xylem Inc.,NYSE,31297163196.0,128.72,Matthew Francis Pine,33609212000.0
-UAL,"United Airlines Holdings, Inc.",NASDAQ,31208342718.0,96.4,J. Scott Kirby,61659140000.0
+UAL,"United Airlines Holdings, Inc.",NASDAQ,31178652000.0,96.4,J. Scott Kirby,61659140000.0
 OTIS,Otis Worldwide Corporation,NYSE,31157782128.0,79.95,Judith F. Marks,42042315743.0
 DTE,DTE Energy Company,NYSE,31104102720.0,149.68,Joi Harris,52973859999.0
 TPR,"Tapestry, Inc.",NYSE,30758857124.0,150.3,Joanne C. Crevoiserat,21684648000.0
@@ -405,10 +405,10 @@ CNP,"CenterPoint Energy, Inc.",NYSE,28328116080.0,43.39,Jason Wells,48650020000.
 TPL,Texas Pacific Land Corporation,NYSE,28263968893.0,409.97,Tyler Glover,19691141712.0
 SUNB,Sunbelt Rentals Holdings Inc,NYSE,28170514572.0,68.16,Brendan Christopher Horgan,42806179000.0
 DOW,Dow Inc.,NYSE,27991001340.0,39.01,James R. Fitterling,32419208000.0
-CTSH,Cognizant Technology Solutions Corporation,NASDAQ,27954882094.0,57.92,Ravi Kumar Singisetti,39597000000.0
+CTSH,Cognizant Technology Solutions Corporation,NASDAQ,27954882558.0,57.92,Ravi Kumar Singisetti,39597000000.0
 AXON,"Axon Enterprise, Inc.",NASDAQ,27812771690.0,345.94,Patrick W. Smith,46368768562.0
 STRC,MicroStrategy Incorporated Variable Rate Series A Perpetual Stretch Preferred Stock,NASDAQ,27762245000.0,100.0,Phong Q. Le,50652078100.0
-CHTR,"Charter Communications, Inc.",NASDAQ,27709614240.0,218.82,Christopher L. Winfrey,124857606250.0
+CHTR,"Charter Communications, Inc.",NASDAQ,27709517740.0,218.82,Christopher L. Winfrey,124857606250.0
 MS-PO,Morgan Stanley,NYSE,27644666365.0,17.41,Edward N. Pick,642764630000.0
 STLD,"Steel Dynamics, Inc.",NASDAQ,27610238206.0,190.57,Mark D. Millett,28487011700.0
 TFC-PO,Truist Financial Corporation,NYSE,27407814682.0,21.3,William Henry Rogers Jr.,95790850610.0
@@ -455,16 +455,16 @@ MKL,Markel Corporation,NYSE,24206006995.0,1924.82,Thomas Sinnickson Gayner,27704
 VRSN,"VeriSign, Inc.",NASDAQ,24081606260.0,259.78,D. James Bidzos,23938680000.0
 BG,Bunge Global S.A.,NYSE,23979635280.0,123.92,Gregory A. Heckman,30604280000.0
 EXE,Expand Energy Corporation,NASDAQ,23796998020.0,98.99,Michael A. Wichterich,30551324400.0
-AVB,"AvalonBay Communities, Inc.",NYSE,23783371027.0,169.78,Benjamin W. Schall,34674445792.0
+AVB,"AvalonBay Communities, Inc.",NYSE,23783370688.0,169.78,Benjamin W. Schall,34674445792.0
 LYB,LyondellBasell Industries N.V.,NYSE,23750370778.0,73.72,Peter Z. E. Vanacker,26455600000.0
 RF,Regions Financial Corporation,NYSE,23746442500.0,27.5,John Turner Jr.,17689500000.0
 TSCO,Tractor Supply Company,NASDAQ,23701597283.0,45.03,Harry A. Lawton,32983250230.0
 SBAC,SBA Communications Corporation,NASDAQ,23670288750.0,223.75,Brendan Thomas Cavanagh,35623808010.0
 FCNCA,"First Citizens BancShares, Inc.",NASDAQ,23544916694.0,1989.75,Frank Brown Holding Jr.,41939223339.0
-ZM,"Zoom Communications, Inc.",NASDAQ,23463040229.0,79.24,Michelle Chang,26462016400.0
+ZM,"Zoom Communications, Inc.",NASDAQ,23463038961.0,79.24,Eric S. Yuan,26462016400.0
 FITBM,Fifth Third Bancorp,NASDAQ,23460821285.0,26.015,Timothy N. Spence,28328551600.0
 USB-PQ,U.S. Bancorp,NYSE,23414259000.0,15.07,Gunjan Kedia,114010800000.0
-CRCL,Circle Internet Group,NYSE,23412043075.0,88.04,Jeremy D. Allaire,-58165730000.0
+CRCL,Circle Internet Group,NYSE,23412043691.0,88.04,Jeremy D. Allaire,-58165730000.0
 TSN,"Tyson Foods, Inc.",NYSE,23384202608.0,65.64,Donnie D. King,26459120000.0
 KEY,KeyCorp,NYSE,23383889000.0,21.46,Christopher Marrott Gorman,32318329440.0
 WWD,"Woodward, Inc.",NASDAQ,23307552591.0,388.48,Charles Blankenship Jr.,15447135730.0
@@ -487,7 +487,7 @@ FWONK,Formula One Group,NASDAQ,22234647020.0,88.77,Stefano Domenicali,2870088517
 ATI,ATI Inc.,NYSE,22212388560.0,162.21,Kimberly A. Fields,17696118000.0
 VLTO,Veralto Corporation,NYSE,22181979825.0,89.5,Jennifer L. Honeycutt,25417374000.0
 BRO,"Brown & Brown, Inc.",NYSE,22154533990.0,65.08,J. Powell Brown,31546000000.0
-DRI,"Darden Restaurants, Inc.",NYSE,22151638768.0,192.39,Ricardo Cardenas,29962050000.0
+DRI,"Darden Restaurants, Inc.",NYSE,22151638961.0,192.39,Ricardo Cardenas,29962050000.0
 KEY-PJ,KeyCorp,NYSE,22118251058.0,21.38,Christopher Marrott Gorman,32318329440.0
 CRDO,Credo Technology Group Holding Ltd,NASDAQ,22058368325.0,119.59,William J. Brennan,6990797250.0
 LEN-B,Lennar Corporation,NYSE,21929736465.0,86.62,Stuart A. Miller,36077867579.0
@@ -496,12 +496,12 @@ RF-PC,Regions Financial Corporation,NYSE,21845946897.0,24.49,John Turner Jr.,176
 FSLR,"First Solar, Inc.",NASDAQ,21834569170.0,203.47,Mark R. Widmar,25708057050.0
 CRS,Carpenter Technology Corporation,NYSE,21686134523.0,435.3,Tony R. Thene,14297076000.0
 DLR-PJ,"Digital Realty Trust, Inc.",NYSE,21682107169.0,20.22,Andrew Power,73872383030.0
-LH,Labcorp Holdings Inc.,NYSE,21631097261.0,260.93,Adam H. Schechter,27544916001.0
+LH,Labcorp Holdings Inc.,NYSE,21631096739.0,260.93,Adam H. Schechter,27544916001.0
 JBHT,"J.B. Hunt Transport Services, Inc.",NASDAQ,21618372595.0,227.04,Shelley Simpson,20855998920.0
 EFX,Equifax Inc.,NYSE,21469339228.0,177.97,Mark W. Begor,31644436000.0
 SOJC,The Southern Company JR 2017B NT 77,NYSE,21468700661.0,21.48,,97557830000.0
 DGX,Quest Diagnostics Incorporated,NYSE,21197203916.0,191.51,James E. Davis,25760830000.0
-CPAY,"Corpay, Inc.",NYSE,21185397493.0,302.83,Ronald F. Clarke,22230599410.0
+CPAY,"Corpay, Inc.",NYSE,21185396584.0,302.83,Ronald F. Clarke,22230599410.0
 BWXT,"BWX Technologies, Inc.",NYSE,20993051607.0,229.57,Rex D. Geveden,17339434835.0
 BURL,"Burlington Stores, Inc.",NYSE,20920666002.0,333.73,Michael O'Sullivan,23744930360.0
 SOFI,"SoFi Technologies, Inc.",NASDAQ,20684717200.0,16.22,Anthony J. Noto,26996895200.0
@@ -515,7 +515,7 @@ PSTG,"Everpure, Inc",NYSE,20138289074.0,60.94,Charles H. Giancarlo,22605685720.0
 MRNA,"Moderna, Inc.",NASDAQ,20126091440.0,50.96,Stéphane Bancel,10792610000.0
 SR-PA,Spire Inc.,NYSE,20006761665.0,120.08861,Scott Edward Doyle,10002320000.0
 KEY-PI,KeyCorp,NYSE,20002559916.0,24.96,Christopher Marrott Gorman,32318329440.0
-TROW,"T. Rowe Price Group, Inc.",NASDAQ,19951498770.0,91.49,Robert W. Sharps,20391454248.0
+TROW,"T. Rowe Price Group, Inc.",NASDAQ,19951488981.0,91.49,Robert W. Sharps,20391454248.0
 PFG,"Principal Financial Group, Inc.",NASDAQ,19905464934.0,91.8,Deanna Dawnette Strable-Soethout,19681808790.0
 DLTR,"Dollar Tree, Inc.",NASDAQ,19795834169.0,99.55,Michael C. Creedon Jr.,28106122000.0
 DD,"DuPont de Nemours, Inc.",NYSE,19792394259.0,47.24,Lori D. Koch,19220500000.0
@@ -525,11 +525,11 @@ LUV,Southwest Airlines Co.,NYSE,19436539882.0,39.56,Robert E. Jordan,25068200000
 CHRW,"C.H. Robinson Worldwide, Inc.",NASDAQ,19393320478.0,163.49,David Bozeman,20798386920.0
 MTSI,"MACOM Technology Solutions Holdings, Inc.",NASDAQ,19361339577.0,258.11,Stephen G. Daly,9852404260.0
 IP,International Paper Company,NYSE,19325618500.0,36.5,Andrew K. Silvernail,30455920000.0
-LDOS,"Leidos Holdings, Inc.",NYSE,19322961840.0,152.88,Thomas A. Bell,29018458462.0
+LDOS,"Leidos Holdings, Inc.",NYSE,19322914753.0,152.88,Thomas A. Bell,29018458462.0
 AA,Alcoa Corporation,NYSE,19262958327.0,73.01,William F. Oplinger,12269726248.0
 EVRG,"Evergy, Inc.",NASDAQ,19246969560.0,83.58,David A. Campbell,32121344999.0
 AQNB,Algonquin Power & Utilities Cor,NYSE,19217409601.0,26.18,,25206433311.0
-RBA,"RB Global, Inc.",NYSE,19203470000.0,103.3,James F. Kessler,23881829051.0
+RBA,"RB Global, Inc.",NYSE,19206045062.0,103.3,James F. Kessler,23881829051.0
 APG,APi Group Corporation,NYSE,19160960960.0,44.41,Russell A. Becker,18291160000.0
 INCY,Incyte Corporation,NASDAQ,19119274980.0,96.07,William J. Meury,16251910080.0
 RVMD,"Revolution Medicines, Inc.",NASDAQ,19109822390.0,96.43,Mark A. Goldsmith,14918744116.0
@@ -545,7 +545,7 @@ LNT,Alliant Energy Corporation,NASDAQ,18797007100.0,73.1,Lisa Barton,28497570000
 ITT,ITT Inc.,NYSE,18662076000.0,216.9,Luca Savi,12960994000.0
 CF,"CF Industries Holdings, Inc.",NYSE,18636953156.0,121.28,Christopher D. Bohn,14501814000.0
 HIG-PG,"The Hartford Financial Services Group, Inc.",NYSE,18571225075.0,25.0,Christopher Jerome Swift,43152720000.0
-FTV,Fortive Corporation,NYSE,18535815310.0,58.36,Olumide O. Soroye,20298944000.0
+FTV,Fortive Corporation,NYSE,18535815135.0,58.36,Olumide O. Soroye,20298944000.0
 IFF,International Flavors & Fragrances Inc.,NYSE,18527226922.0,72.52,Jon Erik Fyrwald,23312840000.0
 RGLD,"Royal Gold, Inc.",NASDAQ,18523967560.0,266.82,William H. Heissenbuttel,16164236652.0
 DUKB,Duke Energy Corporation 5.625%,NYSE,18516346510.0,23.81,,110771200000.0
@@ -555,7 +555,7 @@ PKG,Packaging Corporation of America,NYSE,18411861492.0,206.38,Mark W. Kowlzan,2
 CNC,Centene Corporation,NYSE,18343058300.0,37.3,Sarah London,21096571650.0
 ZBH,"Zimmer Biomet Holdings, Inc.",NYSE,18219114426.0,93.12,Ivan Tornos,24731360000.0
 MDB,"MongoDB, Inc.",NASDAQ,18159494626.0,225.95,Chirantan Jitendra Desai,29118589271.0
-MKSI,MKS Inc.,NASDAQ,18074352468.0,268.77,John T. C. Lee,14772540000.0
+MKSI,MKS Inc.,NASDAQ,18094051159.0,268.77,John T. C. Lee,14772540000.0
 TWLO,Twilio Inc.,NYSE,17837248508.0,117.65,Khozema Z. Shipchandler,22214183113.0
 WY,Weyerhaeuser Company,NYSE,17766489442.0,24.64,Devin W. Stockfish,22195478550.0
 DKS,"DICK'S Sporting Goods, Inc.",NYSE,17662885046.0,212.46,Lauren R. Hobart,23186687000.0
@@ -563,7 +563,7 @@ BR,"Broadridge Financial Solutions, Inc.",NYSE,17643065811.0,151.12,Timothy C. G
 LII,Lennox International Inc.,NYSE,17593825469.0,505.31,Alok Maskara,18976642000.0
 NXT,Nextpower Inc.,NASDAQ,17515695199.0,117.97,Daniel S. Shugar,5282630460.0
 THC,Tenet Healthcare Corporation,NYSE,17158667205.0,195.24,Saumya Sutaria,28338293022.0
-KEY-PK,KeyCorp,NYSE,17129357459.0,21.37,Christopher Marrott Gorman,32318329440.0
+KEY-PK,KeyCorp,NYSE,17129358335.0,21.37,Christopher Marrott Gorman,32318329440.0
 CG,The Carlyle Group Inc.,NASDAQ,17079776590.0,47.29,Harvey Mitchell Schwartz,31949767000.0
 COKE,"Coca-Cola Consolidated, Inc.",NASDAQ,17027178747.0,203.42,J. Frank Harrison,14012170400.0
 HOLX,"Hologic, Inc.",NASDAQ,16968845676.0,76.01,Paul Malenchini,15936656223.0
@@ -572,13 +572,13 @@ VNOM,"Viper Energy, Inc.",NASDAQ,16926205489.0,45.12,Matthew Kaes Van't Hof,7678
 RS,Reliance Steel & Aluminum Co.,NYSE,16846859479.0,322.2,Arthur Ajemyan,16955362850.0
 HPQ,HP Inc.,NYSE,16762396349.0,18.26,Bruce Dale Broussard,33367820000.0
 WES,"Western Midstream Partners, LP",NYSE,16760462986.0,41.08,Oscar K. Brown,23929484999.0
-WSO,"Watsco, Inc.",NYSE,16631865677.0,409.09,Albert H. Nahmad,12815862490.0
+WSO,"Watsco, Inc.",NYSE,16631866086.0,409.09,Albert H. Nahmad,12815862490.0
 FITBI,Fifth Third Bancorp,NASDAQ,16580528640.0,25.29,Timothy N. Spence,42115815040.0
 BALL,Ball Corporation,NYSE,16578673983.0,62.29,Ronald J. Lewis,20327711110.0
 FFIV,"F5, Inc.",NASDAQ,16464422862.0,289.81,Francois Locoh-Donou,17862260760.0
 SGI,Somnigroup International Inc,NYSE,16419189109.0,78.06,Scott L. Thompson,26521680000.0
 SSNC,"SS&C Technologies Holdings, Inc.",NASDAQ,16413283597.0,67.26,William C. Stone,25429506000.0
-CDW,CDW Corporation,NASDAQ,16343211270.0,125.53,Christine A. Leahy,23595260000.0
+CDW,CDW Corporation,NASDAQ,16343209889.0,125.53,Christine A. Leahy,23595260000.0
 SN,"SharkNinja, Inc.",NYSE,16252815785.0,115.07,Mark Adam Barrocas,15900355685.0
 CCZ,Comcast Holdings Corp.,NYSE,16175665090.0,65.0,,54952230507.0
 AFRM,"Affirm Holdings, Inc.",NASDAQ,16165859699.0,48.53,Max Roth Levchin,28820829499.0
@@ -598,17 +598,17 @@ MAA-PI,"Mid-America Apartment Communities, Inc.",NYSE,15816341967.0,53.55,H. Eri
 DECK,Deckers Outdoor Corporation,NYSE,15720037256.0,107.86,Stefano Caroti,15382012520.0
 WPC,W. P. Carey Inc.,NYSE,15696955400.0,71.62,Jason E. Fox,22758820742.0
 KIM,Kimco Realty Corporation,NYSE,15625922538.0,23.17,Ross Cooper,22087980780.0
-TKO,"TKO Group Holdings, Inc.",NYSE,15576906983.0,197.37,Ariel Zev Emanuel,20123001710.0
+TKO,"TKO Group Holdings, Inc.",NYSE,15576905601.0,197.37,Ariel Zev Emanuel,20123001710.0
 QXO,"QXO, Inc.",NYSE,15538523430.0,21.93,Bradley S. Jacobs,2232947700.0
 NWS,News Corporation,NASDAQ,15531017873.0,28.26,Robert J. Thomson,20014787000.0
 HII,"Huntington Ingalls Industries, Inc.",NYSE,15530750014.0,394.41,Christopher Douglas Kastner,15736751000.0
 VTRS,Viatris Inc.,NASDAQ,15509223300.0,13.47,Scott Andrew Smith,27928615000.0
 GPN,Global Payments Inc.,NYSE,15489328260.0,65.44,Cameron Bready,32030577600.0
 CSGP,"CoStar Group, Inc.",NASDAQ,15461054431.0,36.48,Andrew C. Florance,27436631999.0
-TRMB,Trimble Inc.,NASDAQ,15410140514.0,64.77,Robert G. Painter,19734342000.0
 NDSN,Nordson Corporation,NASDAQ,15356109408.0,275.28,Sundaram Nagarajan,15178128700.0
 PAA,"Plains All American Pipeline, L.P.",NASDAQ,15352369422.0,21.76,Wilfred Chiang,19212840000.0
 WLK,Westlake Corporation,NYSE,15161242711.0,118.37,Jean-Marc Gilson,13245601850.0
+TRMB,Trimble Inc.,NASDAQ,15151606720.0,64.77,Robert G. Painter,19734342000.0
 SMCI,"Super Micro Computer, Inc.",NASDAQ,15130462140.0,25.26,Charles Liang,28704452650.0
 ROKU,"Roku, Inc.",NASDAQ,15106924514.0,102.47,Anthony J. Wood,15249467460.0
 JLL,Jones Lang LaSalle Incorporated,NYSE,14995621736.0,317.74,Christian Ulbrich,18697590970.0
@@ -620,8 +620,8 @@ WMG,Warner Music Group Corp.,NASDAQ,14884214177.0,28.5,Robert Kyncl,21754761903.
 APOS,"Apollo Global Management, Inc.",NYSE,14872512840.0,25.72,Marc Rowan,8287260000.0
 H,Hyatt Hotels Corporation,NYSE,14827199067.0,155.25,Mark Samuel Hoplamazian,19322560000.0
 IOT,Samsara Inc.,NYSE,14826971990.0,25.85,Sanjit Biswas,15840181497.0
-PR,Permian Resources Corporation,NYSE,14786951636.0,20.66,Guy Oliphint,13585100160.0
-MAA,"Mid-America Apartment Communities, Inc.",NYSE,14775117390.0,126.39,Adrian Bradley Hill,21595500350.0
+PR,Permian Resources Corporation,NYSE,14786951636.0,20.66,William Hickey,13585100160.0
+MAA,"Mid-America Apartment Communities, Inc.",NYSE,14775117390.0,126.39,H. Eric Bolton Jr.,21595500350.0
 WCC,"WESCO International, Inc.",NYSE,14769373269.0,303.51,John J. Engel,18989580000.0
 TLN,Talen Energy Corporation,NASDAQ,14683176599.0,321.33,Mark Allen McFarland,23186189279.0
 TPG,TPG Inc.,NASDAQ,14677906225.0,38.29,Jon Winkelried,22737101600.0
@@ -655,7 +655,7 @@ NWSA,News Corporation,NASDAQ,13823698251.0,24.48,Robert J. Thomson,17409044000.0
 DTM,"DT Midstream, Inc.",NYSE,13797436440.0,135.64,David J. Slater,15509488000.0
 RITM-PA,Rithm Capital Corp.,NYSE,13716801161.0,25.5,Michael Nierenberg,43930345101.0
 STRL,"Sterling Infrastructure, Inc.",NASDAQ,13694652428.0,446.36,Joseph A. Cutillo,9312069660.0
-APA,APA Corporation,NASDAQ,13646104518.0,38.63,John J. Christmann,13075140000.0
+APA,APA Corporation,NASDAQ,13646086130.0,38.63,John J. Christmann,13075140000.0
 TYL,"Tyler Technologies, Inc.",NYSE,13639248065.0,317.3,H. Lynn Moore Jr.,19223530250.0
 LAMR,Lamar Advertising Company,NASDAQ,13550585457.0,133.43,Sean E. Reilly,18974675230.0
 OHI,"Omega Healthcare Investors, Inc.",NYSE,13534150300.0,45.79,C. Taylor Pickett,17358016660.0
@@ -667,11 +667,11 @@ KIM-PM,Kimco Realty Corporation,NYSE,13401041623.0,19.85,Ross Cooper,22087980780
 EVR,Evercore Inc.,NYSE,13382664660.0,337.9,John S. Weinberg,14789275250.0
 RITM-PD,Rithm Capital Corp.,NYSE,13361778072.0,24.84,Michael Nierenberg,43930345101.0
 NLY-PF,"Annaly Capital Management, Inc.",NYSE,13350272026.0,25.6,David L. Finkelstein,124121157601.0
-TOL,"Toll Brothers, Inc.",NYSE,13276354447.0,140.12,Karl K. Mistry,15014337099.0
+TOL,"Toll Brothers, Inc.",NYSE,13276353466.0,140.12,Karl K. Mistry,15014337099.0
 AKAM,"Akamai Technologies, Inc.",NASDAQ,13235518800.0,91.35,F. Thomson Leighton,18664901500.0
 GLPI,"Gaming and Leisure Properties, Inc.",NASDAQ,13226459975.0,46.7,Peter Carlino,20062361450.0
+KTOS,"Kratos Defense & Security Solutions, Inc.",NASDAQ,13177046971.0,70.34,Eric DeMarco,12963207500.0
 AVY,Avery Dennison Corporation,NYSE,13165113720.0,171.16,Deon Stander,17607612000.0
-KTOS,"Kratos Defense & Security Solutions, Inc.",NASDAQ,13136557720.0,70.34,Eric DeMarco,12963207500.0
 RITM-PC,Rithm Capital Corp.,NYSE,13119716875.0,24.39,Michael Nierenberg,43930345101.0
 TRU,TransUnion,NYSE,13094871260.0,67.87,Christopher A. Cartwright,20974600000.0
 KIM-PL,Kimco Realty Corporation,NYSE,13090488517.0,19.39,Ross Cooper,22087980780.0
@@ -694,35 +694,35 @@ MAS,Masco Corporation,NYSE,12821138142.0,62.97,Jonathon J. Nudi,16052140000.0
 AMH-PG,American Homes 4 Rent,NYSE,12817385119.0,22.8,Bryan Smith,16912118440.0
 FITBO,Fifth Third Bancorp,NASDAQ,12808104453.0,19.17,Timothy N. Spence,42115815040.0
 FHN-PC,First Horizon Corporation,NYSE,12804803712.0,25.35,D. Bryan Jordan,15347900000.0
-NYT,The New York Times Company,NYSE,12793058220.0,79.01,Meredith A. Kopit Levien,11119634940.0
+NYT,The New York Times Company,NYSE,12793059326.0,79.01,Meredith A. Kopit Levien,11119634940.0
 CNA,CNA Financial Corporation,NYSE,12781196673.0,47.22,Douglas Merle Worman,15488314000.0
 ONTO,Onto Innovation Inc.,NYSE,12780465108.0,257.14,Michael Plisinski,8148032010.0
 ALLY,Ally Financial Inc.,NYSE,12756214665.0,41.27,Michael G. Rhodes,25810769680.0
 MOD,Modine Manufacturing Company,NYSE,12732474828.0,241.46,Neil D. Brinker,4495450000.0
 RZB,"Reinsurance Group of America, Incorporated",NYSE,12651675773.0,25.08,Tony Cheng,3180120000.0
 TTMI,"TTM Technologies, Inc.",NASDAQ,12562673450.0,121.49,Edwin Roks,7921823579.0
-PNW,Pinnacle West Capital Corporation,NYSE,12524548950.0,103.59,Andrew D. Cooper,28457629900.0
+PNW,Pinnacle West Capital Corporation,NYSE,12524548950.0,103.59,Theodore N. Geisler,28457629900.0
 ELS,"Equity LifeStyle Properties, Inc.",NYSE,12423000198.0,64.06,Marguerite Nader,15464485990.0
-ALGN,"Align Technology, Inc.",NASDAQ,12422795000.0,173.14,Joseph Hogan,10362888300.0
 IONS,"Ionis Pharmaceuticals, Inc.",NASDAQ,12417482640.0,75.17,Brett Monia,14899665000.0
 FHN-PE,First Horizon Corporation,NYSE,12403232944.0,24.555,D. Bryan Jordan,15347900000.0
+ALGN,"Align Technology, Inc.",NASDAQ,12399814993.0,173.14,Joseph Hogan,10362888300.0
 MET-PF,"MetLife, Inc.",NYSE,12323870893.0,18.9,Michel Abbas Khalaf,50642705580.0
 DPZ,"Domino's Pizza, Inc.",NASDAQ,12306494125.0,365.95,Russell J. Weiner,19123694658.0
 DRS,"Leonardo DRS, Inc.",NASDAQ,12253190769.0,46.06,John A. Baylouny,8867077000.0
 GMED,"Globus Medical, Inc.",NYSE,12229580871.0,90.42,Keith W. Pfeil,11392512331.0
 OXLCI,Oxford Lane Capital Corp.,NASDAQ,12227824000.0,25.39,Jonathan H. Cohen,2857346886.0
 GNRC,Generac Holdings Inc.,NYSE,12149362598.0,207.03,Aaron Jagdfeld,8972522059.0
-BJ,"BJ's Wholesale Club Holdings, Inc.",NYSE,12130891380.0,92.71,Robert W. Eddy,14689966920.0
+BJ,"BJ's Wholesale Club Holdings, Inc.",NYSE,12130890731.0,92.71,Robert W. Eddy,14689966920.0
 CCK,"Crown Holdings, Inc.",NYSE,12109520700.0,106.95,Timothy J. Donahue,17159392452.0
 CFG-PH,"Citizens Financial Group, Inc.",NYSE,12074078376.0,25.74,Bruce Winfield Van Saun,23751088060.0
 FIVE,"Five Below, Inc.",NASDAQ,12007171008.0,217.37,Winifred Y. Park,11883037253.0
 OXLCP,Oxford Lane Capital Corp.,NASDAQ,11982159840.0,24.8799,Jonathan H. Cohen,2330594518.0
 SF,Stifel Financial Corp.,NYSE,11955818941.0,77.24,Ronald James Kruszewski,8477429760.0
+RMBS,Rambus Inc.,NASDAQ,11945079960.0,110.44,Luc Seraphin,9761238380.0
 MDGL,"Madrigal Pharmaceuticals, Inc.",NASDAQ,11919837292.0,519.61,William J. Sibold,13220064085.0
-RMBS,Rambus Inc.,NASDAQ,11904438040.0,110.44,Luc Seraphin,9761238380.0
 COF-PI,Capital One Financial Corporation,NYSE,11903778480.0,19.14,Richard D. Fairbank,124610052000.0
 PINS,"Pinterest, Inc.",NYSE,11888689934.0,17.62,William J. Ready,16760814340.0
-EXEL,"Exelixis, Inc.",NASDAQ,11869324792.0,44.27,Michael Morrissey,11525439860.0
+EXEL,"Exelixis, Inc.",NASDAQ,11869325279.0,44.27,Michael Morrissey,11525439860.0
 CACI,CACI International Inc,NYSE,11804625345.0,534.49,John S. Mengucci,13833992900.0
 DY,"Dycom Industries, Inc.",NYSE,11778236331.0,393.0,Daniel S. Peyovich,12870192450.0
 CRBG,"Corebridge Financial, Inc.",NYSE,11777219766.0,24.45,Marc Costantini,26729681000.0
@@ -741,7 +741,7 @@ UHS,"Universal Health Services, Inc.",NYSE,11494193247.0,180.78,Marc D. Miller,1
 SFD,"Smithfield Foods, Inc.",NASDAQ,11486753415.0,29.22,Mark L. Hall,9720972374.0
 HRL,Hormel Foods Corporation,NYSE,11484427080.0,20.87,Jeffrey Ettinger,15247638360.0
 PSKY,Paramount Skydance Corporation Class B Common Stock,NASDAQ,11472159654.0,10.62,David Ellison,19998600000.0
-GL,Globe Life Inc.,NYSE,11468439331.0,145.84,Frank Martin Svoboda,13788574671.0
+GL,Globe Life Inc.,NYSE,11468438456.0,145.84,Frank Martin Svoboda,13788574671.0
 WMS,"Advanced Drainage Systems, Inc.",NYSE,11464672200.0,147.18,Donald Scott Barbour,9407501850.0
 SOLV,Solventum Corporation,NYSE,11414105128.0,65.79,Bryan C. Hanson,17952684000.0
 COF-PJ,Capital One Financial Corporation,NYSE,11406193302.0,18.34,Richard D. Fairbank,124610052000.0
@@ -750,15 +750,15 @@ AAOI,"Applied Optoelectronics, Inc.",NASDAQ,11324939280.0,150.6,Chih-Hsiang Lin,
 BWA,BorgWarner Inc.,NYSE,11280016717.0,54.48,Joseph F. Fadool,11616984000.0
 ARMK,Aramark,NYSE,11265150917.0,42.86,John J. Zillmer,15373548000.0
 APC,ARKO Petroleum Corp. Class A Common Stock,NASDAQ,11261740073.0,18.77,Arie Kotler,4457724998.0
-SWK,"Stanley Black & Decker, Inc.",NYSE,11195153010.0,72.19,Christopher John Nelson,17164675620.0
+SWK,"Stanley Black & Decker, Inc.",NYSE,11210096340.0,72.19,Christopher John Nelson,17164675620.0
 PL,Planet Labs PBC,NYSE,11186448850.0,34.67,William Spencer Marshall,7918148617.0
 BLD,TopBuild Corp.,NYSE,11099583087.0,394.37,Robert Buck,14618737754.0
 SITM,SiTime Corporation,NASDAQ,11054373968.0,420.32,Rajesh Vashist,8806077730.0
 GEN,Gen Digital Inc.,NASDAQ,11033051458.0,17.89,Vincent Pilette,23616310000.0
 DKNG,DraftKings Inc.,NASDAQ,11020362533.0,22.23,Jason D. Robins,13114282000.0
 COF-PK,Capital One Financial Corporation,NYSE,11008196400.0,17.7,Richard D. Fairbank,124610052000.0
-AIZ,"Assurant, Inc.",NYSE,10987795534.0,219.4,Keith Warner Demmings,12528411108.0
-KRMN,Karman Holdings Inc.,NYSE,10936069451.0,82.52,Jonathan Rambeau,10235349740.0
+AIZ,"Assurant, Inc.",NYSE,10987795315.0,219.4,Keith Roland Meier,12528411108.0
+KRMN,Karman Holdings Inc.,NYSE,10936069038.0,82.52,Jonathan Rambeau,10235349740.0
 ZBRA,Zebra Technologies Corporation,NASDAQ,10926952321.0,222.13,William J. Burns,15031255420.0
 AIT,"Applied Industrial Technologies, Inc.",NYSE,10900852880.0,289.01,Neil A. Schrimsher,9084161050.0
 AFG,"American Financial Group, Inc.",NYSE,10886324093.0,130.69,Stephen Craig Lindner,11762784000.0
@@ -780,7 +780,7 @@ IESC,"IES Holdings, Inc.",NASDAQ,10617338947.0,532.785,Matthew J. Simmes,7950664
 CAR,"Avis Budget Group, Inc.",NASDAQ,10575494478.0,299.94,Brian J. Choi,35166864000.0
 HLI,"Houlihan Lokey, Inc.",NYSE,10574696370.0,151.53,Scott Joseph Adelson,10081604000.0
 IONQ,"IonQ, Inc.",NYSE,10555587365.0,28.79,Niccolo Mcleod de Masi,11578238214.0
-EQH,"Equitable Holdings, Inc.",NYSE,10532402023.0,37.43,Mark Pearson,8304465000.0
+EQH,"Equitable Holdings, Inc.",NYSE,10532402173.0,37.43,Mark Pearson,8304465000.0
 AM,Antero Midstream Corporation,NYSE,10492337942.0,22.03,Michael N. Kennedy,11544042740.0
 BMRN,BioMarin Pharmaceutical Inc.,NASDAQ,10487373190.0,54.53,Alexander Hardy,10729095410.0
 IVZ,Invesco Ltd.,NYSE,10476912684.0,23.58,Andrew Ryan Schlossberg,19997824000.0
@@ -789,7 +789,7 @@ GME,GameStop Corp.,NYSE,10411267500.0,23.22,Ryan Cohen,8745887999.0
 COF-PL,Capital One Financial Corporation,NYSE,10404984553.0,16.7301,Richard D. Fairbank,124610052000.0
 DINO,HF Sinclair Corporation,NYSE,10367526455.0,57.51,Franklin Myers,10846307200.0
 IT,"Gartner, Inc.",NYSE,10358926992.0,143.72,Eugene A. Hall,20059789000.0
-EGP,"EastGroup Properties, Inc.",NYSE,10345399102.0,193.92,Marshall A. Loeb,11238132261.0
+EGP,"EastGroup Properties, Inc.",NYSE,10345399296.0,193.92,Marshall A. Loeb,11238132261.0
 GH,"Guardant Health, Inc.",NASDAQ,10309961921.0,78.6,Helmy Eltoukhy,14109960360.0
 VIRT,"Virtu Financial, Inc.",NYSE,10270077107.0,48.6,Aaron Simons,14956549897.0
 DCI,"Donaldson Company, Inc.",NYSE,10266932642.0,88.65,Richard Lewis,9092639000.0
@@ -810,12 +810,12 @@ MOG-B,Moog Inc.,NYSE,9982792263.0,314.6201,Patrick J. Roche,7366725499.0
 GTLS,"Chart Industries, Inc.",NYSE,9945991569.0,207.79,Gerald F. Vinci,12677473000.0
 MOG-A,Moog Inc.,NYSE,9903630629.0,312.03,Patrick J. Roche,7366725499.0
 CAVA,"CAVA Group, Inc.",NYSE,9885126934.0,84.94,Brett Schulman,7141209320.0
-SSB,SouthState Corporation,NYSE,9816329960.0,97.66,John C. Corbett,10148334574.0
+SSB,SouthState Corporation,NYSE,9816330155.0,97.66,John C. Corbett,10148334574.0
 WTFC,Wintrust Financial Corporation,NASDAQ,9816109463.0,145.92,Timothy S. Crane,13377348400.0
 MP,MP Materials Corp.,NYSE,9814325080.0,55.24,James Henry Litinsky,8471877561.0
 GAP,"The Gap, Inc.",NYSE,9798406900.0,26.3,Richard Dickson,13431540000.0
 DT,"Dynatrace, Inc.",NYSE,9756159705.0,32.36,Rick McConnell,13127129600.0
-UHAL,U-Haul Holding Company,NYSE,9728767593.0,51.21,Edward Joseph Shoen,19067652236.0
+UHAL,U-Haul Holding Company,NYSE,9728766928.0,51.21,Edward Joseph Shoen,19067652236.0
 DAR,Darling Ingredients Inc.,NYSE,9717667080.0,61.27,Randall C. Stuewe Randy,9982752400.0
 SJM,The J. M. Smucker Company,NYSE,9699581722.0,90.91,Captain Mark T. Smucker,20062928000.0
 BMNR,"Bitmine Immersion Technologies, Inc.",NYSE,9679285034.0,21.28,Chi Tsang,10016871410.0
@@ -824,12 +824,12 @@ VIAV,Viavi Solutions Inc.,NASDAQ,9669760728.0,41.79,Oleg Khaykin,2493700000.0
 BROS,Dutch Bros Inc.,NYSE,9666361063.0,55.88,Christine Barone,11265919238.0
 ZG,"Zillow Group, Inc. Class A",NASDAQ,9662360446.0,39.94,Jeremy Wacksman,16269883900.0
 Z,"Zillow Group, Inc. Class C",NASDAQ,9655284728.0,39.87,Jeremy Wacksman,16267464600.0
+FORM,"FormFactor, Inc.",NASDAQ,9650754720.0,123.8,Michael D. Slessor,4432340880.0
 AGNCO,AGNC Investment Corp.,NASDAQ,9646345443.0,24.99,Peter J. Federico,110986400000.0
-FORM,"FormFactor, Inc.",NASDAQ,9646236020.0,123.8,Michael D. Slessor,4432340880.0
 BAH,Booz Allen Hamilton Holding Corporation,NYSE,9634349785.0,78.17,Horacio D. Rozanski,16695454540.0
 LFUS,"Littelfuse, Inc.",NASDAQ,9633817439.0,382.87,Gregory N. Henderson,6911663990.0
 SYF-PB,Synchrony Financial,NYSE,9565503940.0,25.86,Brian D. Doubles,30063841490.0
-TTD,"The Trade Desk, Inc.",NASDAQ,9562378834.0,20.09,Jeffrey Terry Green,17998727240.0
+TTD,"The Trade Desk, Inc.",NASDAQ,9562379256.0,20.09,Jeffrey Terry Green,17998727240.0
 TAP-A,Molson Coors Beverage Company,NYSE,9534865525.0,47.89,Rahul Goyal,14510268000.0
 AGNCP,AGNC Investment Corp.,NASDAQ,9526166482.0,24.35,Peter J. Federico,110986400000.0
 OSK,Oshkosh Corporation,NYSE,9509519184.0,151.79,John C. Pfeifer,9127670209.0
@@ -837,7 +837,7 @@ ACI,"Albertsons Companies, Inc.",NYSE,9492033289.0,17.28,Susan D. Morris,2580595
 JEF,Jefferies Financial Group Inc.,NYSE,9449616750.0,45.75,Richard Brian Handler,21968203560.0
 CART,Instacart (Maplebear Inc.),NASDAQ,9444141498.0,39.25,Chris Rogers,11154657940.0
 TTC,The Toro Company,NYSE,9442950081.0,96.87,Richard Olson,8116435000.0
-BLDR,"Builders FirstSource, Inc.",NYSE,9434606500.0,85.3,Pete R. Beckmann,16928236000.0
+BLDR,"Builders FirstSource, Inc.",NYSE,9434606500.0,85.3,Peter Jackson,16928236000.0
 AGNCL,AGNC Investment Corp.,NASDAQ,9433444956.0,24.18,Peter J. Federico,110986400000.0
 BPOP,"Popular, Inc.",NASDAQ,9428405016.0,144.82,Javier D. Ferrer-Fernández,9593994907.0
 SEIC,SEI Investments Company,NASDAQ,9425386475.0,76.98,Ryan Hicke,9631634980.0
@@ -848,7 +848,7 @@ ADC,Agree Realty Corporation,NYSE,9382588760.0,78.17,Joel N. Agree,11314026701.0
 W,Wayfair Inc.,NYSE,9371761889.0,71.68,Niraj S. Shah,15679138170.0
 U,Unity Software Inc.,NYSE,9361200560.0,21.62,Matthew Samuel Bromberg,18921624380.0
 MASI,Masimo Corporation,NASDAQ,9337336458.0,178.32,Catherine Szyman,7235640000.0
-NTNX,"Nutanix, Inc.",NASDAQ,9304462073.0,34.41,Rajiv Ramaswami,20819700430.0
+NTNX,"Nutanix, Inc.",NASDAQ,9304461282.0,34.41,Rajiv Ramaswami,20819700430.0
 DDS,"Dillard's, Inc.",NYSE,9303260258.0,595.71,William T. Dillard,9174036000.0
 AOS,A. O. Smith Corporation,NYSE,9296615727.0,65.92,Stephen Shafer,9376319040.0
 UHAL-B,U-Haul Holding Company,NYSE,9268474704.0,47.27,Edward Joseph Shoen,19067652236.0
@@ -856,7 +856,7 @@ AHR,"American Healthcare REIT, Inc.",NYSE,9256645123.0,49.23,Jeff Hanson,9288422
 ESI,Element Solutions Inc,NYSE,9156097020.0,37.59,Benjamin Gliklich,7046980000.0
 UMBF,UMB Financial Corporation,NASDAQ,9153901975.0,120.23,J. Mariner Kemper,11580615210.0
 ONB,Old National Bancorp,NASDAQ,9153418770.0,23.49,James C. Ryan,15739547220.0
-MUSA,Murphy USA Inc.,NYSE,9142189694.0,493.23,Donald R. Smith Jr.,11012046560.0
+MUSA,Murphy USA Inc.,NYSE,9142189694.0,493.23,Renee Bacon,11012046560.0
 ARWR,"Arrowhead Pharmaceuticals, Inc.",NASDAQ,9121696857.0,65.14,Christopher R. Anzalone,4753049420.0
 BSY,"Bentley Systems, Incorporated",NASDAQ,9119480078.0,31.3,Nicholas H. Cumins,13173197286.0
 BRX,Brixmor Property Group Inc.,NYSE,9116097560.0,29.71,Brian T. Finnegan,13565807820.0
@@ -866,7 +866,7 @@ AXSM,"Axsome Therapeutics, Inc.",NASDAQ,9110912304.0,178.11,Herriot Tabuteau,900
 NCLH,Norwegian Cruise Line Holdings Ltd.,NYSE,9092690994.0,19.96,John W. Chidsey,24557615200.0
 IDCC,"InterDigital, Inc.",NASDAQ,9069032981.0,352.27,Lawrence Chen,7979174720.0
 SARO,"StandardAero, Inc.",NYSE,9031578363.0,27.15,Russell W. Ford,11579621720.0
-ZION,"Zions Bancorporation, National Association",NASDAQ,9028613438.0,61.05,Harris Henry Simmons,10071112100.0
+ZION,"Zions Bancorporation, National Association",NASDAQ,9028613072.0,61.05,Harris Henry Simmons,10071112100.0
 CFR,"Cullen/Frost Bankers, Inc.",NYSE,9006255645.0,142.5,Phillip D. Green,4014429020.0
 LLYVK,Liberty Live Group,NASDAQ,8996761702.0,97.87,Chad Randall Hollingsworth,8249399817.0
 FHN-PF,First Horizon Corporation,NYSE,8991144224.0,17.8,D. Bryan Jordan,15347900000.0
@@ -889,12 +889,12 @@ LLYVA,Liberty Live Group,NASDAQ,8746723980.0,95.15,Chad Randall Hollingsworth,82
 OKLO,Oklo Inc.,NYSE,8721831597.0,50.25,Jacob Dewitte,9715208374.0
 PRIM,Primoris Services Corporation,NYSE,8710664410.0,161.14,Koti Vadlamudi,7438760000.0
 TECH,Bio-Techne Corporation,NASDAQ,8689399620.0,55.54,Kim Kelderman,8386327450.0
-AGNCN,AGNC Investment Corp.,NASDAQ,8673854601.0,25.255,Peter J. Federico,110986400000.0
+AGNCN,AGNC Investment Corp.,NASDAQ,8673854449.0,25.255,Peter J. Federico,110986400000.0
 CRL,"Charles River Laboratories International, Inc.",NYSE,8646863070.0,175.65,James C. Foster,12945947240.0
 HSIC,"Henry Schein, Inc.",NASDAQ,8645118539.0,75.34,Ronald N. South,12728568069.0
 R,"Ryder System, Inc.",NYSE,8633373984.0,218.97,Robert E. Sanchez,16482101999.0
 CTDD,Qwest Corp. 6.75% NT 57,NYSE,8614104637.0,19.54,,1649000000.0
-AGNCM,AGNC Investment Corp.,NASDAQ,8592314488.0,24.17,Peter J. Federico,110986400000.0
+AGNCM,AGNC Investment Corp.,NASDAQ,8592314368.0,24.17,Peter J. Federico,110986400000.0
 AUGO,Aura Minerals,NASDAQ,8543986763.0,101.97,Rodrigo Cardoso Barbosa,4243029567.0
 AYI,"Acuity Brands, Inc.",NYSE,8538007374.0,278.45,Neil Ashe,10656437730.0
 TAP,Molson Coors Beverage Company,NYSE,8482253576.0,45.05,Rahul Goyal,14510268000.0
@@ -903,7 +903,7 @@ EMN,Eastman Chemical Company,NYSE,8471702250.0,74.25,Mark J. Costa,11832301000.0
 ATR,"AptarGroup, Inc.",NYSE,8465934890.0,131.5,Stephan Tanda,9146130400.0
 REXR-PB,"Rexford Industrial Realty, Inc.",NYSE,8464962680.0,21.78,Laura Elizabeth Clark,12335595160.0
 CWEN-A,"Clearway Energy, Inc.",NYSE,8434234440.0,40.95,Craig Cornelius,13337940000.0
-CWEN,"Clearway Energy, Inc.",NYSE,8428340757.0,41.07,Craig Cornelius,13337940000.0
+CWEN,"Clearway Energy, Inc.",NYSE,8428340716.0,41.07,Craig Cornelius,13337940000.0
 AGX,"Argan, Inc.",NYSE,8421129694.0,603.84,David Hibbert Watson,4489999450.0
 PPC,Pilgrim's Pride Corporation,NASDAQ,8418665680.0,35.44,Fabio Sandri,12157593060.0
 POWL,"Powell Industries, Inc.",NASDAQ,8412416508.0,230.94,Brett A. Cope,3227422600.0
@@ -915,27 +915,27 @@ DOCU,"DocuSign, Inc.",NASDAQ,8339016920.0,42.89,Allan C. Thygesen,10115738580.0
 VMI,"Valmont Industries, Inc.",NYSE,8323203295.0,425.8,Avner Applbaum,9028036000.0
 PRH,"Prudential Financial, Inc. 5.95",NYSE,8299800000.0,23.85,Charles Frederick Lowrey,9276460000.0
 PRI,"Primerica, Inc.",NYSE,8270200645.0,261.22,Glenn Jackson Williams,9495576520.0
-HESM,Hess Midstream LP,NYSE,8245693428.0,39.57,Jonathan C. Stein,8017050000.0
+HESM,Hess Midstream LP,NYSE,8245692913.0,39.57,Jonathan C. Stein,8017050000.0
 CFG-PE,"Citizens Financial Group, Inc.",NYSE,8216289272.0,18.9677,Bruce Winfield Van Saun,23751088060.0
 JOBY,"Joby Aviation, Inc.",NYSE,8167645560.0,8.34,JoeBen Bevirt,10726088606.0
 CRUS,"Cirrus Logic, Inc.",NASDAQ,8164861600.0,160.0,John Forsyth,4891562850.0
 WRB-PE,W. R. Berkley Corporation 5.70% SB DB 2058,NYSE,8159050870.0,21.47,William Robert Berkley,28116881840.0
-UGI,UGI Corporation,NYSE,8149754475.0,37.94,Robert C. Flexon,14355070700.0
+UGI,UGI Corporation,NYSE,8149754361.0,37.94,Robert C. Flexon,14355070700.0
 BOKF,BOK Financial Corporation,NASDAQ,8142462305.0,134.15,Stacy C. Kymes,10192361409.0
-SNAP,Snap Inc.,NYSE,8140748086.0,4.82,Evan T. Spiegel,17473971550.0
+SNAP,Snap Inc.,NYSE,8140748799.0,4.82,Evan T. Spiegel,17473971550.0
 IDA,"IDACORP, Inc.",NYSE,8099249470.0,147.53,Lisa A. Grow,10312296600.0
-REXR,"Rexford Industrial Realty, Inc.",NYSE,8098423812.0,33.96,Laura Elizabeth Clark,12335595160.0
 PRS,"Prudential Financial, Inc. 5.62",NYSE,8087520000.0,23.24,,21910876000.0
 AUR,"Aurora Innovation, Inc.",NASDAQ,8084580152.0,4.15,Christopher Urmson,6996760000.0
 ARW,"Arrow Electronics, Inc.",NYSE,8081325978.0,158.19,William F. Austen,8486353720.0
 SANM,Sanmina Corporation,NASDAQ,8068418251.0,147.76,Jure Sola,5719244951.0
+REXR,"Rexford Industrial Realty, Inc.",NYSE,8065166309.0,33.96,Laura Elizabeth Clark,12335595160.0
 KNSL,"Kinsale Capital Group, Inc.",NYSE,8064456261.0,348.31,Michael Patrick Kehoe,9111552800.0
 PSEC-PA,Prospect Capital Corporation,NYSE,8043566686.0,17.59,John Francis Barry,3442006410.0
 ESE,ESCO Technologies Inc.,NYSE,8042964720.0,310.59,Bryan H. Sayler,5598913100.0
 FR,"First Industrial Realty Trust, Inc.",NYSE,8041556320.0,60.68,Peter E. Baccile,10080225442.0
+HALO,"Halozyme Therapeutics, Inc.",NASDAQ,8034906680.0,67.82,Helen I. Torley,7931412000.0
 AMG,"Affiliated Managers Group, Inc.",NYSE,8026864616.0,285.36,Jay Horgen,10321279999.0
 CYTK,"Cytokinetics, Incorporated",NASDAQ,8006814083.0,65.01,Robert I. Blum,8028327898.0
-HALO,"Halozyme Therapeutics, Inc.",NASDAQ,8003912940.0,67.82,Helen I. Torley,7931412000.0
 WULF,TeraWulf Inc.,NASDAQ,8002163160.0,18.87,Paul Prager,6497855401.0
 ZWS,Zurn Elkay Water Solutions Corporation,NYSE,7998469593.0,47.74,Todd A. Adams,8120956910.0
 SIRI,Sirius XM Holdings Inc.,NASDAQ,7976510299.0,23.7,Jennifer C. Witz,16372000000.0
@@ -953,12 +953,12 @@ IBP,"Installed Building Products, Inc.",NYSE,7711715059.0,285.88,Jeffrey W. Edwa
 GS-PC,"The Goldman Sachs Group, Inc. PFD 1/1000 C",NYSE,7698263314.0,19.83,David Michael Solomon,720138300000.0
 VSAT,"Viasat, Inc.",NASDAQ,7640516306.0,56.25,Mark D. Dankberg,7260235200.0
 LUMN,"Lumen Technologies, Inc.",NYSE,7630789500.0,7.44,Kathleen E. Johnson,24431637960.0
-CHRD,Chord Energy Corporation,NASDAQ,7626561982.0,134.17,Daniel E. Brown,6674396400.0
+CHRD,Chord Energy Corporation,NASDAQ,7626562518.0,134.17,Daniel E. Brown,6674396400.0
 AAON,"AAON, Inc.",NASDAQ,7593345683.0,93.17,Matthew J. Tobolski,6649967925.0
 KRYS,"Krystal Biotech, Inc.",NASDAQ,7571139800.0,259.0,Krish S. Krishnan,6648888760.0
 AWI,"Armstrong World Industries, Inc.",NYSE,7568108459.0,175.48,Mark A. Hershey,8751060000.0
 BIO,"Bio-Rad Laboratories, Inc.",NYSE,7537103548.0,279.25,Norman D. Schwartz,9259616371.0
-CHYM,"Chime Financial, Inc. Class A Common Stock",NASDAQ,7532196764.0,19.61,Christopher R. Britt,59137659339.0
+CHYM,"Chime Financial, Inc. Class A Common Stock",NASDAQ,7532197372.0,19.61,Christopher R. Britt,59137659339.0
 KEX,Kirby Corporation,NYSE,7530825480.0,140.38,David W. Grzebinski,7362344920.0
 NUVL,"Nuvalent, Inc.",NASDAQ,7518687858.0,102.74,James R. Porter,7049739740.0
 PL-WT,Planet Labs PBC,NYSE,7517861500.0,23.3,William Spencer Marshall,7918148617.0
@@ -968,9 +968,9 @@ IBRX,"ImmunityBio, Inc.",NASDAQ,7484640793.0,7.28,Richard Gerald Adcock,26111097
 MTCH,"Match Group, Inc.",NASDAQ,7483424706.0,31.7,Spencer Rascoff,10780849040.0
 AAL,American Airlines Group Inc.,NASDAQ,7474647766.0,11.32,Robert D. Isom Jr.,44406342360.0
 TEM,"Tempus AI, Inc.",NASDAQ,7459961906.0,42.94,Eric Lefkofsky,10501207200.0
+TKR,The Timken Company,NYSE,7448801500.0,106.75,Lucian Boldea,7660760440.0
 MTDR,Matador Resources Company,NYSE,7438842127.0,59.86,Joseph Wm. Foran,8754175639.0
 CBSH,"Commerce Bancshares, Inc.",NASDAQ,7438588276.0,50.48,John W. Kemper,9469243429.0
-TKR,The Timken Company,NYSE,7423854025.0,106.75,Lucian Boldea,7660760440.0
 BIO-B,"Bio-Rad Laboratories, Inc.",NYSE,7401611122.0,274.23,Norman D. Schwartz,9259616371.0
 QRVO,"Qorvo, Inc.",NASDAQ,7398840241.0,79.81,Robert A. Bruggeworth,7290938000.0
 FPS,"Forgent Power Solutions, Inc.",NYSE,7384884056.0,31.65,Gary John Niederpruem,7213686796.0
@@ -992,7 +992,7 @@ VLY,Valley National Bancorp,NASDAQ,7253866590.0,13.06,Travis Lan,9652546772.0
 WRB-PF,W.R. Berkley Corporation 5.10%,NYSE,7246400850.0,19.35,William Robert Berkley Jr.,28116881840.0
 MANH,"Manhattan Associates, Inc.",NASDAQ,7234377888.0,120.88,Linda C. Pinne,10264188630.0
 INGR,Ingredion Incorporated,NYSE,7229791132.0,114.66,James Zallie,7838692000.0
-FLR,Fluor Corporation,NYSE,7212447509.0,49.21,James R. Breuer,5641545270.0
+FLR,Fluor Corporation,NYSE,7212447214.0,49.21,James R. Breuer,5641545270.0
 GLXY,Galaxy Digital,NASDAQ,7184341481.0,21.66,Michael Edward Novogratz,8139231934.0
 VOYA-PB,"Voya Financial, Inc.",NYSE,7183650296.0,23.59,Heather Hamilton Lavallee,8027039999.0
 JXN,Jackson Financial Inc.,NYSE,7152598594.0,101.62,Mark Daniel Nerud,3800495820.0
@@ -1000,18 +1000,19 @@ VFC,V.F. Corporation,NYSE,7132730360.0,18.23,Bracken Darrell,11042480880.0
 PRMB,Primo Brands Corporation,NYSE,7124880631.0,19.61,Eric J. Foss,11455221200.0
 CWAN,"Clearwater Analytics Holdings, Inc.",NYSE,7116241680.0,24.0,Sandeep Sahai,7335970218.0
 PNFP,"Pinnacle Financial Partners, Inc.",NASDAQ,7111271500.0,92.52,Kevin S. Blair,6296218219.0
-NOV,NOV Inc.,NYSE,7109033553.0,19.49,Jose A. Bayardo,6602360000.0
-ENS,EnerSys,NYSE,7050014258.0,191.01,Shawn O'Connell,4500471380.0
+CE,Celanese Corporation,NYSE,7065683713.0,63.13,Scott A. Richardson,16300660000.0
+ENS,EnerSys,NYSE,7050013685.0,191.01,Shawn O'Connell,4500471380.0
 VNO-PM,Vornado Realty Trust,NYSE,7034336773.0,17.3,Steven Roth,13426157520.0
+NOV,NOV Inc.,NYSE,7028696728.0,19.49,Jose A. Bayardo,6602360000.0
 ORA,"Ormat Technologies, Inc.",NYSE,7010606988.0,115.22,Doron Blachar,9282171350.0
-FSS,Federal Signal Corporation,NYSE,7004578528.0,115.04,Jennifer L. Sherman,7133172000.0
+FSS,Federal Signal Corporation,NYSE,7005033051.0,115.04,Jennifer L. Sherman,7133172000.0
 PB,"Prosperity Bancshares, Inc.",NYSE,6990840275.0,68.82,David E. Zalman,8372764726.0
 SLAB,Silicon Laboratories Inc.,NASDAQ,6960945198.0,211.22,Robert Matthew Johnson,3952659530.0
-AN,"AutoNation, Inc.",NYSE,6960156278.0,200.52,Michael Manley,17992488000.0
+AN,"AutoNation, Inc.",NYSE,6960156478.0,200.52,Michael Manley,17992488000.0
 DOCN,"DigitalOcean Holdings, Inc.",NYSE,6953985199.0,75.59,Padmanabhan T. Srinivasan,4878145720.0
 ALGM,"Allegro MicroSystems, Inc.",NASDAQ,6948407625.0,37.5,Michael C. Doogue,4913553020.0
 KYMR,"Kymera Therapeutics, Inc.",NASDAQ,6943685610.0,85.05,Nello Mainolfi,6291645807.0
-CE,Celanese Corporation,NYSE,6917280360.0,63.13,Scott A. Richardson,16300660000.0
+TRNO,Terreno Realty Corporation,NYSE,6942767040.0,65.34,W. Blake Baird,6933735613.0
 VNO-PL,Vornado Realty Trust,NYSE,6907418783.0,17.32,Steven Roth,13426157520.0
 COLB,"Columbia Banking System, Inc.",NASDAQ,6893101887.0,28.96,Frank Namdar,11752759200.0
 GATX,GATX Corporation,NYSE,6871735000.0,193.57,Robert C. Lyons,13892480000.0
@@ -1019,17 +1020,16 @@ KMX,"CarMax, Inc.",NYSE,6860600643.0,46.72,Keith Barr,32066978099.0
 CMSC,CMS Energy Corporation 5.875% J,NYSE,6848509350.0,22.35,,25044025000.0
 EPRT,"Essential Properties Realty Trust, Inc.",NYSE,6829495200.0,32.54,Peter Mavoides,8391436657.0
 ALL-PJ,The Allstate Corporation,NYSE,6814049919.0,25.85,Thomas Joseph Wilson,61201595000.0
-TRNO,Terreno Realty Corporation,NYSE,6806990520.0,65.34,W. Blake Baird,6933735613.0
 DOX,Amdocs Limited,NASDAQ,6800850000.0,63.0,Shimie Hortig,9621014350.0
 DLR-PL,"Digital Realty Trust, Inc.",NYSE,6786226459.0,19.75,Andrew Power,73872383030.0
+SSRM,SSR Mining Inc.,NASDAQ,6784445252.0,33.13,Rodney Antal Accountancy,4321224457.0
 RGEN,Repligen Corporation,NASDAQ,6765365110.0,120.1,Olivier Loeillot,9338430240.0
 GKOS,Glaukos Corporation,NYSE,6760372320.0,116.4,Thomas William Burns,6506152900.0
 EAT,"Brinker International, Inc.",NYSE,6755962383.0,155.13,Kevin D. Hochman,9554081999.0
 MIDD,The Middleby Corporation,NASDAQ,6748300718.0,143.03,James K. Pool,9738787349.0
 LGN,Legence Corp. Class A Common stock,NASDAQ,6745283797.0,63.2,Jeffrey Sprau,5317580072.0
+SWX,"Southwest Gas Holdings, Inc.",NYSE,6742933428.0,93.18,Karen S. Haller,8705770240.0
 CMS-PB,Consumers Energy Company,NYSE,6739638144.0,80.13,Garrick J. Rochow,39342620379.0
-SSRM,SSR Mining Inc.,NASDAQ,6736190380.0,33.13,Rodney Antal Accountancy,4321224457.0
-SWX,"Southwest Gas Holdings, Inc.",NYSE,6734034738.0,93.18,Karen S. Haller,8705770240.0
 ROAD,"Construction Partners, Inc.",NASDAQ,6717417710.0,118.86,Fred J. Smith,8510997713.0
 ACLX,"Arcellx, Inc.",NASDAQ,6715236812.0,114.83,Rami Elghandour,3687116882.0
 CIFR,Cipher Mining Inc.,NASDAQ,6696617070.0,16.53,Rodney Tyler Page,7771243863.0
@@ -1038,7 +1038,7 @@ PRAX,"Praxis Precision Medicines, Inc.",NASDAQ,6683719018.0,316.14,Marcio Silva 
 JBTM,JBT Marel Corporation,NYSE,6682311810.0,128.55,Brian A. Deck,9530239999.0
 PEGA,Pegasystems Inc.,NASDAQ,6681986045.0,39.37,Alan Trefler,10062621040.0
 MSA,MSA Safety Incorporated,NYSE,6678170715.0,172.23,Steven C. Blanco,6742068239.0
-HQY,"HealthEquity, Inc.",NASDAQ,6660612857.0,77.96,Scott R. Cutler,8061481440.0
+HQY,"HealthEquity, Inc.",NASDAQ,6660613090.0,77.96,Scott R. Cutler,8061481440.0
 VOYA,"Voya Financial, Inc.",NYSE,6655695534.0,69.94,Heather Hamilton Lavallee,8027039999.0
 MORN,"Morningstar, Inc.",NASDAQ,6648890886.0,167.97,Kunal Kapoor,10038589000.0
 ECG,"Everus Construction Group, Inc.",NYSE,6647195490.0,130.32,Jeffrey S. Thiede,4302962560.0
@@ -1077,7 +1077,7 @@ BEPC,Brookfield Renewable Corporation,NYSE,6193331200.0,42.56,Connor David Teske
 ESAB,ESAB Corporation,NYSE,6173073372.0,101.65,Shyam Kambeyanda,8055780520.0
 PAYC,"Paycom Software, Inc.",NYSE,6165108609.0,113.59,Chad R. Richison,8674488000.0
 AXTA,Axalta Coating Systems Ltd.,NYSE,6155838227.0,28.85,Chrishan Anthon Sebastian Villavarayan,9710960000.0
-URBN,"Urban Outfitters, Inc.",NASDAQ,6151975147.0,68.6,Richard A. Hayne,7246449100.0
+URBN,"Urban Outfitters, Inc.",NASDAQ,6151974872.0,68.6,Richard A. Hayne,7246449100.0
 HR,Healthcare Realty Trust Incorporated,NYSE,6143248500.0,17.61,Robert E. Hull,10050374862.0
 WRB-PG,W.R. Berkley Corporation 4.25%,NYSE,6137907490.0,16.39,William Robert Berkley Jr.,28116881840.0
 UBSI,"United Bankshares, Inc.",NASDAQ,6112128960.0,43.84,Richard Matthew Adams Jr.,3773404921.0
@@ -1110,7 +1110,7 @@ BIPH,Brookfield Infrastructure Corpo,NYSE,5798207830.0,15.87,Sam Pollock,5671328
 CORZ,"Core Scientific, Inc.",NASDAQ,5776893965.0,18.32,Adam Sullivan,5380017080.0
 RYTM,"Rhythm Pharmaceuticals, Inc.",NASDAQ,5762571150.0,84.39,David Meeker,7148098001.0
 LSTR,"Landstar System, Inc.",NASDAQ,5754563021.0,168.96,Frank A. Lonegro,4806158340.0
-VSNT,"Versant Media Group, Inc. Class A",NASDAQ,5744979374.0,39.75,Mark H. Lazarus,7431715000.0
+VSNT,"Versant Media Group, Inc. Class A",NASDAQ,5744979931.0,39.75,Mark H. Lazarus,7431715000.0
 NJR,New Jersey Resources Corporation,NYSE,5744131200.0,56.96,Stephen D. Westhoven,8584935600.0
 SRRK,Scholar Rock Holding Corporation,NASDAQ,5739554680.0,49.96,David L. Hallal,4837973833.0
 STEP,StepStone Group Inc.,NASDAQ,5738597166.0,45.91,Monte Brem,3809283890.0
@@ -1142,7 +1142,7 @@ OLLI,"Ollie's Bargain Outlet Holdings, Inc.",NASDAQ,5514409660.0,89.91,Eric van 
 MAC,The Macerich Company,NYSE,5497887401.0,21.42,Jackson Hsieh,9897065280.0
 HWC,Hancock Whitney Corporation,NASDAQ,5490200061.0,67.23,John Hairston,6070854675.0
 AVT,"Avnet, Inc.",NASDAQ,5487274678.0,67.03,Philip R. Gallagher,7264280280.0
-CZR,"Caesars Entertainment, Inc.",NASDAQ,5486421212.0,26.88,Thomas Robert Reeg,30322120000.0
+CZR,"Caesars Entertainment, Inc.",NASDAQ,5486420970.0,26.88,Thomas Robert Reeg,30322120000.0
 RUSHA,"Rush Enterprises, Inc.",NASDAQ,5473839016.0,71.15,W. Marvin Rush,5565274200.0
 ACA,"Arcosa, Inc.",NYSE,5473310400.0,111.6,Antonio Carrillo,6517880000.0
 WEX,WEX Inc.,NYSE,5465335474.0,159.29,Melissa D. Smith,9241390000.0
@@ -1151,10 +1151,10 @@ CWST,"Casella Waste Systems, Inc.",NASDAQ,5438560798.0,86.98,Edmond R. Coletta,7
 OBDC,Blue Owl Capital Corporation,NYSE,5429010630.0,10.87,Craig William Packer,15581054269.0
 UFPI,"UFP Industries, Inc.",NASDAQ,5423821974.0,95.49,William D. Schwartz Jr.,4777758140.0
 AUB,Atlantic Union Bankshares Corporation,NYSE,5423230120.0,38.03,John C. Asbury,6267108638.0
-EQPT,EquipmentShare.com Inc.,NASDAQ,5422041182.0,20.38,Jabbok Schlacks,11805671028.0
-LB,LandBridge Company LLC,NYSE,5412856119.0,68.01,Jason Long,1569637400.0
+EQPT,EquipmentShare.com Inc.,NASDAQ,5422040571.0,20.38,Jabbok Schlacks,11805671028.0
+LB,LandBridge Company LLC,NYSE,5412856255.0,68.01,Jason Long,1569637400.0
 MGY,Magnolia Oil & Gas Corporation,NYSE,5408371800.0,29.9,Christopher G. Stavros,4215143090.0
-KRG,Kite Realty Group Trust,NYSE,5396868960.0,25.5,John A. Kite,8471716598.0
+KRG,Kite Realty Group Trust,NYSE,5396869113.0,25.5,John A. Kite,8471716598.0
 VLYPP,Valley National Bancorp,NASDAQ,5394849389.0,25.06,Travis Lan,9652546772.0
 AVTR,"Avantor, Inc.",NYSE,5388242013.0,7.9,Emmanuel Ligner,11350780000.0
 TGTX,"TG Therapeutics, Inc.",NASDAQ,5386276240.0,33.73,Michael S. Weiss,4483666390.0
@@ -1168,16 +1168,16 @@ MSM,"MSC Industrial Direct Co., Inc.",NYSE,5331058964.0,95.48,Martina McIsaac,55
 CHE,Chemed Corporation,NYSE,5311126184.0,385.84,Kevin J. McNamara,6240572280.0
 PACS,"PACS Group, Inc.",NYSE,5304319425.0,33.75,Jason Murray,8996147374.0
 ERAS,"Erasca, Inc.",NASDAQ,5286700294.0,17.01,Jonathan E. Lim,1028079349.0
-LYFT,"Lyft, Inc.",NASDAQ,5283445720.0,13.23,John David Risher,8102694800.0
+LYFT,"Lyft, Inc.",NASDAQ,5283445244.0,13.23,John David Risher,8102694800.0
 OTF,Blue Owl Technology Finance Corp.,NYSE,5281494887.0,11.35,Erik J. Bissonnette,12240444882.0
 UNMA,Unum Group 6.250% JR NT58,NYSE,5277220633.0,23.34,,7597865880.0
 POST,"Post Holdings, Inc.",NYSE,5268677997.0,101.02,Robert V. Vitale,13553728000.0
 TTAN,"ServiceTitan, Inc.",NASDAQ,5266993075.0,55.29,Ara Mahdessian,6995417420.0
 LNTH,"Lantheus Holdings, Inc.",NASDAQ,5246618453.0,80.59,Mary Anne Heino,4133009950.0
 AX,"Axos Financial, Inc.",NYSE,5242738033.0,92.5,Gregory Garrabrants,2762660385.0
+KGS,"Kodiak Gas Services, Inc.",NYSE,5233428537.0,60.77,Robert McKee,3263898600.0
 TFX,Teleflex Incorporated,NYSE,5232904535.0,118.39,Stuart A. Randle,7778063880.0
 LPX,Louisiana-Pacific Corporation,NYSE,5222608137.0,74.79,Jason Ringblom,5762200000.0
-KGS,"Kodiak Gas Services, Inc.",NYSE,5218282830.0,60.77,Robert McKee,3263898600.0
 APLS,"Apellis Pharmaceuticals, Inc.",NASDAQ,5214185700.0,40.79,Cedric Francois,3184269880.0
 BGC,"BGC Group, Inc",NASDAQ,5201669731.0,10.92,Sean A. Windeatt,5175962520.0
 ETSY,"Etsy, Inc.",NYSE,5200819298.0,52.69,Kruti Patel Goyal,4791582720.0
@@ -1196,7 +1196,7 @@ HLNE,Hamilton Lane Incorporated,NASDAQ,5149568943.0,92.28,Erik R. Hirsch,6060173
 CACC,Credit Acceptance Corporation,NASDAQ,5131322692.0,465.15,Vinayak R.,10765961188.0
 OUT,Outfront Media Inc.,NYSE,5128336500.0,29.13,Nicolas Brien,8075080000.0
 HPP-PC,"Hudson Pacific Properties, Inc.",NYSE,5127004470.0,13.51,Victor J. Coleman,4124810890.0
-RAL,Ralliant Corp.,NYSE,5122512831.0,45.41,Tamara S. Newcombe,6572648000.0
+RAL,Ralliant Corp.,NYSE,5122512377.0,45.41,Tamara S. Newcombe,6572648000.0
 MCY,Mercury General Corporation,NYSE,5107385296.0,92.21,Gabriel Tirador,4488666340.0
 CAI,"Caris Life Sciences, Inc.",NASDAQ,5100567538.0,18.05,David Dean Halbert,44693268196.0
 CMS-PC,CMS Energy Corporation,NYSE,5091857394.0,16.95,Garrick J. Rochow,39342620379.0
@@ -1205,7 +1205,7 @@ DTK,DTE Energy Company 2025 Series,NYSE,5065290000.0,24.47,Joi Harris,
 BIPC,Brookfield Infrastructure Corporation,NYSE,5041643640.0,42.02,David Krant,18244445140.0
 BC,Brunswick Corporation,NYSE,5017602155.0,77.06,David Foulkes,7023944000.0
 ALL-PI,The Allstate Corporation,NYSE,5016326938.0,19.0301,Thomas Joseph Wilson,61201595000.0
-PATH,UiPath Inc.,NYSE,5015952214.0,9.38,Daniel Solomon Dines,5974776750.0
+PATH,UiPath Inc.,NYSE,5015952383.0,9.38,Daniel Solomon Dines,5974776750.0
 LNC-PD,Lincoln National Corporation,NYSE,5014574200.0,26.38,Ellen R. Gail Cooper,4898505504.0
 M,"Macy's, Inc.",NYSE,5014555228.0,18.86,Antony Spring,9375412000.0
 BDC,Belden Inc.,NYSE,5009561479.0,128.67,Ashish Chand,5700485750.0
@@ -1228,8 +1228,7 @@ PECO,"Phillips Edison & Company, Inc.",NASDAQ,4844558000.0,38.51,Jeffrey S. Edis
 FBIN,"Fortune Brands Innovations, Inc.",NYSE,4843930416.0,40.37,David V. Barry,8506945335.0
 OSIS,"OSI Systems, Inc.",NASDAQ,4832881151.0,293.39,Ajay Mehra,4438563080.0
 APGE,"Apogee Therapeutics, Inc.",NASDAQ,4830999567.0,86.27,Michael Thomas Henderson,4458243093.0
-GNTX,Gentex Corporation,NASDAQ,4814554371.0,21.99,Steven R. Downing,4962119285.0
-GHC,Graham Holdings Company,NYSE,4806087895.0,1101.85,Timothy J. O'Shaughnessy,6225010600.0
+GHC,Graham Holdings Company,NYSE,4806086793.0,1101.85,Timothy J. O'Shaughnessy,6225010600.0
 AIR,AAR Corp.,NYSE,4804716502.0,120.83,John McClain Holmes,3137296000.0
 SIGI,"Selective Insurance Group, Inc.",NASDAQ,4802955080.0,79.94,John Joseph Marchioni,6010191000.0
 MAIN,Main Street Capital Corporation,NYSE,4782762784.0,53.08,Dwayne Louis Hyzak,7812275024.0
@@ -1240,8 +1239,9 @@ KNF,Knife River Corporation,NYSE,4763189710.0,84.06,Brian R. Gray,5120244999.0
 PBF,PBF Energy Inc.,NYSE,4755421090.0,40.67,Matthew C. Lucey,5466062656.0
 NNI,"Nelnet, Inc.",NYSE,4745623560.0,132.29,Jeffrey R. Noordhoek,11650690397.0
 TERN,"Terns Pharmaceuticals, Inc.",NASDAQ,4740789246.0,52.63,Amy L. Burroughs,3240101468.0
+GNTX,Gentex Corporation,NASDAQ,4736697852.0,21.99,Steven R. Downing,4962119285.0
 TNL,Travel + Leisure Co.,NYSE,4730996192.0,75.82,Michael D. Brown,9281767929.0
-BOOT,"Boot Barn Holdings, Inc.",NYSE,4729535815.0,155.15,John Hazen,3672958080.0
+BOOT,"Boot Barn Holdings, Inc.",NYSE,4729535350.0,155.15,John Hazen,3672958080.0
 MIR,"Mirion Technologies, Inc.",NYSE,4714752360.0,19.27,Thomas D. Logan,6233839780.0
 MRP,"Millrose Properties, Inc.",NYSE,4713395281.0,30.57,Darren L. Richman,7035540455.0
 LAUR,"Laureate Education, Inc.",NASDAQ,4697705040.0,32.91,Eilif Serck-Hanssen,5677830750.0
@@ -1250,7 +1250,7 @@ EBC,"Eastern Bankshares, Inc.",NASDAQ,4685704105.0,20.83,Denis K. Sheahan,405493
 UNF,UniFirst Corporation,NYSE,4685375998.0,256.22,Steven S. Sintros,3035734380.0
 REYN,Reynolds Consumer Products Inc.,NASDAQ,4674117604.0,22.18,Scott E. Huckins,6438076000.0
 PAGP,"Plains GP Holdings, L.P.",NASDAQ,4666576320.0,23.58,Wilfred Chiang,14948720000.0
-MC,Moelis & Company,NYSE,4664878931.0,63.04,Navid Mahmoodzadegan,4916001011.0
+MC,Moelis & Company,NYSE,4664879561.0,63.04,Navid Mahmoodzadegan,4916001011.0
 LOPE,"Grand Canyon Education, Inc.",NASDAQ,4657310624.0,166.52,Brian E. Mueller,4722045220.0
 RDN,Radian Group Inc.,NYSE,4656414240.0,34.17,Emily S. Riley,6073026000.0
 KBR,"KBR, Inc.",NYSE,4649368801.0,36.67,Stuart John Baxter Bradie,7849790000.0
@@ -1288,11 +1288,11 @@ SKY,"Champion Homes, Inc.",NYSE,4419507509.0,79.12,Timothy Mark Larson,496889996
 FGN,"F&G Annuities & Life, Inc.",NYSE,4411650747.0,24.7,Christopher Owsley Blunt,4084950000.0
 DHCNL,Diversified Healthcare Trust,NASDAQ,4406602200.0,18.2,Christopher J. Bilotto,3461526100.0
 TPC,Tutor Perini Corporation,NYSE,4400163190.0,83.35,Gary G. Smalley,3232210860.0
-SLGN,Silgan Holdings Inc.,NYSE,4373733082.0,41.48,Adam J. Greenlee,7799460999.0
+SLGN,Silgan Holdings Inc.,NYSE,4373732957.0,41.48,Adam J. Greenlee,7799460999.0
 SHC,Sotera Health Company,NASDAQ,4368261120.0,15.36,Michael Petras Jr.,6936180840.0
 PVH,PVH Corp.,NYSE,4366389019.0,90.74,Stefan Larsson,6567840000.0
 BCO,The Brink's Company,NYSE,4343521026.0,105.52,Richard Mark Eubanks Jr.,7550987000.0
-VCTR,"Victory Capital Holdings, Inc.",NASDAQ,4341924689.0,67.79,Nina Gupta,4934870510.0
+VCTR,"Victory Capital Holdings, Inc.",NASDAQ,4341924824.0,67.79,Nina Gupta,4934870510.0
 NVST,Envista Holdings Corp,NYSE,4339208394.0,26.39,Paul A. Keel,4143680000.0
 NWE,Northwestern Energy Group Inc,NASDAQ,4338532596.0,70.61,Brian Bird,7240620740.0
 ABR-PF,"Arbor Realty Trust, Inc.",NYSE,4326417577.0,22.42,Ivan Paul Kaufman,12063865755.0
@@ -1307,7 +1307,6 @@ HIMS,"Hims & Hers Health, Inc.",NYSE,4266070230.0,19.43,Andrew Dudum,8339568431.
 ONDS,Ondas Holdings Inc.,NASDAQ,4264924290.0,9.13,Eric Ashley Brock,1582594440.0
 SLM,SLM Corporation,NASDAQ,4254387850.0,21.47,Jonathan W. Witter,7225258300.0
 AD,"Array Digital Infrastructure, Inc.",NYSE,4247122485.0,49.44,Anthony J. Carlson,6202353960.0
-ITRI,"Itron, Inc.",NASDAQ,4233011628.0,94.19,Thomas L. Deitrich,4468905280.0
 YSS,"York Space Systems, Inc.",NYSE,4229787075.0,33.32,Dirk Wallinger,4301505716.0
 TDS-PV,"Telephone and Data Systems, Inc.",NYSE,4229061851.0,19.04,Walter Carlson,5910439000.0
 DUOL,"Duolingo, Inc.",NASDAQ,4226925156.0,90.03,Luis Alfonso von Ahn Arellano,7090551500.0
@@ -1319,6 +1318,7 @@ THO,"Thor Industries, Inc.",NYSE,4186407349.0,79.23,Robert W. Martin,5166639651.
 TDS-PU,"Telephone and Data Systems, Inc.",NYSE,4179735063.0,21.0,Walter Carlson,5910439000.0
 CRGY,Crescent Energy Company,NYSE,4177449465.0,12.74,David C. Rockecharlie,7562809400.0
 SKT,Tanger Inc.,NYSE,4174779380.0,36.46,Stephen J. Yalof,6484842849.0
+ITRI,"Itron, Inc.",NASDAQ,4174482339.0,94.19,Thomas L. Deitrich,4468905280.0
 LMND,"Lemonade, Inc.",NYSE,4159076130.0,54.45,Daniel Asher Schreiber,4909118123.0
 TEX,Terex Corporation,NYSE,4157245011.0,63.18,Simon A. Meester,5549404000.0
 TFSL,TFS Financial Corporation,NASDAQ,4146836409.0,14.78,Marc A. Stefanski,8144581835.0
@@ -1369,14 +1369,14 @@ INDB,Independent Bank Corp.,NASDAQ,3900209108.0,79.62,Jeffrey J. Tengel,42854875
 CBT,Cabot Corporation,NYSE,3896776090.0,74.62,Sean D. Keohane,5040885000.0
 QS,QuantumScape Corporation,NASDAQ,3896020636.0,6.36,Siva Sivaram,5841875000.0
 WBS-PG,Webster Financial Corporation,NYSE,3890170286.0,23.6,John R. Ciulla,14032989340.0
-MIAX,"Miami International Holdings, Inc. ",NYSE,3888120984.0,41.95,Thomas P. Gallagher,2591100100.0
-ELF,"e.l.f. Beauty, Inc.",NYSE,3884142700.0,65.13,Tarang Amin,3693751900.0
+MIAX,"Miami International Holdings, Inc. ",NYSE,3888120984.0,41.95,Thomas Gallagher,2591100100.0
+ELF,"e.l.f. Beauty, Inc.",NYSE,3884142570.0,65.13,Tarang Amin,3693751900.0
 SHO-PH,"Sunstone Hotel Investors, Inc.",NYSE,3880401525.0,20.475,Bryan Albert Giglia,2547145220.0
 JOE,The St. Joe Company,NYSE,3876766228.0,67.37,Jorge Luis Gonzalez,3686468873.0
 CVSA,Covista Inc.,NYSE,3866332340.0,112.04,Stephen W. Beard,5292723550.0
 CUZ,Cousins Properties Incorporated,NYSE,3843428160.0,22.88,Michael Colin Connolly,7998586820.0
 KAI,Kadant Inc.,NYSE,3831778670.0,325.03,Jeffrey L. Powell,3623607199.0
-DIOD,Diodes Incorporated,NASDAQ,3821765271.0,83.07,Gary Yu,2014812600.0
+DIOD,Diodes Incorporated,NASDAQ,3821765188.0,83.07,Gary Yu,2014812600.0
 BANF,BancFirst Corporation,NASDAQ,3816090462.0,113.76,David R. Harlow,3450338210.0
 PTEN,"Patterson-UTI Energy, Inc.",NASDAQ,3814730760.0,10.05,William Andrew Hendricks Jr.,3202799150.0
 BNL,"Broadstone Net Lease, Inc.",NYSE,3813146160.0,19.92,John D. Moragne,5852510510.0
@@ -1415,7 +1415,7 @@ LASR,"nLIGHT, Inc.",NASDAQ,3647077281.0,65.37,Scott H. Keeney,1847929810.0
 GFF,Griffon Corporation,NYSE,3642025537.0,78.19,Ronald J. Kramer,4946662100.0
 WHR,Whirlpool Corporation,NYSE,3640141994.0,56.49,Marc Robert Bitzer,11228840000.0
 CATY,Cathay General Bancorp,NASDAQ,3637917858.0,53.47,Chang Ming Liu,3337713220.0
-SF-PB,Stifel Financial Corp.,NYSE,3632667632.0,23.84,Ronald James Kruszewski,8477429760.0
+SF-PB,Stifel Financial Corp.,NYSE,3632667370.0,23.84,Ronald James Kruszewski,8477429760.0
 MARA,"Marathon Digital Holdings, Inc.",NASDAQ,3627438418.0,9.54,Frederick G. Thiel,6287625850.0
 ENVA,"Enova International, Inc.",NYSE,3625246029.0,144.95,Steven E. Cunningham,8382711599.0
 IRDM,Iridium Communications Inc.,NASDAQ,3615554677.0,34.2,Matthew J. Desch,3527856200.0
@@ -1440,7 +1440,7 @@ BILL,"Bill.com Holdings, Inc.",NYSE,3476438398.0,34.71,Rene A. Lacerte,542393168
 WBS-PF,Webster Financial Corporation,NYSE,3473183664.0,20.51,John R. Ciulla,14032989340.0
 BHF,"Brighthouse Financial, Inc.",NASDAQ,3472790332.0,60.73,Eric Thomas Steigerwalt,1472109090.0
 FUL,H.B. Fuller Company,NYSE,3472475247.0,63.73,Celeste Beeks Mastin,5091928560.0
-NTSK,"Netskope, Inc. Class A Common Stock",NASDAQ,3470725076.0,8.67,Sanjay Beri,32047920088.0
+NTSK,"Netskope, Inc. Class A Common Stock",NASDAQ,3470725120.0,8.67,Sanjay Beri,32047920088.0
 DTB,DTE Energy Company 2020 Series,NYSE,3470326800.0,16.7,Gerardo Norcia,29804350000.0
 WSBC,"WesBanco, Inc.",NASDAQ,3465838386.0,36.06,Jeffrey H. Jackson,4438021884.0
 HP,"Helmerich & Payne, Inc.",NYSE,3462780660.0,34.68,Raymond John Adams,4288801480.0
@@ -1480,7 +1480,7 @@ RRR,"Red Rock Resorts, Inc.",NASDAQ,3313752241.0,56.2,Frank J. Fertitta,35685288
 OPEN,Opendoor Technologies Inc.,NASDAQ,3311595783.0,4.32,Kasra Nejatian,3699875730.0
 BXMT,"Blackstone Mortgage Trust, Inc.",NYSE,3307284400.0,19.6,Timothy Johnson,18996417719.0
 GTLB,GitLab Inc.,NASDAQ,3303963382.0,19.42,William Staples,5570107999.0
-DORM,"Dorman Products, Inc.",NASDAQ,3303864018.0,109.46,Steven L. Berman,4372444640.0
+DORM,"Dorman Products, Inc.",NASDAQ,3303864018.0,109.46,Kevin Olsen,4372444640.0
 CBU,"Community Bank System, Inc.",NYSE,3292607555.0,62.45,Dimitar A. Karaivanov,3664685670.0
 OLN,Olin Corporation,NYSE,3289791150.0,28.95,Kenneth Todd Lane,5611518000.0
 ASB-PF,Associated Banc-Corp,NYSE,3283662936.0,20.07,Andrew John Harmening,7847971040.0
@@ -1500,7 +1500,7 @@ PSA-PJ,Public Storage,NYSE,3233472784.0,18.43,H. Thomas Boyle,55464282500.0
 KBH,KB Home,NYSE,3230160000.0,51.6,Robert V. McGibney,5857562700.0
 FHB,"First Hawaiian, Inc.",NASDAQ,3227921232.0,26.27,Robert Scott Harrison,2928548760.0
 BKD,Brookdale Senior Living Inc.,NYSE,3222081600.0,13.55,Nikolas W. Stengle,8913269540.0
-VERA,"Vera Therapeutics, Inc.",NASDAQ,3213859242.0,45.04,Marshall W. Fordyce,2975381340.0
+VERA,"Vera Therapeutics, Inc.",NASDAQ,3213860728.0,45.04,Marshall W. Fordyce,2975381340.0
 ECCC,Eagle Point Credit Company Inc.,NYSE,3213418250.0,24.41,Thomas Philip Majewski,1078818839.0
 PSA-PL,Public Storage,NYSE,3208506795.0,18.2877,H. Thomas Boyle,55464282500.0
 FRPT,"Freshpet, Inc.",NASDAQ,3178905070.0,64.8,William Cyr,3255416000.0
@@ -1520,7 +1520,7 @@ PII,Polaris Inc.,NYSE,3128757967.0,55.19,Michael Todd Speetzen,5000425000.0
 HAYW,"Hayward Holdings, Inc.",NYSE,3123451040.0,14.38,Kevin Holleran,3029989867.0
 BOH,Bank of Hawaii Corporation,NYSE,3120042419.0,78.54,James C. Polk,1856163287.0
 RUN,Sunrun Inc.,NASDAQ,3114053760.0,13.28,Mary Grace Powell,17929133799.0
-RWTQ,"Redwood Trust, Inc.",NYSE,3112439783.0,23.9,Dashiell I. Robinson,
+RWTQ,"Redwood Trust, Inc.",NYSE,3112439783.0,23.9,Christopher J. Abate,
 NGL-PB,NGL Energy Partners LP,NYSE,3107234602.0,24.95,H. Michael Krimbill,3677549020.0
 AWR,American States Water Company,NYSE,3105886275.0,79.47,Robert J. Sprowls,3718063000.0
 PARR,"Par Pacific Holdings, Inc.",NYSE,3105279856.0,62.77,William Monteleone,3015099447.0
@@ -1537,13 +1537,13 @@ NIQ,NIQ Global Intelligence Plc,NYSE,3077971016.0,10.43,James Peck,7756974654.0
 FFBC,First Financial Bancorp.,NASDAQ,3073782540.0,29.39,Archie Brown Jr.,3384630311.0
 PI,"Impinj, Inc.",NASDAQ,3069725396.0,101.54,Chris Diorio,5374062830.0
 FRMI,Fermi Inc. Common Stock,NASDAQ,3067319777.0,4.87,Toby R. Neugebauer,3466297264.0
-CPRX,"Catalyst Pharmaceuticals, Inc.",NASDAQ,3065434657.0,24.94,Richard John Daly,2147884812.0
+CPRX,"Catalyst Pharmaceuticals, Inc.",NASDAQ,3065434857.0,24.94,Richard John Daly,2147884812.0
 BOX,"Box, Inc.",NYSE,3060778748.0,21.37,Aaron Levie,4276178250.0
+VSH,"Vishay Intertechnology, Inc.",NYSE,3058284541.0,22.47,Joel Smejkal,2620900130.0
 LCII,LCI Industries,NYSE,3056114908.0,126.28,Jason D. Lippert,4022387020.0
 LIF,"Life360, Inc.",NASDAQ,3055567155.0,38.1,Lauren Antonoff,4771019469.0
 KNTK,Kinetik Holdings Inc.,NYSE,3054494203.0,47.29,Jamie W. Welch,6095346100.0
 AEO,"American Eagle Outfitters, Inc.",NYSE,3053486000.0,18.32,Jay L. Schottenstein,5507367150.0
-VSH,"Vishay Intertechnology, Inc.",NYSE,3051296416.0,22.47,Joel Smejkal,2620900130.0
 PAY,"Paymentus Holdings, Inc.",NYSE,3051074069.0,24.36,Dushyant Sharma,3773832250.0
 DNLI,Denali Therapeutics Inc.,NASDAQ,3049704930.0,19.23,Ryan J. Watts,2733789461.0
 BKV,BKV Corporation,NYSE,3041492198.0,28.18,Christopher Pungya Kalnin,2787092650.0
@@ -1562,18 +1562,18 @@ DBD,"Diebold Nixdorf, Incorporated",NYSE,2981970331.0,84.78,Octavio Marquez,3285
 BELFB,Bel Fuse Inc.,NASDAQ,2979621071.0,235.73,Farouq Tuweiq,538230450.0
 DBRG-PJ,"DigitalBridge Group, Inc.",NYSE,2977288020.0,16.268,Marc Christopher Ganzi,2639953040.0
 WK,Workiva Inc.,NYSE,2975861750.0,52.36,Brandon E. Ziegler,5322555591.0
-TXG,"10x Genomics, Inc.",NASDAQ,2972795067.0,23.27,Serge Saxonov,1718441624.0
+TXG,"10x Genomics, Inc.",NASDAQ,2972795113.0,23.27,Serge Saxonov,1718441624.0
 SFNC,Simmons First National Corporation,NASDAQ,2969790843.0,20.5,Charles Daniel Hobbs,2956549142.0
 KMT,Kennametal Inc.,NYSE,2960323069.0,38.85,Sanjay K. Chowbey,2276801440.0
 MGEE,"MGE Energy, Inc.",NASDAQ,2953266203.0,80.77,Jeffrey Keebler,3794112280.0
 CAKE,The Cheesecake Factory Incorporated,NASDAQ,2949165233.0,59.15,David Overton,5577985200.0
-APLE,"Apple Hospitality REIT, Inc.",NYSE,2945850261.0,12.48,Justin G. Knight,4552658650.0
+APLE,"Apple Hospitality REIT, Inc.",NYSE,2945850249.0,12.48,Justin G. Knight,4552658650.0
 NMIH,"NMI Holdings, Inc.",NASDAQ,2940397368.0,38.61,Adam S. Pollitzer,3539458540.0
 HOVNP,"Hovnanian Enterprises, Inc. PFD DEP1/1000A",NASDAQ,2939951680.0,19.95,,1459893270.0
 TWST,Twist Bioscience Corporation,NASDAQ,2937443547.0,47.91,Emily Marine Leproust,1637270120.0
 LXP,LXP Industrial Trust,NYSE,2937310180.0,49.72,T. Wilson Eglin,4093997143.0
 GBTG,"Global Business Travel Group, Inc.",NYSE,2934398208.0,5.6,Paul Gordon Abbott,5077425250.0
-GRBK,"Green Brick Partners, Inc.",NYSE,2931060063.0,67.28,James R. Brickman,2888373060.0
+GRBK,"Green Brick Partners, Inc.",NYSE,2931059928.0,67.28,James R. Brickman,2888373060.0
 ADEA,Adeia Inc.,NASDAQ,2930254110.0,26.87,Paul E. Davis,2246020250.0
 NAVN,"Navan, Inc.",NASDAQ,2926721933.0,12.43,Ariel Cohen,5331028800.0
 CLMT,"Calumet, Inc.",NASDAQ,2920029225.0,33.65,Louis Todd Borgmann,1980643831.0
@@ -1591,9 +1591,9 @@ QTWO,"Q2 Holdings, Inc.",NYSE,2862489828.0,45.87,Matthew Flake,4463660960.0
 GPK,Graphic Packaging Holding Company,NYSE,2859814609.0,9.67,Robbert E. Rietbroek,9776796000.0
 BANC,"Banc of California, Inc.",NYSE,2848543212.0,18.44,Jared Wolff,3707205210.0
 FBK,FB Financial Corporation,NYSE,2846212487.0,54.9,Christopher T. Holmes,3038678217.0
-DBRG,"DigitalBridge Group, Inc.",NYSE,2845883250.0,15.55,Marc Christopher Ganzi,2639953040.0
 ALMS,Alumis Inc. Common Stock,NASDAQ,2838363746.0,23.05,Martin Babler,8246135302.0
 FSK,FS KKR Capital Corp.,NYSE,2837072966.0,10.13,Michael Craig Forman,11600783872.0
+DBRG,"DigitalBridge Group, Inc.",NYSE,2836211150.0,15.55,Marc Christopher Ganzi,2639953040.0
 BELFA,Bel Fuse Inc.,NASDAQ,2824762498.0,223.19,Farouq Tuweiq,538230450.0
 BKE,"The Buckle, Inc.",NYSE,2824736655.0,54.83,Dennis H. Nelson,2512029400.0
 PSA-PM,Public Storage,NYSE,2824683224.0,16.1,H. Thomas Boyle,55464282500.0
@@ -1604,7 +1604,7 @@ NOG,"Northern Oil and Gas, Inc.",NYSE,2815280351.0,26.94,Nicholas L. O'Grady,447
 LCID,"Lucid Group, Inc.",NASDAQ,2811528720.0,8.58,Marc Winterhoff,3157157600.0
 ZIONP,"Zions Bancorporation, National Association",NASDAQ,2811342173.0,19.01,Harris Henry Simmons,10071112100.0
 SAM,"The Boston Beer Company, Inc.",NYSE,2811303242.0,257.21,C. James Koch,1907757150.0
-MGRC,McGrath RentCorp,NASDAQ,2808436180.0,114.11,Keith E. Pratt,3108987860.0
+MGRC,McGrath RentCorp,NASDAQ,2808436180.0,114.11,Philip Hawkins,3108987860.0
 KD,"Kyndryl Holdings, Inc.",NYSE,2805562037.0,12.23,Martin J. Schroeter,9439100000.0
 PSA-PS,Public Storage,NYSE,2803629685.0,15.98,H. Thomas Boyle,55464282500.0
 CWT,California Water Service Group,NYSE,2799633032.0,46.94,Martin A. Kropelnicki,4146053100.0
@@ -1629,7 +1629,7 @@ QLYS,"Qualys, Inc.",NASDAQ,2732403070.0,76.2,Sumedh S. Thakar,4650246800.0
 SLG,SL Green Realty Corp.,NYSE,2729018704.0,38.42,Marc Holliday,11044109815.0
 BHFAP,"Brighthouse Financial, Inc.",NASDAQ,2727360584.0,16.45,Eric Thomas Steigerwalt,1472109090.0
 LXP-PC,LXP Industrial Trust,NYSE,2722308968.0,46.63,T. Wilson Eglin,4093997143.0
-SLNO,"Soleno Therapeutics, Inc.",NASDAQ,2721926182.0,52.63,Patricia C. Hirano,2394618910.0
+SLNO,"Soleno Therapeutics, Inc.",NASDAQ,2721926182.0,52.63,Anish Bhatnagar,2394618910.0
 PBH,Prestige Consumer Healthcare Inc.,NYSE,2719150822.0,56.55,Christine Sacco,5218817090.0
 SOUN,"SoundHound AI, Inc.",NASDAQ,2718695377.0,6.43,Keyvan Mohajer,3797774477.0
 AKR,Acadia Realty Trust,NYSE,2716438449.0,20.73,Kenneth F. Bernstein,4573630900.0
@@ -1638,7 +1638,7 @@ HE,"Hawaiian Electric Industries, Inc.",NYSE,2710141473.0,15.7,Scott W. H. Seu,4
 CRVL,CorVel Corporation,NASDAQ,2704301552.0,52.77,Michael G. Combs,5611409360.0
 NMRK,"Newmark Group, Inc.",NASDAQ,2703676590.0,15.15,Barry Gosin,4746532040.0
 PSA-PQ,Public Storage,NYSE,2698361987.0,15.38,H. Thomas Boyle,55464282500.0
-HOG,"Harley-Davidson, Inc.",NYSE,2692453035.0,22.79,Arthur Francis Starrs,2422247770.0
+HOG,"Harley-Davidson, Inc.",NYSE,2692453103.0,22.79,Arthur Francis Starrs,2422247770.0
 HAE,Haemonetics Corporation,NYSE,2683130284.0,57.32,Christopher A. Simon,4098377700.0
 IDYA,"IDEAYA Biosciences, Inc.",NASDAQ,2678327000.0,30.5,Yujiro S. Hata,2974023677.0
 UPST,"Upstart Holdings, Inc.",NASDAQ,2673150438.0,27.26,David J. Girouard,5392265301.0
@@ -1648,7 +1648,7 @@ RLAY,"Relay Therapeutics, Inc.",NASDAQ,2670163586.0,14.94,Sanjiv K. Patel,140006
 DKL,"Delek Logistics Partners, LP",NYSE,2667053032.0,49.84,Avigal Soreq,2411500512.0
 BBT,Beacon Financial Corp.,NYSE,2667028302.0,31.82,Paul A. Perrault,2983007443.0
 PSA-PN,Public Storage,NYSE,2656254908.0,15.14,H. Thomas Boyle,55464282500.0
-NGVT,Ingevity Corporation,NYSE,2655715475.0,75.25,David H. Li,3306916000.0
+NGVT,Ingevity Corporation,NYSE,2655714271.0,75.25,David H. Li,3306916000.0
 PLAB,"Photronics, Inc.",NASDAQ,2647591360.0,44.9,George C. Macricostas,938286400.0
 SUNC,SunocoCorp LLC,NYSE,2646334330.0,61.61,Joseph Kim,17757767517.0
 TRMK,Trustmark Corporation,NASDAQ,2643936086.0,44.91,Duane Arthur Dewey,2797159212.0
@@ -1670,7 +1670,7 @@ TWO-PC,Two Harbors Investment Corp.,NYSE,2574675491.0,24.73,William Ross Greenbe
 TWO-PA,Two Harbors Investment Corp.,NYSE,2571552148.0,24.7,William Ross Greenberg,8812814860.0
 TBBK,"The Bancorp, Inc.",NASDAQ,2570059415.0,58.52,Damian Kozlowski,3504755468.0
 TWO-PB,Two Harbors Investment Corp.,NYSE,2569469920.0,24.68,William Ross Greenberg,8812814860.0
-MANE,"Veradermics, Incorporated",NYSE,2569011814.0,68.8,Reid Waldman,7547287863.0
+MANE,"Veradermics, Incorporated",NYSE,2569011952.0,68.8,Reid Waldman,7547287863.0
 VC,Visteon Corporation,NASDAQ,2564876950.0,94.0,Sachin S. Lawande,2355720000.0
 UA,"Under Armour, Inc.",NYSE,2564400684.0,6.0,Kevin A. Plank,3369948750.0
 CLSK,"CleanSpark, Inc.",NASDAQ,2562644188.0,10.02,S. Matthew Schultz,4873121600.0
@@ -1696,23 +1696,23 @@ AMR,"Alpha Metallurgical Resources, Inc.",NYSE,2462850604.0,192.52,Charles Andre
 DAVE,Dave Inc.,NASDAQ,2458461880.0,185.41,Jason Wilk,2954063001.0
 KN,Knowles Corporation,NYSE,2452990764.0,28.68,Jeffrey S. Niew,1934794000.0
 EFC-PB,Ellington Financial Inc.,NYSE,2450187590.0,24.5279,Laurence Eric Penn,18112059040.0
-ARCB,ArcBest Corporation,NASDAQ,2441995341.0,108.48,Seth K. Runser,2261192780.0
+ARCB,ArcBest Corporation,NASDAQ,2441995450.0,108.48,Seth K. Runser,2261192780.0
 BHFAL,"Brighthouse Financial, Inc.",NASDAQ,2439530635.0,17.31,,1472109090.0
 WSBCO,"WesBanco, Inc.",NASDAQ,2439333270.0,25.38,Jeffrey H. Jackson,3804159397.0
 FBNC,First Bancorp,NASDAQ,2431811637.0,58.63,Richard Hancock Moore,2027976500.0
-VECO,Veeco Instruments Inc.,NASDAQ,2418098042.0,40.04,William John Miller,1789145420.0
+VECO,Veeco Instruments Inc.,NASDAQ,2418098162.0,40.04,William John Miller,1789145420.0
 OAK-PA,"Oaktree Capital Group, LLC 6.625% PFD UT A",NYSE,2417287053.0,20.342,Nicholas H. Goodman,3803725600.0
 OAK-PB,"Oaktree Capital Group, LLC",NYSE,2414672742.0,20.32,Nicholas H. Goodman,3754569900.0
 SF-PC,Stifel Financial Corp.,NYSE,2410268760.0,23.67,Ronald James Kruszewski,8477429760.0
 ECC-PD,Eagle Point Credit Company Inc.,NYSE,2407759926.0,18.29,Thomas Philip Majewski,1078818839.0
 DXPE,"DXP Enterprises, Inc.",NASDAQ,2407711772.0,153.56,David R. Little,2390387050.0
 AVOS,Avos Global Equities ETF,NASDAQ,2392534859.0,25.8401,Gavin Walsh,
-ACHC,"Acadia Healthcare Company, Inc.",NASDAQ,2391973392.0,25.94,Debra K. Osteen,3808753950.0
+ACHC,"Acadia Healthcare Company, Inc.",NASDAQ,2391973625.0,25.94,Debra K. Osteen,3808753950.0
 RHI,Robert Half International Inc.,NYSE,2386389618.0,23.59,Keith Waddell,2675997560.0
 EPR-PE,EPR Properties,NYSE,2384686089.0,31.36,Gregory K. Silvers,6836637000.0
 VRNS,"Varonis Systems, Inc.",NASDAQ,2380346689.0,20.19,Yakov Faitelson,4605941677.0
 PEB-PG,Pebblebrook Hotel Trust,NYSE,2376738816.0,20.31,Jon E. Bortz,3597727364.0
-HUN,Huntsman Corporation,NYSE,2375227368.0,13.65,Peter R. Huntsman,4035000000.0
+HUN,Huntsman Corporation,NYSE,2375227382.0,13.65,Peter R. Huntsman,4035000000.0
 DJTWW,Trump Media & Technology Group Corp.,NASDAQ,2367645554.0,4.86,Devin G. Nunes,4155582509.0
 RH,Rh,NYSE,2367317857.0,125.69,Gary G. Friedman,7656887194.0
 EFC-PD,Ellington Financial Inc.,NYSE,2365977330.0,23.79,Laurence Eric Penn,19156158040.0
@@ -1723,7 +1723,7 @@ NBTB,NBT Bancorp Inc.,NASDAQ,2357551156.0,45.16,Scott A. Kingsley,2098229680.0
 MFA-PC,"MFA Financial, Inc.",NYSE,2356757677.0,23.08,Craig L. Knutson,11745522730.0
 HLIO,"Helios Technologies, Inc.",NYSE,2356429849.0,71.13,Sean Bagan,1854272000.0
 GEO,"The GEO Group, Inc.",NYSE,2355359742.0,17.53,George C. Zoley,3909387140.0
-PAHC,Phibro Animal Health Corporation,NASDAQ,2346554536.0,57.89,Jack Clifford Bendheim,1727883000.0
+PAHC,Phibro Animal Health Corporation,NASDAQ,2346554593.0,57.89,Jack Clifford Bendheim,1727883000.0
 NIC,"Nicolet Bankshares, Inc.",NYSE,2346393109.0,156.64,Michael E. Daniels,1291702000.0
 NP,Neptune Insurance Holdings Inc.,NYSE,2342389247.0,24.73,Trevor R. Burgess,4260520934.0
 XRAY,DENTSPLY SIRONA Inc.,NASDAQ,2339060790.0,11.71,Daniel T. Scavilla,4421142000.0
@@ -1751,7 +1751,7 @@ MCW,"Mister Car Wash, Inc.",NASDAQ,2292783874.0,6.98,John Lai,2758740205.0
 OXLCO,Oxford Lane Capital Corp.,NASDAQ,2290302624.0,23.62,Jonathan H. Cohen,2330594518.0
 ATKR,Atkore Inc.,NYSE,2289303198.0,67.83,William E. Waltz Jr.,2560476900.0
 ADAMH,"Adamas Trust, Inc.",NASDAQ,2288607952.0,25.31,Jason T. Serrano,11452571100.0
-CSGS,"CSG Systems International, Inc.",NASDAQ,2282781540.0,80.04,Brian A. Shepherd,2530434860.0
+CSGS,"CSG Systems International, Inc.",NASDAQ,2282781380.0,80.04,Brian A. Shepherd,2530434860.0
 KOD,Kodiak Sciences Inc.,NASDAQ,2281820836.0,43.11,Victor Perlroth,1337022375.0
 PRDO,Perdoceo Education Corporation,NASDAQ,2275729095.0,35.38,Todd S. Nelson,1873541650.0
 MTX,Minerals Technologies Inc.,NYSE,2267168772.0,73.02,Douglas T. Dietrich,2630630000.0
@@ -1782,7 +1782,7 @@ MBIN,Merchants Bancorp,NASDAQ,2170328709.0,47.22,Michael F. Petrie,5389138033.0
 RUM,Rumble Inc.,NASDAQ,2167773395.0,4.99,Christopher Pavlovski,1373947103.0
 SNDX,"Syndax Pharmaceuticals, Inc.",NASDAQ,2155622566.0,24.44,Michael A. Metzger,2031460273.0
 BRZE,"Braze, Inc.",NASDAQ,2152121839.0,18.97,William Magnuson,2204914920.0
-PLUS,ePlus inc.,NASDAQ,2151859955.0,81.39,Mark Marron,1355914850.0
+PLUS,ePlus inc.,NASDAQ,2151860199.0,81.39,Mark Marron,1355914850.0
 DFTX,"Definium Therapeutics, Inc.",NASDAQ,2146500717.0,21.53,Robert Barrow,938259671.0
 CLDX,"Celldex Therapeutics, Inc.",NASDAQ,2146097512.0,32.24,Anthony S. Marucci,1779605000.0
 ALG,Alamo Group Inc.,NYSE,2144136757.0,176.89,Robert Hureau,1928092660.0
@@ -1793,7 +1793,6 @@ ALRM,"Alarm.com Holdings, Inc.",NASDAQ,2127368267.0,42.65,Stephen S. Trundle,271
 PEB-PH,Pebblebrook Hotel Trust,NYSE,2121628495.0,18.13,Jon E. Bortz,3597727364.0
 FLOC,Flowco Holdings Inc.,NYSE,2121447078.0,22.79,Joseph Robert Edwards,1941836123.0
 CASH,"Pathward Financial, Inc.",NASDAQ,2120194965.0,94.91,Brett L. Pharr,1653536160.0
-GNL,"Global Net Lease, Inc.",NYSE,2117780666.0,9.66,Edward Michael Weil Jr.,4315747000.0
 CIMN,Chimera Investment Corporation,NYSE,2109666238.0,25.295,Phillip John Kardis,14872682810.0
 ARR,"ARMOUR Residential REIT, Inc.",NYSE,2109532950.0,17.67,Scott Jeffrey Ulm,19540377670.0
 ROG,Rogers Corporation,NYSE,2102955492.0,117.96,Ali El-Haj,1527587999.0
@@ -1803,14 +1802,15 @@ HTO,H2O America,NASDAQ,2088541295.0,59.67,Andrew F. Walters,3734782734.0
 STUB,"StubHub Holdings, Inc.",NYSE,2081477726.0,6.27,Eric H. Baker,4947705772.0
 DRH,DiamondRock Hospitality Company,NYSE,2073696540.0,10.18,Jeffrey John Donnelly,2965608323.0
 VVX,"V2X, Inc.",NYSE,2072407632.0,66.48,Jeremy C. Wensinger,2522334450.0
-NN,NextNav Inc.,NASDAQ,2071901761.0,15.28,Mariam Sorond,2454732240.0
+NN,NextNav Inc.,NASDAQ,2071906880.0,15.28,Mariam Sorond,2454732240.0
+GNL,"Global Net Lease, Inc.",NYSE,2069036760.0,9.66,Edward Michael Weil Jr.,4315747000.0
 ADAMN,"Adamas Trust, Inc.",NASDAQ,2068879887.0,22.88,Jason T. Serrano,11452571100.0
 CENTA,Central Garden & Pet Company,NASDAQ,2065525250.0,33.15,Nicholas Lahanas,2654432619.0
 MFA-PB,"MFA Financial, Inc.",NYSE,2057567903.0,20.15,Craig L. Knutson,11745522730.0
 NEOG,Neogen Corporation,NASDAQ,2050480046.0,9.42,Mikhael Nassif,2054611885.0
 WLY,"John Wiley & Sons, Inc.",NYSE,2041763210.0,38.45,Matthew S. Kissner,3172233560.0
 EYE,"National Vision Holdings, Inc.",NASDAQ,2039152539.0,25.67,Alexander N. Wilkes,2709341450.0
-SEZL,Sezzle Inc.,NASDAQ,2039111074.0,59.705,Paul Victor Paradis,2229204800.0
+SEZL,Sezzle Inc.,NASDAQ,2039111134.0,59.705,Charles G. Youakim,2229204800.0
 PENN,"PENN Entertainment, Inc.",NASDAQ,2036580679.0,15.25,Jay A. Snowden,9823750000.0
 PRKS,United Parks & Resorts Inc.,NYSE,2036374271.0,37.33,Marc G. Swanson,4234849799.0
 XMTR,"Xometry, Inc.",NASDAQ,2034607131.0,40.41,Randolph Brody Altschuler,3356060921.0
@@ -1820,8 +1820,8 @@ GT,The Goodyear Tire & Rubber Company,NASDAQ,2032353700.0,7.1,Mark W. Stewart,89
 FUN,Six Flags Entertainment Corporation,NYSE,2031287800.0,19.94,John T. Reilly,6892832840.0
 STOK,"Stoke Therapeutics, Inc.",NASDAQ,2030646621.0,34.33,Ian F. Smith,1795396900.0
 SEM,Select Medical Holdings Corporation,NYSE,2030179571.0,16.37,Thomas Mullin,5511617100.0
+SKWD,"Skyward Specialty Insurance Group, Inc.",NASDAQ,2029827426.0,45.57,Andrew Scott Robinson,2018599934.0
 GTY,Getty Realty Corp.,NYSE,2026583020.0,33.88,Christopher J. Constant,2584491920.0
-SKWD,"Skyward Specialty Insurance Group, Inc.",NASDAQ,2026364972.0,45.57,Andrew Scott Robinson,2018599934.0
 DGII,Digi International Inc.,NASDAQ,2025360966.0,53.85,Ronald E. Konezny,1505478140.0
 NCNO,"nCino, Inc.",NASDAQ,2020966951.0,17.45,Sean Desmond,2600388059.0
 WLYB,"John Wiley & Sons, Inc.",NYSE,2017867412.0,38.0,Matthew S. Kissner,3161963300.0
@@ -1836,9 +1836,9 @@ ICHR,"Ichor Holdings, Ltd.",NASDAQ,1992047250.0,57.5,Philip Barros,736014152.0
 BLBD,Blue Bird Corporation,NASDAQ,1991869295.0,63.05,John Wyskiel,1707374841.0
 NWBI,"Northwest Bancshares, Inc.",NASDAQ,1981644840.0,13.56,Louis J. Torchio,1973083592.0
 HTZ,"Hertz Global Holdings, Inc.",NASDAQ,1974119485.0,6.32,Wayne Gilbert West,19623400000.0
+STC,Stewart Information Services Corporation,NYSE,1970474420.0,64.6,Frederick Henry Eppinger Jr.,2609487400.0
 CXW,"CoreCivic, Inc.",NYSE,1969824697.0,19.92,Patrick Swindle,3153597080.0
 ADPT,Adaptive Biotechnologies Corporation,NASDAQ,1969424165.0,12.79,Chad Robins,2674053289.0
-STC,Stewart Information Services Corporation,NYSE,1965093240.0,64.6,Frederick Henry Eppinger Jr.,2609487400.0
 EVCM,EverCommerce Inc.,NASDAQ,1958691735.0,10.92,Eric Richard Remer,2604141910.0
 UTI,"Universal Technical Institute, Inc.",NYSE,1957629390.0,35.58,Jerome A. Grant,1919040549.0
 PBI,Pitney Bowes Inc.,NYSE,1952862260.0,11.38,Kurt Wolf,3765104370.0
@@ -1852,9 +1852,9 @@ WERN,"Werner Enterprises, Inc.",NASDAQ,1937373784.0,32.36,Derek J. Leathers,2510
 DX,"Dynex Capital, Inc.",NYSE,1933645740.0,13.17,Byron L. Boston,14721256192.0
 PTRN,Pattern Group Inc. Series A Common Stock,NASDAQ,1931290967.0,12.44,David Wright,1777372759.0
 AGIO,"Agios Pharmaceuticals, Inc.",NASDAQ,1928854302.0,32.92,Brian Goff,1550889948.0
-EPAC,Enerpac Tool Group Corp.,NYSE,1925279570.0,36.48,Paul E. Sternlieb,2364623660.0
+EPAC,Enerpac Tool Group Corp.,NYSE,1925279460.0,36.48,Paul E. Sternlieb,2364623660.0
 FCF,First Commonwealth Financial Corporation,NYSE,1914321115.0,18.73,Thomas Michael Price,2082950399.0
-TENB,"Tenable Holdings, Inc.",NASDAQ,1914281995.0,16.04,Stephen A. Vintz,3104314720.0
+TENB,"Tenable Holdings, Inc.",NASDAQ,1914282107.0,16.04,Stephen A. Vintz,3104314720.0
 OCUL,"Ocular Therapeutix, Inc.",NASDAQ,1913510737.0,8.79,Pravin U. Dugel,1615834603.0
 COTY,Coty Inc.,NYSE,1909613020.0,2.17,Markus Strobel,8043365000.0
 FA,First Advantage Corporation,NASDAQ,1905306670.0,10.93,Scott Staples,2285676528.0
@@ -1882,7 +1882,7 @@ KMPR,Kemper Corporation,NYSE,1827785498.0,31.13,Carl Thomas Evans Jr.,3392813778
 CHCO,City Holding Company,NASDAQ,1820781670.0,126.88,Charles R. Hageboeck,2077155800.0
 GCMG,GCM Grosvenor Inc.,NASDAQ,1816473600.0,9.72,Michael Jay Sacks,826753000.0
 GRC,The Gorman-Rupp Company,NYSE,1811112915.0,68.83,Scott A. King,1547770240.0
-SHO,"Sunstone Hotel Investors, Inc.",NYSE,1809911072.0,9.55,Bryan Albert Giglia,2547145220.0
+SHO,"Sunstone Hotel Investors, Inc.",NYSE,1809911168.0,9.55,Bryan Albert Giglia,2547145220.0
 JXN-PA,Jackson Financial Inc.,NYSE,1808740506.0,25.59,Mark Daniel Nerud,-1846901022.0
 SEMR,"Semrush Holdings, Inc.",NYSE,1808384282.0,11.94,William R. Wagner,1514401600.0
 SRCE,1st Source Corporation,NASDAQ,1805236005.0,73.88,Andrea Gayle Short,1795663964.0
@@ -1901,9 +1901,9 @@ BRBR,"BellRing Brands, Inc.",NYSE,1777565389.0,15.01,Darcy Horn Davenport,563751
 VRE,"Veris Residential, Inc.",NYSE,1766363760.0,18.9,Mahbod Nia,2741553400.0
 MLYS,"Mineralys Therapeutics, Inc.",NASDAQ,1764795713.0,26.62,Jon Congleton,2282328122.0
 THR,"Thermon Group Holdings, Inc.",NYSE,1763279785.0,53.65,Bruce A. Thames,1050918800.0
-ANIP,"ANI Pharmaceuticals, Inc.",NASDAQ,1759822044.0,78.36,Nikhil Lalwani,1622593820.0
 VOYG,"Voyager Technologies, Inc.",NYSE,1759629562.0,29.78,Dylan E. Taylor,10487154121.0
 MCRI,"Monarch Casino & Resort, Inc.",NASDAQ,1758742180.0,98.33,John Farahi,1680131899.0
+ANIP,"ANI Pharmaceuticals, Inc.",NASDAQ,1756368876.0,78.36,Nikhil Lalwani,1622593820.0
 COHU,"Cohu, Inc.",NASDAQ,1754446038.0,37.34,Luis Antonio Müller,1229933270.0
 JBLU,JetBlue Airways Corporation,NASDAQ,1754367226.0,4.74,Joanna L. Geraghty,9885675000.0
 RC-PE,Ready Capital Corporation,NYSE,1754223118.0,10.7701,Thomas Edward Capasse,5974137683.0
@@ -1922,7 +1922,7 @@ ADUS,Addus HomeCare Corporation,NASDAQ,1719127739.0,92.21,R. Dirk Allison,210802
 SF-PD,Stifel Financial Corp.,NYSE,1718856640.0,16.88,Ronald James Kruszewski,8477429760.0
 VCEL,Vericel Corporation,NASDAQ,1716394853.0,33.7,Dominick C. Colangelo,1819954910.0
 ALKT,"Alkami Technology, Inc.",NASDAQ,1712167240.0,16.13,Alex Shootman,2686950148.0
-TSLX,"Sixth Street Specialty Lending, Inc.",NYSE,1710375009.0,18.06,Robert J. Stanley,3780567858.0
+TSLX,"Sixth Street Specialty Lending, Inc.",NYSE,1710375912.0,18.06,Robert J. Stanley,3780567858.0
 RC-PC,Ready Capital Corporation,NYSE,1710229500.0,10.5,Thomas Edward Capasse,5974137683.0
 FLO,"Flowers Foods, Inc.",NYSE,1705125240.0,8.06,A. Ryals McMullian Jr.,4608038530.0
 SION,"Sionna Therapeutics, Inc.",NASDAQ,1704976986.0,37.89,Michael Cloonan,1594269385.0
@@ -1930,7 +1930,7 @@ TY,Tri-Continental Corporation,NYSE,1704843691.0,32.81,William F. Truscott,17476
 LC,LendingClub Corporation,NYSE,1703002357.0,14.77,Scott C. Sanborn,1282609721.0
 MQ,"Marqeta, Inc.",NASDAQ,1694382228.0,3.85,Michael Milotich,1235288000.0
 TRVI,"Trevi Therapeutics, Inc.",NASDAQ,1693556417.0,13.19,Jennifer L. Good,1798553424.0
-HLMN,Hillman Solutions Corp.,NASDAQ,1688799233.0,8.56,Jon Michael Adinolfi,2595585590.0
+HLMN,Hillman Solutions Corp.,NASDAQ,1688799353.0,8.56,Jon Michael Adinolfi,2595585590.0
 PUMP,ProPetro Holding Corp.,NYSE,1687591920.0,13.83,Samuel D. Sledge,1145031380.0
 EZPW,"EZCORP, Inc.",NASDAQ,1684879151.0,28.69,Lachlan Given,1388668640.0
 NGL,NGL Energy Partners LP,NYSE,1682614581.0,13.54,H. Michael Krimbill,3677549020.0
@@ -1950,7 +1950,7 @@ AHCO,AdaptHealth Corp.,NASDAQ,1654083311.0,12.17,Suzanne Foster,3142718160.0
 PAYO,Payoneer Global Inc.,NASDAQ,1653883029.0,4.64,John R. Caplan,1686583454.0
 LOB,"Live Oak Bancshares, Inc.",NYSE,1650501916.0,35.71,James S. Mahan,816541305.0
 ATEC,"Alphatec Holdings, Inc.",NASDAQ,1649787158.0,10.9,Patrick S. Miles,3616488560.0
-OI,"O-I Glass, Inc.",NYSE,1649340843.0,10.76,Gordon J. Hardie,6506427520.0
+OI,"O-I Glass, Inc.",NYSE,1649340800.0,10.76,Gordon J. Hardie,6506427520.0
 CTOS,"Custom Truck One Source, Inc.",NYSE,1645304208.0,7.26,Ryan McMonagle,3716209600.0
 BLKB,"Blackbaud, Inc.",NASDAQ,1639277280.0,34.27,Michael Gianoni,3379041250.0
 RAMP,"LiveRamp Holdings, Inc.",NYSE,1638957733.0,25.75,Scott E. Howe,1355884160.0
@@ -2017,14 +2017,14 @@ PLPC,Preformed Line Products Company,NASDAQ,1527673414.0,311.97,Dennis F. McKenn
 NSSC,"Napco Security Technologies, Inc.",NASDAQ,1524649851.0,42.75,Richard L. Soloway,999941620.0
 BY,"Byline Bancorp, Inc.",NYSE,1518907342.0,33.15,Roberto R. Herencia,1811629413.0
 VIR,"Vir Biotechnology, Inc.",NASDAQ,1518204500.0,9.5,Marianne De Backer,788077126.0
-ARI,"Apollo Commercial Real Estate Finance, Inc.",NYSE,1516044966.0,10.86,Stuart A. Rothstein,9122435067.0
+ARI,"Apollo Commercial Real Estate Finance, Inc.",NYSE,1516044792.0,10.86,Stuart A. Rothstein,9122435067.0
 ARDX,"Ardelyx, Inc.",NASDAQ,1515626460.0,6.18,Michael G. Raab,1548822762.0
 KW,"Kennedy-Wilson Holdings, Inc.",NYSE,1509263203.0,10.9,William J. McMorrow,5843717411.0
-ASGN,ASGN Incorporated,NYSE,1508164000.0,35.32,Theodore S. Hanson,3157678000.0
+ASGN,ASGN Incorporated,NYSE,1508163965.0,35.32,Theodore S. Hanson,3157678000.0
 PVLA,"Palvella Therapeutics, Inc.",NASDAQ,1504774102.0,127.12,Wesley H. Kaupinen,1120319337.0
 APPN,Appian Corporation,NASDAQ,1497266635.0,20.22,Matthew W. Calkins,2832398580.0
 KSS,Kohl's Corporation,NYSE,1490201920.0,13.28,Michael J. Bender,8467639999.0
-CBZ,"CBIZ, Inc.",NYSE,1488630434.0,27.03,Jerome Grisko Jr.,4962436999.0
+CBZ,"CBIZ, Inc.",NYSE,1488630515.0,27.03,Jerome Grisko Jr.,4962436999.0
 PIPR,Piper Sandler Companies,NYSE,1487635728.0,83.47,Chad R. Abraham,4965991760.0
 FRMEP,First Merchants Corporation,NASDAQ,1487314411.0,25.885,Michael C. Rechin,3079346480.0
 WLTH,Wealthfront Corporation,NASDAQ,1486191762.0,9.9,David Fortunato,51322423.0
@@ -2036,7 +2036,7 @@ RES,"RPC, Inc.",NYSE,1467250180.0,6.62,Ben Palmer,1078503280.0
 RXRX,"Recursion Pharmaceuticals, Inc.",NASDAQ,1466788500.0,3.28,Najat Khan,1164725585.0
 EOSE,"Eos Energy Enterprises, Inc.",NASDAQ,1465344424.0,5.62,Joseph R. Mastrangelo Jr.,3221229017.0
 XHR,"Xenia Hotels & Resorts, Inc.",NYSE,1461560854.0,15.86,Marcel Verbaas,2657561868.0
-PRLB,"Proto Labs, Inc.",NYSE,1459794824.0,61.4,Suresh Krishna,1104076544.0
+PRLB,"Proto Labs, Inc.",NYSE,1459797280.0,61.4,Suresh Krishna,1104076544.0
 REX,REX American Resources Corporation,NYSE,1456176513.0,44.21,Zafar A. Rizvi,955297480.0
 GENB,"Generate Biomedicines, Inc.",NASDAQ,1454206793.0,11.41,Michael T. Nally,580495575.0
 BWIN,"The Baldwin Insurance Group, Inc.",NASDAQ,1453183510.0,21.39,Trevor Lowry Baldwin,3279339480.0
@@ -2051,7 +2051,7 @@ DNOW,Dnow Inc.,NYSE,1439292724.0,12.21,David A. Cherechinsky,2068500000.0
 IIPR,"Innovative Industrial Properties, Inc.",NYSE,1434929115.0,51.0,Paul E. Smithers,1672429598.0
 CAPR,"Capricor Therapeutics, Inc.",NASDAQ,1426372054.0,31.2,Linda Marbán,1074464522.0
 TRTX-PC,"TPG RE Finance Trust, Inc.",NYSE,1422125100.0,18.15,Doug Bouquard,3883507671.0
-AESI,Atlas Energy Solutions Inc.,NYSE,1419739416.0,11.37,John G. Turner,1691626700.0
+AESI,Atlas Energy Solutions Inc.,NYSE,1419739496.0,11.37,John G. Turner,1691626700.0
 ARR-PC,"ARMOUR Residential REIT, Inc.",NYSE,1416253180.0,20.98,Scott Jeffrey Ulm,19540377670.0
 CNOB,"ConnectOne Bancorp, Inc.",NASDAQ,1413687502.0,28.12,Frank S. Sorrentino,2399697095.0
 HLX,"Helix Energy Solutions Group, Inc.",NYSE,1408149760.0,9.56,Owen Eugene Kratz,1114702229.0
@@ -2064,7 +2064,7 @@ ENOV,Enovis Corporation,NYSE,1397925342.0,24.42,Damien McDonald,2856084880.0
 TNC,Tennant Company,NYSE,1395575438.0,77.5,David W. Huml,1591790119.0
 AMRC,"Ameresco, Inc.",NYSE,1395525754.0,26.4,George Sakellaris,3416912910.0
 CDRE,"Cadre Holdings, Inc.",NYSE,1395022315.0,32.65,Warren Kanders,1868393131.0
-LZB,La-Z-Boy Incorporated,NYSE,1393390274.0,33.78,Melinda D. Whittington,1805647500.0
+LZB,La-Z-Boy Incorporated,NYSE,1393390207.0,33.78,Melinda D. Whittington,1805647500.0
 WWW,"Wolverine World Wide, Inc.",NYSE,1392857173.0,16.99,Christopher E. Hufnagel,2043457000.0
 UPWK,Upwork Inc.,NASDAQ,1392781106.0,10.66,Hayden Brown,2671768580.0
 AFGE,"American Financial Group, Inc.",NYSE,1389423984.0,16.68,Carl H. Lindner III and S. Craig Lindner (Co-CEOs),-13950015000.0
@@ -2089,9 +2089,9 @@ ARDT,"Ardent Health Partners, LLC",NYSE,1345099223.0,9.4,Martin J. Bonick,279777
 DMLP,"Dorchester Minerals, L.P.",NASDAQ,1343431728.0,27.84,Bradley J. Ehrman,1024383440.0
 HROW,"Harrow Health, Inc.",NASDAQ,1337663121.0,35.93,Mark L. Baum,1980311589.0
 PGNY,"Progyny, Inc.",NASDAQ,1335006382.0,16.3,Peter Anevski,2100530109.0
-UMH,"UMH Properties, Inc.",NYSE,1333859970.0,15.65,Samuel A. Landy,2041834975.0
+UMH,"UMH Properties, Inc.",NYSE,1333859954.0,15.65,Samuel A. Landy,2041834975.0
 UVV,Universal Corporation,NYSE,1331662391.0,53.43,Preston Douglas Wigner,2242471350.0
-MAZE,"Maze Therapeutics, Inc.",NASDAQ,1326723975.0,26.69,Jason V. Coloma,1614555674.0
+MAZE,"Maze Therapeutics, Inc.",NASDAQ,1326724029.0,26.69,Jason V. Coloma,1614555674.0
 NVAX,"Novavax, Inc.",NASDAQ,1323039873.0,8.12,John Charles Jacobs,1096756520.0
 ENVX,Enovix Corporation,NASDAQ,1322894160.0,6.09,Raj Talluri,1497280329.0
 FOR,Forestar Group Inc.,NYSE,1322176238.0,25.98,Anthony W. Oxley,1791331000.0
@@ -2103,7 +2103,7 @@ STAA,STAAR Surgical Company,NASDAQ,1309115788.0,26.44,Warren Foust,1055007800.0
 SPH,"Suburban Propane Partners, L.P.",NYSE,1308720120.0,19.73,Michael A. Stivala,2534511160.0
 PRCT,PROCEPT BioRobotics Corporation,NASDAQ,1308252547.0,23.2,Larry L. Wood,1518284867.0
 SOC,Sable Offshore Corp.,NYSE,1307525265.0,13.14,James C. Flores,885483237060.0
-LINC,Lincoln Educational Services Corporation,NASDAQ,1302574428.0,40.86,Scott Shaw,922594300.0
+LINC,Lincoln Educational Services Corporation,NASDAQ,1302574592.0,40.86,Scott Shaw,922594300.0
 RBCAA,"Republic Bancorp, Inc.",NASDAQ,1302072437.0,74.57,Steven E. Trager,1769040560.0
 OUST,"Ouster, Inc.",NASDAQ,1299414574.0,20.69,Charles Angus Pacala,1168754474.0
 WKC,World Kinect Corporation,NYSE,1298408525.0,23.37,Ira Birns,1787564000.0
@@ -2111,7 +2111,7 @@ GL-PD,Globe Life Inc. 4.25% Junior Su,NYSE,1295982424.0,16.28,Frank Martin Svobo
 ASAN,"Asana, Inc.",NYSE,1293141912.0,5.46,Daniel Mark Rogers,2436195750.0
 CRI,"Carter's, Inc.",NYSE,1292434272.0,35.52,David Tichiaz,1901778238.0
 UMH-PD,"UMH Properties, Inc.",NYSE,1291140870.0,21.18,Samuel A. Landy,2041834975.0
-DFH,"Dream Finders Homes, Inc.",NYSE,1288363075.0,13.89,Patrick O. Zalupski,1948413388.0
+DFH,"Dream Finders Homes, Inc.",NYSE,1288363130.0,13.89,Patrick O. Zalupski,1948413388.0
 ENR,"Energizer Holdings, Inc.",NYSE,1286384662.0,18.76,Mark S. LaVigne,5061201000.0
 DEC,Diversified Energy Company PLC,NYSE,1285559738.0,16.7,Robert Russell Hutson Jr.,1263457067.0
 SBET,"Sharplink, Inc.",NASDAQ,1285476680.0,6.52,Joseph Chalom,862953285.0
@@ -2134,7 +2134,7 @@ DSGR,"Distribution Solutions Group, Inc.",NASDAQ,1262901774.0,27.34,John Bryan K
 SVV,"Savers Value Village, Inc.",NYSE,1262317796.0,8.08,Mark T. Walsh,2067477050.0
 AMAL,Amalgamated Financial Corp.,NASDAQ,1261217119.0,42.13,Priscilla Sims Brown,1048260695.0
 LADR,Ladder Capital Corp,NYSE,1259208587.0,9.89,Brian Richard Harris,4851514786.0
-PRA,ProAssurance Corporation,NYSE,1253464616.0,24.38,Edward Lewis Rand Jr.,1650366560.0
+PRA,ProAssurance Corporation,NYSE,1258195726.0,24.38,Edward Lewis Rand Jr.,1650366560.0
 MAN,ManpowerGroup Inc.,NYSE,1250079828.0,26.93,Jonas Prising,2907518000.0
 PGEN,"Precigen, Inc.",NASDAQ,1249782855.0,4.16,Helen Sabzevari,1248559951.0
 CCB,Coastal Financial Corporation,NASDAQ,1248655862.0,82.1,Eric Sprink,1755103653.0
@@ -2154,7 +2154,7 @@ PEBO,Peoples Bancorp Inc.,NASDAQ,1232322254.0,34.31,Tyler J. Wilcox,1595759808.0
 IOVA,"Iovance Biotherapeutics, Inc.",NASDAQ,1227248305.0,3.7,Frederick G. Vogt,860917850.0
 RCAT,"Red Cat Holdings, Inc.",NASDAQ,1222858567.0,12.37,Jeffrey Thompson,378228372.0
 ADTN,"ADTRAN Holdings, Inc.",NASDAQ,1217154873.0,15.09,Thomas Richard Stanton,842299980.0
-PENG,"Penguin Solutions, Inc.",NASDAQ,1209934791.0,23.02,Kash Shaikh,1561886020.0
+PENG,"Penguin Solutions, Inc.",NASDAQ,1209934837.0,23.02,Kash Shaikh,1561886020.0
 PEB-PF,Pebblebrook Hotel Trust,NYSE,1204568669.0,20.11,Jon E. Bortz,3597727364.0
 PEB-PE,Pebblebrook Hotel Trust,NYSE,1200622065.0,19.92,Jon E. Bortz,3597727364.0
 UAMY,United States Antimony Corporation,NYSE,1198589385.0,8.36,Gary C. Evans,590340255.0
@@ -2163,7 +2163,7 @@ RLJ,RLJ Lodging Trust,NYSE,1192552665.0,7.85,Leslie D. Hale,3020234666.0
 AAT,"American Assets Trust, Inc.",NYSE,1192179274.0,19.42,Adam Wyll,2723328339.0
 BBAI,"BigBear.ai Holdings, Inc.",NYSE,1190648987.0,3.32,Kevin McAleenan,1874729425.0
 ROCK,"Gibraltar Industries, Inc.",NASDAQ,1187202478.0,40.18,William T. Bosway,1465174000.0
-LUCK,Lucky Strike Entertainment Corporation,NYSE,1186911092.0,8.5,Thomas F. Shannon,3854200210.0
+LUCK,Lucky Strike Entertainment Corporation,NYSE,1186910973.0,8.5,Thomas F. Shannon,3854200210.0
 SCL,Stepan Company,NYSE,1186768779.0,52.43,Luis E. Rojo,1641571921.0
 VSECU,VSE Corporation Tangible Equity Units,NASDAQ,1184611459.0,56.04,John A. Cuomo,
 EYPT,"EyePoint Pharmaceuticals, Inc.",NASDAQ,1183898661.0,14.19,Jay S. Duker,1257246770.0
@@ -2173,9 +2173,9 @@ AI,"C3.ai, Inc.",NYSE,1174029480.0,8.28,Stephen Ehikian,2681685890.0
 CTBI,"Community Trust Bancorp, Inc.",NASDAQ,1173084330.0,64.63,Charles Wayne Hancock,1345354500.0
 PZZA,"Papa John's International, Inc.",NASDAQ,1169048804.0,35.63,Todd Allan Penegor,2347522320.0
 SHLS,"Shoals Technologies Group, Inc.",NASDAQ,1168801000.0,6.98,Brandon Moss,1589775500.0
-PRSU,"Pursuit Attractions and Hospitality, Inc.",NYSE,1165553309.0,41.21,David W. Barry,1113811640.0
+PRSU,"Pursuit Attractions and Hospitality, Inc.",NYSE,1165553268.0,41.21,David W. Barry,1113811640.0
 PRG,"PROG Holdings, Inc.",NYSE,1163924278.0,29.41,Steven A. Michaels,1482896590.0
-USPH,"U.S. Physical Therapy, Inc.",NYSE,1162810945.0,76.48,Christopher J. Reading,1575182750.0
+USPH,"U.S. Physical Therapy, Inc.",NYSE,1162811098.0,76.48,Christopher J. Reading,1575182750.0
 INOD,Innodata Inc.,NASDAQ,1159993285.0,35.58,Jack S. Abuhoff,1542766650.0
 SVRA,Savara Inc.,NASDAQ,1158358620.0,5.66,Matthew Pauls,1337723811.0
 TWO,Two Harbors Investment Corp.,NYSE,1157573860.0,11.02,William Ross Greenberg,8812814860.0
@@ -2215,7 +2215,7 @@ CFR-PB,"Cullen/Frost Bankers, Inc.",NYSE,1101734287.0,17.2,Phillip D. Green,4014
 INBX,"Inhibrx Biosciences, Inc.",NASDAQ,1099471600.0,75.27,Mark Paul Lappe,1206265000.0
 BH-A,Biglari Holdings Inc.,NYSE,1097876774.0,1748.76,Sardar Biglari,1121371992.0
 SAFT,"Safety Insurance Group, Inc.",NASDAQ,1097767841.0,74.76,George Michael Murphy,1134167401.0
-ARRY,"Array Technologies, Inc.",NASDAQ,1094398783.0,7.16,Kevin G. Hostetler,1928196140.0
+ARRY,"Array Technologies, Inc.",NASDAQ,1094398840.0,7.16,Kevin G. Hostetler,1928196140.0
 HLIT,Harmonic Inc.,NASDAQ,1094272589.0,9.75,Nimrod Ben-Natan,1147837400.0
 ORC,"Orchid Island Capital, Inc.",NYSE,1092326400.0,7.2,Robert E. Cauley,10443406445.0
 MFIC,MidCap Financial Investment Corporation,NASDAQ,1090719411.0,11.69,Tanner Powell,2962628429.0
@@ -2228,7 +2228,7 @@ APEI,"American Public Education, Inc.",NASDAQ,1073231556.0,58.39,Angela K. Selde
 PCT,"PureCycle Technologies, Inc.",NASDAQ,1072758060.0,5.94,Dustin Olson,2159900930.0
 CSR,Centerspace,NYSE,1072213256.0,63.92,Anne Olson,2124423160.0
 PLOW,"Douglas Dynamics, Inc.",NYSE,1069980480.0,46.35,Mark Van Genderen,959455350.0
-GERN,Geron Corporation,NASDAQ,1069709584.0,1.67,Harout Semerjian,1052129145.0
+GERN,Geron Corporation,NASDAQ,1069710150.0,1.67,Harout Semerjian,1052129145.0
 EVLV,"Evolv Technologies Holdings, Inc.",NASDAQ,1068930404.0,5.96,John Kedzierski,1198970550.0
 UPBD,"Upbound Group, Inc.",NASDAQ,1068782664.0,18.39,Fahmi Karam,2727925239.0
 DEA,"Easterly Government Properties, Inc.",NYSE,1067646035.0,23.05,Darrell William Crate,2610978711.0
@@ -2243,7 +2243,7 @@ OCSL,Oaktree Specialty Lending Corporation,NASDAQ,1054383710.0,11.97,Armen Panos
 CIM-PB,Chimera Investment Corporation,NYSE,1053650538.0,23.51,Phillip John Kardis,13813445629.0
 EVEX-WT,"Eve Holding, Inc.",NYSE,1052264757.0,0.39,Eduardo Siffert Couto,1358731520.0
 CRAI,"CRA International, Inc.",NASDAQ,1052033360.0,160.22,Paul A. Maleh,1440675320.0
-MLKN,"MillerKnoll, Inc.",NASDAQ,1051603424.0,15.38,Andrea R. Owen,2781941990.0
+MLKN,"MillerKnoll, Inc.",NASDAQ,1051603455.0,15.38,Andrea R. Owen,2781941990.0
 LIND,"Lindblad Expeditions Holdings, Inc.",NASDAQ,1051589434.0,19.13,Benjamin L. Bressler,1199812109.0
 FSUN,FirstSun Capital Bancorp,NASDAQ,1051552575.0,37.66,Neal E. Arnold,431949616.0
 URGN,UroGen Pharma Ltd.,NASDAQ,1050076780.0,21.57,Elizabeth A. Barrett,1144466015.0
@@ -2273,14 +2273,14 @@ EPC,Edgewell Personal Care Company,NYSE,1022626374.0,21.89,Rod R. Little,2283800
 HQH,Abrdn Healthcare Investors,NYSE,1021227312.0,18.96,Daniel R. Omstead,1015845969.0
 MFA,"MFA Financial, Inc.",NYSE,1020935043.0,9.99,Craig L. Knutson,11745522730.0
 ORIC,"ORIC Pharmaceuticals, Inc.",NASDAQ,1018633700.0,10.15,Jacob Chacko,684036290.0
-CCOI,"Cogent Communications Holdings, Inc.",NASDAQ,1016763282.0,20.31,David Schaeffer,3759603488.0
+CCOI,"Cogent Communications Holdings, Inc.",NASDAQ,1017578993.0,20.31,David Schaeffer,3759603488.0
 ODC,Oil-Dri Corporation of America,NYSE,1013465762.0,72.81,Daniel S. Jaffee,731411800.0
 DCOMG,"Dime Community Bancshares, Inc.",NASDAQ,1011991517.0,25.85,Stuart H. Lubow,-687872300.0
 GSBD,"Goldman Sachs BDC, Inc.",NYSE,1009744549.0,8.97,David Nathan Miller,2907328539.0
 GNK,Genco Shipping & Trading Limited,NYSE,1009304973.0,23.3,John C. Wobensmith,943982390.0
 NPK,"National Presto Industries, Inc.",NYSE,1009027054.0,140.84,Maryjo J. Cohen,792826720.0
 XERS,"Xeris Biopharma Holdings, Inc.",NASDAQ,1008721350.0,5.85,John Shannon,1186058804.0
-LXU,"LSB Industries, Inc.",NYSE,1008661862.0,14.02,Mark T. Behrman,1085221500.0
+LXU,"LSB Industries, Inc.",NYSE,1008661876.0,14.02,Mark T. Behrman,1085221500.0
 GHM,Graham Corporation,NYSE,1008619530.0,91.09,Daniel J. Thoren,298953880.0
 LQDT,"Liquidity Services, Inc.",NASDAQ,1005780161.0,32.43,William Paul Angrick,687994350.0
 AMPX-WT,"Amprius Technologies, Inc.",NYSE,1004349270.0,7.33,Kang Sun,932816528.0
@@ -2314,7 +2314,7 @@ BHVN,Biohaven Ltd.,NYSE,970785113.0,9.17,Vladimir Coric,1263985951.0
 DAKT,"Daktronics, Inc.",NASDAQ,970081518.0,19.9,Bradley T. Wiemann,493173030.0
 CLDT-PA,Chatham Lodging Trust,NYSE,968604193.0,19.85,Jeffrey H. Fisher,658622446.0
 JBSS,"John B. Sanfilippo & Son, Inc.",NASDAQ,965619506.0,82.48,Jeffrey T. Sanfilippo,835515320.0
-TBLA,Taboola.com Ltd.,NASDAQ,965548236.0,3.35,Adam Singolda,1509979347.0
+TBLA,Taboola.com Ltd.,NASDAQ,965548223.0,3.35,Adam Singolda,1509979347.0
 EAI,"Entergy Arkansas, Inc. 1M BD 4.875%66",NYSE,964973329.0,20.54,,12182914300.0
 UVE,"Universal Insurance Holdings, Inc.",NYSE,964601018.0,34.39,Stephen Joseph Donaghy,564006799.0
 LMB,"Limbach Holdings, Inc.",NASDAQ,964600903.0,82.59,Michael McCann,949655097.0
@@ -2336,19 +2336,19 @@ AMPH,"Amphastar Pharmaceuticals, Inc.",NASDAQ,936045845.0,20.37,Yongfeng Zhang,1
 BFST,"Business First Bancshares, Inc.",NASDAQ,934209024.0,28.56,David R. Melville,912468269.0
 WGO,"Winnebago Industries, Inc.",NYSE,933901602.0,33.04,Michael J. Happe,1436035999.0
 MBINN,Merchants Bancorp,NASDAQ,932148565.0,20.32,Michael F. Petrie,5389138033.0
-VRTS,"Virtus Investment Partners, Inc.",NASDAQ,928933320.0,137.53,Richard William Smirl,3479992350.0
+VRTS,"Virtus Investment Partners, Inc.",NASDAQ,928933320.0,137.53,George Robert Aylward Jr.,3479992350.0
 HFWA,Heritage Financial Corporation,NASDAQ,928127737.0,27.3,Bryan D. McDonald,792869392.0
 RJET,Republic Airways Holdings Inc.,NASDAQ,926755805.0,19.79,David Grizzle,1539700000.0
 FCRX,"Crescent Capital BDC, Inc.",NYSE,926068375.0,25.0,Jason A. Breaux,1770223840.0
 SNCY,"Sun Country Airlines Holdings, Inc.",NASDAQ,925821548.0,17.32,Jude I. Bricker,1211447744.0
-CCNE,CNB Financial Corporation,NASDAQ,924618240.0,31.2,Michael D. Peduzzi,898693538.0
+CCNE,CNB Financial Corporation,NASDAQ,924618989.0,31.2,Michael D. Peduzzi,898693538.0
 MBWM,Mercantile Bank Corporation,NASDAQ,924103360.0,53.5,Raymond E. Reitsma,1134851820.0
 LGIH,"LGI Homes, Inc.",NASDAQ,919540169.0,39.75,Eric Thomas Lipar,2591753936.0
 NX,Quanex Building Products Corporation,NYSE,915092908.0,19.92,George L. Wilson,1433791700.0
 RWAYL,Runway Growth Finance Corp. - 7,NASDAQ,914913817.0,25.32,Greg Greifeld,759452568.0
 ZBIO,"Zenas BioPharma, Inc.",NASDAQ,912499997.0,20.44,Leon Oliver Moulder Jr.,1593469188.0
 XNCR,"Xencor, Inc.",NASDAQ,910865412.0,12.42,Bassil I. Dahiyat,1270273090.0
-TDOC,"Teladoc Health, Inc.",NYSE,909819600.0,5.1,Charles Divita,1492632709.0
+TDOC,"Teladoc Health, Inc.",NYSE,909819600.0,5.1,Teri Condon,1492632709.0
 MCB,Metropolitan Bank Holding Corp.,NYSE,908830424.0,89.84,Mark R. DeFazio,496349114.0
 JANX,"Janux Therapeutics, Inc.",NASDAQ,908216624.0,14.93,David Alan Campbell,824949586.0
 COUR,"Coursera, Inc.",NYSE,907520891.0,5.36,Gregory Hart,417968000.0
@@ -2372,7 +2372,7 @@ CGEM,"Cullinan Therapeutics, Inc.",NASDAQ,880049494.0,14.54,Nadim Ahmed,52551850
 AIP,"Arteris, Inc.",NASDAQ,879336828.0,19.34,Karel Charles Janac,630686594.0
 ULCC,"Frontier Group Holdings, Inc.",NASDAQ,877110200.0,3.82,James G. Dempsey,5869581598.0
 BBDC,"Barings BDC, Inc.",NYSE,875874055.0,8.365,Thomas McDonnell,2328686050.0
-METCB,"Ramaco Resources, Inc.",NASDAQ,874763177.0,10.25,Randall W. Atkins,565837177.0
+METCB,"Ramaco Resources, Inc.",NASDAQ,874763198.0,10.25,Randall W. Atkins,565837177.0
 ASST,"Strive, Inc.",NASDAQ,874150375.0,10.63,Matthew Ryan Cole,-25168342.0
 GPMT-PA,Granite Point Mortgage Trust Inc.,NYSE,869770598.0,18.29,John A. Taylor,1220951564.0
 LIFE,Ethos Technologies Inc.,NASDAQ,868065997.0,13.81,Peter George Colis,
@@ -2390,7 +2390,7 @@ HTLD,"Heartland Express, Inc.",NASDAQ,852778449.0,11.01,Michael J. Gerdin,846174
 MATW,Matthews International Corporation,NASDAQ,847251925.0,27.22,Joseph C. Bartolacci,1483780041.0
 MRVI,"Maravai LifeSciences Holdings, Inc.",NASDAQ,843481137.0,3.07,Bernd Brust,716276894.0
 AEVA,"Aeva Technologies, Inc.",NASDAQ,840351648.0,13.35,Soroush Salehian Dardashti,787368758.0
-SDGR,"Schrödinger, Inc.",NASDAQ,839391398.0,11.37,Ramy Farid,1191877168.0
+SDGR,"Schrödinger, Inc.",NASDAQ,839391421.0,11.37,Ramy Farid,1191877168.0
 HAFC,Hanmi Financial Corporation,NASDAQ,838748596.0,28.0,Bonita I. Lee,874525587.0
 NBBK,"NB Bancorp, Inc. Common Stock",NASDAQ,837965229.0,22.4,Joseph Campanelli,680586605.0
 SHEN,Shenandoah Telecommunications Company,NASDAQ,837266224.0,15.14,Edward H. McKay,1230440000.0
@@ -2405,7 +2405,7 @@ OMER,Omeros Corporation,NASDAQ,827235970.0,11.49,Gregory A. Demopulos,1320588253
 CDNA,"CareDx, Inc",NASDAQ,825493920.0,16.05,John Walter Hanna Jr.,958187366.0
 SANA,"Sana Biotechnology, Inc.",NASDAQ,824618712.0,3.09,Steven D. Harr,1037654380.0
 HTBK,Heritage Commerce Corp,NASDAQ,823502207.0,13.37,Robertson Jones Jr.,754436523.0
-HMH,HMH Holding Inc. Class A Common Stock,NASDAQ,822359963.0,18.69,Eirik Bergsvik,1142210000.0
+HMH,HMH Holding Inc. Class A Common Stock,NASDAQ,822360000.0,18.69,Eirik Bergsvik,1142210000.0
 FCBC,"First Community Bankshares, Inc.",NASDAQ,822132500.0,43.1,William Stafford,106656986.0
 TRST,TrustCo Bank Corp NY,NASDAQ,822121874.0,46.42,Robert Joseph McCormick,897572750.0
 CAPL,CrossAmerica Partners LP,NYSE,819904177.0,21.5,Maura E. Topper,1689649523.0
@@ -2417,8 +2417,8 @@ EVEX,"Eve Holding, Inc.",NYSE,812381400.0,2.7,Johann Christian Jean Charles Bord
 TBN,Tamboran Resources Corp,NYSE,812079331.0,35.87,Todd C. Abbott,299530078.0
 ABUS,Arbutus Biopharma Corporation,NASDAQ,811233700.0,4.15,Lindsay Androski,907774075.0
 DCOMP,"Dime Community Bancshares, Inc.",NASDAQ,810942490.0,18.47,Stuart H. Lubow,-687872300.0
-NWPX,"NWPX Infrastructure, Inc.",NASDAQ,809901386.0,84.28,Scott J. Montross,711308260.0
-HRTG,"Heritage Insurance Holdings, Inc.",NYSE,808643166.0,26.16,Ernesto Jose Garateix,444400219.0
+NWPX,"NWPX Infrastructure, Inc.",NASDAQ,809901302.0,84.28,Scott J. Montross,711308260.0
+HRTG,"Heritage Insurance Holdings, Inc.",NYSE,808643113.0,26.16,Ernesto Jose Garateix,444400219.0
 CCLDO,"CareCloud, Inc.",NASDAQ,808546635.0,25.88,Stephen A. Snyder,1104704897.0
 NNAVW,NextNav Inc.,NASDAQ,807000000.0,6.0,Mariam Sorond,2454732240.0
 PX,"P10, Inc.",NYSE,805571024.0,7.33,Luke A. Sarsfield,26564716630.0
@@ -2437,7 +2437,7 @@ WOOF,"Petco Health and Wellness Company, Inc.",NASDAQ,793237475.0,2.79,Joel D. A
 NABL,"N-able, Inc.",NYSE,793062960.0,4.21,John Pagliuca,1752693120.0
 BJRI,"BJ's Restaurants, Inc.",NASDAQ,792775280.0,37.4,Lyle D. Tick,1330571200.0
 MNKD,MannKind Corporation,NASDAQ,791817000.0,2.57,Michael E. Castagna,2131474130.0
-SKYH,Sky Harbour Group Corporation,NYSE,789030861.0,10.36,Tal Keinan,639994160.0
+SKYH,Sky Harbour Group Corporation,NYSE,789030840.0,10.36,Tal Keinan,639994160.0
 AMC,"AMC Entertainment Holdings, Inc.",NYSE,786775950.0,1.35,Adam Aron,8507795600.0
 BOW,Bowhead Specialty Holdings Inc.,NYSE,784172276.0,23.88,Stephen Jay Sills,701836842.0
 MEG,"Montrose Environmental Group, Inc.",NYSE,781858438.0,21.73,Vijay Manthripragada,1219833599.0
@@ -2452,12 +2452,12 @@ PCTTU,"PureCycle Technologies, Inc.",NASDAQ,766109933.0,5.58,Dustin Olson,215990
 KURA,"Kura Oncology, Inc.",NASDAQ,765819011.0,8.67,Troy Edward Wilson,782311640.0
 BHFAN,"Brighthouse Financial, Inc.",NASDAQ,765695099.0,13.39,Eric Thomas Steigerwalt,1472109090.0
 NEGG,"Newegg Commerce, Inc.",NASDAQ,764437861.0,36.46,Anthony K. Chow,126183050.0
+CSV,"Carriage Services, Inc.",NYSE,763706235.0,48.15,Carlos R. Quezada,1213962400.0
 CHMI-PA,Cherry Hill Mortgage Investment Corporation,NYSE,763446810.0,20.78,Jeffrey Lown,1231772000.0
 RILYN,"B. Riley Financial, Inc. - 6.50",NASDAQ,762329435.0,24.419,,1384727054.0
 MITT-PC,"AG Mortgage Investment Trust, Inc.",NYSE,761956192.0,24.85,Thomas J. Durkin,8288991480.0
 KRO,"Kronos Worldwide, Inc.",NYSE,760501097.0,6.61,Brian W. Christian,1048600000.0
 CUBB,"Customers Bancorp, Inc 5.375% S",NYSE,758873501.0,22.21,,2363155281.0
-CSV,"Carriage Services, Inc.",NYSE,758420280.0,48.15,Carlos R. Quezada,1213962400.0
 METC,"Ramaco Resources, Inc.",NASDAQ,758305425.0,13.55,Randall W. Atkins,541254000.0
 GSBC,"Great Southern Bancorp, Inc.",NASDAQ,758296218.0,67.77,Joseph William Turner,1008772571.0
 BRSP,"BrightSpire Capital, Inc.",NYSE,758218338.0,5.82,Michael Joseph Mazzei,3134367800.0
@@ -2491,7 +2491,7 @@ VTS,"Vitesse Energy, Inc.",NYSE,729505155.0,18.34,Brian J. Cree,853015624.0
 LXRX,"Lexicon Pharmaceuticals, Inc.",NASDAQ,728730651.0,1.72,Michael S. Exton,445421949.0
 DJCO,Daily Journal Corporation,NASDAQ,728401621.0,528.7,Steven Myhill-Jones,643082929.0
 ANRO,"Alto Neuroscience, Inc.",NYSE,727718854.0,22.78,Amit Etkin,341489600.0
-BBSI,"Barrett Business Services, Inc.",NASDAQ,724920585.0,28.29,Gary Edward Kramer Jr.,847778020.0
+BBSI,"Barrett Business Services, Inc.",NASDAQ,724920613.0,28.29,Gary Edward Kramer Jr.,847778020.0
 SPIR,"Spire Global, Inc.",NYSE,722347534.0,21.56,Theresa Condor,231815526500.0
 SPFI,"South Plains Financial, Inc.",NASDAQ,722337778.0,44.23,Curtis C. Griffith,632481620.0
 LANDP,Gladstone Land Corporation,NASDAQ,721953781.0,19.9801,David John Gladstone,844766488.0
@@ -2505,7 +2505,7 @@ HNRG,Hallador Energy Company,NASDAQ,714757124.0,15.2,Brent K. Bilsland,846428280
 CVLG,"Covenant Logistics Group, Inc.",NYSE,714031647.0,28.44,David Ray Parker,593621400.0
 IBCP,Independent Bank Corporation,NASDAQ,713799828.0,34.67,Gavin A. Mohr,737059532.0
 EHAB,"Enhabit, Inc.",NYSE,709110951.0,13.98,Barbara Ann Jacobsmeyer,924776000.0
-OPFI,OppFi Inc.,NYSE,708172935.0,8.2,Todd G. Schwartz,523284550.0
+OPFI,OppFi Inc.,NYSE,708172926.0,8.2,Todd G. Schwartz,523284550.0
 DCH,Dauch Corporation,NYSE,708038518.0,5.98,David Charles Dauch,4208205876.0
 FBRT,"Franklin BSP Realty Trust, Inc.",NYSE,707529343.0,8.67,Michael Comparato,4876249514.0
 IIIN,"Insteel Industries, Inc.",NYSE,706610123.0,36.43,Howard Osler Woltz,715212160.0
@@ -2548,7 +2548,7 @@ NCDL,Nuveen Churchill Direct Lending Corp.,NYSE,665737636.0,13.48,Kenneth John K
 NEWTH,"NewtekOne, Inc.",NASDAQ,664729395.0,25.6,Barry Scott Sloane,2692244432.0
 VPG,"Vishay Precision Group, Inc.",NYSE,663540659.0,49.9,Ziv Shoshani,487206500.0
 ALLO,"Allogene Therapeutics, Inc.",NASDAQ,663075942.0,2.72,David D. Chang,325610056.0
-NTGR,"NETGEAR, Inc.",NASDAQ,662068242.0,23.31,Charles J. Prober,549689447.0
+NTGR,"NETGEAR, Inc.",NASDAQ,662068219.0,23.31,Charles J. Prober,549689447.0
 FIP,FTAI Infrastructure Inc.,NASDAQ,660534245.0,5.59,Kenneth J. Nicholson,4130475735.0
 AVNS,"Avanos Medical, Inc.",NYSE,659479966.0,14.18,David C. Pacitti,560372000.0
 RSVR,"Reservoir Media, Inc.",NASDAQ,659282010.0,10.05,Golnar Khosrowshahi,869650974.0
@@ -2560,7 +2560,7 @@ ALRS,Alerus Financial Corporation,NASDAQ,647730600.0,25.5,Daniel Edmund Coughlin
 VLGEA,"Village Super Market, Inc.",NASDAQ,647471468.0,43.89,John J. Sumas,760184639.0
 BOH-PA,Bank of Hawaii Corporation,NYSE,647207136.0,16.32,James C. Polk,1856163287.0
 JOBY-WT,"Joby Aviation, Inc. WT",NYSE,645214110.0,0.7078,JoeBen Bevirt,10726088606.0
-CNNE,"Cannae Holdings, Inc.",NYSE,644166599.0,12.46,Ryan Richard Caswell,1038545000.0
+CNNE,"Cannae Holdings, Inc.",NYSE,644166587.0,12.46,Ryan Richard Caswell,1038545000.0
 HY,"Hyster-Yale Materials Handling, Inc.",NYSE,643542456.0,36.42,Rajiv K. Prasad,787872070.0
 ASIX,AdvanSix Inc.,NYSE,643337226.0,23.94,Erin N. Kane,828316095.0
 GDOT,Green Dot Corporation,NYSE,641249966.0,11.54,William I. Jacobs,-650406810.0
@@ -2577,11 +2577,11 @@ MAMA,"Mama's Creations, Inc.",NASDAQ,633785461.0,15.59,Adam L. Michaels,29115629
 DMIIU,Drugs Made In America Acquisition II Corp. Unit,NASDAQ,633324870.0,10.05,Roger Bendelac,
 AOMN,"Angel Oak Mortgage REIT, Inc. 9",NYSE,632833331.0,25.4001,Sreeniwas Vikram Prabhu,870533347.0
 TRTX,"TPG RE Finance Trust, Inc.",NYSE,632316780.0,8.07,Doug Bouquard,3883507671.0
-KE,"Kimball Electronics, Inc.",NASDAQ,631337162.0,25.94,Richard D. Phillips,534826860.0
+KE,"Kimball Electronics, Inc.",NASDAQ,631337136.0,25.94,Richard D. Phillips,534826860.0
 NEWTP,"NewtekOne, Inc. Depositary Shares, Non-Cumulative Perpetual Preferred Stock, Series B",NASDAQ,630852839.0,23.965,Barry Scott Sloane,798116450.0
 CODI-PA,Compass Diversified,NYSE,628500206.0,19.47,Elias Joseph Sabo,2170434800.0
 DGICA,Donegal Group Inc.,NASDAQ,628352504.0,17.3,Kevin Gerard Burke,622480878.0
-AMSF,"AMERISAFE, Inc.",NASDAQ,626208429.0,33.09,Gerry Janelle Frost,667566250.0
+AMSF,"AMERISAFE, Inc.",NASDAQ,626208363.0,33.09,Gerry Janelle Frost,667566250.0
 SLDB,Solid Biosciences Inc.,NASDAQ,624839804.0,8.02,Alexander G. Cumbo,454787118.0
 UDMY,"Udemy, Inc.",NASDAQ,623858278.0,4.29,Hugo Sarrazin,645743636.0
 PKE,Park Aerospace Corp.,NYSE,620887866.0,31.16,Brian E. Shore,252686370.0
@@ -2602,12 +2602,12 @@ GOODO,Gladstone Commercial Corporation,NASDAQ,607682531.0,19.7,David J. Gladston
 AMWD,American Woodmark Corporation,NASDAQ,607406416.0,41.69,Michael Scott Culbreth,1364492000.0
 CRSR,"Corsair Gaming, Inc.",NASDAQ,606906780.0,5.69,Thi L. La,652428700.0
 AGM-PD,Federal Agricultural Mortgage Corporation,NYSE,606272884.0,20.69,Bradford Todd Nordholm,31807147270.0
-ARKO,Arko Corp.,NASDAQ,606183405.0,5.44,Arie Kotler,4160871480.0
+ARKO,Arko Corp.,NASDAQ,606183421.0,5.44,Arie Kotler,4160871480.0
 GTN-A,"Gray Media, Inc.",NYSE,605126056.0,10.67,Hilton Hatchett Howell Jr.,5914480000.0
 ROOT,"Root, Inc.",NASDAQ,604929600.0,44.0,Alexander Edward Timm,630965000.0
 EGY,"VAALCO Energy, Inc.",NYSE,604697867.0,5.8,George Walter-Mitchell Maxwell,448299200.0
 FWRD,Forward Air Corporation,NASDAQ,603947388.0,19.14,Shawn Stewart,2827971000.0
-DSP,Viant Technology Inc.,NASDAQ,603349522.0,9.5,Tim Vanderhook,28317880.0
+DSP,Viant Technology Inc.,NASDAQ,603349503.0,9.5,Tim Vanderhook,28317880.0
 INDI,"indie Semiconductor, Inc.",NASDAQ,602794860.0,2.91,Donald McClymont,927373291.0
 NUTX,"Nutex Health, Inc.",NASDAQ,601684642.0,101.05,Thomas T. Vo,1268977128.0
 AROW,Arrow Financial Corporation,NASDAQ,601517588.0,36.43,David S. DeMarco,518256200.0
@@ -2625,7 +2625,7 @@ IRWD,"Ironwood Pharmaceuticals, Inc.",NASDAQ,591900540.0,3.63,Thomas A. McCourt,
 GOOD,Gladstone Commercial Corporation,NASDAQ,590565315.0,12.2,Arthur S. Cooper,1349379445.0
 HSTM,"HealthStream, Inc.",NASDAQ,589802544.0,19.88,Robert A. Frist Jr.,671038260.0
 SNDA,"Sonida Senior Living, Inc.",NYSE,589284918.0,32.58,Brandon Ribar,1268550070.0
-ERII,"Energy Recovery, Inc.",NASDAQ,588519975.0,11.11,David W. Moon,687141980.0
+ERII,"Energy Recovery, Inc.",NASDAQ,588519998.0,11.11,David W. Moon,687141980.0
 AIV,Apartment Investment and Management Company,NYSE,587828183.0,4.08,Wesley William Powell,1297558180.0
 AHRT,"AH Realty Trust, Inc.",NYSE,585953285.0,5.65,Shawn J. Tibbetts,2311764452.0
 EICA,Eagle Point Income Company Inc.,NYSE,584258580.0,24.9,Thomas Philip Majewski,406546423.0
@@ -2677,7 +2677,7 @@ KELYB,"Kelly Services, Inc.",NASDAQ,547210169.0,15.59,Christopher D. Layden,4307
 BFS-PE,"Saul Centers, Inc.",NYSE,545942684.0,22.29,Bernard Francis Saul,2364655470.0
 SLDP,"Solid Power, Inc.",NASDAQ,544776804.0,2.95,John C. Van Scoter,602582410.0
 MSBIP,"Midland States Bancorp, Inc.",NASDAQ,544504844.0,24.94,Jeffrey G. Ludwig,766895878.0
-EVER,"EverQuote, Inc.",NASDAQ,543687901.0,15.09,Jayme Mendal,882993000.0
+EVER,"EverQuote, Inc.",NASDAQ,543687932.0,15.09,Jayme Mendal,882993000.0
 NMAX,"Newsmax, Inc.",NYSE,541136740.0,6.02,Christopher W. Ruddy,-11076956831911.0
 CARE,"Carter Bankshares, Inc.",NASDAQ,540812604.0,24.4,Litz H. Van Dyke,514835820.0
 FFIC,Flushing Financial Corporation,NASDAQ,539765748.0,15.93,John R. Buran,989519810.0
@@ -2718,7 +2718,7 @@ GNL-PD,"Global Net Lease, Inc.",NYSE,512888500.0,23.69,Edward Michael Weil Jr.,4
 SERV,Serve Robotics Inc.,NASDAQ,509238598.0,8.26,Ali Kashani,545527580.0
 HBCP,"Home Bancorp, Inc.",NASDAQ,508496740.0,64.88,John W. Bordelon,365382705.0
 BAND,Bandwidth Inc.,NASDAQ,506584921.0,16.14,David Andrew Morken,1061467650.0
-VACHU,Voyager Acquisition Corp Unit,NASDAQ,506549845.0,16.69,Alex R. Rogers,277864897.0
+VACHU,Voyager Acquisition Corp Unit,NASDAQ,506549845.0,16.69,Adeel Rouf Ennis,277864897.0
 BLMN,"Bloomin' Brands, Inc.",NASDAQ,505399668.0,5.93,Michael Spanos,3545119200.0
 KRNY,Kearny Financial Corp.,NASDAQ,504948041.0,8.03,Craig L. Montanaro,1493023680.0
 BETR,Better Home & Finance Holding Company,NASDAQ,502986290.0,32.75,Vishal Garg,998292300.0
@@ -2771,7 +2771,7 @@ PANL,"Pangaea Logistics Solutions, Ltd.",NASDAQ,476172937.0,7.29,Mads Rosenberg 
 FTK,"Flotek Industries, Inc.",NYSE,475458959.0,15.78,Ryan Gillis Ezell,628569690.0
 BCSS,Bain Capital GSS Investment Cor,NYSE,474628000.0,10.12,Angelo R. Rufino,
 KRSP,Rice Acquisition Corporation 3,NYSE,474286796.0,10.31,J. Kyle Derham,
-TITN,Titan Machinery Inc.,NASDAQ,473713386.0,20.27,Bryan J. Knutson,1126297060.0
+TITN,Titan Machinery Inc.,NASDAQ,473713427.0,20.27,Bryan J. Knutson,1126297060.0
 ACTG,Acacia Research Corporation,NASDAQ,472729798.0,4.9,Martin D. McNulty Jr.,153909677.0
 LDI,"loanDepot, Inc.",NYSE,472607570.0,1.37,Anthony Li Hsieh,5137053720.0
 NATR,"Nature's Sunshine Products, Inc.",NASDAQ,471479668.0,26.93,Kenneth G. Romanzi,313556899.0
@@ -2825,7 +2825,7 @@ LAND,Gladstone Land Corporation,NASDAQ,435999414.0,10.39,David John Gladstone,84
 ITIC,Investors Title Company,NASDAQ,435180186.0,230.55,James Allen Fine,466332680.0
 BGS,"B&G Foods, Inc.",NYSE,433444988.0,5.42,Kenneth Charles Keller Jr.,2279765000.0
 BMRC,Bank of Marin Bancorp,NASDAQ,431222236.0,26.74,Timothy D. Myers,257516980.0
-FRPH,"FRP Holdings, Inc.",NASDAQ,430672711.0,22.53,John D. Baker,608741810.0
+FRPH,"FRP Holdings, Inc.",NASDAQ,430672711.0,22.53,John D. Baker,522595950.0
 IACO,Idea Acquisition Corp. Class A Ordinary Shares,NASDAQ,430499990.0,9.84,Trevor Harries-Jones,
 CCXIU,Churchill Capital Corp XI Units,NASDAQ,427589500.0,10.205,Michael S. Klein,567960796.0
 CCXI,Churchill Capital Corp XI,NASDAQ,427380000.0,10.2,Michael S. Klein,570745796.0
@@ -2839,7 +2839,6 @@ CAL,"Caleres, Inc.",NYSE,423704832.0,12.52,John W. Schmidt,1258744180.0
 PDLB,"Ponce Financial Group, Inc.",NASDAQ,423227136.0,17.52,Carlos Naudon,970327669.0
 BWFG,"Bankwell Financial Group, Inc.",NASDAQ,421972032.0,52.9,Christopher R. Gruseke,309889751.0
 SFIX,"Stitch Fix, Inc.",NASDAQ,419124158.0,3.07,Matthew H. Baer,557801616.0
-ASPI,ASP Isotopes Inc. Common Stock,NASDAQ,418461702.0,4.48,Paul Elliot Mann,228049153.0
 MOV,"Movado Group, Inc.",NYSE,417742976.0,26.74,Efraim Grinberg,343121200.0
 KROS,"Keros Therapeutics, Inc.",NASDAQ,417066246.0,11.205,Jasbir S. Seehra,487291855.0
 BCAR,D. Boral ARC Acquisition I Corp. Class A Ordinary Shares,NASDAQ,416944000.0,10.12,David Walter Boral,310168640.0
@@ -2901,10 +2900,10 @@ CCIX,Churchill Capital Corp IX Ordinary Shares,NASDAQ,392288729.0,10.7,Michael S
 BOC,Boston Omaha Corporation,NYSE,392224297.0,12.47,Adam Kenneth Peterson,468387835.0
 KYTX,"Kyverna Therapeutics, Inc.",NASDAQ,391935796.0,8.95,Warner Biddle,320982990.0
 GPAT,GP-Act III Acquisition Corp.,NASDAQ,390640603.0,10.87,Antonio Carlos Augusto Ribeiro Bonchristiano,307624840.0
+PPHC,"Public Policy Holding Company, Inc. Common Stock",NASDAQ,389433596.0,13.44,George Stewart Hall,1317299919.0
 BBCQ,Bleichroeder Acquisition Corp. II,NASDAQ,389083330.0,10.15,Andrew Stephen Gundlach,
-PPHC,"Public Policy Holding Company, Inc. Common Stock",NASDAQ,388867194.0,13.44,George Stewart Hall,1317299919.0
 ZKP,Lafayette Digital Acquisition Corp. I Class A Ordinary Shares,NASDAQ,388568193.0,9.9395,Samuel A. Jernigan,
-RILYL,"BRC Group Holdings, Inc. - Depositary Shares, each representing a 1/1000th fractional interest in a share of Series B Cumulative Perpetual Preferred Stock",NASDAQ,388045629.0,12.71,Bryant Richard Riley,1384727054.0
+RILYL,"BRC Group Holdings, Inc. - Depositary Shares, each representing a 1/1000th fractional interest in a share of Series B Cumulative Perpetual Preferred Stock",NASDAQ,388350974.0,12.71,Bryant Richard Riley,1384727054.0
 ALF,Centurion Acquisition Corp.,NASDAQ,387765625.0,10.79,Mark Gerhard,306086515.0
 RBB,RBB Bancorp,NASDAQ,386212632.0,22.63,Johnny Lee,639708573.0
 HELE,Helen of Troy Limited,NASDAQ,385996283.0,16.73,George Scott Uzzell,2206135636.0
@@ -2922,7 +2921,7 @@ CBK,"Commercial Bancgroup, Inc. Common Stock",NASDAQ,381488938.0,27.85,Terry L. 
 IRD,"Opus Genetics, Inc.",NASDAQ,381358881.0,5.36,George Magrath,1205569210.0
 PSA-PP,Public Storage,NYSE,380836359.0,15.775,H. Thomas Boyle,55464282500.0
 NC,"NACCO Industries, Inc.",NYSE,380355750.0,51.24,John C. Butler Jr.,425630920.0
-QUAD,"Quad/Graphics, Inc.",NYSE,379434963.0,7.26,J. Joel Quadracci,679152000.0
+QUAD,"Quad/Graphics, Inc.",NYSE,379435007.0,7.26,J. Joel Quadracci,679152000.0
 RCKT,"Rocket Pharmaceuticals, Inc.",NASDAQ,378905810.0,3.49,Martin Louis Wilson,337363432.0
 RVMDW,"Revolution Medicines, Inc. Warrant",NASDAQ,378501940.0,1.91,Mark A. Goldsmith,14918744116.0
 DBCAU,D. Boral Acquisition I Corp. Unit,NASDAQ,378380191.0,9.96,David Walter Boral,
@@ -2940,6 +2939,7 @@ HLLY,Holley Inc.,NYSE,373925245.0,3.12,Matthew J. Stevenson,977767690.0
 NAUT,"Nautilus Biotechnology, Inc.",NASDAQ,373363800.0,2.95,Sujal Patel,263831336.0
 HVT-A,"Haverty Furniture Companies, Inc.",NYSE,372757684.0,22.98,Steven G. Burdette,452270341.0
 CBAN,"Colony Bankcorp, Inc.",NASDAQ,372706827.0,20.95,Roy Dallis Copeland Jr.,558136240.0
+ASPI,ASP Isotopes Inc. Common Stock,NASDAQ,372277069.0,4.48,Paul Elliot Mann,374519727.0
 WNC,Wabash National Corporation,NYSE,372014880.0,9.2,Brent L. Yeagy,769999150.0
 NMRA,"Neumora Therapeutics, Inc. Common Stock",NASDAQ,371363518.0,2.04,Daljit Singh Aurora,110416890.0
 ALTO,"Alto Ingredients, Inc.",NASDAQ,370861521.0,4.795,Bryon T. McGregor,286504160.0
@@ -2965,10 +2965,10 @@ CCIIU,Cohen Circle Acquisition Corp. II Unit,NASDAQ,362894194.0,10.38,Betsy Zubr
 LWAY,"Lifeway Foods, Inc.",NASDAQ,361987673.0,23.77,Julie Smolyansky,363191000.0
 MCI,Barings Corporate Investors,NYSE,361986793.0,17.61,Clifford Michael Noreen,414167167.0
 NUS,"Nu Skin Enterprises, Inc.",NYSE,361913536.0,7.52,Ryan S. Napierski,599821659.0
+RILYP,"BRC Group Holdings, Inc. - Depositary Shares, each representing a 1/1000th fractional interest in a share of Series A Cumulative Perpetual Preferred Stock",NASDAQ,361768335.0,11.84,Bryant Richard Riley,1384727054.0
 SAR,Saratoga Investment Corp.,NYSE,361637373.0,22.29,Christian Long Oberbeck,995321004.0
-RILYP,"BRC Group Holdings, Inc. - Depositary Shares, each representing a 1/1000th fractional interest in a share of Series A Cumulative Perpetual Preferred Stock",NASDAQ,361483891.0,11.84,Bryant Richard Riley,1384727054.0
 SES,SES AI Corporation,NYSE,361439885.0,1.0,Qichao Hu,645639441.0
-PBFS,"Pioneer Bancorp, Inc.",NASDAQ,361410682.0,14.41,Jesse A. Tomczak,184529778.0
+PBFS,"Pioneer Bancorp, Inc.",NASDAQ,361356688.0,14.41,Thomas L. Amell,184529778.0
 KRSP-UN,Rice Acquisition Corporation 3,NYSE,361215000.0,10.47,J. Kyle Derham,
 FCRS,FutureCrest Acquisition Corp.,NYSE,360812490.0,10.04,Thomas Jong Lee,
 BLND,"Blend Labs, Inc.",NYSE,360478854.0,1.42,Nima Ghamsari,904598960.0
@@ -2984,7 +2984,7 @@ CRANU,Crane Harbor Acquisition Corp. II Units,NASDAQ,357186000.0,10.09,William I
 GLSI,"Greenwich LifeSciences, Inc.",NASDAQ,357170015.0,25.78,Snehal S. Patel,142061799.0
 AII,"American Integrity Insurance Group, Inc.",NYSE,357121106.0,18.24,Robert Craig Ritchie,156182549.0
 ISBA,Isabella Bank Corporation,NASDAQ,356972948.0,48.7,Jerome E. Schwind,488579000.0
-PLBC,Plumas Bancorp,NASDAQ,356765867.0,51.12,Andrew J. Ryback,355084600.0
+PLBC,Plumas Bancorp,NASDAQ,356765815.0,51.12,Andrew J. Ryback,355084600.0
 OYSEU,Oyster Enterprises II Acquisition Corp,NASDAQ,356554442.0,10.31,Mario A. Zarazua,159061098.0
 CMTG,"Claros Mortgage Trust, Inc.",NYSE,356155661.0,2.54,Richard Jay Mack,3401963858.0
 CCII,Cohen Circle Acquisition Corp. II,NASDAQ,356127094.0,10.265,Betsy Zubrow Cohen,131369472.0
@@ -2996,7 +2996,6 @@ GIG,GigCapital7 Corp.,NASDAQ,355333319.0,10.66,Avishay S. Katz,3718968492.0
 NEWT,"NewtekOne, Inc.",NASDAQ,355024868.0,12.29,Barry Scott Sloane,798116450.0
 MAGN,Magnera Corp.,NYSE,354576000.0,9.96,Curtis L. Begle,2101565000.0
 IPCX,Inflection Point Acquisition Corp. III,NASDAQ,353351674.0,10.25,Michael Blitzer,173182165.0
-RM,Regional Management Corp.,NYSE,353157553.0,36.36,Lakhbir Lamba,2020899500.0
 FPH,"Five Point Holdings, LLC",NYSE,353083995.0,4.95,Daniel C. Hedigan,478954105.0
 AENT,Alliance Entertainment Holding Corporation,NASDAQ,352625000.0,6.92,Jeffrey Walker,281322625.0
 DMAA,Drugs Made In America Acquisition Corp. Ordinary Shares,NASDAQ,352519903.0,10.5176,Roger Bendelac,85366471.0
@@ -3007,7 +3006,7 @@ MCFT,"MasterCraft Boat Holdings, Inc.",NASDAQ,350451113.0,21.52,Bradley Nelson,2
 MBVIU,M3-Brigade Acquisition VI Corp. Units,NASDAQ,350175000.0,10.15,Matthew Harrison Perkal,
 NECB,"Northeast Community Bancorp, Inc.",NASDAQ,350138540.0,25.31,Kenneth A. Martinek,369401210.0
 LXFR,Luxfer Holdings PLC,NYSE,349517338.0,13.08,Andrew William John Butcher,392978656.0
-DCTH,"Delcath Systems, Inc.",NASDAQ,348851728.0,10.04,Gerard J. Michel,319275685.0
+DCTH,"Delcath Systems, Inc.",NASDAQ,348851707.0,10.04,Gerard J. Michel,319275685.0
 RZLT,"Rezolute, Inc.",NASDAQ,348339573.0,3.64,Nevan Charles Elam,246464833.0
 ONTF,"ON24, Inc.",NYSE,348248986.0,8.1,James Blackie,306449221.0
 ADV,Advantage Solutions Inc.,NASDAQ,348206160.0,26.58,David A. Peacock,58016364.0
@@ -3015,12 +3014,12 @@ APXTU,Apex Treasury Corporation,NASDAQ,348147000.0,10.1,Ajmal Rahman,1615138350.
 BDCI,BTC Development Corp. Class A Ordinary Shares,NASDAQ,347466680.0,10.0,Bracebridge Hemyng Young Jr.,21642034.0
 MBVI,M3-Brigade Acquisition VI Corp. Class A Ordinary Shares,NASDAQ,347070000.0,10.06,Matthew Harrison Perkal,
 MESHU,Meshflow Acquisition Corp.,NASDAQ,346380000.0,10.04,Bartosz Lipinski,
+OPTX,"Syntec Optics Holdings, Inc.",NASDAQ,345895433.0,9.35,Steven Polvinen,116395085.0
 POLEU,Andretti Acquisition Corp. II,NASDAQ,345882124.0,11.67,William Matthew Brown,242131531.0
 TCI,"Transcontinental Realty Investors, Inc.",NYSE,345745426.0,40.02,Erik L. Johnson,703190703.0
 EU,enCore Energy Corp.,NASDAQ,345704480.0,1.78,Robert J. Willette,524261557.0
 LAB,Standard BioTools Inc.,NASDAQ,345330304.0,0.8853,Michael Egholm,401091440.0
 TLNC,Talon Capital Corp. Class A Ordinary Shares,NASDAQ,345222166.0,10.215,Charles Syl Leykum,
-OPTX,"Syntec Optics Holdings, Inc.",NASDAQ,345204113.0,9.35,Steven Polvinen,116395085.0
 GCO,Genesco Inc.,NYSE,344965014.0,31.77,Mimi Eckel Vaughn,715866380.0
 OYSE,Oyster Enterprises II Acquisition Corp,NASDAQ,344907933.0,10.17,Mario A. Zarazua,159061098.0
 BLZR,Trailblazer Acquisition Corp. Class A Ordinary Shares,NASDAQ,344437500.0,10.02,Eric H. Semler,118719150.0
@@ -3033,9 +3032,10 @@ AFJK,"Aimei Health Technology Co., Ltd",NASDAQ,342817048.0,56.0,Junheng Xie,9677
 BLUWU,Blue Water Acquisition Corp III,NASDAQ,342643343.0,10.38,Joseph Hernandez,
 FRST,Primis Financial Corp.,NASDAQ,342577654.0,13.87,Dennis J. Zember Jr.,461696984.0
 CCIXU,Churchill Capital Corp IX,NASDAQ,342530984.0,9.58,Michael S. Klein,305610031.0
-WSBF,"Waterstone Financial, Inc.",NASDAQ,342375847.0,18.55,William F. Bruss,643900350.0
 ARTNA,Artesian Resources Corporation,NASDAQ,342225843.0,33.26,Nicholle R. Taylor,508461490.0
 KLC,"KinderCare Learning Companies, Inc.",NYSE,342048253.0,2.89,John Thomson Wyatt,2884469640.0
+RM,Regional Management Corp.,NYSE,341672375.0,36.36,Harpreet Rana,2020899500.0
+WSBF,"Waterstone Financial, Inc.",NASDAQ,340576664.0,18.55,William F. Bruss,643900350.0
 CHSCP,CHS Inc.,NASDAQ,339741730.0,27.6843,Jay D. Debertin,2830435000.0
 BBBY,Bed Bath & Beyond Inc.,NYSE,339501596.0,4.69,Marcus Anthony Lemonis,175085800.0
 LVWR,"LiveWire Group, Inc.",NYSE,339206060.0,1.66,Karim Donnez,893680600.0
@@ -3077,7 +3077,7 @@ RXT,"Rackspace Technology, Inc.",NASDAQ,325926480.0,1.32,Gajen Kandiah,340985383
 KFS,Kingsway Financial Services Inc.,NYSE,325188463.0,11.36,John Taylor-Maloney Fitzgerald,436488900.0
 RCKY,"Rocky Brands, Inc.",NASDAQ,324897998.0,43.11,Jason S. Brooks,340679420.0
 HPP,"Hudson Pacific Properties, Inc.",NYSE,324367160.0,5.98,Victor J. Coleman,4124810890.0
-TCPC,BlackRock TCP Capital Corp.,NASDAQ,323831182.0,3.84,Philip Tseng,1439354569.0
+TCPC,BlackRock TCP Capital Corp.,NASDAQ,323831197.0,3.84,Philip Tseng,1439354569.0
 MLAAU,Mountain Lake Acquisition Corp. II Units,NASDAQ,323030192.0,10.03,Paul Jaron Grinberg,
 DMAC,DiaMedica Therapeutics Inc.,NASDAQ,322756175.0,5.99,Dietrich John Pauls,358559984.0
 VCIC,Vine Hill Capital Investment Corp.,NASDAQ,322666685.0,11.0,Nicholas A. Petruska,237098000.0
@@ -3134,7 +3134,7 @@ FSBW,"FS Bancorp, Inc.",NASDAQ,304937682.0,40.65,Matthew D. Mullet,437095060.0
 DBCA,D. Boral Acquisition I Corp. Class A Ordinary Shares,NASDAQ,304857500.0,9.85,David Walter Boral,
 CHSCM,CHS Inc.,NASDAQ,304713760.0,24.83,Jay D. Debertin,2830435000.0
 DXYZ,Destiny Tech100 Inc.,NYSE,304637340.0,28.0,Sohail Prasad,378323910.0
-LPBB,Launch Two Acquisition Corp.,NASDAQ,304462500.0,10.59,James Joseph McEntee Jr.,301337421.0
+LPBB,Launch Two Acquisition Corp.,NASDAQ,304462489.0,10.59,James Joseph McEntee Jr.,301337421.0
 TOI,"The Oncology Institute, Inc.",NASDAQ,304424428.0,3.08,Daniel Virnich,3359183963.0
 VHCPU,Vine Hill Capital Investment Corp. II,NASDAQ,303832179.0,10.0025,Nicholas A. Petruska,
 ALIT,"Alight, Inc.",NYSE,303196379.0,0.5785,Rohit Verma,2760756985.0
@@ -3153,7 +3153,7 @@ RMNI,"Rimini Street, Inc.",NASDAQ,299111510.0,3.26,Seth A. Ravin,263819680.0
 KELYA,"Kelly Services, Inc.",NASDAQ,297982391.0,8.71,Christopher D. Layden,430768000.0
 HVMC,Highview Merger Corp. Class A Ordinary Share,NASDAQ,296167513.0,10.0703,David Boris,-717166.0
 LPBBU,Launch Two Acquisition Corp.,NASDAQ,295648945.0,10.64,James Joseph McEntee Jr.,301337421.0
-ANGI,Angi Inc.,NASDAQ,295581432.0,6.85,Jeffrey W. Kip,796889145.0
+ANGI,Angi Inc.,NASDAQ,295581439.0,6.85,Jeffrey W. Kip,796889145.0
 EVC,Entravision Communications Corporation,NYSE,295202591.0,3.21,Michael J. Christenson,421221654.0
 JMSB,"John Marshall Bancorp, Inc.",NASDAQ,295073423.0,20.76,Christopher W. Bergstrom,238447504.0
 PINE,"Alpine Income Property Trust, Inc.",NYSE,294831244.0,19.54,John Albright,629158700.0
@@ -3242,12 +3242,12 @@ XPOF,"Xponential Fitness, Inc.",NYSE,264516465.0,7.6,Michael Nuzzo,765267920.0
 FACTU,FACT II Acquisition Corp. Unit,NASDAQ,264223632.0,10.67,Adam Gishen,191916590.0
 BDCIU,BTC Development Corp. Unit,NASDAQ,263727200.0,10.12,Bracebridge Hemyng Young Jr.,0.0
 SOUL,Soulpower Acquisition Corp.,NYSE,263373600.0,10.28,Justin Lafazan,194566836.0
-RPAY,Repay Holdings Corporation,NASDAQ,263242018.0,3.01,John Andrew Morris,633475795.0
+RPAY,Repay Holdings Corporation,NASDAQ,263241997.0,3.01,John Andrew Morris,633475795.0
 OACCU,Oaktree Acquisition Corp. III Life Sciences Unit,NASDAQ,263241846.0,10.64,Zaid Pardesi,201702585.0
 MPX,Marine Products Corporation,NYSE,262909796.0,7.46,Ben Palmer,262781400.0
 SLP,"Simulations Plus, Inc.",NASDAQ,262711664.0,13.04,Shawn O'Connor,254594170.0
 HCACU,Hall Chadwick Acquisition Corp.,NASDAQ,262636521.0,10.33,Alejandro Lopez Bono,
-OACC,Oaktree Acquisition Corp. III Life Sciences,NASDAQ,261806479.0,10.65,Zaid Pardesi,201702585.0
+OACC,Oaktree Acquisition Corp. III Life Sciences,NASDAQ,261806458.0,10.65,Zaid Pardesi,201702585.0
 ESOA,Energy Services of America Corporation,NASDAQ,261449790.0,14.21,Douglas Vernon Reynolds,234266620.0
 FXNC,First National Corporation,NASDAQ,261283946.0,28.9,Gerald F. Smith Jr.,248773908.0
 ATLO,Ames National Corporation,NASDAQ,260540493.0,29.3,John Nelson,244548669.0
@@ -3259,9 +3259,8 @@ CEPV,"Cantor Equity Partners V, Inc. Class A Ordinary Shares",NASDAQ,258975600.0
 INR,"Infinity Natural Resources, Inc.",NYSE,258428234.0,16.8,Zack Arnold,-111315662910.0
 PMTRU,Perimeter Acquisition Corp. I,NASDAQ,258405000.0,10.7,Josef Meir Valdman,316606208.0
 ALOV,Aldabra 4 Liquidity Opportunity Vehicle Inc.,NASDAQ,258390000.0,9.9,Neal Jay Yanofsky,
-FC,Franklin Covey Co.,NYSE,258383466.0,21.55,Paul S. Walker,228973119.0
 RC,Ready Capital Corporation,NYSE,258301140.0,1.58,Thomas Edward Capasse,5974137683.0
-CLPT,"ClearPoint Neuro, Inc.",NASDAQ,258215313.0,8.68,Joseph Michael Burnett,399661674.0
+CLPT,"ClearPoint Neuro, Inc.",NASDAQ,258215322.0,8.68,Joseph Michael Burnett,399661674.0
 HDSN,"Hudson Technologies, Inc.",NASDAQ,258019110.0,6.0,Kenneth Gaglione,258404500.0
 MYFW,"First Western Financial, Inc.",NASDAQ,257882534.0,26.49,Scott C. Wylie,356708550.0
 MLAA,Mountain Lake Acquisition Corp. II Class A Ordinary Shares,NASDAQ,257737500.0,9.875,Paul Jaron Grinberg,
@@ -3278,16 +3277,17 @@ RILY,"BRC Group Holdings, Inc.",NASDAQ,254141007.0,7.23,Bryant Richard Riley,138
 MDV-PA,Modiv Inc.,NYSE,253754434.0,24.98,Aaron Scott Halfacre,400152542.0
 FRAF,Franklin Financial Services Corporation,NASDAQ,253731574.0,56.6,Craig W. Best,418038600.0
 XRPNU,Armada Acquisition Corp. II – Units,NASDAQ,253697000.0,10.7,Taryn Jogi Naidu,178892502.0
+ACAAU,Averin Capital Acquisition Corp. Units,NASDAQ,253008000.0,10.04,David A. Berry,213474.0
 ALUB-UN,Alussa Energy Acquisition Corp.,NYSE,253000000.0,10.12,Ole Henry Slorer,362003561.0
 BRCC,BRC Inc.,NYSE,252786040.0,0.8069,Christopher Mondzelewski,312763393.0
 AACI,Armada Acquisition Corp. III,NASDAQ,251902140.0,9.87,Stephen Herbert,335906114.0
 PDYN,Palladyne AI Corp.,NASDAQ,251807998.0,6.48,Benjamin G. Wolff,158027154.0
 AMPY,Amplify Energy Corp.,NYSE,251304185.0,6.09,Daniel Furbee,127672870.0
-ACAAU,Averin Capital Acquisition Corp. Units,NASDAQ,251000000.0,10.04,David A. Berry,213474.0
 RAC-UN,Rithm Acquisition Corp.,NYSE,250796000.0,10.6,Michael Nierenberg,300901300.0
 HACQU,HCM IV Acquisition Corp. Unit,NASDAQ,250250000.0,10.01,Shawn Peter Matthews,
 PTOR,Praetorian Acquisition Corp.,NASDAQ,249799550.0,9.8,Justin Di Rezze,196953.0
 JAKK,"JAKKS Pacific, Inc.",NASDAQ,249716808.0,21.82,Stephen G. Berman,227676800.0
+FC,Franklin Covey Co.,NYSE,248957474.0,21.55,Paul S. Walker,228973119.0
 FUNC,First United Corporation,NASDAQ,248742799.0,38.26,Jason Rush,229105600.0
 TENX,"Tenax Therapeutics, Inc.",NASDAQ,248075568.0,14.425,Christopher T. Giordano,380493204.0
 DMAAU,Drugs Made In America Acquisition Corp. Units,NASDAQ,247894086.0,10.5802,Roger Bendelac,85366471.0
@@ -3299,7 +3299,7 @@ BRCB,"Black Rock Coffee Bar, Inc. Class A Common Stock",NASDAQ,247145311.0,14.14
 RAC,Rithm Acquisition Corp.,NYSE,246773800.0,10.43,Michael Nierenberg,300901300.0
 USAU,U.S. Gold Corp.,NASDAQ,246692387.0,14.95,George Michael Bee,117244285.0
 SATLW,Satellogic Inc.,NASDAQ,246405360.0,1.86,Emiliano Kargieman,173034077.0
-ESCA,"Escalade, Incorporated",NASDAQ,246120791.0,17.83,Patrick J. Griffin,193625810.0
+ESCA,"Escalade, Incorporated",NASDAQ,246120773.0,17.83,Patrick J. Griffin,193625810.0
 GENVR,Gen Digital Inc. Contingent Value Rights,NASDAQ,245909744.0,0.4,Vincent Pilette,23616310000.0
 MITT,TPG Mortgage Investment Trust Inc,NYSE,245632770.0,7.74,Thomas J. Durkin,8288991480.0
 ASUR,"Asure Software, Inc.",NASDAQ,244578708.0,8.62,Patrick F. Goepel,313170600.0
@@ -3308,7 +3308,7 @@ MEI,"Methode Electronics, Inc.",NYSE,243962836.0,6.89,Jonathan DeGaynor,47670435
 EVOXU,Evolution Global Acquisition Corp Units,NASDAQ,243840000.0,10.16,Stephen Marc Silver,
 NREF,"NexPoint Real Estate Finance, Inc.",NYSE,243706492.0,13.79,James David Dondero,4770762480.0
 NUAI,"New Era Energy & Digital, Inc.",NASDAQ,243565565.0,4.29,Everett Willard Gray,82279605.0
-STRS,Stratus Properties Inc.,NASDAQ,243120256.0,30.41,William H. Armstrong,278988300.0
+STRS,Stratus Properties Inc.,NASDAQ,243120226.0,30.41,William H. Armstrong,278988300.0
 KOYNU,CSLM Digital Asset Acquisition Corp III Units,NASDAQ,242974013.0,10.17,Vikas K. Mittal,75891985.0
 MRBK,Meridian Corporation,NASDAQ,242728638.0,20.44,Christopher J. Annas,366674079.0
 REFI,"Chicago Atlantic Real Estate Finance, Inc.",NASDAQ,242633931.0,11.51,Anthony Robert Cappell,340994615.0
@@ -3457,7 +3457,7 @@ NFE,New Fortress Energy Inc.,NASDAQ,199869894.0,0.7024,Wesley Robert Edens,12295
 PMTS,CPI Card Group Inc.,NASDAQ,199754772.0,17.43,John D. Lowe,482049765.0
 DIBS,"1stdibs.Com, Inc.",NASDAQ,199737345.0,5.49,David S. Rosenblatt,211925849.0
 VUZI,Vuzix Corporation,NASDAQ,199579819.0,2.4,Paul J. Travers,273165692.0
-RCMT,"RCM Technologies, Inc.",NASDAQ,199565007.0,26.93,Bradley S. Vizi,174201842.0
+RCMT,"RCM Technologies, Inc.",NASDAQ,199565034.0,26.93,Bradley S. Vizi,174201842.0
 SRJN,Spire Inc. 6.375% Junior Subord,NYSE,199360000.0,24.92,Scott E. Doyle,6749150000.0
 WLII,Willow Lane Acquisition Corp. II Class A Ordinary Shares,NASDAQ,199200600.0,9.99,Luke Weil,
 XCBEU,X3 Acquisition Corp. Ltd. Unit,NASDAQ,199200000.0,9.96,Andrew Jay Redleaf,
@@ -3472,7 +3472,7 @@ RNA,"Atrium Therapeutics, Inc.",NASDAQ,197195218.0,12.71,Kathleen Gallagher,-138
 QUIK,QuickLogic Corporation,NASDAQ,196873644.0,11.11,Brian C. Faith,99135020.0
 CHRS,"Coherus Oncology, Inc.",NASDAQ,196802666.0,1.68,Dennis Lanfear,122381885.0
 SND,"Smart Sand, Inc.",NASDAQ,195779135.0,4.93,Charles Edwin Young,169825000.0
-CURV,Torrid Holdings Inc.,NYSE,195653669.0,1.97,Lisa Harper,533118299.0
+CURV,Torrid Holdings Inc.,NYSE,195653674.0,1.97,Lisa Harper,533118299.0
 KRMD,"KORU Medical Systems, Inc.",NASDAQ,195219384.0,4.21,Linda Tharby,262970965.0
 LFAC,Leapfrog Acquisition Corporation,NASDAQ,195213330.0,9.94,Matthew R. Pollard,
 BBAI-WT,"BigBear.ai Holdings, Inc. WT",NYSE,195088159.0,0.4098,Kevin McAleenan,1874729425.0
@@ -3687,7 +3687,7 @@ THRY,"Thryv Holdings, Inc.",NASDAQ,128078500.0,2.9,Joseph A. Walsh,509850865.0
 RFIL,"RF Industries, Ltd.",NASDAQ,127932779.0,11.83,Robert D. Dawson,104774130.0
 NPWR,NET Power Inc.,NYSE,127878729.0,1.51,Daniel Joseph Rice,-15930841.0
 ACNT,Ascent Industries Co.,NASDAQ,127558475.0,13.47,J. Bryan Kitchen,111861170.0
-DHX,"DHI Group, Inc.",NYSE,127265108.0,2.83,Art Zeile,113061250.0
+DHX,"DHI Group, Inc.",NYSE,127265103.0,2.83,Art Zeile,113061250.0
 SEVN,Seven Hills Realty Trust,NASDAQ,127233935.0,8.35,Thomas Joseph Lorenzini,499822000.0
 DERM,Journey Medical Corporation,NASDAQ,126655782.0,5.17,Claude Maraoui,164908371.0
 GPRO,"GoPro, Inc.",NASDAQ,125857194.0,0.7677,Nicholas D. Woodman,257240390.0
@@ -3702,14 +3702,14 @@ NMP,NMP Acquisition Corp.,NASDAQ,123923875.0,10.21,Melanie Figueroa,56774480.0
 BAER,"Bridger Aerospace Group Holdings, Inc. Common Stock",NASDAQ,123590493.0,2.21,Sam Davis,312809890.0
 WALD,Waldencast plc,NASDAQ,122969485.0,1.04,Michel Brousset,331571023.0
 LSBK,"Lake Shore Bancorp, Inc.",NASDAQ,122948409.0,15.69,Kim C. Liddell,46096852.0
-TONX,TON Strategy Co.,NASDAQ,122908288.0,2.08,Veronika Kapustina,460386731.0
+TONX,TON Strategy Co.,NASDAQ,122908280.0,2.08,Veronika Kapustina,460386731.0
 CRBP,"Corbus Pharmaceuticals Holdings, Inc.",NASDAQ,122847929.0,9.8,Yuval Cohen,81542324.0
 GLOO,"Gloo Holdings, Inc.",NASDAQ,122510082.0,5.16,Scott A. Beck,689361488.0
 ROC,Rank One Computing Corporation,NASDAQ,122303614.0,6.41,Scott Swann,95231341.0
 SKYX,SKYX Platforms Corp.,NASDAQ,121809865.0,1.12,Leonard Jay Sokolow Econ.,265304288.0
 GHI,Greystone Housing Impact Investors LP,NYSE,121582552.0,5.16,Kenneth C. Rogozinski,1255828172.0
 BSET,"Bassett Furniture Industries, Incorporated",NASDAQ,121247724.0,14.01,Robert H. Spilman Jr.,251509298.0
-DLTH,Duluth Holdings Inc.,NASDAQ,120950872.0,3.29,Stephanie L. Pugliese,213978800.0
+DLTH,Duluth Holdings Inc.,NASDAQ,120950869.0,3.29,Stephanie L. Pugliese,213978800.0
 IKT,"Inhibikase Therapeutics, Inc.",NASDAQ,120705020.0,1.7,Mark T. Iwicki,62315681.0
 AOUT,"American Outdoor Brands, Inc.",NASDAQ,120541806.0,9.57,Brian Daniel Murphy,153673380.0
 LKSPU,Lake Superior Acquisition Corp.,NASDAQ,120497600.0,10.16,Cong Wang,70691.0
@@ -3789,7 +3789,7 @@ SUNS,"Sunrise Realty Trust, Inc.",NASDAQ,105182916.0,7.78,Brian Sedrish,23572016
 TWLV,Twelve Seas Investment Company II,NASDAQ,104870593.0,9.91,Dimitri Elkin,444799116.0
 CLAR,Clarus Corporation,NASDAQ,104836980.0,2.73,Warren Kanders,104212550.0
 CNTN,Canton Strategic Holdings Inc,NASDAQ,104686013.0,2.985,Mark Wendland,80076661.0
-BOOM,DMC Global Inc.,NASDAQ,104273312.0,5.09,James O'Leary,223904413.0
+BOOM,DMC Global Inc.,NASDAQ,104273307.0,5.09,James O'Leary,223904413.0
 FGMC,FG Merger Corp.,NASDAQ,104090538.0,10.11,Larry Gene Swets Jr.,73231458.0
 SGMO,"Sangamo Therapeutics, Inc.",NASDAQ,104065629.0,0.2512,Alexander D. Macrae Ch.B,123528060.0
 REKR,"Rekor Systems, Inc.",NASDAQ,103635386.0,0.7588,Christopher Kadoch,178315528.0
@@ -3802,13 +3802,13 @@ DOMO,"Domo, Inc.",NASDAQ,101152351.0,2.42,Joshua G. James,337267080.0
 BOTJ,"Bank of the James Financial Group, Inc.",NASDAQ,100998404.0,22.23,Robert R. Chapman,64673220.0
 JFB,JFB Construction Holdings Class A Common Stock,NASDAQ,100956435.0,5.95,Joseph Frank Basile,102532535.0
 OCC,Optical Cable Corporation,NASDAQ,100776676.0,11.37,Neil D. Wilkin Jr.,74622150.0
-STHO,Star Holdings,NASDAQ,100457687.0,8.31,Jay S. Sugarman,327798070.0
+STHO,Star Holdings,NASDAQ,100457679.0,8.31,Jay S. Sugarman,327798070.0
 ISPR,Ispire Technology Inc.,NASDAQ,100257262.0,1.75,Tuanfang Liu,128252939.0
 KEQU,Kewaunee Scientific Corporation,NASDAQ,100108461.0,34.925,Thomas David Hull,125852540.0
 TBI,"TrueBlue, Inc.",NYSE,100108458.0,3.33,Taryn R. Owen,286378300.0
 DTSQ,DT Cloud Star Acquisition Corporation,NASDAQ,99957107.0,11.23,Zheng Sun,67528910.0
 BHAVU,BHAV Acquisition Corp Units,NASDAQ,99900000.0,9.99,Giri Devanur,99574.0
-TTRX,Turn Therapeutics Inc.,NASDAQ,99789934.0,3.35,Bradley E. Burnam,93208352.0
+TTRX,Turn Therapeutics Inc.,NASDAQ,99789934.0,3.35,Bradley E. Burnam,49155198.0
 NOEM,CO2 Energy Transition Corp. Common Stock,NASDAQ,99691800.0,10.4,Brady Douglas Rodgers,70725129.0
 EXOZ,"eXoZymes, Inc.",NASDAQ,99204206.0,11.7,Michael Heltzen,89561632.0
 BDSX,"Biodesix, Inc.",NASDAQ,99146061.0,13.13,Scott Hutton,105213800.0
@@ -3829,7 +3829,7 @@ SEER,"Seer, Inc.",NASDAQ,95351105.0,1.69,Omid C. Farokhzad,81496071.0
 VERI,"Veritone, Inc.",NASDAQ,94946294.0,1.88,Ryan Scott Steelberg,294419400.0
 SPWR,SunPower Inc.,NASDAQ,94858096.0,1.16,Thurman John Rodgers,133299637.0
 UBCP,"United Bancorp, Inc.",NASDAQ,93654442.0,16.22,Scott A. Everson,201114520.0
-STIM,"Neuronetics, Inc.",NASDAQ,93523401.0,1.35,Daniel L. Reuvers,147181380.0
+STIM,"Neuronetics, Inc.",NASDAQ,93523410.0,1.35,Daniel L. Reuvers,147181380.0
 LCCCU,Lakeshore Acquisition III Corp. Unit,NASDAQ,93194329.0,10.47,Deyin Chen,46438464.0
 ARQ,"Arq, Inc.",NASDAQ,92982764.0,2.17,Robert E. Rasmus,166596940.0
 ALXO,ALX Oncology Holdings Inc.,NASDAQ,92186225.0,1.7,Jason W. Lettmann,49477990.0
@@ -3841,8 +3841,8 @@ SSBI,Summit State Bank,NASDAQ,91368724.0,13.685,Brian J. Reed,18679920.0
 BEEP,Mobile Infrastructure Corporation,NASDAQ,91368000.0,2.16,Stephanie L. Hogue,296141943.0
 BWNB,"Babcock & Wilcox Enterprises, I",NYSE,90927200.0,24.98,Kenneth M. Young,947436000.0
 OWLT,"Owlet, Inc.",NYSE,90653385.0,5.01,Kurt Workman,9084405000.0
+JELD,"JELD-WEN Holding, Inc.",NYSE,90620355.0,1.05,William J. Christensen,1564332304.0
 FNWB,First Northwest Bancorp,NASDAQ,90441764.0,9.57,Curt T. Queyrouze,398631000.0
-JELD,"JELD-WEN Holding, Inc.",NYSE,90410880.0,1.05,William J. Christensen,1564332304.0
 FTLF,"FitLife Brands, Inc.",NASDAQ,90342113.0,9.62,Dayton Robert Judd,195677690.0
 FUSB,"First US Bancshares, Inc.",NASDAQ,90251813.0,15.65,James F. House,82813888.0
 ANIX,"Anixa Biosciences, Inc.",NASDAQ,90189938.0,2.69,Amit Kumar,132995020.0
@@ -3899,8 +3899,7 @@ RSSS,"Research Solutions, Inc.",NASDAQ,79302197.0,2.41,Roy W. Olivier,75827694.0
 PLRX,"Pliant Therapeutics, Inc.",NASDAQ,79250770.0,1.28,Bernard Coulie,58527602.0
 FLNA,"Filana Therapeutics, Inc.",NASDAQ,79224949.0,1.64,Richard Jon Barry,3506849.0
 HAIN,"The Hain Celestial Group, Inc.",NASDAQ,79163684.0,0.87,Alison E. Lewis,861858040.0
-SSEAU,Starry Sea Acquisition Corp Unit,NASDAQ,79162500.0,10.31,Yan Liang,22910868.0
-ZVIA,Zevia PBC,NYSE,78845324.0,1.17,Amy E. Taylor,128471479.0
+ZVIA,Zevia PBC,NYSE,78845320.0,1.17,Amy E. Taylor,128471479.0
 FDSB,Fifth District Savings Bank,NASDAQ,78612945.0,14.85,Amie L. Lyons,72182000.0
 ESLA,"Estrella Immunopharma, Inc.",NASDAQ,78503968.0,1.84,Cheng Liu,56056161.0
 SLSN,"Solesence, Inc. Common Stock",NASDAQ,78402014.0,1.11,Kevin Cureton,135582643.0
@@ -3908,6 +3907,7 @@ HNNA,"Hennessy Advisors, Inc.",NASDAQ,78132552.0,9.9,Neil Joseph Hennessy,494548
 MMTXU,Miluna Acquisition Corp,NASDAQ,78095115.0,10.15,Hao Yuan,
 BTCS,BTCS Inc.,NASDAQ,77616552.0,1.56,Charles W. Allen,97939876.0
 SSEA,Starry Sea Acquisition Corp Ordinary Shares,NASDAQ,77504091.0,10.15,Yan Liang,22437793.0
+SSEAU,Starry Sea Acquisition Corp Unit,NASDAQ,77073436.0,10.31,Yan Liang,22910868.0
 SCAG,Scage Future American Depositary Shares,NASDAQ,76944462.0,1.0597,Chao Gao,112326179.0
 OM,"Outset Medical, Inc.",NASDAQ,76908829.0,4.2,Leslie L. Trigg,125944810.0
 SYPR,"Sypris Solutions, Inc.",NASDAQ,76689800.0,3.33,Jeffrey T. Gill,73768800.0
@@ -3959,13 +3959,13 @@ UHG,"United Homes Group, Inc.",NASDAQ,68827839.0,1.17,John Gregory Micenko Jr.,2
 HSPT,Horizon Space Acquisition II Corp.,NASDAQ,68735600.0,7.57,Min Zhai,72787083.0
 XXI,Twenty One Capital Inc,NYSE,68701000.0,6.67,Jack Mallers,133299992.0
 CBUS,"Cibus, Inc.",NASDAQ,68686125.0,1.51,Peter R. Beetham,1054220341.0
-VGAS,"Verde Clean Fuels, Inc.",NASDAQ,68606421.0,1.54,George Wrigley Burdette,-20272571.0
+VGAS,"Verde Clean Fuels, Inc.",NASDAQ,68606415.0,1.54,George Wrigley Burdette,-20272571.0
 GCTS,"GCT Semiconductor Holding, Inc.",NYSE,68465555.0,1.29,John Brian Schlaefer,63583400.0
 MAPS,"WM Technology, Inc.",NASDAQ,68347294.0,0.3921,Douglas Francis,52084858.0
 KPTI,Karyopharm Therapeutics Inc.,NASDAQ,68298288.0,8.0,Richard A. Paulson,253548600.0
 BGSF,"BGSF, Inc.",NYSE,68250880.0,6.07,Kelly Brown,34960640.0
 BRID,Bridgford Foods Corporation,NASDAQ,68076240.0,7.5,Michael W. Bridgford,77813656.0
-MCHX,"Marchex, Inc.",NASDAQ,68056416.0,1.5499,Russell C. Horowitz,63656320.0
+MCHX,"Marchex, Inc.",NASDAQ,68056424.0,1.5499,Russell C. Horowitz,63656320.0
 IZEA,"IZEA Worldwide, Inc.",NASDAQ,67784151.0,3.91,Patrick James Venetucci,24728742.0
 TZOO,Travelzoo,NASDAQ,67671166.0,6.19,Holger Bartel,79773600.0
 LFT,"Lument Finance Trust, Inc.",NYSE,67071059.0,1.28,James Peter Flynn,1038788472.0
@@ -3984,12 +3984,12 @@ ORIQU,Origin Investment Corp I Units,NASDAQ,64566800.0,10.16,Yung-Hsi Chang,3437
 GPMT,Granite Point Mortgage Trust Inc.,NYSE,64210918.0,1.35,John A. Taylor,1220951564.0
 ICCC,ImmuCell Corporation,NASDAQ,64006103.0,7.075,F. Olivier Te Boekhorst,64897284.0
 EQ,"Equillium, Inc.",NASDAQ,63938626.0,1.8,Bruce D. Steel,112857639.0
+FLD,Fold Holdings Inc,NASDAQ,63521124.0,1.25,William Reeves,102539295.0
 ASRV,"AmeriServ Financial, Inc.",NASDAQ,62937431.0,3.71,Jeffrey A. Stopko,113479800.0
 GRWG,GrowGeneration Corp.,NASDAQ,62494536.0,1.04,Darren Lampert,88577500.0
 RGS,Regis Corporation,NASDAQ,62469450.0,25.0,Susan Lintonsmith,368270200.0
 SPAI,Safe Pro Group Inc. Common Stock,NASDAQ,62353325.0,3.7,Daniyel Erdberg,54489042.0
 BAYAU,Bayview Acquisition Corp Unit,NASDAQ,62332185.0,11.85,Xin Wang,32878211.0
-FLD,Fold Holdings Inc,NASDAQ,62289123.0,1.25,William Reeves,102539295.0
 WFCF,"Where Food Comes From, Inc.",NASDAQ,62147285.0,12.29,John K. Saunders,57435480.0
 QTTB,Q32 Bio Inc.,NASDAQ,62113031.0,5.05,Jodie Pope Morrison,7884885.0
 SOTK,Sono-Tek Corporation,NASDAQ,62056037.0,3.95,R. Stephen Harshbarger,53076327.0
@@ -4015,10 +4015,10 @@ LNZA,"LanzaTech Global, Inc.",NASDAQ,59673772.0,27.15,Jennifer Holmgren,46225374
 CTOR,"Citius Oncology, Inc.",NASDAQ,59585763.0,0.675,Leonard L. Mazur,148609180.0
 OKUR,"OnKure Therapeutics, Inc.",NASDAQ,58796330.0,4.3,Nicholas A. Saccomano,-19304847.0
 GECC,Great Elm Capital Corp.,NASDAQ,58695752.0,5.09,Matthew Dov Kaplan,274625213.0
-SCLX,Scilex Holding Company,NASDAQ,58084226.0,6.8,Henry H. Ji,227805800.0
 GROV,"Grove Collaborative Holdings, Inc.",NYSE,57992696.0,1.38,Jeff Yurcisin,54911152.0
 BOF,BranchOut Food Inc.,NASDAQ,57965104.0,3.975,Eric Healy,40118635.0
 LUNG,Pulmonx Corporation,NASDAQ,57864964.0,1.37,Glendon E. French,76270914.0
+SCLX,Scilex Holding Company,NASDAQ,57750034.0,6.8,Henry H. Ji,227805800.0
 SPWH,"Sportsman's Warehouse Holdings, Inc.",NASDAQ,57430512.0,1.48,Paul E. Stone,477504820.0
 AIRTP,"Air T, Inc.",NASDAQ,57311207.0,18.825,Nicholas John Swenson,169657999.0
 FSEA,First Seacoast Bancorp,NASDAQ,56901332.0,12.115,James R. Brannen,92776836.0
@@ -4039,9 +4039,9 @@ NOMA,Nomadar Corp.,NASDAQ,54391179.0,3.81,Rafael Jesus Contreras Chamorro,687160
 KZR,"Kezar Life Sciences, Inc.",NASDAQ,54328154.0,7.37,Christopher J. Kirk,-23528762.0
 OPTXW,"Syntec Optics Holdings, Inc.",NASDAQ,53879916.0,1.46,Steven Polvinen,116395085.0
 LVO,"LiveOne, Inc.",NASDAQ,53816370.0,4.62,Robert S. Ellin,66136659.0
-STKS,"The ONE Group Hospitality, Inc.",NASDAQ,53429588.0,1.71,Emanuel N. Hilario,701953080.0
+STKS,"The ONE Group Hospitality, Inc.",NASDAQ,53429634.0,1.71,Emanuel N. Hilario,701953080.0
 CATO,The Cato Corporation,NYSE,53211624.0,2.96,John Derham Cato,189121050.0
-LFVN,LifeVantage Corporation,NASDAQ,53092440.0,4.15,Steven R. Fife,151720080.0
+LFVN,LifeVantage Corporation,NASDAQ,53092610.0,4.15,Steven R. Fife,151720080.0
 FUSE,Fusemachines Inc.,NASDAQ,52957027.0,1.83,Sameer Raj Maskey,15973883.0
 DRIO,DarioHealth Corp.,NASDAQ,52927944.0,7.25,Erez Raphael,570302199.0
 ALOY,REalloys Inc.,NASDAQ,52824352.0,11.79,Leonard Sternheim,31610701.0
@@ -4058,7 +4058,7 @@ LOAN,"Manhattan Bridge Capital, Inc.",NASDAQ,50517948.0,4.42,Assaf Ran,-13393898
 ALCY,Alchemy Investments Acquisition Corp 1,NASDAQ,50454424.0,11.99,Vittorio Savoia,13629678.0
 CNVS,Cineverse Corp.,NASDAQ,50255884.0,2.36,Christopher J. McGurk,36493240.0
 GENK,"GEN Restaurant Group, Inc.",NASDAQ,49570292.0,1.5,Thomas V. Croal,195287040.0
-ALGS,"Aligos Therapeutics, Inc.",NASDAQ,49471517.0,7.995,Lawrence Blatt,79074780.0
+ALGS,"Aligos Therapeutics, Inc.",NASDAQ,49471509.0,7.995,Lawrence Blatt,79074780.0
 BWEN,"Broadwind, Inc.",NASDAQ,49418684.0,2.12,Eric Blashford,92555590.0
 CDLX,"Cardlytics, Inc.",NASDAQ,49350646.0,0.8964,Amit Gupta,227676099.0
 TCBS,"Texas Community Bancshares, Inc.",NASDAQ,49340169.0,17.1,Jason Sobel,91377999.0
@@ -4078,7 +4078,7 @@ BKHA,Black Hawk Acquisition Corporation,NASDAQ,48139957.0,11.59,Kent Louis Kaufm
 BZAIW,"Blaize Holdings, Inc.",NASDAQ,48018532.0,0.4599,Dinakar Munagala,159699766.0
 DXR,Daxor Corporation,NASDAQ,47690728.0,9.465,Michael Richard Feldschuh,73644968.0
 ESHA,ESH Acquisition Corp.,NASDAQ,47681667.0,12.25,James L. Francis,113622907.0
-NDLS,Noodles & Company,NASDAQ,47665141.0,8.095,Stephen Kennedy,299989163.0
+NDLS,Noodles & Company,NASDAQ,47665141.0,8.095,Joseph D. Christina,299989163.0
 VTSI,"VirTra, Inc.",NASDAQ,47589356.0,4.21,John F. Givens,36577033.0
 NTRB,Nutriband Inc.,NASDAQ,47482044.0,3.9,Gareth Sheridan,83806378.0
 XFOR,"X4 Pharmaceuticals, Inc.",NASDAQ,46774030.0,4.1,Adam R. Craig,29407272.0
@@ -4095,7 +4095,7 @@ SCWO,"374Water, Inc.",NASDAQ,45008766.0,3.11,Daniel T. Bogar,29097356.0
 SCYX,"SCYNEXIS, Inc.",NASDAQ,44663800.0,1.0,David Gonzalez Angulo,12493870.0
 FKWL,Franklin Wireless Corp.,NASDAQ,44662421.0,3.79,Chae Kim,35911445.0
 RLYB,Rallybio Corporation,NASDAQ,44644857.0,8.44,Stephen Uden,-292759.0
-CNTY,"Century Casinos, Inc.",NASDAQ,44167583.0,1.5,Erwin Haitzmann,1052894270.0
+CNTY,"Century Casinos, Inc.",NASDAQ,44167584.0,1.5,Erwin Haitzmann,1052894270.0
 SLDPW,"Solid Power, Inc.",NASDAQ,44136155.0,0.239,John C. Van Scoter,602582410.0
 SEAT,Vivid Seats Inc.,NASDAQ,43948799.0,6.06,Lawrence C. Fey,-30030990.0
 KLXE,"KLX Energy Services Holdings, Inc.",NASDAQ,43549670.0,2.23,Christopher J. Baker,347943000.0
@@ -4158,8 +4158,8 @@ RDI,"Reading International, Inc.",NASDAQ,37772759.0,1.08,Ellen Marie Cotter,3742
 AHT-PG,"Ashford Hospitality Trust, Inc.",NYSE,37755152.0,6.3199,Stephen Zsigray,2881671240.0
 QMCO,Quantum Corporation,NASDAQ,37742589.0,6.04,Hugues Meyrath,190469000.0
 VCICW,Vine Hill Capital Investment Corp.,NASDAQ,37413333.0,1.22,Nicholas A. Petruska,237098000.0
-MDBH,"MDB Capital Holdings, LLC Class A common",NASDAQ,37101306.0,3.6594,Christopher A. Marlett,19965911.0
 NMTC,NeuroOne Medical Technologies Corporation,NASDAQ,37092068.0,0.7317,David A. Rosa,29376266.0
+MDBH,"MDB Capital Holdings, LLC Class A common",NASDAQ,36676146.0,3.6594,Christopher A. Marlett,19965911.0
 KOSS,Koss Corporation,NASDAQ,36540451.0,3.86,Michael J. Koss,47485833.0
 CREX,"Creative Realities, Inc.",NASDAQ,36395505.0,3.46,Richard C. Mills,38507001.0
 RMTI,"Rockwell Medical, Inc.",NASDAQ,35850944.0,0.9098,Mark Strobeck,-24954543671.0
@@ -4176,7 +4176,7 @@ SKYQ,Sky Quarry Inc.,NASDAQ,34831179.0,12.59,Marcus Laun,14847883.0
 PDPA,Pearl Diver Credit Company Inc.,NYSE,34747848.0,25.1796,Indranil Basu,182548279.0
 RNXT,"RenovoRx, Inc.",NASDAQ,34577872.0,0.9853,Shaun R. Bagai,22766359.0
 PARK,"Park Dental Partners, Inc. Common Stock",NASDAQ,34514360.0,17.75,Peter G. Swenson,3575712440.0
-KPLT,"Katapult Holdings, Inc.",NASDAQ,34260760.0,7.19,Orlando J. Zayas,89212420.0
+KPLT,"Katapult Holdings, Inc.",NASDAQ,34260767.0,7.19,Orlando J. Zayas,89212420.0
 IBIO,"iBio, Inc.",NASDAQ,34105262.0,2.16,Martin Brenner,2937786.0
 TACT,TransAct Technologies Incorporated,NASDAQ,33993480.0,3.32,John Dillon,20476000.0
 VNCE,Vince Holding Corp.,NASDAQ,33748682.0,2.53,Brendan L. Hoffman,166161400.0
@@ -4218,7 +4218,7 @@ DTST,Data Storage Corporation,NASDAQ,29993432.0,4.0,Charles Piluso,28923170.0
 OMCC,Old Market Capital Corporation,NASDAQ,29876427.0,4.4,Jeffrey C. Royal,19592920.0
 KTCC,Key Tronic Corporation,NASDAQ,29862990.0,2.75,Brett R. Larsen,146460260.0
 ARAI,Arrive AI Inc.,NASDAQ,29511964.0,0.81,Daniel Steven O'Toole,397101073.0
-BCG,"Binah Capital Group, Inc.",NASDAQ,29420158.0,1.76,Craig Michael Gould,64469160.0
+BCG,"Binah Capital Group, Inc.",NASDAQ,29420160.0,1.76,Craig Michael Gould,64469160.0
 FFAI,Faraday Future Intelligent Electric Inc.,NASDAQ,29330228.0,0.3198,Matthias Aydt,209535582.0
 AERT,"Aeries Technology, Inc",NASDAQ,29166824.0,0.5809,Bhisham Khare,40079801.0
 KYNB,"Kyntra Bio, Inc.",NASDAQ,29015750.0,7.17,Thane Wettig,-12374460.0
@@ -4266,7 +4266,7 @@ XCUR,"Exicure, Inc.",NASDAQ,24074277.0,3.777,Jungsoo Kim,30560249.0
 SKYE,"Skye Bioscience, Inc.",NASDAQ,24032710.0,0.72,Punit S. Dhillon,24126247.0
 TXMD,"TherapeuticsMD, Inc.",NASDAQ,23958929.0,2.07,Marlan D. Walker,16496470.0
 TVGN,Tevogen Bio Holdings Inc.,NASDAQ,23860895.0,5.73,Ryan H. Saadi,57525204.0
-BEEM,Beam Global,NASDAQ,23857153.0,1.515,Desmond Wheatley,25551000.0
+BEEM,Beam Global,NASDAQ,23857153.0,1.515,Desmond Wheatley,25750000.0
 QSIAW,Quantum-Si incorporated,NASDAQ,23517021.0,0.1087,Jeffrey Alan Hawkins,200068500.0
 QRHC,Quest Resource Holding Corporation,NASDAQ,23474976.0,1.12,Perry W. Moss,103056280.0
 USEG,U.S. Energy Corp.,NASDAQ,23333712.0,0.6883,Ryan Lewis Smith,33723515.0
@@ -4292,7 +4292,7 @@ ABVC,"ABVC BioPharma, Inc.",NASDAQ,20721335.0,1.43,Uttam Yashwant Patil,52328131
 AYTU,"Aytu BioPharma, Inc.",NASDAQ,20653218.0,2.55,Joshua R. Disbrow,5674841.0
 SLNH,"Soluna Holdings, Inc.",NASDAQ,20624701.0,0.71,John Belizaire,-13170848.0
 KRAQW,KRAKacquisition Corp Warrants,NASDAQ,20524050.0,0.5949,Ravikant Tanuku,
-BLNE,"Beeline Holdings, Inc.",NASDAQ,20266035.0,2.24,Nicholas R. Liuzza Jr.,36268847.0
+BLNE,"Beeline Holdings, Inc.",NASDAQ,20266035.0,2.24,Christopher R. Moe,36268847.0
 ALLR,"Allarity Therapeutics, Inc.",NASDAQ,20090105.0,1.27,Thomas H. Jensen,2242257.0
 EVLVW,"Evolv Technologies Holdings, Inc.",NASDAQ,19863971.0,0.1179,John Kedzierski,1198970550.0
 ARCIW,Archimedes Tech SPAC Partners III Co. Warrant,NASDAQ,19716750.0,0.575,Long Long,
@@ -4344,15 +4344,15 @@ BNAIW,"Brand Engagement Network, Inc.",NASDAQ,15792431.0,0.3075,Tyler J. Luck,35
 REBN,"Reborn Coffee, Inc.",NASDAQ,15657964.0,2.62,Jay Kim,8503849.0
 TLPH,"Talphera, Inc.",NASDAQ,15604938.0,0.7606,Vincent J. Angotti,48953210.0
 RTACW,Renatus Tactical Acquisition Corp I Warrant,NASDAQ,15580644.0,0.5,Eric S. Swider,332736911.0
-GTEC,Greenland Technologies Holding Corporation,NASDAQ,15509513.0,0.69,Raymond Z. Wang,14808127.0
-BIAF,"bioAffinity Technologies, Inc.",NASDAQ,15070675.0,3.35,Maria Zannes,-3258084.0
+GTEC,Greenland Technologies Holding Corporation,NASDAQ,15509514.0,0.69,Raymond Z. Wang,14808127.0
+BIAF,"bioAffinity Technologies, Inc.",NASDAQ,15070672.0,3.35,Maria Zannes,-3258084.0
 APLM,"Apollomics, Inc.",NASDAQ,15007872.0,13.6,Hung-Wen Chen,233121.0
 SNAL,"Snail, Inc. Class A Common Stock",NASDAQ,14998914.0,0.397,Shi Hai,1155876727.0
 PMTRW,Perimeter Acquisition Corp. I Warrant,NASDAQ,14872800.0,0.6,Josef Meir Valdman,
 DFNS,T3 Defense Inc.,NASDAQ,14607435.0,0.5008,Menachem Shalom,6932639.0
 TVACW,Texas Ventures Acquisition III Corp,NASDAQ,14507205.0,0.48,Kevin J. McGurn,5483301.0
 GWH,"ESS Tech, Inc.",NYSE,14485669.0,1.15,Drew Buckley,16818056.0
-JUNS,"Jupiter Neurosciences, Inc.",NASDAQ,14468963.0,0.3988,Alison D. Silva,36851132.0
+JUNS,"Jupiter Neurosciences, Inc.",NASDAQ,14468963.0,0.3988,Christer Rosen,36851132.0
 SMSI,"Smith Micro Software, Inc.",NASDAQ,14417675.0,0.7,William W. Smith Jr.,11974821.0
 HACQW,HCM IV Acquisition Corp. Warrants,NASDAQ,14375000.0,0.5,Shawn Peter Matthews,
 ALISU,Calisa Acquisition Corp Units,NASDAQ,14367170.0,10.51,Hongfei Zhang,-1487.0
@@ -4364,7 +4364,7 @@ TAOX,TAO Synergies Inc.,NASDAQ,14098587.0,4.29,Joshua N. Silverman,3884857.0
 PHIO,Phio Pharmaceuticals Corp.,NASDAQ,14056873.0,1.21,Robert J. Bitterman,-14747782.0
 WVVIP,"Willamette Valley Vineyards, Inc.",NASDAQ,14049620.0,2.83,Michael Osborn,-365305474.0
 LASE,Laser Photonics Corporation,NASDAQ,14040718.0,0.9399,Wayne Tupuola,77721876.0
-TGL,Treasure Global Inc.,NASDAQ,13936702.0,3.66,Carlson Thow,25810226.0
+TGL,Treasure Global Inc.,NASDAQ,13936702.0,3.66,Chong Chan Teo,25810226.0
 LIXT,"Lixte Biotechnology Holdings, Inc.",NASDAQ,13876905.0,3.05,Geordan G. Pursglove,185798347.0
 OSRH,"OSR Holdings, Inc.",NASDAQ,13734942.0,0.535,Senyon Choe,5230810.0
 MLAAW,Mountain Lake Acquisition Corp. II Wt,NASDAQ,13715882.0,0.3709,Paul Jaron Grinberg,
@@ -4411,17 +4411,17 @@ LKSPR,Lake Superior Acquisition Corp. – Rights,NASDAQ,11978600.0,1.01,Cong Wan
 BNZIW,"Banzai International, Inc.",NASDAQ,11964945.0,0.0198,Joseph Davy,10371605243.0
 CYN,Cyngn Inc.,NASDAQ,11960772.0,1.5,Lior Tal,16623942.0
 CVKD,"Cadrenal Therapeutics, Inc. Common Stock",NASDAQ,11932449.0,4.76,Quang X. Pham,9509883.0
+TOMZ,"TOMI Environmental Solutions, Inc.",NASDAQ,11911436.0,0.5799,Halden Stuart Shane,19005712.0
 TRAW,"Traws Pharma, Inc.",NASDAQ,11825200.0,1.48,Iain D. Dukes,-7550158.0
 RSVRW,"Reservoir Media, Inc.",NASDAQ,11781283.0,0.18,Golnar Khosrowshahi,869650974.0
-TOMZ,"TOMI Environmental Solutions, Inc.",NASDAQ,11758751.0,0.5799,Halden Stuart Shane,19005712.0
 ARTW,"Art's-Way Manufacturing Co., Inc.",NASDAQ,11716030.0,2.26,Marc H. McConnell,17705773.0
 FEMY,Femasys Inc.,NASDAQ,11691661.0,0.397,Kathy Lee-Sepsick,18218870.0
 PSTV,"Plus Therapeutics, Inc.",NASDAQ,11614099.0,4.8,Marc H. Hedrick,31930077.0
 VRAR,"The Glimpse Group, Inc.",NASDAQ,11571002.0,0.549,Lyron Live Bentovim,20000413.0
+SNGX,"Soligenix, Inc.",NASDAQ,11542808.0,1.12,Christopher J. Schaber,-625018.0
 EDUC,Educational Development Corporation,NASDAQ,11501489.0,1.34,Craig White,43967032.0
 MBAVW,M3-Brigade Acquisition V Corp.,NASDAQ,11500000.0,0.4,Robert Rivas Collins,1630561.0
 AIRE,reAlpha Tech Corp. Common Stock,NASDAQ,11448833.0,0.2445,Michael J. Logozzo,24425226.0
-SNGX,"Soligenix, Inc.",NASDAQ,11296466.0,1.12,Christopher J. Schaber,-625018.0
 MWYN,"Marwynn Holdings, Inc. Common stock",NASDAQ,11082918.0,0.6778,Yin Yan,53616919.0
 BLZRW,Trailblazer Acquisition Corp. Warrant,NASDAQ,11000000.0,0.4,Eric H. Semler,
 WLIIW,Willow Lane Acquisition Corp. II Warrants,NASDAQ,10967000.0,0.55,Luke Weil,
@@ -4432,7 +4432,7 @@ AGAE,Allied Gaming & Entertainment Inc.,NASDAQ,10872128.0,0.286,Yangyang Li,1133
 CSAI,Cloudastructure Inc.,NASDAQ,10847643.0,0.576,James McCormick,6708581.0
 GGRP,"The Glimpse Group, Inc.",NASDAQ,10812245.0,0.513,Lyron Live Bentovim,13914067.0
 ETS,Elite Express Holding Inc.,NASDAQ,10798971.0,0.646,Yidan Chen,7395380.0
-CETX,"Cemtrex, Inc.",NASDAQ,10783999.0,1.07,Saagar Govil,13162304.0
+CETX,"Cemtrex, Inc.",NASDAQ,10783567.0,1.07,Saagar Govil,13162304.0
 BLIN,"Bridgeline Digital, Inc.",NASDAQ,10718717.0,0.8507,Roger E. Kahn,13654413.0
 MTEX,"Mannatech, Incorporated",NASDAQ,10692731.0,5.625,Landen Granvel Fredrick,20612550.0
 AIEV,"Thunder Power Holdings, Inc.",NASDAQ,10652179.0,0.21,Christopher Nicoll,13201342.0
@@ -4487,7 +4487,7 @@ ARTCW,Art Technology Acquisition Corp. Warrants,NASDAQ,7700000.0,0.35,Daniel Gid
 GIWWR,GigCapital8 Corp.,NASDAQ,7697288.0,0.3,Avishay S. Katz,
 AMST,Amesite Inc.,NASDAQ,7590704.0,1.66,Ann Marie Sastry,7150639.0
 ONCHW,1RT Acquisition Corp. Warrant,NASDAQ,7590000.0,0.44,Daniel Michael Tapiero,
-QNCX,"Quince Therapeutics, Inc.",NASDAQ,7589387.0,0.1363,Dirk Thye,180371604.0
+QNCX,"Quince Therapeutics, Inc.",NASDAQ,7589388.0,0.1363,Dirk Thye,180371604.0
 RNAZ,"TransCode Therapeutics, Inc.",NASDAQ,7528307.0,8.21,Philippe Calais,17759306.0
 YHGJ,Yunhong Green CTI Ltd.,NASDAQ,7503522.0,2.8889,Jana Schwan,20730681.0
 NCPLW,Netcapital Inc.,NASDAQ,7490729.0,0.0207,Rich Wheeless,5197218.0
@@ -4511,7 +4511,7 @@ AIMD,"Ainos, Inc.",NASDAQ,6935666.0,1.62,Chun-Hsien Tsai,17586783.0
 KFIIR,K&F Growth Acquisition Corp. II Rights,NASDAQ,6929352.0,0.18,Edward King,2898502.0
 ZBAI,ATIF Holdings Ltd.,NASDAQ,6891330.0,8.35,Kamran Khan,100046736.0
 PTORW,Praetorian Acquisition Corp. Wt,NASDAQ,6871150.0,0.31,Justin Di Rezze,9144483.0
-XWEL,"XWELL, Inc.",NASDAQ,6862375.0,1.19,Ezra T. Ernst,12432054.0
+XWEL,"XWELL, Inc.",NASDAQ,6862377.0,1.19,Ezra T. Ernst,12432054.0
 BCDA,"BioCardia, Inc.",NASDAQ,6842603.0,1.18,Peter A. Altman,6365678.0
 HOTH,"Hoth Therapeutics, Inc.",NASDAQ,6837680.0,0.5157,Robb Knie,7425965.0
 TULP,Bloomia Holdings Inc.,NASDAQ,6826512.0,3.85,Mark R. Jundt,121311600.0
@@ -4528,11 +4528,10 @@ TCRT,"Alaunos Therapeutics, Inc.",NASDAQ,6449986.0,2.89,Ferdinand Groenewald,490
 INAB,"IN8bio, Inc.",NASDAQ,6443066.0,1.39,Tai-Wei,-14074073.0
 XELB,"Xcel Brands, Inc.",NASDAQ,6437170.0,1.34,Robert W. D'Loren,20631681.0
 BMRA,"Biomerica, Inc.",NASDAQ,6432743.0,2.13,Zackary S. Irani,5065023.0
-NWTG,Newton Golf Company,NASDAQ,6415825.0,1.35,Gregor Campbell,-1144968.0
+NWTG,Newton Golf Company,NASDAQ,6415825.0,1.35,Jeffery R. Clayborne,-1144968.0
 MKZR,"MacKenzie Realty Capital, Inc.",NASDAQ,6410464.0,3.26,Robert E. Dixon,143294288.0
 QCLS,"Q/C Technologies, Inc.",NASDAQ,6305059.0,3.57,Joshua N. Silverman,-67532.0
 PCSA,"Processa Pharmaceuticals, Inc.",NASDAQ,6276177.0,2.77,George K. Ng,-1766254.0
-WORX,SCWorx Corp.,NASDAQ,6274714.0,1.5301,Timothy Andrew Hannibal,-296968.0
 DNMXW,Dynamix Corporation III Warrants,NASDAQ,6236738.0,0.3099,Andrea Bernatova,
 PACHW,Pioneer Acquisition I Corp,NASDAQ,6232535.0,0.22,Mitchell R. Creem,135075299.0
 HWH,HWH International Inc.,NASDAQ,6222037.0,1.03,Heng Fai Chan,8517732.0
@@ -4551,7 +4550,7 @@ ASBPW,"Aspire Biopharma Holdings, Inc.",NASDAQ,5865938.0,0.017,Kraig T. Higginso
 WHLRP,"Wheeler Real Estate Investment Trust, Inc.",NASDAQ,5851469.0,7.4,Michael Andrew Franklin,465640213.0
 XCBEW,X3 Acquisition Corp. Ltd. Warrant,NASDAQ,5850000.0,0.26,Andrew Jay Redleaf,8156250.0
 MCGAW,Yorkville Acquisition Corp. Warrant -on Yorkville Acqn,NASDAQ,5804072.0,0.3255,Kevin J. McGurn,106127910.0
-MYSE,Myseum Inc.,NASDAQ,5751356.0,1.33,Darin Myman,6646416.0
+MYSE,Myseum Inc.,NASDAQ,5751358.0,1.33,Darin Myman,6646416.0
 HQWWW,Horizon Quantum Holdings Ltd. Warrant,NASDAQ,5731727.0,2.09,Joe Fitzsimons,
 TNON,"Tenon Medical, Inc.",NASDAQ,5683348.0,0.7695,Steven Foster,3410876.0
 DAIC,"CID HoldCo, Inc. Common Stock",NASDAQ,5627247.0,0.1921,Edmund Nabrotzky,10646004.0
@@ -4569,7 +4568,7 @@ HLLY-WT,Holley Inc. WT,NYSE,5393160.0,0.045,Matthew J. Stevenson,977767690.0
 IQST,iQSTEL Inc.,NASDAQ,5342657.0,1.81,Leandro Jose Iglesias,12068081.0
 CJMB,Callan JMB Inc. ,NASDAQ,5342217.0,1.22,Wiliam McBride,4732136.0
 MUZEW,Muzero Acquisition Corp Warrant,NASDAQ,5321986.0,0.2582,Von Lam,
-MBIO,"Mustang Bio, Inc.",NASDAQ,5304233.0,0.7,Manuel Litchman,30883088.0
+MBIO,"Mustang Bio, Inc.",NASDAQ,5304234.0,0.7,Manuel Litchman,30883088.0
 IPODW,Dune Acquisition Corporation II Warrants,NASDAQ,5283070.0,0.26,Elliot Richmond,95429252.0
 BCAB,"BioAtla, Inc.",NASDAQ,5247056.0,4.46,Jay Short,32484510.0
 KTTA,Pasithea Therapeutics Corp.,NASDAQ,5209507.0,0.7,Tiago Reis Marques,-55149869010.0
@@ -4636,7 +4635,7 @@ RNGTW,Range Capital Acquisition Corp II Warrants,NASDAQ,3740950.0,0.3253,Timothy
 ONCO,"Onconetix, Inc.",NASDAQ,3734690.0,1.09,David Allan White,20427057.0
 HCICR,Hennessy Capital Investment Corp. VIII Share Rights,NASDAQ,3725632.0,0.1501,Daniel Joseph Hennessy,
 NDRA,ENDRA Life Sciences Inc.,NASDAQ,3717997.0,4.94,Alexander Y. Tokman,3295187.0
-BNGO,"Bionano Genomics, Inc.",NASDAQ,3710254.0,1.13,Robert Erik Holmlin,12255850.0
+BNGO,"Bionano Genomics, Inc.",NASDAQ,3710254.0,1.13,Mark Oldakowski,12255850.0
 INDP,"Indaptus Therapeutics, Inc.",NASDAQ,3694648.0,2.11,Junyi Dai,-5696207.0
 CMBM,Cambium Networks Corporation,NASDAQ,3674519.0,0.1301,Morgan C. S. Kurk,178113856.0
 ASBP,"Aspire Biopharma Holdings, Inc.",NASDAQ,3668822.0,1.06,Kraig T. Higginson,8274241.0
@@ -4660,7 +4659,7 @@ MBRX,"Moleculin Biotech, Inc.",NASDAQ,3167894.0,2.62,Walter V. Klemp,30690233.0
 BFRGW,"Bullfrog AI Holdings, Inc. Warrants",NASDAQ,3167363.0,0.2501,Vininder Singh,-2183695874496.0
 TOIIW,"The Oncology Institute, Inc.",NASDAQ,3139413.0,0.031801,Daniel Virnich,3359183963.0
 PAACW,Proem Acquisition Corp I Warrants,NASDAQ,3123467.0,0.17,Imran T. Khan,
-DCOY,Decoy Therapeutics Inc.,NASDAQ,3106962.0,5.84,Frederick E. Pierce,-6958374.0
+DCOY,Decoy Therapeutics Inc.,NASDAQ,3106956.0,5.84,Frederick E. Pierce,-6958374.0
 MTVA,MetaVia Inc.,NASDAQ,3104042.0,1.41,Hyung Heon Kim,4801938.0
 SONM,"DNA X, Inc.",NASDAQ,3055794.0,2.97,Michael C. Mulica,263024860.0
 WHLRD,"Wheeler Real Estate Investment Trust, Inc.",NASDAQ,3042385.0,36.5,Michael Andrew Franklin,500768211.0
@@ -4670,7 +4669,6 @@ LFACW,Leapfrog Acquisition Corporation,NASDAQ,3034563.0,0.2111,Matthew R. Pollar
 TDWDR,Tailwind 2.0 Acquisition Corp. Rights,NASDAQ,2973545.0,0.1671,Sharo Atmeh,2754555.0
 POAI,Predictive Oncology Inc.,NASDAQ,2904320.0,4.0,Raymond F. Vennare,115498845.0
 GWAV,"Greenwave Technology Solutions, Inc.",NASDAQ,2895412.0,3.49,Danny Meeks,929616686.0
-RIME,"Algorhythm Holdings, Inc.",NASDAQ,2885272.0,1.06,Gary Atkinson,12270045.0
 CAPS,Capstone Holding Corp.,NASDAQ,2858432.0,0.5287,Matthew E. Lipman,16954046.0
 FBLG,"FibroBiologics, Inc. Common Stock",NASDAQ,2829562.0,1.35,Peter O'Heeron,7564617.0
 IVF,"INVO Fertility, Inc.",NASDAQ,2798362.0,2.01,Steven Shum,58796052.0
@@ -4683,6 +4681,7 @@ IMSRW,Terrestrial Energy Inc.,NASDAQ,2698800.0,2.6,Simon Irish,342671923.0
 ALZN,"Alzamend Neuro, Inc.",NASDAQ,2692430.0,0.8575,Stephan Jackman,-1584538.0
 SPEGR,Silver Pegasus Acquisition Corp Rights.,NASDAQ,2645000.0,0.23,Cesar Johnston,
 RVPH,"Reviva Pharmaceuticals Holdings, Inc.",NASDAQ,2628088.0,0.7709,Laxminarayan Bhat,-14031896755760.0
+RIME,"Algorhythm Holdings, Inc.",NASDAQ,2623709.0,1.06,Gary Atkinson,12270045.0
 ALFUW,Centurion Acquisition Corp.,NASDAQ,2587500.0,0.09,Mark Gerhard,306086515.0
 NOTE,"FiscalNote Holdings, Inc.",NYSE,2559802.0,0.1825,Joshua W. Resnik,7146617408.0
 XPON,Expion360 Inc.,NASDAQ,2543427.0,0.7,Joseph Hammer,1674373.0
@@ -4739,7 +4738,7 @@ DTSQR,DT Cloud Star Acquisition Corporation,NASDAQ,1508775.0,0.15,Zheng Sun,8789
 ADIL,"Adial Pharmaceuticals, Inc.",NASDAQ,1506641.0,1.57,Cary John Claiborne,-2203752.0
 BIAFW,"bioAffinity Technologies, Inc.",NASDAQ,1488612.0,0.3309,Maria Zannes,-3258084.0
 ITHAW,ITHAX Acquisition Corp III Warrants,NASDAQ,1479970.0,0.195,Orestes Fintiklis,
-SSEAR,Starry Sea Acquisition Corp Rights,NASDAQ,1458863.0,0.19,Yan Liang,22437793.0
+SSEAR,Starry Sea Acquisition Corp Rights,NASDAQ,1450815.0,0.19,Yan Liang,22437793.0
 SBLX,"StableX Technologies, Inc. - Common Stock",NASDAQ,1431856.0,2.12,Joshua N. Silverman,-2553840.0
 NXPLW,NextPlat Corp,NASDAQ,1427968.0,0.005,David Phipps,1661728.0
 LCCCR,Lakeshore Acquisition III Corp. Rights,NASDAQ,1425063.0,0.1601,Deyin Chen,46438464.0
@@ -4818,6 +4817,7 @@ VEEE,Twin Vee Powercats Co.,NASDAQ,499088.0,0.2536,Joseph Visconti,2534495.0
 PFSA,"Profusa, Inc. Common Stock",NASDAQ,481624.0,0.865,Ben Chung-Bin Hwang,129988187.0
 NIXXW,"Nixxy, Inc.",NASDAQ,442312.0,0.0173,Michael Schmidt,-1246313.0
 AIMDW,"Ainos, Inc.",NASDAQ,431553.0,0.1008,Chun-Hsien Tsai,17586783.0
+WORX,SCWorx Corp.,NASDAQ,418314.0,1.5301,Timothy Andrew Hannibal,-296968.0
 ERNAW,Ernexa Therapeutics Inc. Warrants,NASDAQ,391869.0,0.0499,Sanjeev Luther,
 FRGT,"Freight Technologies, Inc.",NASDAQ,371702.0,0.8129,Javier Selgas,11765978.0
 ONFOW,"Onfolio Holdings, Inc.",NASDAQ,368720.0,0.0701,Dominic Wells,-33243428460.0
